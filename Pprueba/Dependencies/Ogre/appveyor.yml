@@ -1,0 +1,16 @@
+platform: x64
+configuration: Release
+image: Visual Studio 2017
+
+build:
+
+build_script:
+ - cmake -P ci-build.cmake
+ - cmake --build .
+ - set PATH=%PATH%;gtest\lib
+ - bin\debug\Test_Ogre.exe --gtest_filter=-MeshWithoutIndexDataTests*
+cache:
+- ogredeps -> CMake/Dependencies.cmake
+branches:
+  only:
+    - master
