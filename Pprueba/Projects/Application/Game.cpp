@@ -51,6 +51,7 @@ bool Game::init(){
 
 			//We now know the type of the element and its path.
 			//We add it as a location to the Resource Group Manager
+
 			Ogre::ResourceGroupManager::getSingleton().addResourceLocation(name, locType);
 		std:: cout << "inserting:\n";
 		std::cout << name << locType << std::endl;
