@@ -1,9 +1,9 @@
 #ifndef _H_GAMEMANAGER_H_
 #define _H_GAMEMANAGER_H_
 #include "Scene.h"
-#include "Game.h"
 #include <stack>
 
+class Game;
 class GameManager
 {
 public:

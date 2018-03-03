@@ -1,8 +1,10 @@
 #include "Game.h"
 
-Game::Game()
+Game::Game() :
+	gameManager(this), inputManager(this),
+	dataManager(this), graphicsManager(this),
+	physicsManager(this)
 {
-
 }
 
 Game::~Game()
@@ -24,3 +26,28 @@ void Game::run()
 {
 
 }
+GameManager Game::getGameManager() const
+{
+	return gameManager;
+}
+
+InputManager Game::getInputManager() const
+{
+	return inputManager;
+}
+
+GraphicsManager Game::getGraphicsManager() const
+{
+	return graphicsManager;
+}
+
+DataManager Game::getDataManager() const
+{
+	return dataManager;
+}
+
+PhysicsManager Game::getPhysicsManager() const
+{
+	return physicsManager;
+}
+

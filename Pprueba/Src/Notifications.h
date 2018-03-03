@@ -6,15 +6,17 @@ using EntityId = unsigned int;
 
 enum class MsgId : unsigned int
 {
-
+	EXIT
 };
 
 struct Msg
 {
 	Msg() {};
 	Msg(MsgId id_, EntityId sender_, EntityId reciver_, void* info_) :
-		id(id_), sender(sender_), reciver(reciver_), info(info_) {};
-	~Msg() { delete info; };
+		id(id_), sender(sender_), reciver(reciver_), info(info_)
+	{};
+
+	~Msg() { if (info) delete info; };
 
 	MsgId id;
 	EntityId sender;

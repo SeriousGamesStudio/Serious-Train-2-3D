@@ -1,5 +1,6 @@
 #include "Entity.h"
-
+#include "Scene.h"
+#include "Component.h"
 
 
 Entity::Entity(Scene* scene_, EntityId id_, std::string name_) :

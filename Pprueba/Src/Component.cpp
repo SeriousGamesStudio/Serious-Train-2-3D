@@ -1,4 +1,5 @@
 #include "Component.h"
+#include "Entity.h"
 #include "Notifications.h"
 
 

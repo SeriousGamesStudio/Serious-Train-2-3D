@@ -5,11 +5,11 @@
 #include <string>
 #include <deque>
 
-#include "Scene.h"
-#include "Component.h"
+#include "Notifications.h"
 
 using EntityId = unsigned int;
-
+class Component;
+class Scene;
 class Entity
 {
 public:
@@ -35,13 +35,13 @@ public:
 		return nullptr;
 	};*/
 
-	inline Scene* getScene() { return _scene; }
+	inline Scene* getScene() { return _scene; };
 
 private:
 	Scene * _scene;
 	EntityId _id;
 	std::string _name;
-	std::vector <Component*> components;
+	std::vector<Component*> components;
 	std::deque<Msg&> messages;
 };
 

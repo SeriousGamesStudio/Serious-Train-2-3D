@@ -1,8 +1,8 @@
 #ifndef _H_COMPONENT_H_
 #define _H_COMPONENT_H_
 
-#include "Entity.h"
-
+#include "Notifications.h"
+class Entity;
 class Component
 {
 public:

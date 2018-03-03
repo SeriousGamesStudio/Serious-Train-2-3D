@@ -1,5 +1,6 @@
 #include "Scene.h"
-#include "Entity.h"
+#include "GameManager.h"
+
 #include <algorithm>
 
 
@@ -102,7 +103,7 @@ void Scene::_msgDeliver()
 void Scene::_dumpMessages()
 {
 	if (!isSendingMessages) {
-		for (Msg& m : messagesBuffer)
+		for (auto m : messagesBuffer)
 			messages.push_back(m);
 		messagesBuffer.clear();
 	}

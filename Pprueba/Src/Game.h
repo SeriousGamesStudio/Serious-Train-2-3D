@@ -1,11 +1,12 @@
 #ifndef _H_GAME_H_
 #define _H_GAME_H_
 #pragma once
-class GameManager;
-class DataManager;
-class InputManager;
-class GraphicsManager;
-class PhysicsManager;
+
+#include "GameManager.h"
+#include "InputManager.h"
+#include "DataManager.h"
+#include "GraphicsManager.h"
+#include "PhysicsManager.h"
 
 
 class Game
@@ -17,10 +18,11 @@ public:
 	bool start();
 	bool stop();
 
-	inline GameManager getGameManager() const { return gameManager; }
-	inline InputManager getInputManager() const { return inputManager; }
-	inline GraphicsManager getGraphicsManager() const { return graphicsManager; }
-	inline DataManager getDataManager() const { return dataManager; }
+	GameManager getGameManager() const;
+	InputManager getInputManager() const;
+	GraphicsManager getGraphicsManager() const;
+	DataManager getDataManager() const;
+	PhysicsManager getPhysicsManager() const;
 
 
 private:

@@ -1,5 +1,5 @@
 #include "GameManager.h"
-
+#include "Game.h"
 
 
 GameManager::GameManager(Game* game_) :

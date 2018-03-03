@@ -1,15 +1,18 @@
 #ifndef _H_SCENE_H_
 #define _H_SCENE_H_
+#pragma once
 
 #include <list>
 #include <deque>
 #include <vector>
 #include <unordered_map>
 
-#include "GameManager.h"
-#include "Notifications.h"
 
-class Entity;
+#include "Component.h"
+#include "Notifications.h"
+#include "Entity.h"
+
+class GameManager;
 
 class Scene
 {
@@ -41,8 +44,8 @@ private:
 	GameManager * gameManager;
 	std::list <Entity*> entities;
 
-	std::deque<Msg&> messages;
-	std::vector<Msg&> messagesBuffer;
+	std::deque<Msg> messages;
+	std::vector<Msg> messagesBuffer;
 	std::unordered_map<MsgId, std::vector<Component*>> listeners;
 	bool isSendingMessages;
 private:
