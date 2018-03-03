@@ -1,11 +1,12 @@
 #include "Scene.h"
+#include "Entity.h"
 #include <algorithm>
 
 
 Scene::Scene(GameManager* gameManager_) :
 	gameManager(gameManager_), isSendingMessages(false)
 {
-
+	//Aqui se llamará al factory leyendo de archivo lo que sea necesario
 }
 
 Scene::~Scene()
@@ -45,6 +46,7 @@ void Scene::removeListener(MsgId id, Component* component)
 	}
 }
 
+
 void Scene::reciveMsg(Msg& newMsg)
 {
 	if (isSendingMessages)
@@ -64,7 +66,7 @@ Entity* Scene::whoIs(EntityId id)
 Entity* Scene::whoIs(std::string name)
 {
 	for (Entity* entity : entities)
-		if (entities.getName() == name)
+		if (entity->getName() == name)
 			return entity;
 	return nullptr;
 }
@@ -81,14 +83,31 @@ EntityId const Scene::getIdOf(std::string name)
 
 void Scene::_msgDeliver()
 {
-
+	while (!messages.empty()) {
+		isSendingMessages = true;
+		Msg msg = messages.front();
+		for (Component* listener : listeners[msg.id]) {
+			if (msg.reciver) {
+				if (msg.reciver == listener->getEntity()->getId())
+					listener->listen(msg);
+			}
+			else
+				listener->listen(msg);
+		}
+		messages.pop_front();
+	}
+	isSendingMessages = false;
 }
 
 void Scene::_dumpMessages()
 {
-
+	if (!isSendingMessages) {
+		for (Msg& m : messagesBuffer)
+			messages.push_back(m);
+		messagesBuffer.clear();
+	}
 }
-
+/*
 template<typename T>
 Component * Scene::getComponentOf(EntityId id)
 {
@@ -99,3 +118,4 @@ Component * Scene::getComponentOf(std::string name)
 {
 	return nullptr;
 }
+*/

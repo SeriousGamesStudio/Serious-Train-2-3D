@@ -1,9 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="Game.h" />
+    <ClInclude Include="..\..\Src\Game.h" />
+    <ClInclude Include="..\..\Src\GameManager.h" />
+    <ClInclude Include="..\..\Src\Scene.h" />
+    <ClInclude Include="..\..\Src\Entity.h" />
+    <ClInclude Include="..\..\Src\Component.h" />
+    <ClInclude Include="..\..\Src\Notifications.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="..\..\Src\Game.cpp" />
+    <ClCompile Include="..\..\Src\GameManager.cpp" />
+    <ClCompile Include="..\..\Src\Scene.cpp" />
+    <ClCompile Include="..\..\Src\Entity.cpp" />
+    <ClCompile Include="..\..\Src\Component.cpp" />
   </ItemGroup>
 </Project>

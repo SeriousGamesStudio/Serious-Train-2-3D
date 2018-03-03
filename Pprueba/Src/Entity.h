@@ -24,7 +24,8 @@ public:
 	inline	  EntityId const getId() { return _id; };
 	inline std::string const getName() { return _name; }
 
-	template<typename T>
+	/* preguntar se se puede hacer esto, en caso contrario preguntar cómo se podría hacer
+	template<class T>
 	inline Component* Entity::getComponent<T>()
 	{
 		for (Component* c : component)
@@ -32,9 +33,9 @@ public:
 				return c;
 
 		return nullptr;
-	}
+	};*/
 
-	inline Scene* const getScene() { return _scene; }
+	inline Scene* getScene() { return _scene; }
 
 private:
 	Scene * _scene;

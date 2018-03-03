@@ -11,16 +11,25 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h" />
+    <ClInclude Include="..\..\Src\Component.h" />
+    <ClInclude Include="..\..\Src\Entity.h" />
+    <ClInclude Include="..\..\Src\Game.h" />
+    <ClInclude Include="..\..\Src\GameManager.h" />
+    <ClInclude Include="..\..\Src\Notifications.h" />
+    <ClInclude Include="..\..\Src\Scene.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="..\..\Src\Component.cpp" />
+    <ClCompile Include="..\..\Src\Entity.cpp" />
+    <ClCompile Include="..\..\Src\Game.cpp" />
+    <ClCompile Include="..\..\Src\GameManager.cpp" />
+    <ClCompile Include="..\..\Src\Scene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{41D4F585-BC8E-4D52-B33F-88A595432442}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Application</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

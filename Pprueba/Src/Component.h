@@ -14,7 +14,7 @@ public:
 	virtual void update() {};
 	virtual void lateUpdate() {};
 
-	virtual void listen() {};
+	virtual void listen(Msg& msg) {};
 
 	//Getters and Setters
 	inline bool isEnable() const { return _enable; }

@@ -9,6 +9,8 @@
 #include "GameManager.h"
 #include "Notifications.h"
 
+class Entity;
+
 class Scene
 {
 public:
@@ -29,11 +31,12 @@ public:
 	std::string const getNameOf(EntityId id);
 	EntityId const getIdOf(std::string name);
 
+	/*Por ahora no
 	template<typename T>
 	Component* getComponentOf<T>(EntityId id);
 	template<typename T>
 	Component* getComponentOf<T>(std::string name);
-
+	*/
 private:
 	GameManager * gameManager;
 	std::list <Entity*> entities;
