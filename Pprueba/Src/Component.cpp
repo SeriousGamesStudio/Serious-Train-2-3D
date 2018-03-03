@@ -1,6 +1,6 @@
 #include "Component.h"
 #include "Entity.h"
-#include "Notifications.h"
+#include "Scene.h"
 
 
 
@@ -21,4 +21,6 @@ void Component::sendMsg(Msg& newMsg)
 		_myEntity->reciveMsg(newMsg);
 	else
 		_myEntity->getScene()->reciveMsg(newMsg);
+
+	
 }
