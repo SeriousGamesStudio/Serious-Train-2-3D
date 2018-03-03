@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Game" Collapsed="true">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAABAAAAAAAAAAgAAAAAAAAAgjgIAAmAAAIAAAAAAA=</HashCode>
+      <FileName>E:\Documentos\UCM\Proyecto III\Repository\Serious-Train-2-3D\Pprueba\Src\Application\Game.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataManager" Collapsed="true">
+    <Position X="1" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAIAAAAAAAAAAAAAgAAAAAAIIAAAAAAAAAAA=</HashCode>
+      <FileName>E:\Documentos\UCM\Proyecto III\Repository\Serious-Train-2-3D\Pprueba\Src\Application\DataManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="5.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAgAAMAAAAAgQEAAAAoAAAAAAAAAIABBCACAQAAA=</HashCode>
+      <FileName>E:\Documentos\UCM\Proyecto III\Repository\Serious-Train-2-3D\Pprueba\Src\Application\GameManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphicsManager" Collapsed="true">
+    <Position X="8" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAABIAAAAABAAAAAA=</HashCode>
+      <FileName>E:\Documentos\UCM\Proyecto III\Repository\Serious-Train-2-3D\Pprueba\Src\Application\GraphicsManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputManager" Collapsed="true">
+    <Position X="3" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAIAAAAAA=</HashCode>
+      <FileName>E:\Documentos\UCM\Proyecto III\Repository\Serious-Train-2-3D\Pprueba\Src\Application\InputManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ResourcesManager" Collapsed="true">
+    <Position X="10" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAACAAAAAAAAIIAAAAAAAAAAA=</HashCode>
+      <FileName>E:\Documentos\UCM\Proyecto III\Repository\Serious-Train-2-3D\Pprueba\Src\Application\ResourcesManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
