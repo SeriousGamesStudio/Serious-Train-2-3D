@@ -24,7 +24,7 @@ public:
 private:
 	Entity * _myEntity;
 	bool _enable;
-private:
+protected:
 	void sendMsg(Msg& newMsg);
 };
 #endif //!_H_COMPONENT_H_

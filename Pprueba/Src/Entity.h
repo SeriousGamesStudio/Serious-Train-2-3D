@@ -42,7 +42,7 @@ private:
 	EntityId _id;
 	std::string _name;
 	std::vector<Component*> components;
-	std::deque<Msg&> messages;
+	std::deque<Msg> messages;
 };
 
 #endif //!_H_ENTITY_H_

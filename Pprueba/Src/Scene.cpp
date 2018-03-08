@@ -27,8 +27,11 @@ void Scene::tick()
 void Scene::addListiner(MsgId id, Component* component)
 {
 	//Si este mensaje es nuevo, dadlo de alta junto con el componente que lo llamo
-	if (!listeners.count(id))
-		listeners.emplace(id, component);
+	if (!listeners.count(id)) {
+		std::vector<Component*> nv;
+		nv.push_back(component);
+		listeners.emplace(id, nv);
+	}
 	//Si ya existe, simplemente añade el componente a la lista
 	else
 		listeners[id].push_back(component);
@@ -74,12 +77,12 @@ Entity* Scene::whoIs(std::string name)
 
 std::string const Scene::getNameOf(EntityId id)
 {
-	whoIs(id)->getName();
+	return whoIs(id)->getName();
 }
 
 EntityId const Scene::getIdOf(std::string name)
 {
-	whoIs(name)->getId();
+	return whoIs(name)->getId();
 }
 
 void Scene::_msgDeliver()

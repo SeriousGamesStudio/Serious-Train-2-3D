@@ -30,6 +30,7 @@
     <ClCompile Include="..\..\Src\GameManager.cpp" />
     <ClCompile Include="..\..\Src\GraphicsManager.cpp" />
     <ClCompile Include="..\..\Src\InputManager.cpp" />
+    <ClCompile Include="..\..\Src\main.cpp" />
     <ClCompile Include="..\..\Src\PhysicsManager.cpp" />
     <ClCompile Include="..\..\Src\Scene.cpp" />
   </ItemGroup>
