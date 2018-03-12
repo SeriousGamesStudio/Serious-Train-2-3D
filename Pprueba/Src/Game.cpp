@@ -1,4 +1,5 @@
 #include "Game.h"
+#include <ctime>
 #include "Scene.h"
 
 Game::Game() :
@@ -8,9 +9,11 @@ Game::Game() :
 {
 }
 
+
+//TODO: destructor not implemented
 Game::~Game()
 {
-	//liberar recursos
+	//free resources calling resources' freeing functions of each manager
 }
 
 bool Game::start()
@@ -35,12 +38,22 @@ bool Game::stop()
 
 void Game::run()
 {
+	clock_t lastTicks = clock();
+	clock_t elapsedTicks;
+	double deltaTime;/*in seconds*/
 	while (!exit)
 	{
-		inputManager->capture();
-		physicsManager.stepUp();
-		sceneManager.tick();
-		graphicsManager.renderFrame();
+		//getting the time passed since last frame
+		elapsedTicks = clock() - lastTicks;
+		deltaTime = ((float)elapsedTicks) / CLOCKS_PER_SEC;
+		{/////////////MANAGERS UPDATE/////////////
+			inputManager->capture();
+			physicsManager.stepUp(deltaTime);
+			sceneManager.tick();
+			graphicsManager.renderFrame();
+		}/////////////////////////////////////////
+
+		lastTicks = clock();
 	}
 }
 m_SceneManager const & Game::getSceneManager()		//const
