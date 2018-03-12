@@ -10,6 +10,8 @@ public:
 	PhysicsManager(Game* game);
 	~PhysicsManager();
 
+	void stepUp();
+
 private:
 
 };

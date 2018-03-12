@@ -10,6 +10,7 @@ public:
 	GraphicsManager(Game* game);
 	~GraphicsManager();
 
+	void update();
 private:
 };
 

@@ -11,3 +11,7 @@ GraphicsManager::~GraphicsManager()
 {
 
 }
+
+void GraphicsManager::update()
+{
+}
