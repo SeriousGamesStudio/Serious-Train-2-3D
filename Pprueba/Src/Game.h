@@ -1,12 +1,14 @@
 #ifndef _H_GAME_H_
 #define _H_GAME_H_
-#pragma once
 
 #include "GameManager.h"
 #include "InputManager.h"
 #include "DataManager.h"
 #include "GraphicsManager.h"
 #include "PhysicsManager.h"
+
+#include "Ogre.h"
+#include <iostream>
 
 
 class Game
@@ -34,6 +36,21 @@ private:
 	GraphicsManager graphicsManager;
 	PhysicsManager physicsManager;
 	DataManager dataManager;
+	
+	//OGRE
+	Ogre::Root* root;
+	Ogre::String mResourcesCfg;
+	Ogre::String mPluginsCfg;
+	Ogre::String mOgreCfg;
+	Ogre::String mOgreLog;
+	Ogre::ConfigFile cf;
+
+	Ogre::SceneManager * scnMgr;
+	Ogre::RenderWindow* mWindow;
+	Ogre::Camera * cam;
+	Ogre::Viewport * vp;
+	Ogre::Light *light;
+
 
 };
 #endif //!_H_GAME_H_
