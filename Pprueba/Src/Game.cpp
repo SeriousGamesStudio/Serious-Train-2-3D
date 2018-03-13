@@ -112,8 +112,9 @@ bool Game::start()
 	//Scene SetUp
 	try {
 
-		Ogre::Entity * robot = scnMgr->createEntity("Barrel.mesh");
+		Ogre::Entity * robot = scnMgr->createEntity("fish.mesh");
 		Ogre::SceneNode * robotNode = scnMgr->getRootSceneNode()->createChildSceneNode();
+		robotNode->scale(3, 3, 3);
 		robotNode->attachObject(robot);
 	}
 	catch (Ogre::FileNotFoundException e) {
