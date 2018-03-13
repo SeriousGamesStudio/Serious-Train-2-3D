@@ -1,5 +1,5 @@
-#ifndef _H_PHYSICSMANAGER_H_
-#define _H_PHYSICSMANAGER_H_
+#ifndef _H_PHYSICS_MANAGER_H_
+#define _H_PHYSICS_MANAGER_H_
 
 #include <vector>
 
@@ -30,5 +30,5 @@ private:
 
 	std::vector<btRigidBody*> rigidBodies;
 };
-#endif //!_H_PHYSICSMANAGER_H_
+#endif //!_H_PHYSICS_MANAGER_H_
 
