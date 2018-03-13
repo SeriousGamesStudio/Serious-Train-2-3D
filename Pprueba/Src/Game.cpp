@@ -136,9 +136,16 @@ bool Game::stop()
 
 void Game::run()
 {
+	Ogre::Node * nodo = scnMgr->getRootSceneNode()->getChild(0);
+	Ogre::Vector3 posIni = nodo->getPosition();
+	posIni += Ogre::Vector3(90, 0, 0);
 	while (true)
 	{
-		
+		nodo->roll(Ogre::Radian(0.1));
+		nodo->translate(-0.2,0.0,0.0);
+		if (nodo->getPosition().x < -90) {
+			nodo->setPosition(posIni);
+		}
 		Ogre::WindowEventUtilities::messagePump();
 		if (mWindow->isClosed())return;
 		if (!root->renderOneFrame())return;

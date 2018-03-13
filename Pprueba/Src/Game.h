@@ -37,14 +37,15 @@ private:
 	DataManager dataManager;
 	
 	//OGRE
+
 	Ogre::Root* root;
+	Ogre::SceneManager * scnMgr;
 	Ogre::String mResourcesCfg;
 	Ogre::String mPluginsCfg;
 	Ogre::String mOgreCfg;
 	Ogre::String mOgreLog;
 	Ogre::ConfigFile cf;
 
-	Ogre::SceneManager * scnMgr;
 	Ogre::RenderWindow* mWindow;
 	Ogre::Camera * cam;
 	Ogre::Viewport * vp;
