@@ -19,6 +19,8 @@ public:
 
 	bool start();
 	bool stop();
+	void run();
+
 
 	GameManager getGameManager() const;
 	InputManager getInputManager() const;
@@ -26,9 +28,6 @@ public:
 	DataManager getDataManager() const;
 	PhysicsManager getPhysicsManager() const;
 
-
-private:
-	void run();
 
 private:
 	GameManager gameManager;

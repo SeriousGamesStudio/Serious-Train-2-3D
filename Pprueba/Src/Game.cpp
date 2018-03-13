@@ -16,11 +16,18 @@ Game::~Game()
 
 bool Game::start()
 {
+#ifdef _DEBUG
+	mResourcesCfg = "./OgreD/resources_d.cfg";
+	mPluginsCfg = "./OgreD/plugins_d.cfg";
+#else
+	mResourcesCfg = "Ogre/resources.cfg";
+	mPluginsCfg = "Ogre/plugins.cfg";
+#endif
+
 	root = new Ogre::Root(mPluginsCfg);
 
 	//Rutas de recursos y plugins
-	mResourcesCfg = "Ogre/resources.cfg";
-	mPluginsCfg = "Ogre/plugins.cfg";
+	
 	
 
 	cf.load(mPluginsCfg);
@@ -95,7 +102,7 @@ bool Game::start()
 	//------------------------------------------------------------------------------------------------------
 	//ViewPort Addition
 	vp = mWindow->addViewport(cam);
-	vp->setBackgroundColour(Ogre::ColourValue(150, 150, 150));
+	vp->setBackgroundColour(Ogre::ColourValue(0, 0, 0));
 
 	cam->setAspectRatio(
 		Ogre::Real(vp->getActualWidth()) /
@@ -103,16 +110,16 @@ bool Game::start()
 
 	//------------------------------------------------------------------------------------------------------
 	//Scene SetUp
-	/*try {
+	try {
 
-		Ogre::Entity * robot = scnMgr->createEntity("ogrehead.mesh");
+		Ogre::Entity * robot = scnMgr->createEntity("Barrel.mesh");
 		Ogre::SceneNode * robotNode = scnMgr->getRootSceneNode()->createChildSceneNode();
 		robotNode->attachObject(robot);
 	}
 	catch (Ogre::FileNotFoundException e) {
 		std::string a = e.getFullDescription();
 		std::cout << a;
-	}*/
+	}
 	scnMgr->setAmbientLight(Ogre::ColourValue(.5, .5, .5));
 
 	light = scnMgr->createLight("MainLight");
@@ -130,6 +137,7 @@ void Game::run()
 {
 	while (true)
 	{
+		
 		Ogre::WindowEventUtilities::messagePump();
 		if (mWindow->isClosed())return;
 		if (!root->renderOneFrame())return;
