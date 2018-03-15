@@ -1,0 +1,16 @@
+/Inter/
+*.obj
+*.sdf
+*.db
+*.ipch
+*.suo
+*.log
+*.idb
+*.tlog
+*.pdb
+*.ilk
+*.sbr
+*.bsc
+
+*.iobj
+*.ipdb

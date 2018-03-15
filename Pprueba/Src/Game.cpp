@@ -16,6 +16,7 @@ bool Game::start()
 {
 	exit = false;
 	graphicsManager.start();
+	inputManager.initInputManager();
 	run();
 	return true;
 }
