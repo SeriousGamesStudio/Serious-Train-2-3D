@@ -44,6 +44,7 @@ public:
 	template<typename T>
 	Component* getComponentOf<T>(std::string name);
 	*/
+
 private:
 	m_SceneManager * sceneManager;
 	std::list <m_Entity*> entities;

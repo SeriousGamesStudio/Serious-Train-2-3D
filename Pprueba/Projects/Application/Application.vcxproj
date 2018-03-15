@@ -15,6 +15,7 @@
     <ClInclude Include="..\..\Src\DataManager.h" />
     <ClInclude Include="..\..\Src\Entity.h" />
     <ClInclude Include="..\..\Src\Game.h" />
+    <ClInclude Include="..\..\Src\RigidBody_c.h" />
     <ClInclude Include="..\..\Src\MeshRenderer_c.h" />
     <ClInclude Include="..\..\Src\SceneManager.h" />
     <ClInclude Include="..\..\Src\GraphicsManager.h" />
@@ -22,6 +23,7 @@
     <ClInclude Include="..\..\Src\Notifications.h" />
     <ClInclude Include="..\..\Src\PhysicsManager.h" />
     <ClInclude Include="..\..\Src\Scene.h" />
+    <ClInclude Include="RigidBody_c.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Component.cpp" />
@@ -29,12 +31,14 @@
     <ClCompile Include="..\..\Src\Entity.cpp" />
     <ClCompile Include="..\..\Src\Game.cpp" />
     <ClCompile Include="..\..\Src\MeshRenderer_c.cpp" />
+    <ClCompile Include="..\..\Src\RigidBody_c.cpp" />
     <ClCompile Include="..\..\Src\SceneManager.cpp" />
     <ClCompile Include="..\..\Src\GraphicsManager.cpp" />
     <ClCompile Include="..\..\Src\InputManager.cpp" />
     <ClCompile Include="..\..\Src\main.cpp" />
     <ClCompile Include="..\..\Src\PhysicsManager.cpp" />
     <ClCompile Include="..\..\Src\Scene.cpp" />
+    <ClCompile Include="RigidBody_c.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{41D4F585-BC8E-4D52-B33F-88A595432442}</ProjectGuid>
