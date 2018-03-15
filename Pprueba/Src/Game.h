@@ -1,7 +1,7 @@
 #ifndef _H_GAME_H_
 #define _H_GAME_H_
 
-#include "GameManager.h"
+#include "SceneManager.h"
 #include "InputManager.h"
 #include "DataManager.h"
 #include "GraphicsManager.h"
@@ -18,18 +18,20 @@ public:
 
 	bool start();
 	bool stop();
-	void run();
 
-
-	GameManager getGameManager() const;
-	InputManager getInputManager() const;
-	GraphicsManager getGraphicsManager() const;
-	DataManager getDataManager() const;
-	PhysicsManager getPhysicsManager() const;
+	SceneManager const& getSceneManager() const;
+	InputManager const& getInputManager() const;
+	GraphicsManager const& getGraphicsManager() const;
+	DataManager const& getDataManager() const;
+	PhysicsManager const & getPhysicsManager() const;
 
 
 private:
-	GameManager gameManager;
+	void run();
+
+private:
+	bool exit;
+	SceneManager sceneManager;
 	InputManager  inputManager;
 	GraphicsManager graphicsManager;
 	PhysicsManager physicsManager;

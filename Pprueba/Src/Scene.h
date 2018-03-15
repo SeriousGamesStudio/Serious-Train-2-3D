@@ -12,12 +12,13 @@
 #include "Notifications.h"
 #include "Entity.h"
 
-class GameManager;
+class SceneManager;
 
 class Scene
 {
 public:
-	Scene(GameManager* gameManager_);
+
+	Scene(SceneManager* sceneManager_);
 	virtual ~Scene();
 
 	void tick();
@@ -41,7 +42,7 @@ public:
 	Component* getComponentOf<T>(std::string name);
 	*/
 private:
-	GameManager * gameManager;
+	SceneManager * sceneManager;
 	std::list <Entity*> entities;
 
 	std::deque<Msg> messages;

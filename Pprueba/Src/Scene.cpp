@@ -1,19 +1,18 @@
 #include "Scene.h"
-#include "GameManager.h"
+#include "SceneManager.h"
 
 #include <algorithm>
 
-
-Scene::Scene(GameManager* gameManager_) :
-	gameManager(gameManager_), isSendingMessages(false)
+Scene::Scene(SceneManager * sceneManager_) :
+	sceneManager(sceneManager_), isSendingMessages(false)
 {
-	//Aqui se llamará al factory leyendo de archivo lo que sea necesario
 }
 
 Scene::~Scene()
 {
 	for (Entity* e : entities) delete e;
 }
+
 ///////////////////////////////TICK///////////////////////////////////////
 void Scene::tick()
 {
@@ -24,6 +23,7 @@ void Scene::tick()
 		e->tick();
 }
 ///////////////////////////////TICK///////////////////////////////////////
+
 void Scene::addListiner(MsgId id, Component* component)
 {
 	//Si este mensaje es nuevo, dadlo de alta junto con el componente que lo llamo
@@ -49,7 +49,6 @@ void Scene::removeListener(MsgId id, Component* component)
 		if (it != end) listeners[id].erase(it);
 	}
 }
-
 
 void Scene::reciveMsg(Msg& newMsg)
 {
@@ -111,6 +110,7 @@ void Scene::_dumpMessages()
 		messagesBuffer.clear();
 	}
 }
+
 /*
 template<typename T>
 Component * Scene::getComponentOf(EntityId id)

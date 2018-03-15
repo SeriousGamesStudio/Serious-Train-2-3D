@@ -148,5 +148,3 @@ void GraphicsManager::run()
 		if (!root->renderOneFrame())return;
 	}
 }
-
-

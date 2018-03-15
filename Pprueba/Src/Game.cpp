@@ -1,7 +1,7 @@
 #include "Game.h"
 
 Game::Game() :
-	gameManager(this), inputManager(this),
+	sceneManager(this), inputManager(this),
 	dataManager(this), graphicsManager(this),
 	physicsManager(this)
 {
@@ -9,45 +9,54 @@ Game::Game() :
 
 Game::~Game()
 {
-
+	//liberar recursos
 }
 
 bool Game::start()
 {
+	exit = false;
 	graphicsManager.start();
+	run();
 	return true;
 }
 
 bool Game::stop()
 {
-	return false;
+	exit = true;
+	return true;
 }
 
 void Game::run()
 {
-	graphicsManager.run();
+	while (!exit)
+	{
+		inputManager.update();
+		physicsManager.stepUp();
+		sceneManager.tick();
+		graphicsManager.run();
+	}
 }
-GameManager Game::getGameManager() const
+SceneManager const & Game::getSceneManager() const
 {
-	return gameManager;
+	return sceneManager;
 }
 
-InputManager Game::getInputManager() const
+InputManager const & Game::getInputManager() const
 {
 	return inputManager;
 }
 
-GraphicsManager Game::getGraphicsManager() const
+GraphicsManager const & Game::getGraphicsManager() const
 {
 	return graphicsManager;
 }
 
-DataManager Game::getDataManager() const
+DataManager const & Game::getDataManager() const
 {
 	return dataManager;
 }
 
-PhysicsManager Game::getPhysicsManager() const
+PhysicsManager const & Game::getPhysicsManager() const
 {
 	return physicsManager;
 }

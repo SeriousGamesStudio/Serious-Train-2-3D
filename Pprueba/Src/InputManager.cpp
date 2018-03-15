@@ -12,3 +12,8 @@ InputManager::~InputManager()
 {
 
 }
+
+void InputManager::update()
+{
+
+}

@@ -11,3 +11,7 @@ PhysicsManager::~PhysicsManager()
 {
 
 }
+
+void PhysicsManager::stepUp()
+{
+}

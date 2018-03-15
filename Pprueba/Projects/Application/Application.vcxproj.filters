@@ -9,9 +9,6 @@
     <ClInclude Include="..\..\Src\DataManager.h">
       <Filter>Managers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\GameManager.h">
-      <Filter>Managers</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Src\GraphicsManager.h">
       <Filter>Managers</Filter>
     </ClInclude>
@@ -21,6 +18,9 @@
     <ClInclude Include="..\..\Src\PhysicsManager.h">
       <Filter>Managers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\SceneManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Game.cpp" />
@@ -28,9 +28,6 @@
     <ClCompile Include="..\..\Src\Entity.cpp" />
     <ClCompile Include="..\..\Src\Component.cpp" />
     <ClCompile Include="..\..\Src\DataManager.cpp">
-      <Filter>Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\GameManager.cpp">
       <Filter>Managers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\GraphicsManager.cpp">
@@ -43,6 +40,9 @@
       <Filter>Managers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\main.cpp" />
+    <ClCompile Include="..\..\Src\SceneManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Managers">

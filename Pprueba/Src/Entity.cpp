@@ -36,3 +36,11 @@ void Entity::reciveMsg(Msg & msg)
 	messages.push_back(msg);
 }
 
+Component * Entity::getComponent(type_info componentType)
+{
+	for (Component* c : components)
+		if (typeid(c) == componentType)
+			return c;
+	return nullptr;
+}
+

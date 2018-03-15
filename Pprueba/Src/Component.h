@@ -3,6 +3,7 @@
 
 #include "Notifications.h"
 class Entity;
+
 class Component
 {
 public:
