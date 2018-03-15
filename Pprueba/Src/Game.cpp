@@ -36,7 +36,7 @@ void Game::run()
 		graphicsManager.run();
 	}
 }
-SceneManager const & Game::getSceneManager() const
+m_SceneManager const & Game::getSceneManager() const
 {
 	return sceneManager;
 }

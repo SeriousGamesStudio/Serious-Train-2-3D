@@ -21,6 +21,9 @@
     <ClInclude Include="..\..\Src\SceneManager.h">
       <Filter>Managers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\MeshRenderer_c.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Game.cpp" />
@@ -42,6 +45,9 @@
     <ClCompile Include="..\..\Src\main.cpp" />
     <ClCompile Include="..\..\Src\SceneManager.cpp">
       <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MeshRenderer_c.cpp">
+      <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

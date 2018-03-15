@@ -12,13 +12,13 @@
 #include "Notifications.h"
 #include "Entity.h"
 
-class SceneManager;
+class m_SceneManager;
 
 class Scene
 {
 public:
 
-	Scene(SceneManager* sceneManager_);
+	Scene(m_SceneManager* sceneManager_);
 	virtual ~Scene();
 
 	void tick();
@@ -29,8 +29,8 @@ public:
 
 	void reciveMsg(Msg& newMsg);
 	//Entity management
-	Entity* whoIs(EntityId id);
-	Entity* whoIs(std::string name);
+	m_Entity* whoIs(EntityId id);
+	m_Entity* whoIs(std::string name);
 
 	std::string const getNameOf(EntityId id);
 	EntityId const getIdOf(std::string name);
@@ -42,8 +42,8 @@ public:
 	Component* getComponentOf<T>(std::string name);
 	*/
 private:
-	SceneManager * sceneManager;
-	std::list <Entity*> entities;
+	m_SceneManager * sceneManager;
+	std::list <m_Entity*> entities;
 
 	std::deque<Msg> messages;
 	std::vector<Msg> messagesBuffer;

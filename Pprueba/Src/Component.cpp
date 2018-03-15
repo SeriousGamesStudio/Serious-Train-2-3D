@@ -4,7 +4,7 @@
 
 
 
-Component::Component(Entity* myEntity_) :
+Component::Component(m_Entity* myEntity_) :
 	_myEntity(myEntity_), _enable(true)
 {
 

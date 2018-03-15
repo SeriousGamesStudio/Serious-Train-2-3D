@@ -19,7 +19,7 @@ public:
 	bool start();
 	bool stop();
 
-	SceneManager const& getSceneManager() const;
+	m_SceneManager const& getSceneManager() const;
 	InputManager const& getInputManager() const;
 	GraphicsManager const& getGraphicsManager() const;
 	DataManager const& getDataManager() const;
@@ -31,7 +31,7 @@ private:
 
 private:
 	bool exit;
-	SceneManager sceneManager;
+	m_SceneManager sceneManager;
 	InputManager  inputManager;
 	GraphicsManager graphicsManager;
 	PhysicsManager physicsManager;

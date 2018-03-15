@@ -3,6 +3,7 @@
 
 
 #include "Ogre.h"
+#include "MeshRenderer_c.h"
 class Game;
 
 class GraphicsManager
@@ -12,6 +13,7 @@ public:
 	~GraphicsManager();
 	bool start();
 	void run();
+
 
 private:
 
@@ -29,6 +31,9 @@ private:
 	Ogre::Camera * cam;
 	Ogre::Viewport * vp;
 	Ogre::Light *light;
+
+	//PLANO
+	MeshRenderer_c* plano;
 };
 
 #endif //!_H_GRAPHICSMANAGER_H_

@@ -1,7 +1,7 @@
 #include "GraphicsManager.h"
 #include "Game.h"
 
-
+using namespace Ogre;
 GraphicsManager::GraphicsManager(Game* game) :
 root(0),
 mResourcesCfg(Ogre::StringUtil::BLANK),
@@ -113,11 +113,18 @@ bool GraphicsManager::start()
 	//------------------------------------------------------------------------------------------------------
 	//Scene SetUp
 	try {
-
+		//Robot
 		Ogre::Entity * robot = scnMgr->createEntity("fish.mesh");
 		Ogre::SceneNode * robotNode = scnMgr->getRootSceneNode()->createChildSceneNode();
 		robotNode->scale(3, 3, 3);
 		robotNode->attachObject(robot);
+		//Plane
+		Ogre::SceneNode* nodePlane = scnMgr->getRootSceneNode()->createChildSceneNode("nPlane");
+		
+		plano->drawPlane(nodePlane);
+		
+		
+		
 	}
 	catch (Ogre::FileNotFoundException e) {
 		std::string a = e.getFullDescription();
