@@ -3,7 +3,6 @@
 
 #include "Component.h"
 #include "PhysicsManager.h"
-#include "btBulletCollisionCommon.h"
 
 class RigidBody_c
 	:Component, btRigidBody
@@ -16,7 +15,7 @@ public:
 	virtual void start();
 
 private:
-	PhysicsManager * pM;
+	PhysicsManager * _pM;
 
 };
 #endif //!_H_RIGIDBODY_C_H_

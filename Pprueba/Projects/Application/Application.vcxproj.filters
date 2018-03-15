@@ -21,9 +21,14 @@
     <ClInclude Include="..\..\Src\SceneManager.h">
       <Filter>Managers</Filter>
     </ClInclude>
-    <ClInclude Include="RigidBody_c.h" />
-    <ClInclude Include="..\..\Src\RigidBody_c.h" />
-    <ClInclude Include="..\..\Src\MeshRenderer_c.h">
+    <ClInclude Include="..\..\Src\RigidBody_c.h">
+      <Filter>Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Transform_c.h">
+      <Filter>Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Collider_c.h" />
+	<ClInclude Include="..\..\Src\MeshRenderer_c.h">
       <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
@@ -48,9 +53,14 @@
     <ClCompile Include="..\..\Src\SceneManager.cpp">
       <Filter>Managers</Filter>
     </ClCompile>
-    <ClCompile Include="RigidBody_c.cpp" />
-    <ClCompile Include="..\..\Src\RigidBody_c.cpp" />
-    <ClCompile Include="..\..\Src\MeshRenderer_c.cpp">
+    <ClCompile Include="..\..\Src\RigidBody_c.cpp">
+      <Filter>Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Transform_c.cpp">
+      <Filter>Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Collider_c.cpp" />
+	<ClCompile Include="..\..\Src\MeshRenderer_c.cpp">
       <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
@@ -60,6 +70,18 @@
     </Filter>
     <Filter Include="Components">
       <UniqueIdentifier>{95a9ae32-cbb6-4a3a-adb1-e0456c2d56dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Physics">
+      <UniqueIdentifier>{acec7444-6851-4536-82cf-355c8c2c493c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Graphics">
+      <UniqueIdentifier>{b0b0c0e1-5d3b-4ece-ae13-d59a2036b64c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Input">
+      <UniqueIdentifier>{594b9887-1e02-4eca-b4d6-11e76df9c5ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Behaviour">
+      <UniqueIdentifier>{14cba20c-a5fe-4c46-b1a7-942471582772}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
