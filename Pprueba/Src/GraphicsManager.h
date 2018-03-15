@@ -12,7 +12,7 @@ public:
 	~GraphicsManager();
 	bool start();
 	void run();
-
+	Ogre::RenderWindow* getWindow() const ;
 private:
 
 	//OGRE
