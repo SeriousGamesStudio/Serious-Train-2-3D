@@ -1,7 +1,7 @@
 #include "Game.h"
 
 Game::Game() :
-	sceneManager(this), inputManager(this),
+	sceneManager(this),
 	dataManager(this), graphicsManager(this),
 	physicsManager(this)
 {
@@ -14,9 +14,12 @@ Game::~Game()
 
 bool Game::start()
 {
+	
 	exit = false;
 	graphicsManager.start();
-	inputManager.initInputManager();
+	inputManager = InputManager::getSingletonPtr();
+	inputManager->initialise(graphicsManager.getWindow());
+
 	run();
 	return true;
 }
@@ -31,7 +34,10 @@ void Game::run()
 {
 	while (!exit)
 	{
-		inputManager.update();
+		inputManager->capture();
+		if (inputManager->getKeyboard()->isKeyDown(OIS::KeyCode::KC_0)) {
+			printf("suuuuuuu");
+		}
 		physicsManager.stepUp();
 		sceneManager.tick();
 		graphicsManager.run();
@@ -44,7 +50,7 @@ SceneManager const & Game::getSceneManager() const
 
 InputManager const & Game::getInputManager() const
 {
-	return inputManager;
+	return *inputManager;
 }
 
 GraphicsManager const & Game::getGraphicsManager() const

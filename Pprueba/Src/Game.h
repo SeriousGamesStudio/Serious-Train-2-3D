@@ -32,7 +32,7 @@ private:
 private:
 	bool exit;
 	SceneManager sceneManager;
-	InputManager  inputManager;
+	InputManager * inputManager;
 	GraphicsManager graphicsManager;
 	PhysicsManager physicsManager;
 	DataManager dataManager;
