@@ -5,7 +5,7 @@
 #include "Component.h"
 
 class Collider_c :
-	Component
+	public Component
 {
 public:
 	Collider_c(Entity* entity, PhysicsManager* physicsManager, btCollisionShape* shape);

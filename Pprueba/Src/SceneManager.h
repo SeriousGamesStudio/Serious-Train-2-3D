@@ -11,7 +11,7 @@ public:
 	virtual ~m_SceneManager();
 
 	void tick();
-
+	Game* getGame() { return game; }
 	Scene& currentScene();
 	void pushScene(Scene& newScene);
 	void popScene();

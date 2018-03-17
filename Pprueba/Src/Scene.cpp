@@ -1,11 +1,14 @@
-#include "Scene.h"
 #include "SceneManager.h"
+#include "Scene.h"
+#include "ObjectsFactory.h"
 #include "Game.h"
 
 #include <algorithm>
 
-Scene::Scene(m_SceneManager * sceneManager_, Game* game) :
-	sceneManager(sceneManager_), isSendingMessages(false), game_(game)
+#include "btBulletCollisionCommon.h"
+
+Scene::Scene(SceneManager * sceneManager_) :
+	sceneManager(sceneManager_), isSendingMessages(false)
 {
 	robot = new m_Entity(this, 1, "robot");  //id a partir de 1
 	entities.push_back(robot);

@@ -13,9 +13,11 @@
   <ItemGroup>
     <ClInclude Include="..\..\Src\Collider_c.h" />
     <ClInclude Include="..\..\Src\Component.h" />
+    <ClInclude Include="..\..\Src\ComponentsIncludes.h" />
     <ClInclude Include="..\..\Src\DataManager.h" />
     <ClInclude Include="..\..\Src\Entity.h" />
     <ClInclude Include="..\..\Src\Game.h" />
+    <ClInclude Include="..\..\Src\ObjectsFactory.h" />
     <ClInclude Include="..\..\Src\RigidBody_c.h" />
     <ClInclude Include="..\..\Src\MeshRenderer_c.h" />
     <ClInclude Include="..\..\Src\SceneManager.h" />
@@ -33,6 +35,7 @@
     <ClCompile Include="..\..\Src\Entity.cpp" />
     <ClCompile Include="..\..\Src\Game.cpp" />
     <ClCompile Include="..\..\Src\MeshRenderer_c.cpp" />
+    <ClCompile Include="..\..\Src\ObjectsFactory.cpp" />
     <ClCompile Include="..\..\Src\RigidBody_c.cpp" />
     <ClCompile Include="..\..\Src\SceneManager.cpp" />
     <ClCompile Include="..\..\Src\GraphicsManager.cpp" />
