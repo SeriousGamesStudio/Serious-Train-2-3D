@@ -32,7 +32,7 @@ bool Game::stop()
 
 void Game::run()
 {
-	while (!exit)
+	while (!graphicsManager.getWindow()->isClosed())
 	{
 		inputManager->capture();
 		if (inputManager->getKeyboard()->isKeyDown(OIS::KeyCode::KC_0)) {
