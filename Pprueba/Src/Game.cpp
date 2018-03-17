@@ -35,9 +35,6 @@ void Game::run()
 	while (!graphicsManager.getWindow()->isClosed())
 	{
 		inputManager->capture();
-		if (inputManager->getKeyboard()->isKeyDown(OIS::KeyCode::KC_0)) {
-			printf("suuuuuuu");
-		}
 		physicsManager.stepUp();
 		sceneManager.tick();
 		graphicsManager.run();
