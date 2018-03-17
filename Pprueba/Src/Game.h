@@ -19,7 +19,7 @@ public:
 	bool start();
 	bool stop();
 
-	m_SceneManager const& getSceneManager() const;
+	m_SceneManager const&getSceneManager();	const//const
 	InputManager const& getInputManager() const;
 	GraphicsManager const& getGraphicsManager() const;
 	DataManager const& getDataManager() const;

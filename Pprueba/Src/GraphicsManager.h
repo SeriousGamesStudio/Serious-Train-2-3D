@@ -4,6 +4,9 @@
 
 #include "Ogre.h"
 #include "MeshRenderer_c.h"
+
+
+using namespace Ogre;
 class Game;
 
 class GraphicsManager
@@ -19,21 +22,22 @@ private:
 
 	//OGRE
 
-	Ogre::Root* root;
-	Ogre::SceneManager * scnMgr;
-	Ogre::String mResourcesCfg;
-	Ogre::String mPluginsCfg;
-	Ogre::String mOgreCfg;
-	Ogre::String mOgreLog;
-	Ogre::ConfigFile cf;
+	Root* root;
+	SceneManager * scnMgr;
+	String mResourcesCfg;
+	String mPluginsCfg;
+	String mOgreCfg;
+	String mOgreLog;
+	ConfigFile cf;
 
-	Ogre::RenderWindow* mWindow;
-	Ogre::Camera * cam;
-	Ogre::Viewport * vp;
-	Ogre::Light *light;
+	RenderWindow* mWindow;
+	Camera * cam;
+	Viewport * vp;
+	Light *light;
 
 	//PLANO
-	MeshRenderer_c* plano;
+	m_Entity* plano;
+	MeshRenderer_c::ConstructorInfo infoPlane;
 };
 
 #endif //!_H_GRAPHICSMANAGER_H_

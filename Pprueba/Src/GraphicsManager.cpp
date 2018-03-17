@@ -1,13 +1,13 @@
 #include "GraphicsManager.h"
 #include "Game.h"
 
-using namespace Ogre;
+
 GraphicsManager::GraphicsManager(Game* game) :
 root(0),
 mResourcesCfg(Ogre::StringUtil::BLANK),
 mPluginsCfg(Ogre::StringUtil::BLANK)
 {
-
+	plano = new m_Entity(&(game->getSceneManager().currentScene()), 0, "plano");  //preguntar que quiere borja en el orden id
 }
 
 GraphicsManager::~GraphicsManager()
@@ -121,7 +121,8 @@ bool GraphicsManager::start()
 		//Plane
 		Ogre::SceneNode* nodePlane = scnMgr->getRootSceneNode()->createChildSceneNode("nPlane");
 		
-		plano->drawPlane(nodePlane);
+		
+		plano->addComponent(new MeshRenderer_c(infoPlane, plano, nodePlane));
 		
 		
 		
