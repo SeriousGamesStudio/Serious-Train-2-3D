@@ -1,9 +1,10 @@
 #ifndef _H_MESHRENDERER_H_
 #define _H_MESHRENDERER_H_
 #include "Component.h"
-#include "Ogre.h"
-#include "GraphicsManager.h"
+#include <Ogre.h>
+
 #include <string>
+class GraphicsManager;
 
 
 class MeshRenderer_c:

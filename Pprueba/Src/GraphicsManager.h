@@ -14,7 +14,7 @@ public:
 	GraphicsManager(Game* game);
 	~GraphicsManager();
 	bool start();
-	void run();
+	void renderFrame();
 	Ogre::SceneNode* createNewNode(std::string meshName);
 
 private:

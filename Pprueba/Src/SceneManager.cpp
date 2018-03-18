@@ -5,8 +5,8 @@
 m_SceneManager::m_SceneManager(Game* game_) :
 	game(game_)
 {
-	//Crear la primera escena, que es el menú inicial
-	//scenes.push(Scene(INIT_MENU));
+	
+	
 }
 
 m_SceneManager::~m_SceneManager()

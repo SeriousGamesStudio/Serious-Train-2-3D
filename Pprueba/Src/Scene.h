@@ -15,6 +15,7 @@
 #include "MeshRenderer_c.h"
 
 class m_SceneManager;
+class Game;
 
 class Scene
 {
@@ -52,7 +53,6 @@ private:
 	std::vector<Msg> messagesBuffer;
 	std::unordered_map<MsgId, std::vector<Component*>> listeners;
 	bool isSendingMessages;
-private:
 	void _msgDeliver();
 	void _dumpMessages();
 

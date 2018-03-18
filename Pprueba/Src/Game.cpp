@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "Scene.h"
 
 Game::Game() :
 	sceneManager(this), inputManager(this),
@@ -16,6 +17,8 @@ bool Game::start()
 {
 	exit = false;
 	graphicsManager.start();
+	Scene initial = Scene(&sceneManager, this);
+	sceneManager.pushScene(initial);
 	run();
 	return true;
 }
@@ -33,7 +36,7 @@ void Game::run()
 		inputManager.update();
 		physicsManager.stepUp();
 		sceneManager.tick();
-		graphicsManager.run();
+		graphicsManager.renderFrame();
 	}
 }
 m_SceneManager const & Game::getSceneManager()		//const
@@ -46,7 +49,7 @@ InputManager const & Game::getInputManager() const
 	return inputManager;
 }
 
-GraphicsManager const & Game::getGraphicsManager() const
+GraphicsManager  & Game::getGraphicsManager() 
 {
 	return graphicsManager;
 }

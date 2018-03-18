@@ -21,7 +21,7 @@ public:
 
 	m_SceneManager const&getSceneManager();	const//const
 	InputManager const& getInputManager() const;
-	GraphicsManager const& getGraphicsManager() const;
+	GraphicsManager  &getGraphicsManager();
 	DataManager const& getDataManager() const;
 	PhysicsManager const & getPhysicsManager() const;
 

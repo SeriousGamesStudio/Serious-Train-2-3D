@@ -10,7 +10,7 @@ Scene::Scene(m_SceneManager * sceneManager_, Game* game) :
 	robot = new m_Entity(this, 1, "robot");  //id a partir de 1
 	entities.push_back(robot);
 
-	robot->addComponent(new MeshRenderer_c(robot, game_->getGraphicsManager(), "fish.mesh")); //pruebas
+	robot->addComponent(new MeshRenderer_c(robot, &game_->getGraphicsManager(), "fish.mesh")); //pruebas
 }
 
 Scene::~Scene()

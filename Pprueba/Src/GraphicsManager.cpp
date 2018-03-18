@@ -112,17 +112,7 @@ bool GraphicsManager::start()
 
 	//------------------------------------------------------------------------------------------------------
 	//Scene SetUp
-	try {
-		//Robot
-		Ogre::Entity * robot = scnMgr->createEntity("fish.mesh");
-		Ogre::SceneNode * robotNode = scnMgr->getRootSceneNode()->createChildSceneNode();
-		robotNode->scale(3, 3, 3);
-		robotNode->attachObject(robot);	
-	}
-	catch (Ogre::FileNotFoundException e) {
-		std::string a = e.getFullDescription();
-		std::cout << a;
-	}
+	
 	scnMgr->setAmbientLight(Ogre::ColourValue(.5, .5, .5));
 
 	light = scnMgr->createLight("MainLight");
@@ -131,26 +121,24 @@ bool GraphicsManager::start()
 	return true;
 }
 
-void GraphicsManager::run()
+void GraphicsManager::renderFrame()
 {
-	Ogre::Node * nodo = scnMgr->getRootSceneNode()->getChild(0);
-	Ogre::Vector3 posIni = nodo->getPosition();
-	posIni += Ogre::Vector3(90, 0, 0);
-	while (true)
-	{
-		nodo->roll(Ogre::Radian(0.1));
-		nodo->translate(-0.2, 0.0, 0.0);
-		if (nodo->getPosition().x < -90) {
-			nodo->setPosition(posIni);
-		}
 		Ogre::WindowEventUtilities::messagePump();
 		if (mWindow->isClosed())return;
 		if (!root->renderOneFrame())return;
-	}
 }
 
 Ogre::SceneNode * GraphicsManager::createNewNode(std::string meshName)
 {
 	Ogre::SceneNode* newNode = scnMgr->getRootSceneNode()->createChildSceneNode();
+	try {
+		newNode->attachObject(scnMgr->createEntity(meshName));
+	}
+	catch (Ogre::FileNotFoundException e) {
+		std::string a = e.getFullDescription();
+		std::cout << a;
+		newNode = nullptr;
+	}
+	
 	return newNode;
 }
