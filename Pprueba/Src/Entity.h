@@ -1,5 +1,5 @@
-#ifndef _H_ENTITY_H_
-#define _H_ENTITY_H_
+#ifndef _H_M_ENTITY_H_
+#define _H_M_ENTITY_H_
 
 #include <vector>
 #include <string>
@@ -10,11 +10,11 @@
 
 class Component;
 class Scene;
-class Entity
+class m_Entity
 {
 public:
-	Entity(Scene* scene_, EntityId id, std::string name);
-	~Entity();
+	m_Entity(Scene* scene_, EntityId id, std::string name);
+	~m_Entity();
 
 	void tick();
 
@@ -48,4 +48,4 @@ private:
 	std::deque<Msg> messages;
 };
 
-#endif //!_H_ENTITY_H_
+#endif //!_H_M_ENTITY_H_

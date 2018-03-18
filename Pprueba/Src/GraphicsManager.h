@@ -3,6 +3,9 @@
 
 
 #include "Ogre.h"
+#include "MeshRenderer_c.h"
+
+
 class Game;
 
 class GraphicsManager
@@ -11,7 +14,9 @@ public:
 	GraphicsManager(Game* game);
 	~GraphicsManager();
 	bool start();
-	void run();
+	void renderFrame();
+	Ogre::SceneNode* createNewNode(std::string meshName);
+
 	Ogre::RenderWindow* getWindow() const ;
 private:
 
@@ -29,6 +34,10 @@ private:
 	Ogre::Camera * cam;
 	Ogre::Viewport * vp;
 	Ogre::Light *light;
+
+	//PLANO
+	
+	
 };
 
 #endif //!_H_GRAPHICSMANAGER_H_

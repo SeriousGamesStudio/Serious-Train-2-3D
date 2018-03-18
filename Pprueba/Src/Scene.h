@@ -12,13 +12,16 @@
 #include "Notifications.h"
 #include "Entity.h"
 
-class SceneManager;
+#include "MeshRenderer_c.h"
+
+class m_SceneManager;
+class Game;
 
 class Scene
 {
 public:
 
-	Scene(SceneManager* sceneManager_);
+	Scene(m_SceneManager* sceneManager_, Game* game);
 	virtual ~Scene();
 
 	void tick();
@@ -29,8 +32,8 @@ public:
 
 	void reciveMsg(Msg& newMsg);
 	//Entity management
-	Entity* whoIs(EntityId id);
-	Entity* whoIs(std::string name);
+	m_Entity* whoIs(EntityId id);
+	m_Entity* whoIs(std::string name);
 
 	std::string const getNameOf(EntityId id);
 	EntityId const getIdOf(std::string name);
@@ -42,16 +45,20 @@ public:
 	Component* getComponentOf<T>(std::string name);
 	*/
 private:
-	SceneManager * sceneManager;
-	std::list <Entity*> entities;
+	m_SceneManager * sceneManager;
+	std::list <m_Entity*> entities;
+	Game* game_;
 
 	std::deque<Msg> messages;
 	std::vector<Msg> messagesBuffer;
 	std::unordered_map<MsgId, std::vector<Component*>> listeners;
 	bool isSendingMessages;
-private:
 	void _msgDeliver();
 	void _dumpMessages();
+
+	//ROBOT
+	m_Entity* robot;
+	
 };
 
 

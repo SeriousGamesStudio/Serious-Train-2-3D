@@ -1,16 +1,21 @@
 #include "Scene.h"
 #include "SceneManager.h"
+#include "Game.h"
 
 #include <algorithm>
 
-Scene::Scene(SceneManager * sceneManager_) :
-	sceneManager(sceneManager_), isSendingMessages(false)
+Scene::Scene(m_SceneManager * sceneManager_, Game* game) :
+	sceneManager(sceneManager_), isSendingMessages(false), game_(game)
 {
+	robot = new m_Entity(this, 1, "robot");  //id a partir de 1
+	entities.push_back(robot);
+
+	robot->addComponent(new MeshRenderer_c(robot, &game_->getGraphicsManager(), "fish.mesh")); //pruebas
 }
 
 Scene::~Scene()
 {
-	for (Entity* e : entities) delete e;
+	for (m_Entity* e : entities) delete e;
 }
 
 ///////////////////////////////TICK///////////////////////////////////////
@@ -19,7 +24,7 @@ void Scene::tick()
 	if (!messages.empty())
 		_msgDeliver();
 
-	for (Entity* e : entities)
+	for (m_Entity* e : entities)
 		e->tick();
 }
 ///////////////////////////////TICK///////////////////////////////////////
@@ -58,17 +63,17 @@ void Scene::reciveMsg(Msg& newMsg)
 		messages.push_back(newMsg);
 }
 
-Entity* Scene::whoIs(EntityId id)
+m_Entity* Scene::whoIs(EntityId id)
 {
-	auto entityIt = std::lower_bound(entities.begin(), entities.end(), id, [&](Entity* entity, EntityId id) { return entity->getId() < id; });
+	auto entityIt = std::lower_bound(entities.begin(), entities.end(), id, [&](m_Entity* entity, EntityId id) { return entity->getId() < id; });
 	if (entityIt != entities.end())
 		return *entityIt;
 	return nullptr;
 }
 
-Entity* Scene::whoIs(std::string name)
+m_Entity* Scene::whoIs(std::string name)
 {
-	for (Entity* entity : entities)
+	for (m_Entity* entity : entities)
 		if (entity->getName() == name)
 			return entity;
 	return nullptr;

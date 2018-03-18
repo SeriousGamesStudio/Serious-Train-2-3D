@@ -3,13 +3,13 @@
 #include "Component.h"
 
 
-Entity::Entity(Scene* scene_, EntityId id_, std::string name_) :
+m_Entity::m_Entity(Scene* scene_, EntityId id_, std::string name_) :
 	_scene(scene_), _id(id_), _name(name_)
 {
 
 }
 
-Entity::~Entity()
+m_Entity::~m_Entity()
 {
 	for (Component* c : components)
 		delete c;
@@ -17,7 +17,7 @@ Entity::~Entity()
 	while (!messages.empty()) messages.pop_front();
 }
 
-void Entity::tick()
+void m_Entity::tick()
 {
 	for each (Component* c in components)
 	{
@@ -26,17 +26,17 @@ void Entity::tick()
 	}
 }
 
-void Entity::addComponent(Component* newComponent)
+void m_Entity::addComponent(Component* newComponent)
 {
 	if (newComponent)
 		components.push_back(newComponent);
 }
-void Entity::reciveMsg(Msg & msg)
+void m_Entity::reciveMsg(Msg & msg)
 {
 	messages.push_back(msg);
 }
 
-Component * Entity::getComponent(type_info componentType)
+Component * m_Entity::getComponent(type_info componentType)
 {
 	for (Component* c : components)
 		if (typeid(c) == componentType)

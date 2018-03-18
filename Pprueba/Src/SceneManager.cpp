@@ -2,14 +2,14 @@
 #include "Game.h"
 
 
-SceneManager::SceneManager(Game* game_) :
+m_SceneManager::m_SceneManager(Game* game_) :
 	game(game_)
 {
-	//Crear la primera escena, que es el menú inicial
-	//scenes.push(Scene(INIT_MENU));
+	
+	
 }
 
-SceneManager::~SceneManager()
+m_SceneManager::~m_SceneManager()
 {
 	while (!scenes.empty())
 	{
@@ -17,29 +17,29 @@ SceneManager::~SceneManager()
 	}
 }
 
-void SceneManager::tick()
+void m_SceneManager::tick()
 {
 	if (!scenes.empty())
 		scenes.top().tick();
 }
 
-Scene& SceneManager::currentScene()
+Scene& m_SceneManager::currentScene()
 {
 	return scenes.top();
 }
 
-void SceneManager::pushScene(Scene& newScene)
+void m_SceneManager::pushScene(Scene& newScene)
 {
 	scenes.push(newScene);
 }
 
-void SceneManager::popScene()
+void m_SceneManager::popScene()
 {
 	if (!scenes.empty())
 		scenes.pop();
 }
 
-void SceneManager::changeScene(Scene& newScene)
+void m_SceneManager::changeScene(Scene& newScene)
 {
 	if (!scenes.empty())
 		scenes.pop();

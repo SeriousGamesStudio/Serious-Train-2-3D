@@ -4,11 +4,11 @@
 #include <stack>
 
 class Game;
-class SceneManager
+class m_SceneManager
 {
 public:
-	SceneManager(Game* game_);
-	virtual ~SceneManager();
+	m_SceneManager(Game* game_);
+	virtual ~m_SceneManager();
 
 	void tick();
 

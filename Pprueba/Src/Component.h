@@ -2,12 +2,12 @@
 #define _H_COMPONENT_H_
 
 #include "Notifications.h"
-class Entity;
+class m_Entity;
 
 class Component
 {
 public:
-	Component(Entity* myEntity_);
+	Component(m_Entity* my_Entity_);
 	virtual ~Component();
 
 	virtual void awake() {};
@@ -21,9 +21,9 @@ public:
 	inline bool isEnable() const { return _enable; }
 	inline void enable() { _enable = true; }
 	inline void disable() { _enable = false; }
-	inline Entity* getEntity() const { return _myEntity; };
+	inline m_Entity* getEntity() const { return _myEntity; };
 private:
-	Entity * _myEntity;
+	m_Entity * _myEntity;
 	bool _enable;
 protected:
 	void sendMsg(Msg& newMsg);
