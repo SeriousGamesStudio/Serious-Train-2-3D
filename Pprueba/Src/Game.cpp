@@ -56,7 +56,7 @@ void Game::run()
 		lastTicks = clock();
 	}
 }
-m_SceneManager const & Game::getSceneManager()		//const
+SceneManager const & Game::getSceneManager()		//const
 {
 	return sceneManager;
 }
