@@ -2,10 +2,10 @@
 #include "Game.h"
 
 
-GraphicsManager::GraphicsManager(Game* game) :
+GraphicsManager::GraphicsManager(Game* game_) :
 root(0),
 mResourcesCfg(Ogre::StringUtil::BLANK),
-mPluginsCfg(Ogre::StringUtil::BLANK)
+mPluginsCfg(Ogre::StringUtil::BLANK),game(game_)
 {
 	
 }
@@ -129,7 +129,10 @@ Ogre::RenderWindow*  GraphicsManager::getWindow() const {
 void GraphicsManager::renderFrame()
 {
 		Ogre::WindowEventUtilities::messagePump();
-		if (mWindow->isClosed())return;
+		if (mWindow->isClosed()) {
+			game->stop();
+			return;
+		}
 		if (!root->renderOneFrame())return;
 }
 

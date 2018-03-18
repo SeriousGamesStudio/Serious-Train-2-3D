@@ -10,11 +10,11 @@
 
 class Component;
 class Scene;
-class m_Entity
+class Entity
 {
 public:
-	m_Entity(Scene* scene_, EntityId id, std::string name);
-	~m_Entity();
+	Entity(Scene* scene_, EntityId id, std::string name);
+	~Entity();
 
 	void tick();
 

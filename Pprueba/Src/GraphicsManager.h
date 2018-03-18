@@ -19,7 +19,7 @@ public:
 
 	Ogre::RenderWindow* getWindow() const ;
 private:
-
+	Game* game;
 	//OGRE
 
 	Ogre::Root* root;

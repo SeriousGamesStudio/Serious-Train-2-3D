@@ -4,14 +4,14 @@
 #include <stack>
 
 class Game;
-class m_SceneManager
+class SceneManager
 {
 public:
-	m_SceneManager(Game* game_);
-	virtual ~m_SceneManager();
+	SceneManager(Game* game_);
+	virtual ~SceneManager();
 
 	void tick();
-
+	Game* getGame() { return game; }
 	Scene& currentScene();
 	void pushScene(Scene& newScene);
 	void popScene();

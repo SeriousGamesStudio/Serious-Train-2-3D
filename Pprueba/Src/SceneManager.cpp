@@ -2,14 +2,14 @@
 #include "Game.h"
 
 
-m_SceneManager::m_SceneManager(Game* game_) :
+SceneManager::SceneManager(Game* game_) :
 	game(game_)
 {
 	
 	
 }
 
-m_SceneManager::~m_SceneManager()
+SceneManager::~SceneManager()
 {
 	while (!scenes.empty())
 	{
@@ -17,29 +17,29 @@ m_SceneManager::~m_SceneManager()
 	}
 }
 
-void m_SceneManager::tick()
+void SceneManager::tick()
 {
 	if (!scenes.empty())
 		scenes.top().tick();
 }
 
-Scene& m_SceneManager::currentScene()
+Scene& SceneManager::currentScene()
 {
 	return scenes.top();
 }
 
-void m_SceneManager::pushScene(Scene& newScene)
+void SceneManager::pushScene(Scene& newScene)
 {
 	scenes.push(newScene);
 }
 
-void m_SceneManager::popScene()
+void SceneManager::popScene()
 {
 	if (!scenes.empty())
 		scenes.pop();
 }
 
-void m_SceneManager::changeScene(Scene& newScene)
+void SceneManager::changeScene(Scene& newScene)
 {
 	if (!scenes.empty())
 		scenes.pop();

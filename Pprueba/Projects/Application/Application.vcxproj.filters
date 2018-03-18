@@ -1,61 +1,119 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="..\..\Src\Game.h" />
-    <ClInclude Include="..\..\Src\Scene.h" />
-    <ClInclude Include="..\..\Src\Entity.h" />
-    <ClInclude Include="..\..\Src\Component.h" />
-    <ClInclude Include="..\..\Src\Notifications.h" />
     <ClInclude Include="..\..\Src\DataManager.h">
-      <Filter>Managers</Filter>
+      <Filter>Kernel\Managers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\GraphicsManager.h">
-      <Filter>Managers</Filter>
+      <Filter>Kernel\Managers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\InputManager.h">
-      <Filter>Managers</Filter>
+      <Filter>Kernel\Managers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\PhysicsManager.h">
-      <Filter>Managers</Filter>
+      <Filter>Kernel\Managers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\SceneManager.h">
-      <Filter>Managers</Filter>
+      <Filter>Kernel\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\MeshRenderer_c.h">
+    <ClInclude Include="..\..\Src\RigidBody_c.h">
+      <Filter>Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Transform_c.h">
+      <Filter>Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Collider_c.h">
+      <Filter>Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Scene.h">
+      <Filter>Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Notifications.h">
+      <Filter>Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game.h">
+      <Filter>Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Entity.h">
+      <Filter>Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Component.h">
+      <Filter>Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\ObjectsFactory.h" />
+    <ClInclude Include="..\..\Src\ComponentsIncludes.h" />
+	<ClInclude Include="..\..\Src\Collider_c.h" />
+	<ClInclude Include="..\..\Src\MeshRenderer_c.h">
       <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Src\Game.cpp" />
-    <ClCompile Include="..\..\Src\Scene.cpp" />
-    <ClCompile Include="..\..\Src\Entity.cpp" />
-    <ClCompile Include="..\..\Src\Component.cpp" />
     <ClCompile Include="..\..\Src\DataManager.cpp">
-      <Filter>Managers</Filter>
+      <Filter>Kernel\Managers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\GraphicsManager.cpp">
-      <Filter>Managers</Filter>
+      <Filter>Kernel\Managers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\InputManager.cpp">
-      <Filter>Managers</Filter>
+      <Filter>Kernel\Managers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\PhysicsManager.cpp">
-      <Filter>Managers</Filter>
+      <Filter>Kernel\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Src\main.cpp" />
     <ClCompile Include="..\..\Src\SceneManager.cpp">
-      <Filter>Managers</Filter>
+      <Filter>Kernel\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Src\MeshRenderer_c.cpp">
+    <ClCompile Include="..\..\Src\RigidBody_c.cpp">
+      <Filter>Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Transform_c.cpp">
+      <Filter>Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Collider_c.cpp">
+      <Filter>Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Scene.cpp">
+      <Filter>Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\main.cpp">
+      <Filter>Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Game.cpp">
+      <Filter>Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Entity.cpp">
+      <Filter>Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Component.cpp">
+      <Filter>Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\ObjectsFactory.cpp" />
+    <ClCompile Include="..\..\Src\Collider_c.cpp" />
+	<ClCompile Include="..\..\Src\MeshRenderer_c.cpp">
       <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Managers">
+    <Filter Include="Kernel">
+      <UniqueIdentifier>{f990aeed-94fe-41a8-ad5b-b7dd1c265288}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernel\Managers">
       <UniqueIdentifier>{5dbc2fdd-e615-4098-bf70-ac40e95f004d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Components">
       <UniqueIdentifier>{95a9ae32-cbb6-4a3a-adb1-e0456c2d56dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Physics">
+      <UniqueIdentifier>{acec7444-6851-4536-82cf-355c8c2c493c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Graphics">
+      <UniqueIdentifier>{b0b0c0e1-5d3b-4ece-ae13-d59a2036b64c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Input">
+      <UniqueIdentifier>{594b9887-1e02-4eca-b4d6-11e76df9c5ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Behaviour">
+      <UniqueIdentifier>{14cba20c-a5fe-4c46-b1a7-942471582772}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
