@@ -21,10 +21,11 @@ bool Game::start()
 	
 	exit = false;
 	graphicsManager.start();
-	Scene initial = Scene(&sceneManager, this);
-	sceneManager.pushScene(initial);
 	inputManager = InputManager::getSingletonPtr();
 	inputManager->initialise(graphicsManager.getWindow());
+	Scene initial = Scene(&sceneManager, this);
+	sceneManager.pushScene(initial);
+	
 
 	run();
 	return true;
@@ -61,9 +62,9 @@ SceneManager const & Game::getSceneManager()		//const
 	return sceneManager;
 }
 
-InputManager const & Game::getInputManager() const
+InputManager * Game::getInputManager() 
 {
-	return *inputManager;
+	return inputManager;
 }
 
 GraphicsManager  & Game::getGraphicsManager() 

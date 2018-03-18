@@ -6,7 +6,7 @@
 #include <algorithm>
 
 #include "btBulletCollisionCommon.h"
-
+#include "PlayerController.h"
 Scene::Scene(SceneManager * sceneManager_,Game * game) :
 	sceneManager(sceneManager_), isSendingMessages(false), game_(game)
 {
@@ -14,6 +14,8 @@ Scene::Scene(SceneManager * sceneManager_,Game * game) :
 	entities.push_back(robot);
 
 	robot->addComponent(new MeshRenderer_c(robot, &game_->getGraphicsManager(), "fish.mesh")); //pruebas
+	robot->addComponent(new PlayerController_c(robot, game_->getInputManager())); //pruebas
+
 }
 
 Scene::~Scene()
