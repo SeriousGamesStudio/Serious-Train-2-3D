@@ -42,9 +42,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\ObjectsFactory.h" />
     <ClInclude Include="..\..\Src\ComponentsIncludes.h" />
-	<ClInclude Include="..\..\Src\Collider_c.h" />
-	<ClInclude Include="..\..\Src\MeshRenderer_c.h">
-      <Filter>Components</Filter>
+    <ClInclude Include="..\..\Src\Collider_c.h" />
+    <ClInclude Include="..\..\Src\MeshRenderer_c.h">
+      <Filter>Components\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -89,8 +89,8 @@
     </ClCompile>
     <ClCompile Include="..\..\Src\ObjectsFactory.cpp" />
     <ClCompile Include="..\..\Src\Collider_c.cpp" />
-	<ClCompile Include="..\..\Src\MeshRenderer_c.cpp">
-      <Filter>Components</Filter>
+    <ClCompile Include="..\..\Src\MeshRenderer_c.cpp">
+      <Filter>Components\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
