@@ -7,7 +7,7 @@ root(0),
 mResourcesCfg(Ogre::StringUtil::BLANK),
 mPluginsCfg(Ogre::StringUtil::BLANK)
 {
-	plano = new m_Entity(&(game->getSceneManager().currentScene()), 0, "plano");  //preguntar que quiere borja en el orden id
+	
 }
 
 GraphicsManager::~GraphicsManager()
@@ -117,15 +117,7 @@ bool GraphicsManager::start()
 		Ogre::Entity * robot = scnMgr->createEntity("fish.mesh");
 		Ogre::SceneNode * robotNode = scnMgr->getRootSceneNode()->createChildSceneNode();
 		robotNode->scale(3, 3, 3);
-		robotNode->attachObject(robot);
-		//Plane
-		Ogre::SceneNode* nodePlane = scnMgr->getRootSceneNode()->createChildSceneNode("nPlane");
-		
-		
-		plano->addComponent(new MeshRenderer_c(infoPlane, plano, nodePlane));
-		
-		
-		
+		robotNode->attachObject(robot);	
 	}
 	catch (Ogre::FileNotFoundException e) {
 		std::string a = e.getFullDescription();
@@ -155,4 +147,10 @@ void GraphicsManager::run()
 		if (mWindow->isClosed())return;
 		if (!root->renderOneFrame())return;
 	}
+}
+
+Ogre::SceneNode * GraphicsManager::createNewNode(std::string meshName)
+{
+	Ogre::SceneNode* newNode = scnMgr->getRootSceneNode()->createChildSceneNode();
+	return newNode;
 }

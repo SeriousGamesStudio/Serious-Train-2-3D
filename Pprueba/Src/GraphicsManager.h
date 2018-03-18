@@ -6,7 +6,6 @@
 #include "MeshRenderer_c.h"
 
 
-using namespace Ogre;
 class Game;
 
 class GraphicsManager
@@ -16,28 +15,28 @@ public:
 	~GraphicsManager();
 	bool start();
 	void run();
-
+	Ogre::SceneNode* createNewNode(std::string meshName);
 
 private:
 
 	//OGRE
 
-	Root* root;
-	SceneManager * scnMgr;
-	String mResourcesCfg;
-	String mPluginsCfg;
-	String mOgreCfg;
-	String mOgreLog;
-	ConfigFile cf;
+	Ogre::Root* root;
+	Ogre::SceneManager * scnMgr;
+	Ogre::String mResourcesCfg;
+	Ogre::String mPluginsCfg;
+	Ogre::String mOgreCfg;
+	Ogre::String mOgreLog;
+	Ogre::ConfigFile cf;
 
-	RenderWindow* mWindow;
-	Camera * cam;
-	Viewport * vp;
-	Light *light;
+	Ogre::RenderWindow* mWindow;
+	Ogre::Camera * cam;
+	Ogre::Viewport * vp;
+	Ogre::Light *light;
 
 	//PLANO
-	m_Entity* plano;
-	MeshRenderer_c::ConstructorInfo infoPlane;
+	
+	
 };
 
 #endif //!_H_GRAPHICSMANAGER_H_

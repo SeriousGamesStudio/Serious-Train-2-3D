@@ -12,13 +12,15 @@
 #include "Notifications.h"
 #include "Entity.h"
 
+#include "MeshRenderer_c.h"
+
 class m_SceneManager;
 
 class Scene
 {
 public:
 
-	Scene(m_SceneManager* sceneManager_);
+	Scene(m_SceneManager* sceneManager_, Game* game);
 	virtual ~Scene();
 
 	void tick();
@@ -44,6 +46,7 @@ public:
 private:
 	m_SceneManager * sceneManager;
 	std::list <m_Entity*> entities;
+	Game* game_;
 
 	std::deque<Msg> messages;
 	std::vector<Msg> messagesBuffer;
@@ -52,6 +55,10 @@ private:
 private:
 	void _msgDeliver();
 	void _dumpMessages();
+
+	//ROBOT
+	m_Entity* robot;
+	
 };
 
 

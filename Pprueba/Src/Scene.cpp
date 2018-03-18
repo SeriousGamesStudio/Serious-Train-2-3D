@@ -1,11 +1,16 @@
 #include "Scene.h"
 #include "SceneManager.h"
+#include "Game.h"
 
 #include <algorithm>
 
-Scene::Scene(m_SceneManager * sceneManager_) :
-	sceneManager(sceneManager_), isSendingMessages(false)
+Scene::Scene(m_SceneManager * sceneManager_, Game* game) :
+	sceneManager(sceneManager_), isSendingMessages(false), game_(game)
 {
+	robot = new m_Entity(this, 1, "robot");  //id a partir de 1
+	entities.push_back(robot);
+
+	robot->addComponent(new MeshRenderer_c(robot, game_->getGraphicsManager(), "fish.mesh")); //pruebas
 }
 
 Scene::~Scene()

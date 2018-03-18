@@ -2,40 +2,23 @@
 #define _H_MESHRENDERER_H_
 #include "Component.h"
 #include "Ogre.h"
+#include "GraphicsManager.h"
 #include <string>
 
-using namespace Ogre;
-using namespace std;
+
 class MeshRenderer_c:
 	public Component
 {
 public:
-
-	enum Type {
-	PLANE
-};
-
-struct ConstructorInfo
-{
-	Type type;
-	string name;
-	const string resourceGM;
-	Vector3 dir;
-	int offset;
-	Real height;
-	Real width;
-	int rows;
-	int cols;
-	bool normals;
-	Vector3 textCoords;
-	Vector3 algo;
-};
-	MeshRenderer_c(ConstructorInfo info, m_Entity* m_entity, SceneNode* scnNode);
+	MeshRenderer_c(m_Entity* m_entity, GraphicsManager* gphMgr, std::string meshName);
 	~MeshRenderer_c();
 
+	virtual void start();
+ 
+
 private:
-	MeshPtr mesh_;
-	
+	Ogre::SceneNode* scnNode_;
+		
 };
 #endif // !_H_MESHRENDERER_H_
 
