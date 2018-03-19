@@ -4,19 +4,19 @@
 #include "Component.h"
 #include "PhysicsManager.h"
 
-class RigidBody_c
-	:Component, btRigidBody
+class RigidBody_c :
+	public Component
 {
 public:
 	RigidBody_c(Entity* entity, PhysicsManager* physicsManager, btRigidBody::btRigidBodyConstructionInfo info);
 	virtual ~RigidBody_c();
 
-
+	inline btRigidBody& get() { return rb; };
 	virtual void start();
 
 private:
 	PhysicsManager * _pM;
-
+	btRigidBody rb;
 };
 #endif //!_H_RIGIDBODY_C_H_
 

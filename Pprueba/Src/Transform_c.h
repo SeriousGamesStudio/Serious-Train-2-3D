@@ -5,7 +5,7 @@
 #include "Component.h"
 
 class Trasform_c :
-	Component, btTransform
+	public Component
 {
 public:
 	struct ConstructorInfo
@@ -17,11 +17,12 @@ public:
 	Trasform_c(Entity* entity, PhysicsManager* physicsManager, ConstructorInfo info);
 	virtual ~Trasform_c();
 
+	inline btTransform& get() { return t; };
 
 	virtual void start();
 private:
 	PhysicsManager * _pM;
+	btTransform t;
 
 };
 #endif //!_H_TRANSFORM_C_H_
-
