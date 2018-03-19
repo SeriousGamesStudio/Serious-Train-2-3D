@@ -36,6 +36,15 @@ void Entity::reciveMsg(Msg & msg)
 	messages.push_back(msg);
 }
 
+Component* Entity::getComponent(const std::string& componentName) {
+	for (Component* c : components)
+	{
+		if (c->getComponentNamme() == componentName)
+			return c;
+	}
+	return nullptr;
+}
+/*
 Component * Entity::getComponent(type_info componentType)
 {
 	for (Component* c : components)
@@ -44,3 +53,4 @@ Component * Entity::getComponent(type_info componentType)
 	return nullptr;
 }
 
+*/

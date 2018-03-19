@@ -25,7 +25,8 @@ public:
 	inline std::string const getName() { return _name; }
 
 
-	Component* getComponent(type_info componentType);
+	//Component* getComponent(type_info componentType);
+	Component* getComponent(const std::string& componentName);
 
 	/* preguntar se se puede hacer esto, en caso contrario preguntar cómo se podría hacer
 	template<class T>

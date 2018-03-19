@@ -3,7 +3,7 @@
 
 
 RigidBody_c::RigidBody_c(Entity* entity, PhysicsManager* physicsManager, btRigidBody::btRigidBodyConstructionInfo info) :
-	Component(entity), btRigidBody(info), _pM(physicsManager)
+	Component(entity, "RigidBody"), btRigidBody(info), _pM(physicsManager)
 {
 }
 
