@@ -6,7 +6,8 @@ using EntityId = unsigned int;
 
 enum class MsgId : unsigned int
 {
-	EXIT
+	EXIT,
+	MOVE
 };
 
 struct Msg

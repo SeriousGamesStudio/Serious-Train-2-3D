@@ -28,17 +28,6 @@ public:
 	//Component* getComponent(type_info componentType);
 	Component* getComponent(const std::string& componentName);
 
-	/* preguntar se se puede hacer esto, en caso contrario preguntar cómo se podría hacer
-	template<class T>
-	inline Component* Entity::getComponent<T>()
-	{
-		for (Component* c : component)
-			if (dynamic_cast<T>(c))
-				return c;
-
-		return nullptr;
-	};*/
-
 	inline Scene* getScene() { return _scene; };
 
 private:
@@ -47,6 +36,8 @@ private:
 	std::string _name;
 	std::vector<Component*> components;
 	std::deque<Msg> messages;
+private:
+	void sendMessages();
 };
 
 #endif //!_H_M_ENTITY_H_

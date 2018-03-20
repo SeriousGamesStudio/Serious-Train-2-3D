@@ -19,7 +19,7 @@ public:
 	virtual void listen(Msg& msg) {};
 
 	//Getters and Setters
-	inline const std::string&  getComponentNamme() const { return componentName; };
+	inline const std::string&  getComponentName() const { return componentName; };
 	inline bool isEnable() const { return _enable; }
 	inline void enable() { _enable = true; }
 	inline void disable() { _enable = false; }

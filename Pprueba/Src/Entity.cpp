@@ -19,6 +19,7 @@ Entity::~Entity()
 
 void Entity::tick()
 {
+	sendMessages();
 	for each (Component* c in components)
 	{
 		c->update();
@@ -39,18 +40,18 @@ void Entity::reciveMsg(Msg & msg)
 Component* Entity::getComponent(const std::string& componentName) {
 	for (Component* c : components)
 	{
-		if (c->getComponentNamme() == componentName)
+		if (c->getComponentName() == componentName)
 			return c;
 	}
 	return nullptr;
 }
-/*
-Component * Entity::getComponent(type_info componentType)
+void Entity::sendMessages()
 {
-	for (Component* c : components)
-		if (typeid(c) == componentType)
-			return c;
-	return nullptr;
+	while (!messages.empty()) {
+		for each (Component* c in components)
+		{
+			c->listen(messages.front());
+		}
+		messages.pop_front();
+	}
 }
-
-*/
