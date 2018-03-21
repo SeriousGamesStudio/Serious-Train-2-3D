@@ -40,21 +40,20 @@ bool Game::stop()
 void Game::run()
 {
 	clock_t lastTicks = clock();
-	clock_t elapsedTicks;
+	clock_t elapsedTicks = 0;
 	double deltaTime;/*in seconds*/
 	while (!exit)
 	{
 		//getting the time passed since last frame
-		elapsedTicks = clock() - lastTicks;
-		deltaTime = ((float)elapsedTicks) / CLOCKS_PER_SEC;
+		deltaTime = ((double)elapsedTicks) / 1000.f/*CLOCKS_PER_SEC*/;
+		lastTicks = clock();
 		{/////////////MANAGERS UPDATE/////////////
 			inputManager->capture();
 			physicsManager.stepUp(deltaTime);
 			sceneManager.tick();
 			graphicsManager.renderFrame();
 		}/////////////////////////////////////////
-
-		lastTicks = clock();
+		elapsedTicks = clock() - lastTicks;
 	}
 }
 SceneManager const & Game::getSceneManager()		//const

@@ -29,8 +29,11 @@ void Entity::tick()
 
 void Entity::addComponent(Component* newComponent)
 {
-	if (newComponent)
+	if (newComponent) {
+		newComponent->awake();
+		newComponent->start();
 		components.push_back(newComponent);
+	}
 }
 void Entity::reciveMsg(Msg_Base* msg)
 {

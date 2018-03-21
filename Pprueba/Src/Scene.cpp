@@ -18,7 +18,7 @@ Scene::Scene(SceneManager * sceneManager_, Game * game) :
 	{//Add rigidBody
 		btCollisionShape* fallShape = new btSphereShape(1);
 		btDefaultMotionState* fallMotionState =
-			new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 50, 0)));
+			new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 10, 0)));
 		btScalar mass = 1;
 		btVector3 fallInertia(0, 0, 0);
 		fallShape->calculateLocalInertia(mass, fallInertia);
