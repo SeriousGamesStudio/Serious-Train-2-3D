@@ -46,7 +46,9 @@
     <ClInclude Include="..\..\Src\MeshRenderer_c.h">
       <Filter>Components\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\PlayerController.h" />
+    <ClInclude Include="..\..\Src\PlayerController.h">
+      <Filter>Components\Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\DataManager.cpp">
@@ -93,7 +95,9 @@
     <ClCompile Include="..\..\Src\MeshRenderer_c.cpp">
       <Filter>Components\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Src\PlayerController.cpp" />
+    <ClCompile Include="..\..\Src\PlayerController.cpp">
+      <Filter>Components\Input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Kernel">

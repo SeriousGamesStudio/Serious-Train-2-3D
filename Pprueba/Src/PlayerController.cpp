@@ -32,7 +32,7 @@ bool PlayerController_c::mousePressed(const OIS::MouseEvent & arg, OIS::MouseBut
 {
 	RigidBody_c * rb = static_cast<RigidBody_c*>(_myEntity->getComponent("RigidBody"));
 	if (rb) {
-		rb->get()->applyCentralImpulse(btVector3(0,100,0));
+		rb->get()->applyCentralImpulse(btVector3(0, 30, 0));
 	}
 	return false;
 }

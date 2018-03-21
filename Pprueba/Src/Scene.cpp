@@ -10,6 +10,7 @@
 Scene::Scene(SceneManager * sceneManager_, Game * game) :
 	sceneManager(sceneManager_), isSendingMessages(false), game_(game)
 {
+	//OBJETO PESCADO DE PRUEBA
 	Entity* robot = new Entity(this, 1, "robot");  //id a partir de 1
 	entities.push_back(robot);
 
@@ -18,16 +19,24 @@ Scene::Scene(SceneManager * sceneManager_, Game * game) :
 	{//Add rigidBody
 		btCollisionShape* fallShape = new btSphereShape(1);
 		btDefaultMotionState* fallMotionState =
-			new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 10, 0)));
+			new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 30, 0)));
 		btScalar mass = 1;
 		btVector3 fallInertia(0, 0, 0);
 		fallShape->calculateLocalInertia(mass, fallInertia);
 		btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, fallMotionState, fallShape, fallInertia);
 		robot->addComponent(new RigidBody_c(robot, &game->getPhysicsManager(), fallRigidBodyCI));
 	}
-
-	//entities.push_back(ObjectsFactory::create(ObjectsFactory::Objects::Player));
-
+	//////////////////////////////////////////////////////////////////////////
+	Entity* ground = new Entity(this, 2, "ground");
+	entities.push_back(ground);
+	{
+		btCollisionShape* groundShape = new btStaticPlaneShape(btVector3(0, 1, 0), 1);
+		btDefaultMotionState* groundMotionState =
+			new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, -25, 0)));
+		btRigidBody::btRigidBodyConstructionInfo
+			groundRigidBodyCI(0, groundMotionState, groundShape, btVector3(0, 0, 0));
+		ground->addComponent(new RigidBody_c(ground, &game->getPhysicsManager(), groundRigidBodyCI));
+	}
 }
 
 Scene::~Scene()
