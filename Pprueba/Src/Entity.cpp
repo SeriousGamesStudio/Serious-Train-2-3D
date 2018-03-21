@@ -60,13 +60,3 @@ Component* Entity::getComponent(const std::string& componentName) {
 	}
 	return nullptr;
 }
-void Entity::sendMessages()
-{
-	while (!messages.empty()) {
-		for each (Component* c in components)
-		{
-			c->listen(messages.front());
-		}
-		messages.pop_front();
-	}
-}

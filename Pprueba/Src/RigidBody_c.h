@@ -11,7 +11,7 @@ public:
 	RigidBody_c(Entity* entity, PhysicsManager* physicsManager, btRigidBody::btRigidBodyConstructionInfo info);
 	virtual ~RigidBody_c();
 
-	inline btRigidBody& get() { return rb; };
+	inline btRigidBody* get() { return &rb; };
 	virtual void start();
 
 	virtual void update();

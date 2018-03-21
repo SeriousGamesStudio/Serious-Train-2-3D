@@ -5,7 +5,7 @@ using EntityId = unsigned int;
 
 enum class MsgId : unsigned int
 {
-	EXIT
+	EXIT, CHANGED_POSITION,
 };
 
 struct Msg_Base
