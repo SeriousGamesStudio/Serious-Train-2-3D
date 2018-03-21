@@ -30,7 +30,7 @@ public:
 	void removeListener(MsgId id, Component* component);
 
 
-	void reciveMsg(Msg& newMsg);
+	void reciveMsg(Msg_Base* newMsg);
 	//Entity management
 	Entity* whoIs(EntityId id);
 	Entity* whoIs(std::string name);
@@ -50,12 +50,12 @@ private:
 	std::list <Entity*> entities;
 	Game* game_;
 
-	std::deque<Msg> messages;
-	std::vector<Msg> messagesBuffer;
+	std::deque<Msg_Base*> messages;
+	std::vector<Msg_Base*> messagesBuffer;
 	std::unordered_map<MsgId, std::vector<Component*>> listeners;
 	bool isSendingMessages;
 	void _msgDeliver();
-	void _dumpMessages();	
+	void _dumpMessages();
 };
 
 

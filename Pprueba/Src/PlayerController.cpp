@@ -1,6 +1,6 @@
 #include "PlayerController.h"
 
-PlayerController_c::PlayerController_c(Entity * entity, InputManager * inputManager_): Component(entity), inputManager(inputManager_)
+PlayerController_c::PlayerController_c(Entity * entity, InputManager * inputManager_) : Component(entity, "PlayerController"), inputManager(inputManager_)
 {
 	inputManager->addKeyListener(this, "tecladoJugador");
 	inputManager->addMouseListener(this, "ratonJugador");

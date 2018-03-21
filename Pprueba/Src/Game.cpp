@@ -18,14 +18,14 @@ Game::~Game()
 
 bool Game::start()
 {
-	
+
 	exit = false;
 	graphicsManager.start();
 	inputManager = InputManager::getSingletonPtr();
 	inputManager->initialise(graphicsManager.getWindow());
 	Scene initial = Scene(&sceneManager, this);
 	sceneManager.pushScene(initial);
-	
+
 
 	run();
 	return true;
@@ -62,12 +62,12 @@ SceneManager const & Game::getSceneManager()		//const
 	return sceneManager;
 }
 
-InputManager * Game::getInputManager() 
+InputManager * Game::getInputManager()
 {
 	return inputManager;
 }
 
-GraphicsManager  & Game::getGraphicsManager() 
+GraphicsManager  & Game::getGraphicsManager()
 {
 	return graphicsManager;
 }
@@ -77,8 +77,7 @@ DataManager const & Game::getDataManager() const
 	return dataManager;
 }
 
-PhysicsManager const & Game::getPhysicsManager() const
-{
+PhysicsManager & Game::getPhysicsManager() {
 	return physicsManager;
 }
 

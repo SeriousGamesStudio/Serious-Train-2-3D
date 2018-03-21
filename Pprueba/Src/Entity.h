@@ -19,25 +19,12 @@ public:
 	void tick();
 
 	void addComponent(Component* newComponent);
-	void reciveMsg(Msg& msg);
+	void reciveMsg(Msg_Base* msg);
 
 	inline	  EntityId const getId() { return _id; };
 	inline std::string const getName() { return _name; }
 
-
-	//Component* getComponent(type_info componentType);
 	Component* getComponent(const std::string& componentName);
-
-	/* preguntar se se puede hacer esto, en caso contrario preguntar cómo se podría hacer
-	template<class T>
-	inline Component* Entity::getComponent<T>()
-	{
-		for (Component* c : component)
-			if (dynamic_cast<T>(c))
-				return c;
-
-		return nullptr;
-	};*/
 
 	inline Scene* getScene() { return _scene; };
 
@@ -46,7 +33,9 @@ private:
 	EntityId _id;
 	std::string _name;
 	std::vector<Component*> components;
-	std::deque<Msg> messages;
+	std::deque<Msg_Base*> messages;
+private:
+	void sendMessages();
 };
 
 #endif //!_H_M_ENTITY_H_

@@ -16,7 +16,7 @@ public:
 	virtual void update() {};
 	virtual void lateUpdate() {};
 
-	virtual void listen(Msg& msg) {};
+	virtual void listen(Msg_Base* msg) {};
 
 	//Getters and Setters
 	inline const std::string&  getComponentNamme() const { return componentName; };
@@ -29,7 +29,7 @@ private:
 	std::string componentName;
 protected:
 	Entity * _myEntity;
-	void sendMsg(Msg& newMsg);
+	void sendMsg(Msg_Base* newMsg);
 };
 #endif //!_H_COMPONENT_H_
 

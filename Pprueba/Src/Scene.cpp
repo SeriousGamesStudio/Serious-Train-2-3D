@@ -7,7 +7,7 @@
 
 #include "btBulletCollisionCommon.h"
 #include "PlayerController.h"
-Scene::Scene(SceneManager * sceneManager_,Game * game) :
+Scene::Scene(SceneManager * sceneManager_, Game * game) :
 	sceneManager(sceneManager_), isSendingMessages(false), game_(game)
 {
 	Entity* robot = new Entity(this, 1, "robot");  //id a partir de 1
@@ -15,6 +15,18 @@ Scene::Scene(SceneManager * sceneManager_,Game * game) :
 
 	robot->addComponent(new MeshRenderer_c(robot, &game_->getGraphicsManager(), "fish.mesh")); //pruebas
 	robot->addComponent(new PlayerController_c(robot, game_->getInputManager())); //pruebas
+	{//Add rigidBody
+		btCollisionShape* fallShape = new btSphereShape(1);
+		btDefaultMotionState* fallMotionState =
+			new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 50, 0)));
+		btScalar mass = 1;
+		btVector3 fallInertia(0, 0, 0);
+		fallShape->calculateLocalInertia(mass, fallInertia);
+		btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, fallMotionState, fallShape, fallInertia);
+		robot->addComponent(new RigidBody_c(robot, &game->getPhysicsManager(), fallRigidBodyCI));
+	}
+
+	//entities.push_back(ObjectsFactory::create(ObjectsFactory::Objects::Player));
 
 }
 
@@ -60,7 +72,7 @@ void Scene::removeListener(MsgId id, Component* component)
 	}
 }
 
-void Scene::reciveMsg(Msg& newMsg)
+void Scene::reciveMsg(Msg_Base* newMsg)
 {
 	if (isSendingMessages)
 		messagesBuffer.push_back(newMsg);
@@ -98,15 +110,16 @@ void Scene::_msgDeliver()
 {
 	while (!messages.empty()) {
 		isSendingMessages = true;
-		Msg msg = messages.front();
-		for (Component* listener : listeners[msg.id]) {
-			if (msg.reciver) {
-				if (msg.reciver == listener->getEntity()->getId())
+		Msg_Base* msg = messages.front();
+		for (Component* listener : listeners[msg->id]) {
+			if (msg->reciver) {
+				if (msg->reciver == listener->getEntity()->getId())
 					listener->listen(msg);
 			}
 			else
 				listener->listen(msg);
 		}
+		delete msg;
 		messages.pop_front();
 	}
 	isSendingMessages = false;
@@ -120,16 +133,3 @@ void Scene::_dumpMessages()
 		messagesBuffer.clear();
 	}
 }
-
-/*
-template<typename T>
-Component * Scene::getComponentOf(EntityId id)
-{
-	return nullptr;
-}
-template<typename T>
-Component * Scene::getComponentOf(std::string name)
-{
-	return nullptr;
-}
-*/

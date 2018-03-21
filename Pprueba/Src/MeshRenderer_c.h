@@ -7,19 +7,19 @@
 class GraphicsManager;
 
 
-class MeshRenderer_c:
+class MeshRenderer_c :
 	public Component
 {
 public:
 	MeshRenderer_c(Entity* m_entity, GraphicsManager* gphMgr, std::string meshName);
 	~MeshRenderer_c();
 
-	virtual void start();
- 
+	virtual void listen(Msg_Base* msg);
+
 
 private:
 	Ogre::SceneNode* scnNode_;
-		
+
 };
 #endif // !_H_MESHRENDERER_H_
 

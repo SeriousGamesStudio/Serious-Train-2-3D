@@ -23,7 +23,7 @@ public:
 	InputManager * getInputManager() ;
 	GraphicsManager  &getGraphicsManager();
 	DataManager const& getDataManager() const;
-	PhysicsManager const & getPhysicsManager() const;
+	PhysicsManager & getPhysicsManager();
 
 
 private:

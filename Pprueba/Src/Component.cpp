@@ -1,6 +1,7 @@
 #include "Component.h"
 #include "Entity.h"
 #include "Scene.h"
+#include "Notifications.h"
 
 
 
@@ -15,9 +16,9 @@ Component::~Component()
 
 }
 
-void Component::sendMsg(Msg& newMsg)
+void Component::sendMsg(Msg_Base* newMsg)
 {
-	if (newMsg.reciver == newMsg.self)
+	if (newMsg->reciver == Msg_Base::self)
 		_myEntity->reciveMsg(newMsg);
 	else
 		_myEntity->getScene()->reciveMsg(newMsg);

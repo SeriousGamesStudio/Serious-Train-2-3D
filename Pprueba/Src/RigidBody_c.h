@@ -14,6 +14,8 @@ public:
 	inline btRigidBody& get() { return rb; };
 	virtual void start();
 
+	virtual void update();
+
 private:
 	PhysicsManager * _pM;
 	btRigidBody rb;
