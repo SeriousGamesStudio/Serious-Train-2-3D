@@ -3,7 +3,7 @@
 
 
 Trasform_c::Trasform_c(Entity* entity, PhysicsManager* physicsManager, ConstructorInfo info) :
-	btTransform(info.q, info.v), Component(entity, "Transform"), _pM(physicsManager)
+	t(btTransform(info.q, info.v)), Component(entity, "Transform"), _pM(physicsManager)
 {}
 
 Trasform_c::~Trasform_c()
@@ -13,5 +13,5 @@ Trasform_c::~Trasform_c()
 
 void Trasform_c::start()
 {
-	
+
 }

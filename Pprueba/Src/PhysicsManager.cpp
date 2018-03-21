@@ -33,6 +33,7 @@ PhysicsManager::~PhysicsManager()
 
 void PhysicsManager::stepUp(double deltaTime/*seconds*/)
 {
+	//deltaTime = 0.0016;
 	unsigned char maxSubSteps = 10;	//esto hay que calcularlo de manera dinámica, pero no sé como
 	world->stepSimulation(deltaTime, maxSubSteps);
 }

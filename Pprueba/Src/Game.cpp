@@ -18,13 +18,14 @@ Game::~Game()
 
 bool Game::start()
 {
-	
+
 	exit = false;
 	graphicsManager.start();
-	Scene initial = Scene(&sceneManager, this);
-	sceneManager.pushScene(initial);
 	inputManager = InputManager::getSingletonPtr();
 	inputManager->initialise(graphicsManager.getWindow());
+	Scene initial = Scene(&sceneManager, this);
+	sceneManager.pushScene(initial);
+
 
 	run();
 	return true;
@@ -39,21 +40,20 @@ bool Game::stop()
 void Game::run()
 {
 	clock_t lastTicks = clock();
-	clock_t elapsedTicks;
+	clock_t elapsedTicks = 0;
 	double deltaTime;/*in seconds*/
 	while (!exit)
 	{
 		//getting the time passed since last frame
-		elapsedTicks = clock() - lastTicks;
-		deltaTime = ((float)elapsedTicks) / CLOCKS_PER_SEC;
+		deltaTime = ((double)elapsedTicks) / 1000.f/*CLOCKS_PER_SEC*/;
+		lastTicks = clock();
 		{/////////////MANAGERS UPDATE/////////////
 			inputManager->capture();
 			physicsManager.stepUp(deltaTime);
 			sceneManager.tick();
 			graphicsManager.renderFrame();
 		}/////////////////////////////////////////
-
-		lastTicks = clock();
+		elapsedTicks = clock() - lastTicks;
 	}
 }
 SceneManager const & Game::getSceneManager()		//const
@@ -61,12 +61,12 @@ SceneManager const & Game::getSceneManager()		//const
 	return sceneManager;
 }
 
-InputManager const & Game::getInputManager() const
+InputManager * Game::getInputManager()
 {
-	return *inputManager;
+	return inputManager;
 }
 
-GraphicsManager  & Game::getGraphicsManager() 
+GraphicsManager  & Game::getGraphicsManager()
 {
 	return graphicsManager;
 }
@@ -76,8 +76,7 @@ DataManager const & Game::getDataManager() const
 	return dataManager;
 }
 
-PhysicsManager const & Game::getPhysicsManager() const
-{
+PhysicsManager & Game::getPhysicsManager() {
 	return physicsManager;
 }
 

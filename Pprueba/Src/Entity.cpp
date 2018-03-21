@@ -29,12 +29,27 @@ void Entity::tick()
 
 void Entity::addComponent(Component* newComponent)
 {
-	if (newComponent)
+	if (newComponent) {
+		newComponent->awake();
+		newComponent->start();
 		components.push_back(newComponent);
+	}
 }
-void Entity::reciveMsg(Msg & msg)
+void Entity::reciveMsg(Msg_Base* msg)
 {
 	messages.push_back(msg);
+}
+
+void Entity::sendMessages()
+{
+	while (!messages.empty()) {
+		for each (Component* c in components)
+		{
+			c->listen(messages.front());
+		}
+		delete messages.front();
+		messages.pop_front();
+	}
 }
 
 Component* Entity::getComponent(const std::string& componentName) {

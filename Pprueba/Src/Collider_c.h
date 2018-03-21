@@ -15,7 +15,7 @@ public:
 
 private:
 	PhysicsManager * _pM;
-	btCollisionShape * _shape;
+	btCollisionShape* _shape;
 
 };
 #endif //!_H_COLLIDER_C_H_

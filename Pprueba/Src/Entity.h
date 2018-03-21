@@ -19,13 +19,11 @@ public:
 	void tick();
 
 	void addComponent(Component* newComponent);
-	void reciveMsg(Msg& msg);
+	void reciveMsg(Msg_Base* msg);
 
 	inline	  EntityId const getId() { return _id; };
 	inline std::string const getName() { return _name; }
 
-
-	//Component* getComponent(type_info componentType);
 	Component* getComponent(const std::string& componentName);
 
 	inline Scene* getScene() { return _scene; };
@@ -35,7 +33,7 @@ private:
 	EntityId _id;
 	std::string _name;
 	std::vector<Component*> components;
-	std::deque<Msg> messages;
+	std::deque<Msg_Base*> messages;
 private:
 	void sendMessages();
 };

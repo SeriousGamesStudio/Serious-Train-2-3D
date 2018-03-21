@@ -15,7 +15,7 @@ public:
 	~PhysicsManager();
 	PhysicsManager(Game* game);
 
-	void stepUp(double deltaTime = 0/*provisional, para evitar errores de compilación*/);
+	void stepUp(double deltaTime/*provisional, para evitar errores de compilación*/);
 
 	void addRigidBody(btRigidBody* newRigidBody);
 	void removeRigidBody(btRigidBody* rb);

@@ -19,11 +19,11 @@ public:
 	bool start();
 	bool stop();
 
-	SceneManager const&getSceneManager();	const//const
-	InputManager const& getInputManager() const;
+	SceneManager const&getSceneManager();	
+	InputManager * getInputManager() ;
 	GraphicsManager  &getGraphicsManager();
 	DataManager const& getDataManager() const;
-	PhysicsManager const & getPhysicsManager() const;
+	PhysicsManager & getPhysicsManager();
 
 
 private:
