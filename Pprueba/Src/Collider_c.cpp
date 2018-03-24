@@ -1,9 +1,8 @@
 #include "Collider_c.h"
-
-
+#include "Components.h"
 
 Collider_c::Collider_c(Entity* entity, PhysicsManager* physicsManager, btCollisionShape* shape) :
-	Component(entity, "Collider"), _pM(physicsManager), _shape(shape)
+	Component(entity, ComponentType::COLLIDER), _pM(physicsManager), _shape(shape)
 {
 
 }

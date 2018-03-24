@@ -5,8 +5,8 @@
 
 
 
-Component::Component(Entity* myEntity_, const std::string componentName_) :
-	_myEntity(myEntity_), _enable(true), componentName(componentName_)
+Component::Component(Entity* myEntity_, ComponentType type_) :
+	_myEntity(myEntity_), _enable(true), type(type_)
 {
 
 }

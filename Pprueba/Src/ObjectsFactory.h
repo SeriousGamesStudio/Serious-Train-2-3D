@@ -1,7 +1,7 @@
 #ifndef _H_OBJECTSFACTORY_H_
 #define _H_OBJECTSFACTORY_H_
 
-#include "ComponentsIncludes.h"
+#include "Components.h"
 
 class ObjectsFactory
 {

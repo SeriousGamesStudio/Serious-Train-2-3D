@@ -13,7 +13,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\Src\Collider_c.h" />
     <ClInclude Include="..\..\Src\Component.h" />
-    <ClInclude Include="..\..\Src\ComponentsIncludes.h" />
+    <ClInclude Include="..\..\Src\Components.h" />
     <ClInclude Include="..\..\Src\DataManager.h" />
     <ClInclude Include="..\..\Src\Entity.h" />
     <ClInclude Include="..\..\Src\Game.h" />

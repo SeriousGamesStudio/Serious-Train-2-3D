@@ -8,6 +8,7 @@
 
 #include "Notifications.h"
 
+extern enum class ComponentType;
 class Component;
 class Scene;
 class Entity
@@ -24,7 +25,7 @@ public:
 	inline	  EntityId const getId() { return _id; };
 	inline std::string const getName() { return _name; }
 
-	Component* getComponent(const std::string& componentName);
+	Component* getComponent(ComponentType type);
 
 	inline Scene* getScene() { return _scene; };
 

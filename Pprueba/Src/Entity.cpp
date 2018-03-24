@@ -52,10 +52,10 @@ void Entity::sendMessages()
 	}
 }
 
-Component* Entity::getComponent(const std::string& componentName) {
+Component* Entity::getComponent(ComponentType type) {
 	for (Component* c : components)
 	{
-		if (c->getComponentName() == componentName)
+		if (c->getComponentType() == type)
 			return c;
 	}
 	return nullptr;

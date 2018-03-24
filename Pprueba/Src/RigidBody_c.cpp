@@ -1,10 +1,10 @@
 #include "RigidBody_c.h"
 #include "Entity.h"
-
+#include "Components.h"
 
 
 RigidBody_c::RigidBody_c(Entity* entity, PhysicsManager* physicsManager, btRigidBody::btRigidBodyConstructionInfo info) :
-	Component(entity, "RigidBody"), rb(btRigidBody(info)), _pM(physicsManager)
+	Component(entity, ComponentType::RIGIDBODY), rb(btRigidBody(info)), _pM(physicsManager)
 {
 }
 

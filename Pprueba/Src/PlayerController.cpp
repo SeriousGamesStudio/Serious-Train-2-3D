@@ -1,7 +1,9 @@
 #include "PlayerController.h"
 #include "Entity.h"
 #include "RigidBody_c.h"
-PlayerController_c::PlayerController_c(Entity * entity, InputManager * inputManager_) : Component(entity, "PlayerController"), inputManager(inputManager_)
+#include "Components.h"
+PlayerController_c::PlayerController_c(Entity * entity, InputManager * inputManager_) :
+	Component(entity, ComponentType::PLAYERCONTROLLER), inputManager(inputManager_)
 {
 	inputManager->addKeyListener(this, "tecladoJugador");
 	inputManager->addMouseListener(this, "ratonJugador");
@@ -26,13 +28,14 @@ bool PlayerController_c::keyReleased(const OIS::KeyEvent & arg)
 bool PlayerController_c::mouseMoved(const OIS::MouseEvent & arg)
 {
 	return false;
+
 }
 
 bool PlayerController_c::mousePressed(const OIS::MouseEvent & arg, OIS::MouseButtonID id)
 {
-	RigidBody_c * rb = static_cast<RigidBody_c*>(_myEntity->getComponent("RigidBody"));
+	RigidBody_c * rb = static_cast<RigidBody_c*>(_myEntity->getComponent(ComponentType::RIGIDBODY));
 	if (rb) {
-		rb->get()->applyCentralImpulse(btVector3(0,100,0));
+		rb->get()->applyCentralImpulse(btVector3(0, 100, 0));
 	}
 	return false;
 }
