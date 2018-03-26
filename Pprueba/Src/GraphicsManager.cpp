@@ -3,16 +3,16 @@
 
 
 GraphicsManager::GraphicsManager(Game* game_) :
-root(0),
-mResourcesCfg(Ogre::StringUtil::BLANK),
-mPluginsCfg(Ogre::StringUtil::BLANK),game(game_)
+	root(0),
+	mResourcesCfg(Ogre::StringUtil::BLANK),
+	mPluginsCfg(Ogre::StringUtil::BLANK), game(game_)
 {
-	
+
 }
 
 GraphicsManager::~GraphicsManager()
 {
-	
+
 }
 
 bool GraphicsManager::start()
@@ -73,7 +73,7 @@ bool GraphicsManager::start()
 
 	//------------------------------------------------------------------------------------------------------
 	//Render Window Creation
-	mWindow = root->initialise(true, "Griffindor");
+	mWindow = root->initialise(true, "Pollas");
 
 	//------------------------------------------------------------------------------------------------------
 	//Resources Init
@@ -112,7 +112,7 @@ bool GraphicsManager::start()
 
 	//------------------------------------------------------------------------------------------------------
 	//Scene SetUp
-	
+
 	scnMgr->setAmbientLight(Ogre::ColourValue(.5, .5, .5));
 
 	light = scnMgr->createLight("MainLight");
@@ -128,12 +128,12 @@ Ogre::RenderWindow*  GraphicsManager::getWindow() const {
 
 void GraphicsManager::renderFrame()
 {
-		Ogre::WindowEventUtilities::messagePump();
-		if (mWindow->isClosed()) {
-			game->stop();
-			return;
-		}
-		if (!root->renderOneFrame())return;
+	Ogre::WindowEventUtilities::messagePump();
+	if (mWindow->isClosed()) {
+		game->stop();
+		return;
+	}
+	if (!root->renderOneFrame())return;
 }
 
 Ogre::SceneNode * GraphicsManager::createNewNode(std::string meshName)
@@ -148,6 +148,6 @@ Ogre::SceneNode * GraphicsManager::createNewNode(std::string meshName)
 		std::cout << a;
 		newNode = nullptr;
 	}
-	
+
 	return newNode;
 }

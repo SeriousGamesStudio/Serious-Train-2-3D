@@ -11,6 +11,8 @@ RigidBody_c::RigidBody_c(Entity* entity, PhysicsManager* physicsManager, btRigid
 RigidBody_c::~RigidBody_c()
 {
 	_pM->removeRigidBody(&rb);
+	delete rb.getMotionState();
+	delete rb.getCollisionShape();
 }
 
 void RigidBody_c::start()
