@@ -22,13 +22,11 @@ PhysicsManager::PhysicsManager(Game* game) :
 
 PhysicsManager::~PhysicsManager()
 {
-
-	for (auto rb : rigidBodies) delete rb;
-	delete world;
 	delete solver;
 	delete dispatcher;
 	delete collisionConfiguration;
 	delete broadPhase;
+	delete world;
 }
 
 void PhysicsManager::stepUp(double deltaTime/*seconds*/)
