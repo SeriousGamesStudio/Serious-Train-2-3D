@@ -15,7 +15,7 @@ public:
 	~PhysicsManager();
 	PhysicsManager(Game* game);
 
-	void stepUp(double deltaTime/*provisional, para evitar errores de compilación*/);
+	void stepUp(double deltaTime);
 
 	void addRigidBody(btRigidBody* newRigidBody);
 	void removeRigidBody(btRigidBody* rb);
@@ -28,7 +28,6 @@ private:
 	btSequentialImpulseConstraintSolver* solver;
 	btBroadphaseInterface* broadPhase;
 
-	std::vector<btRigidBody*> rigidBodies;
 };
 #endif //!_H_PHYSICS_MANAGER_H_
 
