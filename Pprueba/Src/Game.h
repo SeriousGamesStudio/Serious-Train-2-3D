@@ -6,7 +6,6 @@
 #include "DataManager.h"
 #include "GraphicsManager.h"
 #include "PhysicsManager.h"
-#include <irrKlang.h>
 
 #include <iostream>
 
@@ -32,7 +31,6 @@ private:
 
 private:
 	bool exit;
-	irrklang::ISoundEngine* engine;
 	SceneManager sceneManager;
 	InputManager * inputManager;
 	GraphicsManager graphicsManager;
