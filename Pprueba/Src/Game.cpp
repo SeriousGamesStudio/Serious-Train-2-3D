@@ -1,6 +1,8 @@
 #include "Game.h"
 #include <ctime>
 #include "Scene.h"
+#pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
+
 
 Game::Game() :
 	sceneManager(this),
@@ -15,6 +17,7 @@ Game::~Game()
 {
 	//free resources calling resources' freeing functions of each manager
 }
+using namespace irrklang;
 
 bool Game::start()
 {
@@ -23,6 +26,10 @@ bool Game::start()
 	graphicsManager.start();
 	inputManager = InputManager::getSingletonPtr();
 	inputManager->initialise(graphicsManager.getWindow());
+	engine = createIrrKlangDevice();
+	engine->setListenerPosition(vec3df(0.f, 0.f, 80.f), vec3df(0.f, 0.f, -80.f));
+	ISound * tsuuunido = engine->play3D("../Media/getout.ogg",
+		vec3df(300, 0, 0), true, false, true);
 	Scene initial = Scene(&sceneManager, this);
 	sceneManager.pushScene(initial);
 
