@@ -1,6 +1,6 @@
 #include "GraphicsManager.h"
 #include "Game.h"
-
+#include "TrashCollector.h"
 
 GraphicsManager::GraphicsManager(Game* game_) :
 	root(0),
@@ -12,6 +12,7 @@ GraphicsManager::GraphicsManager(Game* game_) :
 
 GraphicsManager::~GraphicsManager()
 {
+	delete root;
 
 }
 

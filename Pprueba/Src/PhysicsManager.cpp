@@ -1,7 +1,6 @@
 #include "PhysicsManager.h"
 #include "Game.h"
 
-
 PhysicsManager::PhysicsManager(Game* game) :
 	_game(game)
 {

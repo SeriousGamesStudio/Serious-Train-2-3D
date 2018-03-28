@@ -33,11 +33,11 @@ private:
 
 private:
 	bool exit;
-	SceneManager sceneManager;
+	SceneManager *sceneManager;
 	InputManager * inputManager;
 	SoundManager * soundManager;
-	GraphicsManager graphicsManager;
-	PhysicsManager physicsManager;
+	GraphicsManager *graphicsManager;
+	PhysicsManager *physicsManager;
 	DataManager dataManager;
 
 };

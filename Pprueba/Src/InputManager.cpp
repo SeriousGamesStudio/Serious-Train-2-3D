@@ -1,4 +1,5 @@
 #include "InputManager.h"
+#include "TrashCollector.h"
 
 InputManager *InputManager::mInputManager;
 

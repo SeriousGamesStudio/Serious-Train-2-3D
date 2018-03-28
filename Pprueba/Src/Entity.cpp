@@ -13,6 +13,10 @@ Entity::~Entity()
 {
 	for (Component* c : components)
 		delete c;
+	while (!messages.empty()) {
+		delete messages.front();
+		messages.pop_front();
+	}
 }
 
 void Entity::tick()

@@ -13,6 +13,7 @@ SceneManager::~SceneManager()
 {
 	while (!scenes.empty())
 	{
+		delete scenes.top();
 		scenes.pop();
 	}
 }
@@ -20,15 +21,15 @@ SceneManager::~SceneManager()
 void SceneManager::tick()
 {
 	if (!scenes.empty())
-		scenes.top().tick();
+		scenes.top()->tick();
 }
 
-Scene& SceneManager::currentScene()
+Scene* SceneManager::currentScene()
 {
 	return scenes.top();
 }
 
-void SceneManager::pushScene(Scene& newScene)
+void SceneManager::pushScene(Scene* newScene)
 {
 	scenes.push(newScene);
 }
@@ -39,7 +40,7 @@ void SceneManager::popScene()
 		scenes.pop();
 }
 
-void SceneManager::changeScene(Scene& newScene)
+void SceneManager::changeScene(Scene* newScene)
 {
 	if (!scenes.empty())
 		scenes.pop();

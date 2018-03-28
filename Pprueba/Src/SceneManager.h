@@ -11,14 +11,14 @@ public:
 	virtual ~SceneManager();
 
 	void tick();
-	Game* getGame() { return game; }
-	Scene& currentScene();
-	void pushScene(Scene& newScene);
+	inline Game* getGame() { return game; }
+	Scene* currentScene();
+	void pushScene(Scene* newScene);
 	void popScene();
-	void changeScene(Scene& newScene);
+	void changeScene(Scene* newScene);
 private:
 	Game * game;
-	std::stack<Scene> scenes;
+	std::stack<Scene*> scenes;
 };
 #endif //!_H_SCENEMANAGER_H_
 
