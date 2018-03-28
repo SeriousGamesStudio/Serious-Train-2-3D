@@ -48,7 +48,6 @@ void Game::run()
 	clock_t lastTicks = clock();
 	clock_t elapsedTicks = 0;
 	double deltaTime;/*in seconds*/
-	Sound_c * sonido = new Sound_c(soundManager);
 	while (!exit)
 	{
 		//getting the time passed since last frame
