@@ -4,7 +4,6 @@
 #include "Sound.h"
 #pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
 
-
 Game::Game() :
 	sceneManager(this),
 	dataManager(this), graphicsManager(this),
@@ -57,9 +56,6 @@ void Game::run()
 		lastTicks = clock();
 		{/////////////MANAGERS UPDATE/////////////
 			inputManager->capture();
-			if (inputManager->getKeyboard()->isKeyDown(OIS::KeyCode::KC_A)) {
-				sonido->playSound();
-			}
 			physicsManager.stepUp(deltaTime);
 			sceneManager.tick();
 			graphicsManager.renderFrame();
