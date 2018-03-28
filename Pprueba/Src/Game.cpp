@@ -1,6 +1,7 @@
 #include "Game.h"
 #include <ctime>
 #include "Scene.h"
+#include "Sound.h"
 #pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
 
 
@@ -9,6 +10,7 @@ Game::Game() :
 	dataManager(this), graphicsManager(this),
 	physicsManager(this)
 {
+	soundManager = new SoundManager();
 }
 
 
@@ -23,8 +25,11 @@ bool Game::start()
 
 	exit = false;
 	graphicsManager.start();
+
 	inputManager = InputManager::getSingletonPtr();
 	inputManager->initialise(graphicsManager.getWindow());
+	if(!soundManager->initialise())
+		printf("SoundManager no se ha iniciado \n");
 	Scene initial = Scene(&sceneManager, this);
 	sceneManager.pushScene(initial);
 
@@ -44,6 +49,7 @@ void Game::run()
 	clock_t lastTicks = clock();
 	clock_t elapsedTicks = 0;
 	double deltaTime;/*in seconds*/
+	Sound_c * sonido = new Sound_c(soundManager);
 	while (!exit)
 	{
 		//getting the time passed since last frame
@@ -51,6 +57,9 @@ void Game::run()
 		lastTicks = clock();
 		{/////////////MANAGERS UPDATE/////////////
 			inputManager->capture();
+			if (inputManager->getKeyboard()->isKeyDown(OIS::KeyCode::KC_A)) {
+				sonido->playSound();
+			}
 			physicsManager.stepUp(deltaTime);
 			sceneManager.tick();
 			graphicsManager.renderFrame();
@@ -66,6 +75,11 @@ SceneManager const & Game::getSceneManager()		//const
 InputManager * Game::getInputManager()
 {
 	return inputManager;
+}
+
+SoundManager * Game::getSoundManager()
+{
+	return soundManager;
 }
 
 GraphicsManager  & Game::getGraphicsManager()

@@ -50,5 +50,7 @@ private:
 	irrklang::ISound * _sound;
 	SoundManager * soundManager;
 	irrklang::vec3df _position;
+	 std::string _filename;
+	 bool _loop;
 };
 #endif

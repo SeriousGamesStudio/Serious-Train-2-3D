@@ -2,9 +2,11 @@
 
 Sound_c::Sound_c(SoundManager * soundManager_, const std::string & file, const irrklang::vec3df & position, const bool & loop)
 {
+	_sound = nullptr;
 	soundManager = soundManager_;
 	setSoundPosition(position);
-	setFile(file, loop);
+	_loop = loop;
+	setFile(file, _loop);
 }
 
 Sound_c::~Sound_c()
@@ -19,7 +21,8 @@ void Sound_c::setFile(const std::string & file, const bool & loop)
 	if (_sound) {
 		_sound->drop();
 	}
-	_sound = soundManager->getSound(file, _position, loop);
+	_filename = file;
+	_sound = soundManager->getSound(_filename, _position, loop);
 }
 
 bool Sound_c::isPlaying(void)
@@ -45,30 +48,37 @@ bool Sound_c::isFinished(void)
 
 void Sound_c::restartSound(void)
 {
-	_sound->setPlayPosition(0);
-
+	_sound->setPlayPosition(irrklang::ik_u32(0));
 }
 
 void Sound_c::stopSound(void)
 {
-	pauseSound();
-	restartSound();
+	_sound->stop();
 }
 
 void Sound_c::playSound(void)
 {
-	_sound->setIsPaused(true);
+	if (_sound) {
+		if (isPlaying()) 
+			restartSound();
+		if (isFinished())
+			setFile(_filename, _loop);
+
+		_sound->setIsPaused(false);
+	}
 }
 
 void Sound_c::pauseSound(void)
 {
-	_sound->setIsPaused(true);
+	if (_sound)
+		_sound->setIsPaused(true);
 }
 
 void Sound_c::setPlay(const bool & play)
 {
-	_sound->setIsPaused(!play);
-
+	if (_sound) {
+		_sound->setIsPaused(!play);
+	}
 }
 
 void Sound_c::setLoop(const bool & loop)

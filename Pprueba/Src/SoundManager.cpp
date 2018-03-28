@@ -13,7 +13,8 @@ SoundManager::~SoundManager()
 
 bool SoundManager::initialise(void)
 {
-	if (engine = createIrrKlangDevice())
+	engine = createIrrKlangDevice();
+	if (engine)
 		initialised = true;
 	return initialised;
 }

@@ -6,6 +6,7 @@
 #include "DataManager.h"
 #include "GraphicsManager.h"
 #include "PhysicsManager.h"
+#include "SoundManager.h"
 
 #include <iostream>
 
@@ -21,6 +22,7 @@ public:
 
 	SceneManager const&getSceneManager();	
 	InputManager * getInputManager() ;
+	SoundManager * getSoundManager();
 	GraphicsManager  &getGraphicsManager();
 	DataManager const& getDataManager() const;
 	PhysicsManager & getPhysicsManager();
@@ -33,6 +35,7 @@ private:
 	bool exit;
 	SceneManager sceneManager;
 	InputManager * inputManager;
+	SoundManager * soundManager;
 	GraphicsManager graphicsManager;
 	PhysicsManager physicsManager;
 	DataManager dataManager;
