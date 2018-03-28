@@ -27,6 +27,7 @@
     <ClInclude Include="..\..\Src\Notifications.h" />
     <ClInclude Include="..\..\Src\PhysicsManager.h" />
     <ClInclude Include="..\..\Src\Scene.h" />
+    <ClInclude Include="..\..\Src\Sound.h" />
     <ClInclude Include="..\..\Src\SoundManager.h" />
     <ClInclude Include="..\..\Src\Transform_c.h" />
   </ItemGroup>
@@ -46,6 +47,7 @@
     <ClCompile Include="..\..\Src\main.cpp" />
     <ClCompile Include="..\..\Src\PhysicsManager.cpp" />
     <ClCompile Include="..\..\Src\Scene.cpp" />
+    <ClCompile Include="..\..\Src\Sound.cpp" />
     <ClCompile Include="..\..\Src\SoundManager.cpp" />
     <ClCompile Include="..\..\Src\Transform_c.cpp" />
   </ItemGroup>

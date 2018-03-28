@@ -49,7 +49,10 @@
       <Filter>Components\Input</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Components.h" />
-    <ClInclude Include="..\..\Src\SoundManager.h" />
+    <ClInclude Include="..\..\Src\SoundManager.h">
+      <Filter>Kernel\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Sound.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\DataManager.cpp">
@@ -99,7 +102,12 @@
     <ClCompile Include="..\..\Src\PlayerController.cpp">
       <Filter>Components\Input</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Src\SoundManager.cpp" />
+    <ClCompile Include="..\..\Src\SoundManager.cpp">
+      <Filter>Kernel\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Sound.cpp">
+      <Filter>Kernel</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Kernel">

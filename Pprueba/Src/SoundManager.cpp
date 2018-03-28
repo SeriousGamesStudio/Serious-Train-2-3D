@@ -26,9 +26,9 @@ void SoundManager::setListenerPosition(const Ogre::Vector3 &position, const Ogre
 	engine->setListenerPosition(pos, look);
 }
 
-irrklang::ISound * SoundManager::getSound(const std::string & filename)
+irrklang::ISound * SoundManager::getSound(const std::string & filename, const irrklang::vec3df & position, const bool & loop)
 {
 	std::string file = "../Media/Sounds/" + filename;
 
-	return engine->play3D(file.c_str(),vec3df(0,0,0),false,true);
+	return engine->play3D(file.c_str(),position,loop,true);
 }
