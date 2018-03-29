@@ -18,6 +18,10 @@ public:
 	Ogre::SceneNode* createNewNode(std::string meshName);
 
 	Ogre::RenderWindow* getWindow() const ;
+
+	inline Ogre::Camera* getCamera() { return cam; }
+	inline Ogre::Viewport* getViewport() { return vp; }
+	inline Ogre::Light* getLight() { return light; }
 private:
 	Game* game;
 	//OGRE

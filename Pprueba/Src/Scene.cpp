@@ -7,6 +7,7 @@
 
 #include "btBulletCollisionCommon.h"
 #include "PlayerController.h"
+#include "CameraController_c.h"
 Scene::Scene(SceneManager * sceneManager_, Game * game) :
 	sceneManager(sceneManager_), isSendingMessages(false), game_(game)
 {
@@ -16,6 +17,14 @@ Scene::Scene(SceneManager * sceneManager_, Game * game) :
 
 	robot->addComponent(new MeshRenderer_c(robot, &game_->getGraphicsManager(), "fish.mesh")); //pruebas
 	robot->addComponent(new PlayerController_c(robot, game_->getInputManager())); //pruebas
+
+	//CAMARA DE PRUEBA
+	Entity* camara = new Entity(this, 2, "Camara");
+	entities.push_back(camara);
+
+	camara->addComponent(new CameraController_c(camara, game_->getInputManager(), &game_->getGraphicsManager())); // pruebas
+
+
 	{//Add rigidBody
 		btCollisionShape* fallShape = new btSphereShape(1);
 		btDefaultMotionState* fallMotionState =
