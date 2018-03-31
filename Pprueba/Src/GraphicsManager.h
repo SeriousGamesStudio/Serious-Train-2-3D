@@ -4,7 +4,8 @@
 
 #include "Ogre.h"
 #include "MeshRenderer_c.h"
-
+#include "OgreOverlaySystem.h"
+#include <OgreOverlayManager.h>
 
 class Game;
 
@@ -34,6 +35,9 @@ private:
 	Ogre::Camera * cam;
 	Ogre::Viewport * vp;
 	Ogre::Light *light;
+
+	Ogre::OverlaySystem * overlaySystem;
+	Ogre::OverlayManager* overlayManager;
 
 	//PLANO
 	

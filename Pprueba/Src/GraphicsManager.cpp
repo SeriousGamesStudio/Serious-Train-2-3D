@@ -1,6 +1,9 @@
 #include "GraphicsManager.h"
 #include "Game.h"
-
+#include <OgreOverlayContainer.h>
+#include <OgreOverlay.h>
+#include <OgreFontManager.h>
+#include <OgreTextAreaOverlayElement.h>
 
 GraphicsManager::GraphicsManager(Game* game_) :
 	root(0),
@@ -28,6 +31,8 @@ bool GraphicsManager::start()
 
 	root = new Ogre::Root(mPluginsCfg);
 
+	overlaySystem = new Ogre::OverlaySystem();
+	overlayManager = Ogre::OverlayManager::getSingletonPtr();
 	//Rutas de recursos y plugins
 
 
@@ -90,11 +95,39 @@ bool GraphicsManager::start()
 
 	//we generate the default sceneManager. (more SceneManagers in Ogre::ST_....)
 	scnMgr = root->createSceneManager(Ogre::ST_GENERIC);
+	scnMgr->addRenderQueueListener(overlaySystem);
+	//panel->setMaterialName("MaterialName"); // Optional background material
+
+	Ogre::TextAreaOverlayElement* textArea = static_cast<Ogre::TextAreaOverlayElement*>(
+		overlayManager->createOverlayElement("TextArea", "TextAreaName"));
+	textArea->setMetricsMode(Ogre::GMM_PIXELS);
+	textArea->setPosition(50, 50);
+	//textArea->setDimensions(100, 100);
+	textArea->setCaption("Hello, World!");
+	textArea->setCharHeight(16);
+	textArea->setFontName("SdkTrays/Value");
+	textArea->setColourBottom(Ogre::ColourValue(0.3, 0.5, 0.3));
+	textArea->setColourTop(Ogre::ColourValue(0.5, 0.7, 0.5));
+
+	// Create a text area
+	Ogre::Overlay* overlay = overlayManager->create("OverlayName");
+
+	// Create a panel
+	Ogre::OverlayContainer* panel = static_cast<Ogre::OverlayContainer*>(overlayManager->createOverlayElement("Panel", "PanelName"));
+	panel->setPosition(0.5, 0.5);
+	panel->setDimensions(0.1, 0.1);
+	panel->setMaterial(Ogre::MaterialManager::getSingletonPtr()->getByName("SdkTrays/Logo"));
+	// Add the panel to the overlay
+	panel->addChild(textArea);
+	overlay->add2D(panel);
+	
+
+	// Show the overlay
+	overlay->show();
+
 
 	//------------------------------------------------------------------------------------------------------
 	//Camera Creation
-
-	//Self-explanatory methods
 	cam = scnMgr->createCamera("MainCam");
 	cam->setPosition(0, 0, 80);
 	cam->lookAt(0, 0, -300);
