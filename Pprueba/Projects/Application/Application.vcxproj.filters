@@ -53,6 +53,9 @@
       <Filter>Kernel\Managers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Sound.h" />
+    <ClInclude Include="..\..\Src\BetaGUI.h">
+      <Filter>Kernel</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\DataManager.cpp">
@@ -106,6 +109,9 @@
       <Filter>Kernel\Managers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\Sound.cpp">
+      <Filter>Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\BetaGUI.cpp">
       <Filter>Kernel</Filter>
     </ClCompile>
   </ItemGroup>

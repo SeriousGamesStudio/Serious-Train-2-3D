@@ -98,34 +98,6 @@ bool GraphicsManager::start()
 	scnMgr->addRenderQueueListener(overlaySystem);
 	//panel->setMaterialName("MaterialName"); // Optional background material
 
-	Ogre::TextAreaOverlayElement* textArea = static_cast<Ogre::TextAreaOverlayElement*>(
-		overlayManager->createOverlayElement("TextArea", "TextAreaName"));
-	textArea->setMetricsMode(Ogre::GMM_PIXELS);
-	textArea->setPosition(50, 50);
-	//textArea->setDimensions(100, 100);
-	textArea->setCaption("Hello, World!");
-	textArea->setCharHeight(16);
-	textArea->setFontName("SdkTrays/Value");
-	textArea->setColourBottom(Ogre::ColourValue(0.3, 0.5, 0.3));
-	textArea->setColourTop(Ogre::ColourValue(0.5, 0.7, 0.5));
-
-	// Create a text area
-	Ogre::Overlay* overlay = overlayManager->create("OverlayName");
-
-	// Create a panel
-	Ogre::OverlayContainer* panel = static_cast<Ogre::OverlayContainer*>(overlayManager->createOverlayElement("Panel", "PanelName"));
-	panel->setPosition(0.5, 0.5);
-	panel->setDimensions(0.1, 0.1);
-	panel->setMaterial(Ogre::MaterialManager::getSingletonPtr()->getByName("SdkTrays/Logo"));
-	// Add the panel to the overlay
-	panel->addChild(textArea);
-	overlay->add2D(panel);
-	
-
-	// Show the overlay
-	overlay->show();
-
-
 	//------------------------------------------------------------------------------------------------------
 	//Camera Creation
 	cam = scnMgr->createCamera("MainCam");
