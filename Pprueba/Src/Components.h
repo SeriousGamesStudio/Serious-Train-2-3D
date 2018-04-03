@@ -8,6 +8,8 @@ enum class ComponentType
 	COLLIDER,
 	MESHRENDERER,
 	PLAYERCONTROLLER,
+	CAMERACONTROLLER,
+	CAMERA,
 
 };
 
@@ -18,7 +20,8 @@ enum class ComponentType
 
 #include "MeshRenderer_c.h"
 
+#include "Camera_c.h"
 #include "PlayerController.h"
-
+#include "CameraController_c.h"
 #endif //!_H_COMPONENTS_H_
 

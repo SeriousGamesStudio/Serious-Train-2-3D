@@ -1,14 +1,18 @@
 #include "CameraController_c.h"
 #include "Entity.h"
-#include "RigidBody_c.h"
 #include "Components.h"
+#include "Camera_c.h"
 
-CameraController_c::CameraController_c(Entity * entity, InputManager * inputManager, GraphicsManager* graphicsManager):
-	Component(entity, ComponentType::PLAYERCONTROLLER), inputManager_(inputManager), graphicsManager_(graphicsManager)
+#define W 17
+#define S 31
+#define A 30
+#define D 32
+
+CameraController_c::CameraController_c(Entity * entity, InputManager * inputManager) :
+	Component(entity, ComponentType::CAMERACONTROLLER), inputManager_(inputManager)
 {
 	inputManager->addMouseListener(this, "ratonCamara");
 	inputManager->addKeyListener(this, "teclaCamara");
-	foreward = left = right = backward = false;
 }
 
 CameraController_c::~CameraController_c()
@@ -22,17 +26,17 @@ bool CameraController_c::keyPressed(const OIS::KeyEvent & arg)
 
 	switch (arg.key)
 	{
-	case 17:
-		foreward = true;		
+	case W:
+		sendMsg(new Msg::CameraMove(_myEntity->getId(), Msg_Base::self,Msg::CameraMove::Move::FOREWARD));
 		break;
-	case 31:
-		backward = true;
+	case S:
+		sendMsg(new Msg::CameraMove(_myEntity->getId(), Msg_Base::self, Msg::CameraMove::Move::BACKWARD));
 		break;
-	case 30:
-		left = true;
+	case A:
+		sendMsg(new Msg::CameraMove(_myEntity->getId(), Msg_Base::self, Msg::CameraMove::Move::LEFT));
 		break;
-	case 32:
-		right = true;
+	case D:
+		sendMsg(new Msg::CameraMove(_myEntity->getId(), Msg_Base::self, Msg::CameraMove::Move::RIGHT));
 		break;
 	default:
 		break;
@@ -45,17 +49,17 @@ bool CameraController_c::keyReleased(const OIS::KeyEvent & arg)
 {
 	switch (arg.key)
 	{
-	case 17:
-		foreward = false;		
+	case W:
+		sendMsg(new Msg::CameraStop(_myEntity->getId(), Msg_Base::self, Msg::CameraStop::Move::FOREWARD));
 		break;
-	case 31:
-		backward = false;
+	case S:
+		sendMsg(new Msg::CameraStop(_myEntity->getId(), Msg_Base::self, Msg::CameraStop::Move::BACKWARD));
 		break;
-	case 30:
-		left = false;
+	case A:
+		sendMsg(new Msg::CameraStop(_myEntity->getId(), Msg_Base::self, Msg::CameraStop::Move::LEFT));
 		break;
-	case 32:
-		right = false;
+	case D:
+		sendMsg(new Msg::CameraStop(_myEntity->getId(), Msg_Base::self, Msg::CameraStop::Move::RIGHT));
 		break;
 	default:
 		break;
@@ -65,10 +69,10 @@ bool CameraController_c::keyReleased(const OIS::KeyEvent & arg)
 
 bool CameraController_c::mouseMoved(const OIS::MouseEvent & arg)
 {
-	//graphicsManager_->getCamera()->setPosition(arg.state.X.abs / 100, - arg.state.Y.abs / 100, graphicsManager_->getCamera()->getPosition().z);
-
-
-
+	//cam->getCamera()->rotate(cam->getCamera()->getPosition().getRotationTo(Ogre::Vector3(0,0,0)));
+	//cam->getCamera()->setOrientation(Ogre::Quaternion::IDENTITY);
+	
+	
 	return false;
 }
 
@@ -82,23 +86,4 @@ bool CameraController_c::mouseReleased(const OIS::MouseEvent & arg, OIS::MouseBu
 	return false;
 }
 
-void CameraController_c::update()
-{
-	if (foreward) {
-		graphicsManager_->getCamera()->setPosition(graphicsManager_->getCamera()->getPosition().x, graphicsManager_->getCamera()->getPosition().y,
-			graphicsManager_->getCamera()->getPosition().z - 1);
-	}
-	 if (backward) {
-		graphicsManager_->getCamera()->setPosition(graphicsManager_->getCamera()->getPosition().x, graphicsManager_->getCamera()->getPosition().y,
-			graphicsManager_->getCamera()->getPosition().z + 1);
-	}
-	if (left) {
-		graphicsManager_->getCamera()->setPosition(graphicsManager_->getCamera()->getPosition().x - 1, graphicsManager_->getCamera()->getPosition().y,
-			graphicsManager_->getCamera()->getPosition().z);
-	}
-	if (right) {
-		graphicsManager_->getCamera()->setPosition(graphicsManager_->getCamera()->getPosition().x + 1, graphicsManager_->getCamera()->getPosition().y,
-			graphicsManager_->getCamera()->getPosition().z);
-	}
 
-}

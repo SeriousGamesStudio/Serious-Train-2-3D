@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Src\Camera_c.h" />
     <ClInclude Include="..\..\Src\CameraController_c.h" />
     <ClInclude Include="..\..\Src\Collider_c.h" />
     <ClInclude Include="..\..\Src\Component.h" />
@@ -33,6 +34,7 @@
     <ClInclude Include="..\..\Src\Transform_c.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Src\Camera_c.cpp" />
     <ClCompile Include="..\..\Src\CameraController_c.cpp" />
     <ClCompile Include="..\..\Src\Collider_c.cpp" />
     <ClCompile Include="..\..\Src\Component.cpp" />

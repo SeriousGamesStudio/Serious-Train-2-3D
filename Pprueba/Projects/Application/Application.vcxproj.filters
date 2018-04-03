@@ -53,7 +53,12 @@
       <Filter>Kernel\Managers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Sound.h" />
-    <ClInclude Include="..\..\Src\CameraController_c.h" />
+    <ClInclude Include="..\..\Src\Camera_c.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\CameraController_c.h">
+      <Filter>Components\Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\DataManager.cpp">
@@ -109,7 +114,12 @@
     <ClCompile Include="..\..\Src\Sound.cpp">
       <Filter>Kernel</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Src\CameraController_c.cpp" />
+    <ClCompile Include="..\..\Src\Camera_c.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\CameraController_c.cpp">
+      <Filter>Components\Input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Kernel">

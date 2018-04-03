@@ -6,6 +6,7 @@
 #include "MeshRenderer_c.h"
 
 
+class Camera_c;
 class Game;
 
 class GraphicsManager
@@ -17,11 +18,14 @@ public:
 	void renderFrame();
 	Ogre::SceneNode* createNewNode(std::string meshName);
 
-	Ogre::RenderWindow* getWindow() const ;
 
-	inline Ogre::Camera* getCamera() { return cam; }
-	inline Ogre::Viewport* getViewport() { return vp; }
+	
+	
+	inline Ogre::RenderWindow* getWindow() const ;
 	inline Ogre::Light* getLight() { return light; }
+	inline Ogre::SceneManager* getSceneManager() { return scnMgr; }
+	
+	
 private:
 	Game* game;
 	//OGRE
@@ -35,8 +39,9 @@ private:
 	Ogre::ConfigFile cf;
 
 	Ogre::RenderWindow* mWindow;
-	Ogre::Camera * cam;
-	Ogre::Viewport * vp;
+	
+	Camera_c* cam;
+	
 	Ogre::Light *light;
 
 	//PLANO
