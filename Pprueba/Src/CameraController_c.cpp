@@ -7,6 +7,7 @@
 #define S 31
 #define A 30
 #define D 32
+#define MOUSE_SENSIBILITY 1000.f
 
 CameraController_c::CameraController_c(Entity * entity, InputManager * inputManager) :
 	Component(entity, ComponentType::CAMERACONTROLLER), inputManager_(inputManager)
@@ -26,7 +27,7 @@ bool CameraController_c::keyPressed(const OIS::KeyEvent & arg)
 
 	switch (arg.key)
 	{
-	case W:
+	case OIS::KeyCode::KC_W:
 		sendMsg(new Msg::CameraMove(_myEntity->getId(), Msg_Base::self,Msg::CameraMove::Move::FOREWARD));
 		break;
 	case S:
@@ -69,21 +70,19 @@ bool CameraController_c::keyReleased(const OIS::KeyEvent & arg)
 
 bool CameraController_c::mouseMoved(const OIS::MouseEvent & arg)
 {
-	//cam->getCamera()->rotate(cam->getCamera()->getPosition().getRotationTo(Ogre::Vector3(0,0,0)));
-	//cam->getCamera()->setOrientation(Ogre::Quaternion::IDENTITY);
 	
-	
-	return false;
+	sendMsg(new Msg::CameraOrientate(_myEntity->getId(), Msg_Base::self, (float)arg.state.X.rel/ MOUSE_SENSIBILITY, (float) arg.state.Y.rel /MOUSE_SENSIBILITY));
+	return true;
 }
 
 bool CameraController_c::mousePressed(const OIS::MouseEvent & arg, OIS::MouseButtonID id)
 {
-	return false;
+	return true;
 }
 
 bool CameraController_c::mouseReleased(const OIS::MouseEvent & arg, OIS::MouseButtonID id)
 {
-	return false;
+	return true;
 }
 
 

@@ -1,21 +1,13 @@
 #include "Camera_c.h"
+#include "GraphicsManager.h"
+#include "Components.h"
+#include <iostream>
 
 Camera_c::Camera_c(Entity * entity, GraphicsManager * graphicsManager): 
-	Component(Component(entity,ComponentType::CAMERA))
+	Component(entity,ComponentType::CAMERA)
 {
-	camNode_ = graphicsManager_->createNewNode(NULL);
-	cam = graphicsManager_->getSceneManager()->createCamera("MainCam");
-	cam->setPosition(0, 0, 80);
-	cam->lookAt(0, 0, -300);
-	cam->setNearClipDistance(5);
-
-	//ViewPort Addition
-	vp = graphicsManager_->getWindow()->addViewport(cam);
-	vp->setBackgroundColour(Ogre::ColourValue(0, 0, 0));
-
-	cam->setAspectRatio(
-		Ogre::Real(vp->getActualWidth()) /
-		Ogre::Real(vp->getActualHeight()));
+	graphicsManager_ = graphicsManager;
+	//camNode_ = graphicsManager_->createNewNode(NULL);
 	foreward = left = right = backward = false;
 
 }
@@ -28,29 +20,31 @@ Camera_c::~Camera_c()
 void Camera_c::update()
 {
 	if (foreward) {
-		cam->setPosition(cam->getPosition().x, cam->getPosition().y,
-			cam->getPosition().z - 1);
+		graphicsManager_->getCamera()->setPosition(graphicsManager_->getCamera()->getPosition().x, graphicsManager_->getCamera()->getPosition().y,
+			graphicsManager_->getCamera()->getPosition().z - 1);
 	}
 	if (backward) {
-		cam->setPosition(cam->getPosition().x, cam->getPosition().y,
-			cam->getPosition().z + 1);
+		graphicsManager_->getCamera()->setPosition(graphicsManager_->getCamera()->getPosition().x, graphicsManager_->getCamera()->getPosition().y,
+			graphicsManager_->getCamera()->getPosition().z + 1);
 	}
 	if (left) {
-		cam->setPosition(cam->getPosition().x - 1, cam->getPosition().y,
-			cam->getPosition().z);
+		graphicsManager_->getCamera()->setPosition(graphicsManager_->getCamera()->getPosition().x - 1, graphicsManager_->getCamera()->getPosition().y,
+			graphicsManager_->getCamera()->getPosition().z);
 	}
 	if (right) {
-		cam->setPosition(cam->getPosition().x + 1, cam->getPosition().y,
-			cam->getPosition().z);
+		graphicsManager_->getCamera()->setPosition(graphicsManager_->getCamera()->getPosition().x + 1, graphicsManager_->getCamera()->getPosition().y,
+			graphicsManager_->getCamera()->getPosition().z);
 	}
 }
 
 void Camera_c::listen(Msg_Base * msg)
 {
 	Msg::CameraMove * p = static_cast<Msg::CameraMove*>(msg);
+	Msg::CameraOrientate * o = static_cast<Msg::CameraOrientate*>(msg);
 	switch (msg->id)		//tipo de mensaje
-	{
+	{		
 	case MsgId::CAMERA_MOVED: 
+		std::cout << "¡tsuu";
 		switch (p->info)		//info del tipo del mensaje
 		{
 		case Msg::CameraMove::Move::FOREWARD:
@@ -68,8 +62,10 @@ void Camera_c::listen(Msg_Base * msg)
 		default:
 			break;
 		}
+		break;
 	case MsgId::CAMERA_STOPPED:
-//		Msg::CameraMove * p = static_cast<Msg::CameraMove*>(msg);
+		std::cout << "¡tsuu2";
+
 		switch (p->info)		//info del tipo del mensaje
 		{
 		case Msg::CameraMove::Move::FOREWARD:
@@ -88,8 +84,12 @@ void Camera_c::listen(Msg_Base * msg)
 			break;
 		}
 		break;
+	case MsgId::CAMERA_ORIENTATE:
+		graphicsManager_->getCamera()->yaw((Ogre::Radian)o->degreesX);
+		graphicsManager_->getCamera()->pitch((Ogre::Radian)o->degreesY);
+		break;
 	default:
 		break;
 	}
-
+	
 }

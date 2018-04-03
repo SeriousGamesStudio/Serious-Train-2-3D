@@ -5,7 +5,7 @@ using EntityId = unsigned int;
 
 enum class MsgId : unsigned int
 {
-	EXIT, CHANGED_POSITION, CAMERA_MOVED, CAMERA_STOPPED
+	EXIT, CHANGED_POSITION, CAMERA_MOVED, CAMERA_STOPPED, CAMERA_ORIENTATE
 };
 
 struct Msg_Base
@@ -77,6 +77,18 @@ namespace Msg
 		~CameraStop() {};
 
 		Move info;
+	};
+	struct CameraOrientate :
+		public Msg_Base
+	{
+	public:
+
+		CameraOrientate(EntityId sender, EntityId reciver, float x, float y):
+			Msg_Base(MsgId::CAMERA_ORIENTATE, sender, reciver), degreesX(x), degreesY(-y)
+		{};
+		~CameraOrientate() {};
+
+		float degreesX, degreesY;
 	};
 }; 
 #endif //!_H_NOTIFICATIONS_H_

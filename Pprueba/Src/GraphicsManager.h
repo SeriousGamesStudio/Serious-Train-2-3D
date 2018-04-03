@@ -3,10 +3,7 @@
 
 
 #include "Ogre.h"
-#include "MeshRenderer_c.h"
 
-
-class Camera_c;
 class Game;
 
 class GraphicsManager
@@ -21,9 +18,10 @@ public:
 
 	
 	
-	inline Ogre::RenderWindow* getWindow() const ;
-	inline Ogre::Light* getLight() { return light; }
-	inline Ogre::SceneManager* getSceneManager() { return scnMgr; }
+	 Ogre::RenderWindow* getWindow() const ;
+	 Ogre::Light* getLight() { return light; }
+	 Ogre::SceneManager* getSceneManager() { return scnMgr; }
+	 Ogre::Camera* getCamera() { return cam; }
 	
 	
 private:
@@ -39,8 +37,8 @@ private:
 	Ogre::ConfigFile cf;
 
 	Ogre::RenderWindow* mWindow;
-	
-	Camera_c* cam;
+	Ogre::Camera * cam;
+	Ogre::Viewport * vp;
 	
 	Ogre::Light *light;
 
