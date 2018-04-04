@@ -11,15 +11,19 @@ class Game;
 class GraphicsManager
 {
 public:
-	GraphicsManager(Game* game);
 	~GraphicsManager();
 	bool start();
 	void renderFrame();
 	Ogre::SceneNode* createNewNode(std::string meshName);
 
 	Ogre::RenderWindow* getWindow() const ;
+
+	static GraphicsManager* getInstance();
 private:
+	GraphicsManager();
 	Game* game;
+
+	static GraphicsManager* instance;
 	//OGRE
 
 	Ogre::Root* root;

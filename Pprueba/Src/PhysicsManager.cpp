@@ -1,9 +1,14 @@
 #include "PhysicsManager.h"
 #include "Game.h"
 
-PhysicsManager::PhysicsManager(Game* game) :
-	_game(game)
-{
+
+PhysicsManager* PhysicsManager::instance = nullptr;
+
+PhysicsManager::PhysicsManager()
+{}
+
+void PhysicsManager::init() {
+	_game = Game::getInstance();
 	//build the broadPhase
 	broadPhase = new btDbvtBroadphase();
 
@@ -18,7 +23,6 @@ PhysicsManager::PhysicsManager(Game* game) :
 	world = new btDiscreteDynamicsWorld(dispatcher, broadPhase, solver, collisionConfiguration);
 	world->setGravity(btVector3(0, -10, 0));
 }
-
 PhysicsManager::~PhysicsManager()
 {
 	delete solver;
@@ -26,6 +30,16 @@ PhysicsManager::~PhysicsManager()
 	delete collisionConfiguration;
 	delete broadPhase;
 	delete world;
+	instance = nullptr;
+}
+
+PhysicsManager * PhysicsManager::getInstance()
+{
+	if (!instance) {
+		instance = new PhysicsManager();
+		instance->init();
+	}
+	return instance;
 }
 
 void PhysicsManager::stepUp(double deltaTime/*seconds*/)

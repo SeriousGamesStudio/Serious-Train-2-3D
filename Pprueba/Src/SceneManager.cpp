@@ -1,12 +1,10 @@
 #include "SceneManager.h"
 #include "Game.h"
 
+SceneManager* SceneManager::instance = nullptr;
 
-SceneManager::SceneManager(Game* game_) :
-	game(game_)
-{
-	
-	
+SceneManager::SceneManager()
+{	
 }
 
 SceneManager::~SceneManager()
@@ -16,6 +14,15 @@ SceneManager::~SceneManager()
 		delete scenes.top();
 		scenes.pop();
 	}
+	instance = nullptr;
+}
+
+SceneManager * SceneManager::getInstance()
+{
+	if (!instance) {
+		instance = new SceneManager();
+	}
+	return instance;
 }
 
 void SceneManager::tick()

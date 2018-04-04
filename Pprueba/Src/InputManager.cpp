@@ -1,12 +1,13 @@
 #include "InputManager.h"
 #include "TrashCollector.h"
 
-InputManager *InputManager::mInputManager;
+InputManager *InputManager::mInputManager = nullptr;
 
 InputManager::InputManager(void) :
 	mMouse(0),
 	mKeyboard(0),
-	mInputSystem(0) {
+	mInputSystem(0) 
+{
 }
 
 InputManager::~InputManager(void) {
@@ -279,7 +280,7 @@ bool InputManager::mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id
 }
 
 
-InputManager* InputManager::getSingletonPtr(void) {
+InputManager* InputManager::getInstance(void) {
 	if (!mInputManager) {
 		mInputManager = new InputManager();
 	}

@@ -14,21 +14,15 @@
 class Game
 {
 public:
-	Game();
+	static Game* getInstance();
 	~Game();
-
+	
 	bool start();
 	bool stop();
 
-	SceneManager const&getSceneManager();	
-	InputManager * getInputManager() ;
-	SoundManager * getSoundManager();
-	GraphicsManager  &getGraphicsManager();
-	DataManager const& getDataManager() const;
-	PhysicsManager & getPhysicsManager();
-
-
 private:
+	Game();
+	static Game* instance;
 	void run();
 
 private:

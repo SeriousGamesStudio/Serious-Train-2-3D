@@ -7,9 +7,8 @@ class Game;
 class SceneManager
 {
 public:
-	SceneManager(Game* game_);
 	virtual ~SceneManager();
-
+	static SceneManager* getInstance();
 	void tick();
 	inline Game* getGame() { return game; }
 	Scene* currentScene();
@@ -17,6 +16,8 @@ public:
 	void popScene();
 	void changeScene(Scene* newScene);
 private:
+	SceneManager();
+	static SceneManager* instance;
 	Game * game;
 	std::stack<Scene*> scenes;
 };

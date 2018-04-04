@@ -2,10 +2,12 @@
 #include "Game.h"
 #include "TrashCollector.h"
 
-GraphicsManager::GraphicsManager(Game* game_) :
+GraphicsManager* GraphicsManager::instance = nullptr;
+
+GraphicsManager::GraphicsManager() :
 	root(0),
 	mResourcesCfg(Ogre::StringUtil::BLANK),
-	mPluginsCfg(Ogre::StringUtil::BLANK), game(game_)
+	mPluginsCfg(Ogre::StringUtil::BLANK)
 {
 
 }
@@ -13,7 +15,7 @@ GraphicsManager::GraphicsManager(Game* game_) :
 GraphicsManager::~GraphicsManager()
 {
 	delete root;
-
+	instance = nullptr;
 }
 
 bool GraphicsManager::start()
@@ -28,6 +30,7 @@ bool GraphicsManager::start()
 #endif
 
 	root = new Ogre::Root(mPluginsCfg);
+	game = Game::getInstance();
 
 	//Rutas de recursos y plugins
 
@@ -125,6 +128,15 @@ bool GraphicsManager::start()
 
 Ogre::RenderWindow*  GraphicsManager::getWindow() const {
 	return mWindow;
+}
+
+GraphicsManager * GraphicsManager::getInstance()
+{
+	if (!instance) {
+		instance = new GraphicsManager();
+		instance->start();
+	}
+	return instance;
 }
 
 void GraphicsManager::renderFrame()

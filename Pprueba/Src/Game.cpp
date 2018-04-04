@@ -5,38 +5,50 @@
 #pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
 #include "TrashCollector.h"
 
+Game* Game::instance = nullptr;
+
 Game::Game() :
 	dataManager(this)
 {
 }
 
 
+Game * Game::getInstance()
+{
+	if (!instance) {
+		instance = new Game();
+		instance->start();
+	}
+	return instance;
+}
+
 //TODO: destructor not implemented
+//free resources calling resources' freeing functions of each manager
 Game::~Game()
 {
+	//¿Como son singletons hay uqe llamar a las destructuras o 
+	// se eleminan automaáticamente cuando salen de scope?
 	delete soundManager;
 	delete graphicsManager;
 	delete sceneManager;
 	delete physicsManager;
 	delete inputManager;
-	//free resources calling resources' freeing functions of each manager
+	instance = nullptr;
 }
 
 bool Game::start()
 {
-
 	exit = false;
 
-	graphicsManager = new GraphicsManager(this);
-	graphicsManager->start();
+	graphicsManager = GraphicsManager::getInstance();
 
-	soundManager = new SoundManager();
+	soundManager = SoundManager::getInstance();
 
-	physicsManager = new PhysicsManager(this);
+	physicsManager = PhysicsManager::getInstance();
 
-	sceneManager = new SceneManager(this);
+	sceneManager = SceneManager::getInstance();
 
-	inputManager = InputManager::getSingletonPtr();
+	inputManager = InputManager::getInstance();
 	inputManager->initialise(graphicsManager->getWindow());
 
 	if(!soundManager->initialise())
@@ -73,32 +85,3 @@ void Game::run()
 		elapsedTicks = clock() - lastTicks;
 	}
 }
-SceneManager const & Game::getSceneManager()		//const
-{
-	return *sceneManager;
-}
-
-InputManager * Game::getInputManager()
-{
-	return inputManager;
-}
-
-SoundManager * Game::getSoundManager()
-{
-	return soundManager;
-}
-
-GraphicsManager  & Game::getGraphicsManager()
-{
-	return *graphicsManager;
-}
-
-DataManager const & Game::getDataManager() const
-{
-	return dataManager;
-}
-
-PhysicsManager & Game::getPhysicsManager() {
-	return *physicsManager;
-}
-
