@@ -1,34 +1,42 @@
 #include "SceneManager.h"
 #include "Game.h"
 
+SceneManager* SceneManager::instance = nullptr;
 
-SceneManager::SceneManager(Game* game_) :
-	game(game_)
-{
-	
-	
+SceneManager::SceneManager()
+{	
 }
 
 SceneManager::~SceneManager()
 {
 	while (!scenes.empty())
 	{
+		delete scenes.top();
 		scenes.pop();
 	}
+	instance = nullptr;
+}
+
+SceneManager * SceneManager::getInstance()
+{
+	if (!instance) {
+		instance = new SceneManager();
+	}
+	return instance;
 }
 
 void SceneManager::tick()
 {
 	if (!scenes.empty())
-		scenes.top().tick();
+		scenes.top()->tick();
 }
 
-Scene& SceneManager::currentScene()
+Scene* SceneManager::currentScene()
 {
 	return scenes.top();
 }
 
-void SceneManager::pushScene(Scene& newScene)
+void SceneManager::pushScene(Scene* newScene)
 {
 	scenes.push(newScene);
 }
@@ -39,7 +47,7 @@ void SceneManager::popScene()
 		scenes.pop();
 }
 
-void SceneManager::changeScene(Scene& newScene)
+void SceneManager::changeScene(Scene* newScene)
 {
 	if (!scenes.empty())
 		scenes.pop();

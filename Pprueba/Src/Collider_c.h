@@ -8,7 +8,7 @@ class Collider_c :
 	public Component
 {
 public:
-	Collider_c(Entity* entity, PhysicsManager* physicsManager, btCollisionShape* shape);
+	Collider_c(Entity* entity, btCollisionShape* shape);
 	virtual ~Collider_c();
 
 	inline btCollisionShape* get() { return _shape; };

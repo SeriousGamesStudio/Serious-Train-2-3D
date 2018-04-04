@@ -13,7 +13,7 @@ class PhysicsManager
 {
 public:
 	~PhysicsManager();
-	PhysicsManager(Game* game);
+	static PhysicsManager* getInstance();
 
 	void stepUp(double deltaTime);
 
@@ -21,7 +21,11 @@ public:
 	void removeRigidBody(btRigidBody* rb);
 
 private:
-	Game * _game;
+	PhysicsManager();
+	void init();
+	static PhysicsManager* instance;
+
+
 	btDiscreteDynamicsWorld* world;
 	btDefaultCollisionConfiguration* collisionConfiguration;
 	btCollisionDispatcher* dispatcher;

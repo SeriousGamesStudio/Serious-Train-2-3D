@@ -30,6 +30,7 @@
     <ClInclude Include="..\..\Src\Sound.h" />
     <ClInclude Include="..\..\Src\SoundManager.h" />
     <ClInclude Include="..\..\Src\Transform_c.h" />
+    <ClInclude Include="..\..\Src\TrashCollector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Collider_c.cpp" />

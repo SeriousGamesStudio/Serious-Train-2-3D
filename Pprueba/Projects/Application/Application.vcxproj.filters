@@ -52,7 +52,10 @@
     <ClInclude Include="..\..\Src\SoundManager.h">
       <Filter>Kernel\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\Sound.h" />
+    <ClInclude Include="..\..\Src\Sound.h">
+      <Filter>Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\TrashCollector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\DataManager.cpp">

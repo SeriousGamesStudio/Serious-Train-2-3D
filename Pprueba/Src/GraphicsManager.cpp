@@ -1,18 +1,21 @@
 #include "GraphicsManager.h"
 #include "Game.h"
+#include "TrashCollector.h"
 
+GraphicsManager* GraphicsManager::instance = nullptr;
 
-GraphicsManager::GraphicsManager(Game* game_) :
+GraphicsManager::GraphicsManager() :
 	root(0),
 	mResourcesCfg(Ogre::StringUtil::BLANK),
-	mPluginsCfg(Ogre::StringUtil::BLANK), game(game_)
+	mPluginsCfg(Ogre::StringUtil::BLANK)
 {
 
 }
 
 GraphicsManager::~GraphicsManager()
 {
-
+	delete root;
+	instance = nullptr;
 }
 
 bool GraphicsManager::start()
@@ -126,11 +129,20 @@ Ogre::RenderWindow*  GraphicsManager::getWindow() const {
 	return mWindow;
 }
 
+GraphicsManager * GraphicsManager::getInstance()
+{
+	if (!instance) {
+		instance = new GraphicsManager();
+		instance->start();
+	}
+	return instance;
+}
+
 void GraphicsManager::renderFrame()
 {
 	Ogre::WindowEventUtilities::messagePump();
 	if (mWindow->isClosed()) {
-		game->stop();
+		Game::getInstance()->stop();
 		return;
 	}
 	if (!root->renderOneFrame())return;

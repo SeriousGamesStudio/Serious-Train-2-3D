@@ -38,7 +38,7 @@ public:
 
 
 	
-	static InputManager* getSingletonPtr(void);
+	static InputManager* getInstance(void);
 private:
 	InputManager(void);
 	InputManager(const InputManager&) { }

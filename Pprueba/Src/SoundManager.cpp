@@ -1,14 +1,27 @@
 #include "SoundManager.h"
 using namespace irrklang;
+
+SoundManager* SoundManager::instance = nullptr;
+
 SoundManager::SoundManager()
 {
 	initialised = false;
 	engine = nullptr;
 }
 
+SoundManager * SoundManager::getInstance()
+{
+	if (!instance) {
+		instance = new SoundManager();
+		instance->initialise();
+	}
+	return instance;
+}
+
 SoundManager::~SoundManager()
 {
 	engine->drop();
+	instance = nullptr;
 }
 
 bool SoundManager::initialise(void)

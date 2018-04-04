@@ -3,22 +3,20 @@
 #include "Scene.h"
 #include <stack>
 
-class Game;
 class SceneManager
 {
 public:
-	SceneManager(Game* game_);
 	virtual ~SceneManager();
-
+	static SceneManager* getInstance();
 	void tick();
-	Game* getGame() { return game; }
-	Scene& currentScene();
-	void pushScene(Scene& newScene);
+	Scene* currentScene();
+	void pushScene(Scene* newScene);
 	void popScene();
-	void changeScene(Scene& newScene);
+	void changeScene(Scene* newScene);
 private:
-	Game * game;
-	std::stack<Scene> scenes;
+	SceneManager();
+	static SceneManager* instance;
+	std::stack<Scene*> scenes;
 };
 #endif //!_H_SCENEMANAGER_H_
 
