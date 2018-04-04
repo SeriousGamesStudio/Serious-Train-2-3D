@@ -4,7 +4,7 @@
 NON SOLUM: NEXT GENEREISION
 
 
-El ciudadano kane de los juegos de trenes con zombis tower defense
+El Dark Souls de los juegos de trenes con zombis tower defense
 
 ## Social Media
 - [Twitter](https://twitter.com/SeriousGamesStd)
