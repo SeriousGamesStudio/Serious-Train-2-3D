@@ -3,14 +3,12 @@
 #include "Scene.h"
 #include <stack>
 
-class Game;
 class SceneManager
 {
 public:
 	virtual ~SceneManager();
 	static SceneManager* getInstance();
 	void tick();
-	inline Game* getGame() { return game; }
 	Scene* currentScene();
 	void pushScene(Scene* newScene);
 	void popScene();
@@ -18,7 +16,6 @@ public:
 private:
 	SceneManager();
 	static SceneManager* instance;
-	Game * game;
 	std::stack<Scene*> scenes;
 };
 #endif //!_H_SCENEMANAGER_H_

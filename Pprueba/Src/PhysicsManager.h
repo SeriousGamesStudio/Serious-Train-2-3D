@@ -23,7 +23,6 @@ public:
 private:
 	PhysicsManager();
 	void init();
-	Game * _game;
 	static PhysicsManager* instance;
 
 

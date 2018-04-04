@@ -14,14 +14,13 @@ public:
 		btQuaternion q;
 	};
 
-	Trasform_c(Entity* entity, PhysicsManager* physicsManager, ConstructorInfo info);
+	Trasform_c(Entity* entity, ConstructorInfo info);
 	virtual ~Trasform_c();
 
 	inline btTransform& get() { return t; };
 
 	virtual void start();
 private:
-	PhysicsManager * _pM;
 	btTransform t;
 
 };

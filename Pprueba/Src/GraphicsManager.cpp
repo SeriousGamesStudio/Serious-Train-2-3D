@@ -30,7 +30,6 @@ bool GraphicsManager::start()
 #endif
 
 	root = new Ogre::Root(mPluginsCfg);
-	game = Game::getInstance();
 
 	//Rutas de recursos y plugins
 
@@ -143,7 +142,7 @@ void GraphicsManager::renderFrame()
 {
 	Ogre::WindowEventUtilities::messagePump();
 	if (mWindow->isClosed()) {
-		game->stop();
+		Game::getInstance()->stop();
 		return;
 	}
 	if (!root->renderOneFrame())return;

@@ -8,7 +8,6 @@ PhysicsManager::PhysicsManager()
 {}
 
 void PhysicsManager::init() {
-	_game = Game::getInstance();
 	//build the broadPhase
 	broadPhase = new btDbvtBroadphase();
 

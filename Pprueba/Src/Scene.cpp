@@ -7,15 +7,15 @@
 
 #include "btBulletCollisionCommon.h"
 #include "PlayerController.h"
-Scene::Scene(SceneManager * sceneManager_, Game * game) :
-	sceneManager(sceneManager_), isSendingMessages(false), game_(game)
+Scene::Scene():
+	isSendingMessages(false)
 {
 	//OBJETO PESCADO DE PRUEBA
 	Entity* robot = new Entity(this, 1, "robot");  //id a partir de 1
 	entities.push_back(robot);
 
-	robot->addComponent(new MeshRenderer_c(robot, GraphicsManager::getInstance(), "fish.mesh")); //pruebas
-	robot->addComponent(new PlayerController_c(robot, InputManager::getInstance())); //pruebas
+	robot->addComponent(new MeshRenderer_c(robot, "fish.mesh")); //pruebas
+	robot->addComponent(new PlayerController_c(robot)); //pruebas
 	{//Add rigidBody
 		btCollisionShape* fallShape = new btSphereShape(1);
 		btDefaultMotionState* fallMotionState =
@@ -24,7 +24,7 @@ Scene::Scene(SceneManager * sceneManager_, Game * game) :
 		btVector3 fallInertia(0, 0, 0);
 		fallShape->calculateLocalInertia(mass, fallInertia);
 		btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, fallMotionState, fallShape, fallInertia);
-		robot->addComponent(new RigidBody_c(robot, PhysicsManager::getInstance(), fallRigidBodyCI));
+		robot->addComponent(new RigidBody_c(robot, fallRigidBodyCI));
 	}
 	//////////////////////////////////////////////////////////////////////////
 	Entity* ground = new Entity(this, 2, "ground");
@@ -35,7 +35,7 @@ Scene::Scene(SceneManager * sceneManager_, Game * game) :
 			new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, -25, 0)));
 		btRigidBody::btRigidBodyConstructionInfo
 			groundRigidBodyCI(0, groundMotionState, groundShape, btVector3(0, 0, 0));
-		ground->addComponent(new RigidBody_c(ground, PhysicsManager::getInstance(), groundRigidBodyCI));
+		ground->addComponent(new RigidBody_c(ground, groundRigidBodyCI));
 	}
 }
 

@@ -2,10 +2,10 @@
 #include "GraphicsManager.h"
 #include "Components.h"
 
-MeshRenderer_c::MeshRenderer_c(Entity* m_entity, GraphicsManager* gphMgr, std::string meshName) :
+MeshRenderer_c::MeshRenderer_c(Entity* m_entity, std::string meshName) :
 	Component(m_entity, ComponentType::MESHRENDERER)
 {
-	scnNode_ = gphMgr->createNewNode(meshName);
+	scnNode_ = GraphicsManager::getInstance()->createNewNode(meshName);
 }
 
 MeshRenderer_c::~MeshRenderer_c()

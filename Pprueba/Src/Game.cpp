@@ -70,7 +70,7 @@ void Game::run()
 	clock_t lastTicks = clock();
 	clock_t elapsedTicks = 0;
 	double deltaTime;/*in seconds*/
-	sceneManager->pushScene(new Scene(sceneManager, this));
+	sceneManager->pushScene(new Scene());
 	while (!exit)
 	{
 		//getting the time passed since last frame

@@ -21,11 +21,9 @@ public:
 	static GraphicsManager* getInstance();
 private:
 	GraphicsManager();
-	Game* game;
-
 	static GraphicsManager* instance;
-	//OGRE
 
+	//OGRE
 	Ogre::Root* root;
 	Ogre::SceneManager * scnMgr;
 	Ogre::String mResourcesCfg;

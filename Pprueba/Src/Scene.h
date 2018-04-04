@@ -21,7 +21,7 @@ class Scene
 {
 public:
 
-	Scene(SceneManager* sceneManager_, Game* game);
+	Scene();
 	virtual ~Scene();
 
 	void tick();
@@ -38,18 +38,8 @@ public:
 	std::string const getNameOf(EntityId id);
 	EntityId const getIdOf(std::string name);
 
-	/*Por ahora no
-	template<typename T>
-	Component* getComponentOf<T>(EntityId id);
-	template<typename T>
-	Component* getComponentOf<T>(std::string name);
-	*/
-
 private:
-	SceneManager * sceneManager;
 	std::list <Entity*> entities;
-	Game* game_;
-
 	std::deque<Msg_Base*> messages;
 	std::vector<Msg_Base*> messagesBuffer;
 	std::unordered_map<MsgId, std::vector<Component*>> listeners;

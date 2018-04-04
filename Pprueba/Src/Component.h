@@ -26,7 +26,7 @@ public:
 	inline Entity* getEntity() const { return _myEntity; };
 private:
 	bool _enable;
-	extern ComponentType type;
+	ComponentType type;
 protected:
 	Entity * _myEntity;
 	void sendMsg(Msg_Base* newMsg);

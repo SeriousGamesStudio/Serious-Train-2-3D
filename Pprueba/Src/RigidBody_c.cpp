@@ -3,21 +3,21 @@
 #include "Components.h"
 
 
-RigidBody_c::RigidBody_c(Entity* entity, PhysicsManager* physicsManager, btRigidBody::btRigidBodyConstructionInfo info) :
-	Component(entity, ComponentType::RIGIDBODY), rb(btRigidBody(info)), _pM(physicsManager)
+RigidBody_c::RigidBody_c(Entity* entity, btRigidBody::btRigidBodyConstructionInfo info) :
+	Component(entity, ComponentType::RIGIDBODY), rb(btRigidBody(info))
 {
 }
 
 RigidBody_c::~RigidBody_c()
 {
-	_pM->removeRigidBody(&rb);
+	PhysicsManager::getInstance()->removeRigidBody(&rb);
 	delete rb.getMotionState();
 	delete rb.getCollisionShape();
 }
 
 void RigidBody_c::start()
 {
-	_pM->addRigidBody(&rb);
+	PhysicsManager::getInstance()->addRigidBody(&rb);
 }
 
 void RigidBody_c::update()

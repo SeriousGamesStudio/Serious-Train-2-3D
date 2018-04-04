@@ -2,17 +2,17 @@
 #include "Entity.h"
 #include "RigidBody_c.h"
 #include "Components.h"
-PlayerController_c::PlayerController_c(Entity * entity, InputManager * inputManager_) :
-	Component(entity, ComponentType::PLAYERCONTROLLER), inputManager(inputManager_)
+PlayerController_c::PlayerController_c(Entity * entity) :
+	Component(entity, ComponentType::PLAYERCONTROLLER)
 {
-	inputManager->addKeyListener(this, "tecladoJugador");
-	inputManager->addMouseListener(this, "ratonJugador");
+	InputManager::getInstance()->addKeyListener(this, "tecladoJugador");
+	InputManager::getInstance()->addMouseListener(this, "ratonJugador");
 }
 
 PlayerController_c::~PlayerController_c()
 {
-	inputManager->removeKeyListener(this);
-	inputManager->removeMouseListener(this);
+	InputManager::getInstance()->removeKeyListener(this);
+	InputManager::getInstance()->removeMouseListener(this);
 }
 
 bool PlayerController_c::keyPressed(const OIS::KeyEvent & arg)
