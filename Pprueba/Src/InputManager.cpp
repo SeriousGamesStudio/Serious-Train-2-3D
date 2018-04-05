@@ -56,7 +56,7 @@ void InputManager::initialise(Ogre::RenderWindow *renderWindow) {
 		// Fill parameter list
 		windowHndStr << (unsigned int)windowHnd;
 		paramList.insert(std::make_pair(std::string("WINDOW"), windowHndStr.str()));
-		// /*
+		/* comentar esta linea para mostrar el raton de windows 
 		paramList.insert(std::make_pair(std::string("w32_mouse"), std::string("DISCL_FOREGROUND")));
 		paramList.insert(std::make_pair(std::string("w32_mouse"), std::string("DISCL_NONEXCLUSIVE")));
 		paramList.insert(std::make_pair(std::string("w32_keyboard"), std::string("DISCL_FOREGROUND")));
