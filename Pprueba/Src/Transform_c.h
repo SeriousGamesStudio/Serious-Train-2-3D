@@ -14,7 +14,7 @@ public:
 		btQuaternion q;
 	};
 
-	Trasform_c(Entity* entity, ConstructorInfo info);
+	Trasform_c(ConstructorInfo info);
 	virtual ~Trasform_c();
 
 	inline btTransform& get() { return t; };

@@ -4,7 +4,7 @@
 class PlayerController_c: public Component, public OIS::MouseListener, public OIS::KeyListener
 {
 public:
-	PlayerController_c(Entity * entity);
+	PlayerController_c();
 	~PlayerController_c();
 	virtual bool keyPressed(const OIS::KeyEvent &arg) ;
 	virtual bool keyReleased(const OIS::KeyEvent &arg);

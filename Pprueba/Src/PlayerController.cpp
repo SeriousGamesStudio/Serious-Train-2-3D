@@ -2,8 +2,8 @@
 #include "Entity.h"
 #include "RigidBody_c.h"
 #include "Components.h"
-PlayerController_c::PlayerController_c(Entity * entity) :
-	Component(entity, ComponentType::PLAYERCONTROLLER)
+PlayerController_c::PlayerController_c() :
+	Component(ComponentType::PLAYERCONTROLLER)
 {
 	InputManager::getInstance()->addKeyListener(this, "tecladoJugador");
 	InputManager::getInstance()->addMouseListener(this, "ratonJugador");

@@ -8,7 +8,7 @@ class RigidBody_c :
 	public Component
 {
 public:
-	RigidBody_c(Entity* entity, btRigidBody::btRigidBodyConstructionInfo info);
+	RigidBody_c(btRigidBody::btRigidBodyConstructionInfo info);
 	virtual ~RigidBody_c();
 
 	inline btRigidBody* get() { return &rb; };

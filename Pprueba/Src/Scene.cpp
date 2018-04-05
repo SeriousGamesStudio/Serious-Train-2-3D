@@ -14,8 +14,8 @@ Scene::Scene():
 	Entity* robot = new Entity(this, 1, "robot");  //id a partir de 1
 	entities.push_back(robot);
 
-	robot->addComponent(new MeshRenderer_c(robot, "fish.mesh")); //pruebas
-	robot->addComponent(new PlayerController_c(robot)); //pruebas
+	robot->addComponent(new MeshRenderer_c("fish.mesh")); //pruebas
+	robot->addComponent(new PlayerController_c()); //pruebas
 	{//Add rigidBody
 		btCollisionShape* fallShape = new btSphereShape(1);
 		btDefaultMotionState* fallMotionState =
@@ -24,7 +24,7 @@ Scene::Scene():
 		btVector3 fallInertia(0, 0, 0);
 		fallShape->calculateLocalInertia(mass, fallInertia);
 		btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, fallMotionState, fallShape, fallInertia);
-		robot->addComponent(new RigidBody_c(robot, fallRigidBodyCI));
+		robot->addComponent(new RigidBody_c(fallRigidBodyCI));
 	}
 	//////////////////////////////////////////////////////////////////////////
 	Entity* ground = new Entity(this, 2, "ground");
@@ -35,7 +35,7 @@ Scene::Scene():
 			new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, -25, 0)));
 		btRigidBody::btRigidBodyConstructionInfo
 			groundRigidBodyCI(0, groundMotionState, groundShape, btVector3(0, 0, 0));
-		ground->addComponent(new RigidBody_c(ground, groundRigidBodyCI));
+		ground->addComponent(new RigidBody_c(groundRigidBodyCI));
 	}
 }
 

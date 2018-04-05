@@ -8,7 +8,7 @@ class Entity;
 class Component
 {
 public:
-	Component(Entity* my_Entity_, ComponentType type);
+	Component(ComponentType type);
 	virtual ~Component();
 
 	virtual void awake() {};
@@ -27,6 +27,8 @@ public:
 private:
 	bool _enable;
 	ComponentType type;
+	friend class Entity;
+	inline void setEntity(Entity* entity) { _myEntity = entity; };
 protected:
 	Entity * _myEntity;
 	void sendMsg(Msg_Base* newMsg);

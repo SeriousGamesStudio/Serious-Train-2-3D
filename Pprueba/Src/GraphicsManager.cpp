@@ -76,7 +76,7 @@ bool GraphicsManager::start()
 
 	//------------------------------------------------------------------------------------------------------
 	//Render Window Creation
-	mWindow = root->initialise(true, "Pollas");
+	mWindow = root->initialise(true, "Serious Train xd");
 
 	//------------------------------------------------------------------------------------------------------
 	//Resources Init

@@ -31,6 +31,7 @@ void Entity::tick()
 void Entity::addComponent(Component* newComponent)
 {
 	if (newComponent) {
+		newComponent->setEntity(this);
 		newComponent->awake();
 		newComponent->start();
 		components.push_back(newComponent);

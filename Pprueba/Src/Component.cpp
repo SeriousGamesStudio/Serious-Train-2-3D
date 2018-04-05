@@ -5,8 +5,8 @@
 
 
 
-Component::Component(Entity* myEntity_, ComponentType type_) :
-	_myEntity(myEntity_), _enable(true), type(type_)
+Component::Component(ComponentType type_) :
+	_enable(true), type(type_)
 {
 
 }

@@ -3,8 +3,8 @@
 #include "Components.h"
 
 
-RigidBody_c::RigidBody_c(Entity* entity, btRigidBody::btRigidBodyConstructionInfo info) :
-	Component(entity, ComponentType::RIGIDBODY), rb(btRigidBody(info))
+RigidBody_c::RigidBody_c(btRigidBody::btRigidBodyConstructionInfo info) :
+	Component(ComponentType::RIGIDBODY), rb(btRigidBody(info))
 {
 }
 

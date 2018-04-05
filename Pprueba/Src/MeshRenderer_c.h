@@ -11,7 +11,7 @@ class MeshRenderer_c :
 	public Component
 {
 public:
-	MeshRenderer_c(Entity* m_entity, std::string meshName);
+	MeshRenderer_c(std::string meshName);
 	~MeshRenderer_c();
 
 	virtual void listen(Msg_Base* msg);

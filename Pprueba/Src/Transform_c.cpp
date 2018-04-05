@@ -2,8 +2,8 @@
 #include "Components.h"
 
 
-Trasform_c::Trasform_c(Entity* entity, ConstructorInfo info) :
-	t(btTransform(info.q, info.v)), Component(entity, ComponentType::TRANSFORM)
+Trasform_c::Trasform_c(ConstructorInfo info) :
+	t(btTransform(info.q, info.v)), Component(ComponentType::TRANSFORM)
 {}
 
 Trasform_c::~Trasform_c()
