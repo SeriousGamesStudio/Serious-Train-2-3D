@@ -10,7 +10,7 @@ class Camera_c :
 	public Component
 {
 public:
-	Camera_c(Entity * entity, GraphicsManager* graphicsManager);
+	Camera_c(GraphicsManager* graphicsManager);
 	~Camera_c();
 	
 	virtual void update();

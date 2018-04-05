@@ -9,8 +9,8 @@
 #define D 32
 #define MOUSE_SENSIBILITY 1000.f
 
-CameraController_c::CameraController_c(Entity * entity, InputManager * inputManager) :
-	Component(entity, ComponentType::CAMERACONTROLLER), inputManager_(inputManager)
+CameraController_c::CameraController_c(InputManager * inputManager) :
+	Component(ComponentType::CAMERACONTROLLER), inputManager_(inputManager)
 {
 	inputManager->addMouseListener(this, "ratonCamara");
 	inputManager->addKeyListener(this, "teclaCamara");

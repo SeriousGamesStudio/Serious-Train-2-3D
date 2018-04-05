@@ -3,7 +3,7 @@
 
 #include <string>
 #include "Notifications.h"
-extern enum class ComponentType;
+enum class ComponentType;
 class Entity;
 class Component
 {

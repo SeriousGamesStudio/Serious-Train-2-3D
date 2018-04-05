@@ -22,8 +22,8 @@ Scene::Scene():
 	Entity* camara = new Entity(this, 2, "Camara");
 	entities.push_back(camara);
 
-	camara->addComponent(new Camera_c(camara,GraphicsManager::getInstance()));//pruebas camara
-	camara->addComponent(new CameraController_c(camara, InputManager::getInstance())); // pruebas
+	camara->addComponent(new Camera_c(GraphicsManager::getInstance()));//pruebas camara
+	camara->addComponent(new CameraController_c(InputManager::getInstance())); // pruebas
 
 
 	{//Add rigidBody

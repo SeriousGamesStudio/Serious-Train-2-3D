@@ -12,7 +12,7 @@ class CameraController_c:
 	public OIS::KeyListener
 {
 public:
-	CameraController_c(Entity * entity, InputManager * inputManager);
+	CameraController_c(InputManager * inputManager);
 	~CameraController_c();
 	virtual bool keyPressed(const OIS::KeyEvent &arg);
 	virtual bool keyReleased(const OIS::KeyEvent &arg);

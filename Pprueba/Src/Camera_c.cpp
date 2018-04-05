@@ -3,8 +3,8 @@
 #include "Components.h"
 #include <iostream>
 
-Camera_c::Camera_c(Entity * entity, GraphicsManager * graphicsManager): 
-	Component(entity,ComponentType::CAMERA)
+Camera_c::Camera_c(GraphicsManager * graphicsManager): 
+	Component(ComponentType::CAMERA)
 {
 	graphicsManager_ = graphicsManager;
 	//camNode_ = graphicsManager_->createNewNode(NULL);

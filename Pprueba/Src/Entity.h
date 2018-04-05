@@ -8,7 +8,7 @@
 
 #include "Notifications.h"
 
-extern enum class ComponentType;
+enum class ComponentType;
 class Component;
 class Scene;
 class Entity
