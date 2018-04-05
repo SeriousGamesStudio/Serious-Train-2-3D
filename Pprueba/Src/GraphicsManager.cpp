@@ -135,7 +135,7 @@ GraphicsManager * GraphicsManager::getInstance()
 		instance->start();
 	}
 	return instance;
-}
+ }
 
 void GraphicsManager::renderFrame()
 {
