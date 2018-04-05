@@ -76,7 +76,7 @@ bool GraphicsManager::start()
 
 	//------------------------------------------------------------------------------------------------------
 	//Render Window Creation
-	mWindow = root->initialise(true, "Pollas");
+	mWindow = root->initialise(true, "POLLAS");
 
 	//------------------------------------------------------------------------------------------------------
 	//Resources Init
@@ -96,22 +96,21 @@ bool GraphicsManager::start()
 
 	//------------------------------------------------------------------------------------------------------
 	//Camera Creation
-
-	//Self-explanatory methods
 	cam = scnMgr->createCamera("MainCam");
 	cam->setPosition(0, 0, 80);
 	cam->lookAt(0, 0, -300);
 	cam->setNearClipDistance(5);
+	//Self-explanatory methods
+	vp = mWindow->addViewport(cam);
+	vp->setBackgroundColour(Ogre::ColourValue(0, 0, 0));
+	
+	cam->setAspectRatio(
+	Ogre::Real(vp->getActualWidth()) /
+	Ogre::Real(vp->getActualHeight()));
 
 
 	//------------------------------------------------------------------------------------------------------
-	//ViewPort Addition
-	vp = mWindow->addViewport(cam);
-	vp->setBackgroundColour(Ogre::ColourValue(0, 0, 0));
-
-	cam->setAspectRatio(
-		Ogre::Real(vp->getActualWidth()) /
-		Ogre::Real(vp->getActualHeight()));
+	
 
 	//------------------------------------------------------------------------------------------------------
 	//Scene SetUp

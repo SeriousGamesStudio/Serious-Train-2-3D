@@ -16,6 +16,17 @@ Scene::Scene():
 
 	robot->addComponent(new MeshRenderer_c(robot, "fish.mesh")); //pruebas
 	robot->addComponent(new PlayerController_c(robot)); //pruebas
+	robot->addComponent(new MeshRenderer_c(robot, "fish.mesh")); //pruebas
+	robot->addComponent(new PlayerController_c(robot)); //pruebas
+
+	//CAMARA DE PRUEBA
+	Entity* camara = new Entity(this, 2, "Camara");
+	entities.push_back(camara);
+
+	camara->addComponent(new Camera_c(camara,GraphicsManager::getInstance()));//pruebas camara
+	camara->addComponent(new CameraController_c(camara, InputManager::getInstance())); // pruebas
+
+
 	{//Add rigidBody
 		btCollisionShape* fallShape = new btSphereShape(1);
 		btDefaultMotionState* fallMotionState =

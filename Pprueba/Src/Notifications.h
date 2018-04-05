@@ -5,7 +5,7 @@ using EntityId = unsigned int;
 
 enum class MsgId : unsigned int
 {
-	EXIT, CHANGED_POSITION,
+	EXIT, CHANGED_POSITION, CAMERA_MOVED, CAMERA_STOPPED, CAMERA_ORIENTATE
 };
 
 struct Msg_Base
@@ -34,10 +34,62 @@ namespace Msg
 		{};
 		~ChangePosition() {};
 
+
+
 		float x;
 		float y;
 		float z;
 	};
-}
+
+	//Message camera
+	struct CameraMove :
+		public Msg_Base
+	{
+	public:
+		enum Move {
+			FOREWARD,
+			BACKWARD,
+			LEFT,
+			RIGHT,
+		};
+
+		CameraMove(EntityId sender, EntityId reciver, Move m) :
+			Msg_Base(MsgId::CAMERA_MOVED, sender, reciver), info(m)
+		{};
+		~CameraMove() {};	
+	
+		Move info;
+	};
+	struct CameraStop :
+		public Msg_Base
+	{
+	public:
+		enum Move {
+			FOREWARD,
+			BACKWARD,
+			LEFT,
+			RIGHT,
+		};
+
+		CameraStop(EntityId sender, EntityId reciver, Move m) :
+			Msg_Base(MsgId::CAMERA_STOPPED, sender, reciver), info(m)
+		{};
+		~CameraStop() {};
+
+		Move info;
+	};
+	struct CameraOrientate :
+		public Msg_Base
+	{
+	public:
+
+		CameraOrientate(EntityId sender, EntityId reciver, float x, float y):
+			Msg_Base(MsgId::CAMERA_ORIENTATE, sender, reciver), degreesX(x), degreesY(-y)
+		{};
+		~CameraOrientate() {};
+
+		float degreesX, degreesY;
+	};
+}; 
 #endif //!_H_NOTIFICATIONS_H_
 

@@ -3,8 +3,6 @@
 
 
 #include "Ogre.h"
-#include "MeshRenderer_c.h"
-
 
 class Game;
 
@@ -16,7 +14,14 @@ public:
 	void renderFrame();
 	Ogre::SceneNode* createNewNode(std::string meshName);
 
-	Ogre::RenderWindow* getWindow() const ;
+
+	
+	
+	 Ogre::RenderWindow* getWindow() const ;
+	 Ogre::Light* getLight() { return light; }
+	 Ogre::SceneManager* getSceneManager() { return scnMgr; }
+	 Ogre::Camera* getCamera() { return cam; }
+	
 
 	static GraphicsManager* getInstance();
 private:
@@ -35,6 +40,7 @@ private:
 	Ogre::RenderWindow* mWindow;
 	Ogre::Camera * cam;
 	Ogre::Viewport * vp;
+	
 	Ogre::Light *light;
 
 	//PLANO
