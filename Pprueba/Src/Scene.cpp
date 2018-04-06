@@ -7,6 +7,8 @@
 
 #include "btBulletCollisionCommon.h"
 #include "PlayerController.h"
+#include "PlaneRenderer_c.h"
+
 Scene::Scene():
 	isSendingMessages(false)
 {
@@ -25,6 +27,12 @@ Scene::Scene():
 	camara->addComponent(new Camera_c(GraphicsManager::getInstance()));//pruebas camara
 	camara->addComponent(new CameraController_c(InputManager::getInstance())); // pruebas
 
+	// PLANO PRUEBAS
+	Entity* plane = new Entity(this, 3, "Plano");
+	entities.push_back(plane);
+
+	plane->addComponent(new PlaneRenderer_c("plane", "nm_bk.png")); 
+	// el ultimo parametro es la imagen que hace de textura del plano por si quieres cambiarla
 
 	{//Add rigidBody
 		btCollisionShape* fallShape = new btSphereShape(1);

@@ -62,6 +62,9 @@
       <Filter>Kernel</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\TrashCollector.h" />
+    <ClInclude Include="..\..\Src\PlaneRenderer_c.h">
+      <Filter>Components\Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\DataManager.cpp">
@@ -121,6 +124,9 @@
       <Filter>Components\Input</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\Camera_c.cpp">
+      <Filter>Components\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\PlaneRenderer_c.cpp">
       <Filter>Components\Graphics</Filter>
     </ClCompile>
   </ItemGroup>

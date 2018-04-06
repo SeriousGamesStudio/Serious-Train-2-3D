@@ -10,6 +10,7 @@ enum class ComponentType
 	PLAYERCONTROLLER,
 	CAMERACONTROLLER,
 	CAMERA,
+	PLANERENDERER,
 
 };
 
