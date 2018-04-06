@@ -14,7 +14,7 @@ Entity::~Entity()
 		delete c;
 	while (!messages.empty()) {
 		delete messages.front();
-		messages.pop_front();
+		messages.pop();
 	}
 }
 
@@ -51,7 +51,7 @@ void Entity::addComponent(Component* newComponent)
 }
 void Entity::reciveMsg(Msg_Base* msg)
 {
-	messages.push_back(msg);
+	messages.push(msg);
 }
 
 void Entity::sendMessages()
@@ -62,7 +62,7 @@ void Entity::sendMessages()
 			c->listen(messages.front());
 		}
 		delete messages.front();
-		messages.pop_front();
+		messages.pop();
 	}
 }
 

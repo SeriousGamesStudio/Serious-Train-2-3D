@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <string>
-#include <deque>
+#include <queue>
 #include <typeinfo>
 
 #include "Notifications.h"
@@ -37,7 +37,7 @@ private:
 	EntityId _id;
 	std::string _name;
 	std::vector<Component*> components;
-	std::deque<Msg_Base*> messages;
+	std::queue<Msg_Base*> messages;
 private:
 	void sendMessages();
 };
