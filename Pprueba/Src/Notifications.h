@@ -5,7 +5,7 @@ using EntityId = unsigned int;
 
 enum class MsgId : unsigned int
 {
-	EXIT, CHANGED_POSITION, CAMERA_MOVED, CAMERA_STOPPED, CAMERA_ORIENTATE
+	EXIT, CHANGED_POSITION, PLAYER_MOVE,  CAMERA_ORIENTATE, LOOKING_TO
 };
 
 struct Msg_Base
@@ -35,49 +35,32 @@ namespace Msg
 		~ChangePosition() {};
 
 
-
+		
 		float x;
 		float y;
 		float z;
 	};
 
 	//Message camera
-	struct CameraMove :
+	struct Move :
 		public Msg_Base
 	{
 	public:
-		enum Move {
+		enum Dir {
 			FOREWARD,
 			BACKWARD,
 			LEFT,
-			RIGHT,
+			RIGHT
 		};
 
-		CameraMove(EntityId sender, EntityId reciver, Move m) :
-			Msg_Base(MsgId::CAMERA_MOVED, sender, reciver), info(m)
+		Move(EntityId sender, EntityId reciver, Dir m) :
+			Msg_Base(MsgId::PLAYER_MOVE, sender, reciver), info(m)
 		{};
-		~CameraMove() {};	
+		~Move() {};	
 	
-		Move info;
+		Dir info;
 	};
-	struct CameraStop :
-		public Msg_Base
-	{
-	public:
-		enum Move {
-			FOREWARD,
-			BACKWARD,
-			LEFT,
-			RIGHT,
-		};
-
-		CameraStop(EntityId sender, EntityId reciver, Move m) :
-			Msg_Base(MsgId::CAMERA_STOPPED, sender, reciver), info(m)
-		{};
-		~CameraStop() {};
-
-		Move info;
-	};
+	
 	struct CameraOrientate :
 		public Msg_Base
 	{
@@ -89,6 +72,18 @@ namespace Msg
 		~CameraOrientate() {};
 
 		float degreesX, degreesY;
+	};
+	struct LookAt :
+		public Msg_Base
+	{
+	public:
+
+		LookAt(EntityId sender, EntityId reciver, float x_, float y_, float z_) :
+			Msg_Base(MsgId::LOOKING_TO, sender, reciver), x(x_), y(y_), z(z_)
+		{};
+		~LookAt() {};
+
+		float x, y, z;
 	};
 }; 
 #endif //!_H_NOTIFICATIONS_H_

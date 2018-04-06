@@ -18,10 +18,7 @@ public:
 
 private:
 	GraphicsManager* graphicsManager_;
-	
-	Ogre::Viewport * vp;
-
-	Ogre::SceneNode* camNode_;
+	Ogre::Camera* cam;
 	bool foreward, backward, left, right;
 };
 #endif // !_H_CAMERA_C_H_
