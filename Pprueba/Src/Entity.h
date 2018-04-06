@@ -17,7 +17,10 @@ public:
 	Entity(Scene* scene_, EntityId id, std::string name);
 	~Entity();
 
+	void init();
 	void tick();
+
+	void create(std::vector<Component*>& newComponents);
 
 	void addComponent(Component* newComponent);
 	void reciveMsg(Msg_Base* msg);

@@ -18,6 +18,12 @@ Entity::~Entity()
 	}
 }
 
+void Entity::init()
+{
+	for (Component* c : components)
+		c->start();
+}
+
 void Entity::tick()
 {
 	sendMessages();
@@ -28,12 +34,18 @@ void Entity::tick()
 	}
 }
 
+void Entity::create(std::vector<Component*>& newComponents)
+{
+	for (Component* newComponent : newComponents)
+		addComponent(newComponent);
+	init();
+}
+
 void Entity::addComponent(Component* newComponent)
 {
 	if (newComponent) {
 		newComponent->setEntity(this);
 		newComponent->awake();
-		newComponent->start();
 		components.push_back(newComponent);
 	}
 }

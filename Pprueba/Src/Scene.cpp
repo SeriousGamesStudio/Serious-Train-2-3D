@@ -16,16 +16,6 @@ Scene::Scene():
 
 	robot->addComponent(new MeshRenderer_c("fish.mesh")); //pruebas
 	robot->addComponent(new PlayerController_c()); //pruebas
-
-
-	//CAMARA DE PRUEBA
-	Entity* camara = new Entity(this, 2, "Camara");
-	entities.push_back(camara);
-
-	camara->addComponent(new Camera_c(GraphicsManager::getInstance()));//pruebas camara
-	camara->addComponent(new CameraController_c(InputManager::getInstance())); // pruebas
-
-
 	{//Add rigidBody
 		btCollisionShape* fallShape = new btSphereShape(1);
 		btDefaultMotionState* fallMotionState =
@@ -36,8 +26,19 @@ Scene::Scene():
 		btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, fallMotionState, fallShape, fallInertia);
 		robot->addComponent(new RigidBody_c(fallRigidBodyCI));
 	}
+	robot->init();
 	//////////////////////////////////////////////////////////////////////////
-	Entity* ground = new Entity(this, 2, "ground");
+
+
+	//CAMARA DE PRUEBA
+	Entity* camara = new Entity(this, 2, "Camara");
+	entities.push_back(camara);
+
+	camara->addComponent(new Camera_c(GraphicsManager::getInstance()));//pruebas camara
+	camara->addComponent(new CameraController_c(InputManager::getInstance())); // pruebas
+	camara->init();
+
+	Entity* ground = new Entity(this, 3, "ground");
 	entities.push_back(ground);
 	{
 		btCollisionShape* groundShape = new btStaticPlaneShape(btVector3(0, 1, 0), 1);
@@ -47,6 +48,7 @@ Scene::Scene():
 			groundRigidBodyCI(0, groundMotionState, groundShape, btVector3(0, 0, 0));
 		ground->addComponent(new RigidBody_c(groundRigidBodyCI));
 	}
+	ground->init();
 }
 
 Scene::~Scene()
