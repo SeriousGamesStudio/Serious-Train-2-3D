@@ -48,6 +48,7 @@ Scene::Scene():
 		btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, fallMotionState, fallShape, fallInertia);
 		robot->addComponent(new RigidBody_c(fallRigidBodyCI));
 	}
+	robot->init();
 	//////////////////////////////////////////////////////////////////////////
 	Entity* ground = new Entity(this, 3, "ground");
 	ground->addComponent(new MeshRenderer_c("penguin.mesh")); //pruebas
@@ -60,6 +61,7 @@ Scene::Scene():
 			groundRigidBodyCI(0, groundMotionState, groundShape, btVector3(0, 0, 0));
 		ground->addComponent(new RigidBody_c(groundRigidBodyCI));
 	}
+	ground->init();
 }
 
 Scene::~Scene()

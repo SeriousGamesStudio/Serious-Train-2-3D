@@ -14,8 +14,14 @@ Entity::~Entity()
 		delete c;
 	while (!messages.empty()) {
 		delete messages.front();
-		messages.pop_front();
+		messages.pop();
 	}
+}
+
+void Entity::init()
+{
+	for (Component* c : components)
+		c->start();
 }
 
 void Entity::tick()
@@ -28,18 +34,24 @@ void Entity::tick()
 	}
 }
 
+void Entity::create(std::vector<Component*>& newComponents)
+{
+	for (Component* newComponent : newComponents)
+		addComponent(newComponent);
+	init();
+}
+
 void Entity::addComponent(Component* newComponent)
 {
 	if (newComponent) {
 		newComponent->setEntity(this);
 		newComponent->awake();
-		newComponent->start();
 		components.push_back(newComponent);
 	}
 }
 void Entity::reciveMsg(Msg_Base* msg)
 {
-	messages.push_back(msg);
+	messages.push(msg);
 }
 
 void Entity::sendMessages()
@@ -50,7 +62,7 @@ void Entity::sendMessages()
 			c->listen(messages.front());
 		}
 		delete messages.front();
-		messages.pop_front();
+		messages.pop();
 	}
 }
 

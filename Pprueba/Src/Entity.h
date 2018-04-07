@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <string>
-#include <deque>
+#include <queue>
 #include <typeinfo>
 
 #include "Notifications.h"
@@ -17,7 +17,10 @@ public:
 	Entity(Scene* scene_, EntityId id, std::string name);
 	~Entity();
 
+	void init();
 	void tick();
+
+	void create(std::vector<Component*>& newComponents);
 
 	void addComponent(Component* newComponent);
 	void reciveMsg(Msg_Base* msg);
@@ -34,7 +37,7 @@ private:
 	EntityId _id;
 	std::string _name;
 	std::vector<Component*> components;
-	std::deque<Msg_Base*> messages;
+	std::queue<Msg_Base*> messages;
 private:
 	void sendMessages();
 };
