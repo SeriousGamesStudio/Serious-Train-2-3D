@@ -1,17 +1,17 @@
 #include "BetaGUI.h"
+#include "InputManager.h"
 using namespace Ogre;
 using namespace std;
 namespace BetaGUI {
 	GUI::GUI(const String & font, const uint & fontSize)
 		:mXW(0),
-		mMP(0),
+		mousePointer(0),
 		mFont(font),
 		mFontSize(fontSize),
 		wc(0),
 		bc(0),
 		tc(0)
 	{
-
 		mO = OverlayManager::getSingleton().create("BetaGUI");
 		mO->show();
 	}
@@ -24,8 +24,6 @@ namespace BetaGUI {
 
 	bool GUI::injectMouse(const uint & x,const uint & y, const bool & LMB) {
 
-		if (mMP)
-			mMP->setPosition(x, y);
 
 		if (mXW) {
 			for (std::vector<Window*>::iterator i = WN.begin(); i != WN.end(); i++) {
@@ -88,32 +86,13 @@ namespace BetaGUI {
 		return e;
 	}
 
-	OverlayContainer* GUI::createMousePointer(const Vector2 & d, const String & m) {
-		Overlay* o = OverlayManager::getSingleton().create("BetaGUI.MP");
-		o->setZOrder(649);
-		mMP = createOverlay("bg.mp", Vector2(0, 0), d, m, "", false);
-		o->add2D(mMP);
-		o->show();
-		mMP->show();
-		return mMP;
-	}
+	MousePointer* GUI::createMousePointer(const Vector2 & d, const String & m) {
+		
+		if (!mousePointer) {
+			mousePointer = new MousePointer(this, d, m);
+		}
 
-	bool GUI::mouseMoved(const OIS::MouseEvent & arg)
-	{
-		injectMouse(arg.state.X.abs, arg.state.Y.abs, arg.state.buttonDown(OIS::MB_Left));
-		return true;
-	}
-
-	bool GUI::mousePressed(const OIS::MouseEvent & arg, OIS::MouseButtonID id)
-	{
-		injectMouse(arg.state.X.abs, arg.state.Y.abs, arg.state.buttonDown(id));
-		return true;
-	}
-
-	bool GUI::mouseReleased(const OIS::MouseEvent & arg, OIS::MouseButtonID id)
-	{
-		injectMouse(arg.state.X.abs, arg.state.Y.abs, arg.state.buttonDown(id));
-		return true;
+		return mousePointer;
 	}
 
 	Window* GUI::createWindow(const Ogre::Vector4 & Dimensions,const Ogre::String & Material, const WINDOW_TYPE &type, const Ogre::String & caption) {
@@ -309,6 +288,56 @@ namespace BetaGUI {
 			mATI = 0;
 		}
 
+		return true;
+	}
+
+	
+
+	MousePointer::MousePointer(GUI * gui, const Ogre::Vector2 & dimensions, const Ogre::String & material)
+	{
+		_active = false;
+		_GUI = gui;
+		Overlay* o = OverlayManager::getSingleton().create("BetaGUI.MP");
+		o->setZOrder(649);
+		mMP = _GUI->createOverlay("bg.mp", Vector2(0, 0), dimensions, material, "", false);
+		o->add2D(mMP);
+		o->show();
+		mMP->show();
+		setActive(true);
+	}
+
+	MousePointer::~MousePointer()
+	{
+	}
+
+	void MousePointer::setActive(const bool & active)
+	{
+		_active = active;
+		if (_active) 
+		{
+			InputManager::getInstance()->addMouseListener(this, "GUI-Mouse");
+			mMP->show();
+		}
+		else
+		{
+			InputManager::getInstance()->removeMouseListener(this);
+			mMP->hide();
+		}
+	}
+
+	bool MousePointer::mouseMoved(const OIS::MouseEvent & arg)
+	{
+		mMP->setPosition(arg.state.X.abs, arg.state.Y.abs);
+		return true;
+	}
+
+	bool MousePointer::mousePressed(const OIS::MouseEvent & arg, OIS::MouseButtonID id)
+	{
+		return true;
+	}
+
+	bool MousePointer::mouseReleased(const OIS::MouseEvent & arg, OIS::MouseButtonID id)
+	{
 		return true;
 	}
 

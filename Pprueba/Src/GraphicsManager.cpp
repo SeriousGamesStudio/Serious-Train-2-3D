@@ -35,7 +35,7 @@ bool GraphicsManager::start()
 
 	root = new Ogre::Root(mPluginsCfg);
 
-	overlaySystem = &Ogre::OverlaySystem();
+	overlaySystem = new Ogre::OverlaySystem();
 	overlayManager = Ogre::OverlayManager::getSingletonPtr();
 	//Rutas de recursos y plugins
 

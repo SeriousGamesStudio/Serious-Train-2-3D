@@ -13,6 +13,7 @@ using namespace std;
 namespace BetaGUI {
 
 	class GUI;
+	class MousePointer;
 	class Window;
 	class Button;
 	class TextInput;
@@ -31,13 +32,20 @@ namespace BetaGUI {
 	};
 
 	enum ANCHOR_TYPE {
-		AT_ABSOLUTE = 0,
-		AT_REL = 1,
+		AT_LEFT_TOP		,
+		AT_LEFT_MIDDLE	,
+		AT_LEFT_BOTTOM	,
+		AT_MIDDLE_TOP	,
+		AT_MIDDLE_MIDDLE,
+		AT_MIDDLE_BOTTOM,
+		AT_RIGHT_TOP	,
+		AT_RIGHT_MIDDLE	,
+		AT_RIGHT_BOTTOM	,
 	};
 
 	
 
-	class GUI :public OIS::MouseListener{
+	class GUI {
 	public:
 		friend class Window;
 		friend class Button;
@@ -54,23 +62,33 @@ namespace BetaGUI {
 			mXW = window;
 		}
 		Ogre::OverlayContainer* createOverlay(const Ogre::String & name, const Ogre::Vector2 & position, const Ogre::Vector2 & dimensions, const Ogre::String & material = "", const Ogre::String & caption = "", const bool & autoAdd = true);
-		Ogre::OverlayContainer* createMousePointer(const Ogre::Vector2 & dimensions, const Ogre::String & material);
+		MousePointer* createMousePointer(const Ogre::Vector2 & dimensions, const Ogre::String & material);
 
 	protected:
-		
-		virtual bool mouseMoved(const OIS::MouseEvent &arg);
-		virtual bool mousePressed(const OIS::MouseEvent &arg, OIS::MouseButtonID id) ;
-		virtual bool mouseReleased(const OIS::MouseEvent &arg, OIS::MouseButtonID id) ;
-
-
-
 		Ogre::Overlay* mO;                        // Main sheet overlay
 		std::vector<Window*>WN;                    // Windows
 		Window *mXW;                        // Window to destroy
-		Ogre::OverlayContainer* mMP;                // Mouse Pointer Overlay
+		MousePointer* mousePointer;                // Mouse Pointer Overlay
 		Ogre::String mFont;
 		Ogre::uint mFontSize;
 		Ogre::uint wc, bc, tc;
+	};
+	
+	class MousePointer: public OIS::MouseListener
+	{
+	public:
+		MousePointer(GUI * gui, const Ogre::Vector2 & dimensions, const Ogre::String & material);
+		virtual ~MousePointer();
+		inline bool isActive() { return _active; }
+		void setActive(const bool &active);
+	protected:
+		GUI * _GUI;
+		bool _active;
+		Ogre::OverlayContainer* mMP;                // Mouse Pointer Overlay
+		virtual bool mouseMoved(const OIS::MouseEvent &arg);
+		virtual bool mousePressed(const OIS::MouseEvent &arg, OIS::MouseButtonID id);
+		virtual bool mouseReleased(const OIS::MouseEvent &arg, OIS::MouseButtonID id);
+
 	};
 
 	class Window {
