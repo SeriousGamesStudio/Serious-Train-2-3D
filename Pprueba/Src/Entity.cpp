@@ -20,6 +20,9 @@ Entity::~Entity()
 
 void Entity::init()
 {
+	//get ride of extra space in component vector
+	components.shrink_to_fit();
+	//call the start method of every component
 	for (Component* c : components)
 		c->start();
 }
