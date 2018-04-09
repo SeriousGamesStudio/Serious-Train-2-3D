@@ -30,6 +30,7 @@ Game::~Game()
 {
 	//¿Como son singletons hay uqe llamar a las destructuras o 
 	// se eleminan automaáticamente cuando salen de scope?
+	delete mGUI;
 	delete soundManager;
 	delete graphicsManager;
 	delete sceneManager;
@@ -55,8 +56,8 @@ bool Game::start()
 
 	if(!soundManager->initialise())
 		printf("SoundManager no se ha iniciado \n");
-	Scene initial = Scene(&sceneManager, this);
-	sceneManager.pushScene(initial);
+	Scene * initial = new Scene();
+	sceneManager->pushScene(initial);
 	mGUI = new GUI("Caption",13);
 	BetaGUI::Window* window = mGUI->createWindow(Ogre::Vector4(100, 100, 300, 100), "bgui.window", BetaGUI::WT_NONE, "Magical Doubler");
 	//window->createStaticText(Ogre::Vector4(4, 22, 198, 40), "Type in a number and I'll double it!");
