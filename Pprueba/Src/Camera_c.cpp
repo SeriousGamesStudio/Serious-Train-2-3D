@@ -43,3 +43,8 @@ void Camera_c::listen(Msg_Base * msg)
 	}
 	
 }
+
+void Camera_c::setPosition(float x, float y, float z)
+{
+	cam->setPosition(x, y, z);
+}

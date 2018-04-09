@@ -16,6 +16,8 @@ public:
 	virtual void update();
 	virtual void listen(Msg_Base* msg);
 
+	void setPosition(float x, float y, float z);
+
 private:
 	GraphicsManager* graphicsManager_;
 	Ogre::Camera* cam;

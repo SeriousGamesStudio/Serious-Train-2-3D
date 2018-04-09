@@ -16,7 +16,7 @@ Scene::Scene():
 
 	robot->addComponent(new MeshRenderer_c("fish.mesh")); //pruebas
 	//robot->addComponent(new PlayerController_c()); //pruebas
-
+	robot->init();
 
 	//CAMARA DE PRUEBA
 	Entity* player = new Entity(this, 2, "Player");
@@ -37,6 +37,7 @@ Scene::Scene():
 
 	player->addComponent(new Walker_c());
 	player->addComponent(new PlayerController_c());
+	player->init();
 
 	{//Add rigidBody
 		btCollisionShape* fallShape = new btSphereShape(1);
@@ -48,7 +49,6 @@ Scene::Scene():
 		btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, fallMotionState, fallShape, fallInertia);
 		robot->addComponent(new RigidBody_c(fallRigidBodyCI));
 	}
-	robot->init();
 	//////////////////////////////////////////////////////////////////////////
 	Entity* ground = new Entity(this, 3, "ground");
 	ground->addComponent(new MeshRenderer_c("penguin.mesh")); //pruebas

@@ -5,7 +5,7 @@
 #include <Ogre.h>
 class GraphicsManager;
 
-
+class RigidBody_c;
 class Walker_c :
 	public Component
 {
@@ -17,9 +17,10 @@ public:
 	virtual void update();
 	virtual void listen(Msg_Base* msg);
 
-private:
+	void setDirection(float x, float z);
 
-	float dirX, dirZ;
+private:
+	btVector3 currentDirection;
 	RigidBody_c* rb;
 };
 #endif // !_H_CAMERA_C_H_

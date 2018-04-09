@@ -42,25 +42,6 @@ namespace Msg
 	};
 
 	//Message camera
-	struct Move :
-		public Msg_Base
-	{
-	public:
-		enum Dir {
-			FOREWARD,
-			BACKWARD,
-			LEFT,
-			RIGHT
-		};
-
-		Move(EntityId sender, EntityId reciver, Dir m) :
-			Msg_Base(MsgId::PLAYER_MOVE, sender, reciver), info(m)
-		{};
-		~Move() {};	
-	
-		Dir info;
-	};
-	
 	struct CameraOrientate :
 		public Msg_Base
 	{
