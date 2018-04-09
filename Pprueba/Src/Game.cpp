@@ -5,6 +5,8 @@
 #pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
 #include "TrashCollector.h"
 
+#pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
+using namespace BetaGUI;
 Game* Game::instance = nullptr;
 
 Game::Game() :
@@ -53,8 +55,15 @@ bool Game::start()
 
 	if(!soundManager->initialise())
 		printf("SoundManager no se ha iniciado \n");
-
-
+	Scene initial = Scene(&sceneManager, this);
+	sceneManager.pushScene(initial);
+	mGUI = new GUI("Caption",13);
+	BetaGUI::Window* window = mGUI->createWindow(Ogre::Vector4(100, 100, 300, 100), "bgui.window", BetaGUI::WT_NONE, "Magical Doubler");
+	//window->createStaticText(Ogre::Vector4(4, 22, 198, 40), "Type in a number and I'll double it!");
+	BetaGUI::Button* mDoubleIt = window->createButton(Ogre::Vector4(108, 50, 104, 24), "bgui.button", "Go on then!", BetaGUI::Callback());
+	mGUI->createWindow(Ogre::Vector4(500, 100, 300, 100), "bgui.window", BetaGUI::WT_NONE, "verdad")->createStaticText(Ogre::Vector4(4, 22, 198, 40), "la Madre de manu la chupa");
+	mGUI->createMousePointer(Ogre::Vector2(32, 32), "bgui.pointer");
+	inputManager->addMouseListener(mGUI, "GUI");
 	run();
 	return true;
 }

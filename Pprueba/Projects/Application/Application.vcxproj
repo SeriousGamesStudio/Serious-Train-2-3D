@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Src\BetaGUI.h" />
     <ClInclude Include="..\..\Src\Camera_c.h" />
     <ClInclude Include="..\..\Src\CameraController_c.h" />
     <ClInclude Include="..\..\Src\Collider_c.h" />
@@ -35,6 +36,7 @@
     <ClInclude Include="..\..\Src\TrashCollector.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Src\BetaGUI.cpp" />
     <ClCompile Include="..\..\Src\Camera_c.cpp" />
     <ClCompile Include="..\..\Src\CameraController_c.cpp" />
     <ClCompile Include="..\..\Src\Collider_c.cpp" />
@@ -60,7 +62,7 @@
     <ProjectGuid>{41D4F585-BC8E-4D52-B33F-88A595432442}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Application</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -112,7 +114,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>OgreMain_d.lib;OIS_static_d.lib;Bullet3Collision_Debug.lib;Bullet3Common_Debug.lib;Bullet3Dynamics_Debug.lib;Bullet3Geometry_Debug.lib;Bullet3OpenCL_clew_Debug.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;BulletInverseDynamics_Debug.lib;BulletSoftBody_Debug.lib;LinearMath_Debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>OgreOverlay_d.lib;OgreMain_d.lib;OIS_static_d.lib;Bullet3Collision_Debug.lib;Bullet3Common_Debug.lib;Bullet3Dynamics_Debug.lib;Bullet3Geometry_Debug.lib;Bullet3OpenCL_clew_Debug.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;BulletInverseDynamics_Debug.lib;BulletSoftBody_Debug.lib;LinearMath_Debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\irrKlang\lib;$(SolutionDir)Dependencies\OIS\lib;$(SolutionDir)Dependencies\Ogre\lib\$(Configuration);$(SolutionDir)Dependencies\Bullet3\lib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Bscmake>

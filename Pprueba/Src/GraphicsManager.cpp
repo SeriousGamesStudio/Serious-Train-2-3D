@@ -1,5 +1,9 @@
 #include "GraphicsManager.h"
 #include "Game.h"
+#include <OgreOverlayContainer.h>
+#include <OgreOverlay.h>
+#include <OgreFontManager.h>
+#include <OgreTextAreaOverlayElement.h>
 #include "TrashCollector.h"
 
 GraphicsManager* GraphicsManager::instance = nullptr;
@@ -31,6 +35,8 @@ bool GraphicsManager::start()
 
 	root = new Ogre::Root(mPluginsCfg);
 
+	overlaySystem = new Ogre::OverlaySystem();
+	overlayManager = Ogre::OverlayManager::getSingletonPtr();
 	//Rutas de recursos y plugins
 
 
@@ -93,6 +99,8 @@ bool GraphicsManager::start()
 
 	//we generate the default sceneManager. (more SceneManagers in Ogre::ST_....)
 	scnMgr = root->createSceneManager(Ogre::ST_GENERIC);
+	scnMgr->addRenderQueueListener(overlaySystem);
+	//panel->setMaterialName("MaterialName"); // Optional background material
 
 	//------------------------------------------------------------------------------------------------------
 	//Camera Creation

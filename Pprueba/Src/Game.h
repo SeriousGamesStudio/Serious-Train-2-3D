@@ -7,6 +7,7 @@
 #include "GraphicsManager.h"
 #include "PhysicsManager.h"
 #include "SoundManager.h"
+#include "BetaGUI.h"
 
 #include <iostream>
 
@@ -27,12 +28,14 @@ private:
 
 private:
 	bool exit;
+	BetaGUI::GUI *mGUI;
 	SceneManager *sceneManager;
 	InputManager * inputManager;
 	SoundManager * soundManager;
 	GraphicsManager *graphicsManager;
 	PhysicsManager *physicsManager;
 	DataManager dataManager;
+	
 
 };
 #endif //!_H_GAME_H_
