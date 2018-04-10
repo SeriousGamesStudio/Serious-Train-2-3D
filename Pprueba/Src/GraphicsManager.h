@@ -6,6 +6,7 @@
 #include "MeshRenderer_c.h"
 #include "OgreOverlaySystem.h"
 #include <OgreOverlayManager.h>
+#include "BetaGUI.h"
 
 class Game;
 
@@ -40,6 +41,7 @@ private:
 	Ogre::String mOgreLog;
 	Ogre::ConfigFile cf;
 
+
 	Ogre::RenderWindow* mWindow;
 	Ogre::Camera * cam;
 	Ogre::Viewport * vp;
@@ -49,6 +51,7 @@ private:
 	Ogre::OverlaySystem * overlaySystem;
 	Ogre::OverlayManager* overlayManager;
 
+	GUIndilla::GUI *_GUI;
 	//PLANO
 	
 	

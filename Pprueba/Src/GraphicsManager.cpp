@@ -18,6 +18,7 @@ GraphicsManager::GraphicsManager() :
 
 GraphicsManager::~GraphicsManager()
 {
+	delete _GUI;
 	delete root;
 	instance = nullptr;
 }
@@ -116,9 +117,10 @@ bool GraphicsManager::start()
 	Ogre::Real(vp->getActualWidth()) /
 	Ogre::Real(vp->getActualHeight()));
 
-
 	//------------------------------------------------------------------------------------------------------
-	
+	_GUI = new GUIndilla::GUI("Caption", 13);
+	_GUI->createMousePointer(Ogre::Vector2(32, 32), "bgui.pointer");
+
 
 	//------------------------------------------------------------------------------------------------------
 	//Scene SetUp

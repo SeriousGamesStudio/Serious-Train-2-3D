@@ -7,7 +7,6 @@
 #include "GraphicsManager.h"
 #include "PhysicsManager.h"
 #include "SoundManager.h"
-#include "BetaGUI.h"
 
 #include <iostream>
 
@@ -28,7 +27,6 @@ private:
 
 private:
 	bool exit;
-	GUIndilla::GUI *mGUI;
 	SceneManager *sceneManager;
 	InputManager * inputManager;
 	SoundManager * soundManager;
