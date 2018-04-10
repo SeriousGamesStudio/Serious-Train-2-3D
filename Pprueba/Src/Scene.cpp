@@ -6,7 +6,7 @@
 #include <algorithm>
 
 #include "btBulletCollisionCommon.h"
-#include "PlayerController_c.h"
+#include "Components.h"
 Scene::Scene():
 	isSendingMessages(false)
 {
@@ -35,6 +35,12 @@ Scene::Scene():
 		player->addComponent(new RigidBody_c(fallRigidBodyCI));
 	}
 
+	// PLANO PRUEBAS
+	Entity* plane = new Entity(this, 3, "Plano");
+	entities.push_back(plane);
+
+	plane->addComponent(new PlaneRenderer_c("plane", "nm_bk.png")); 
+	// el ultimo parametro es la imagen que hace de textura del plano por si quieres cambiarla
 	player->addComponent(new Walker_c());
 	player->addComponent(new PlayerController_c());
 	player->init();

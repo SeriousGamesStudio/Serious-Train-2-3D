@@ -10,6 +10,7 @@ enum class ComponentType
 	PLAYERCONTROLLER,
 	CAMERACONTROLLER,
 	CAMERA,
+	PLANERENDERER,
 	WALKER
 
 };
@@ -25,6 +26,6 @@ enum class ComponentType
 #include "PlayerController_c.h"
 #include "CameraController_c.h"
 #include "Walker_c.h"
-#include <iostream>
+#include "PlaneRenderer_c.h"
 #endif //!_H_COMPONENTS_H_
 

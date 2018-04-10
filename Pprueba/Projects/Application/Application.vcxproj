@@ -20,6 +20,7 @@
     <ClInclude Include="..\..\Src\Entity.h" />
     <ClInclude Include="..\..\Src\Game.h" />
     <ClInclude Include="..\..\Src\ObjectsFactory.h" />
+    <ClInclude Include="..\..\Src\PlaneRenderer_c.h" />
     <ClInclude Include="..\..\Src\PlayerController_c.h" />
     <ClInclude Include="..\..\Src\RigidBody_c.h" />
     <ClInclude Include="..\..\Src\MeshRenderer_c.h" />
@@ -45,6 +46,7 @@
     <ClCompile Include="..\..\Src\Game.cpp" />
     <ClCompile Include="..\..\Src\MeshRenderer_c.cpp" />
     <ClCompile Include="..\..\Src\ObjectsFactory.cpp" />
+    <ClCompile Include="..\..\Src\PlaneRenderer_c.cpp" />
     <ClCompile Include="..\..\Src\PlayerController_c.cpp" />
     <ClCompile Include="..\..\Src\RigidBody_c.cpp" />
     <ClCompile Include="..\..\Src\SceneManager.cpp" />

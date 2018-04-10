@@ -59,6 +59,9 @@
       <Filter>Kernel</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\TrashCollector.h" />
+    <ClInclude Include="..\..\Src\PlaneRenderer_c.h">
+      <Filter>Components\Graphics</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Src\PlayerController_c.h">
       <Filter>Components\Input</Filter>
     </ClInclude>
@@ -128,6 +131,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Src\Walker_c.cpp">
       <Filter>Components\Behaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\PlaneRenderer_c.cpp">
+      <Filter>Components\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
