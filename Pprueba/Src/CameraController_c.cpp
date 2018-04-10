@@ -3,10 +3,6 @@
 #include "Components.h"
 #include "Camera_c.h"
 
-#define W 17
-#define S 31
-#define A 30
-#define D 32
 #define MOUSE_SENSIBILITY 1000.f
 
 CameraController_c::CameraController_c(InputManager * inputManager) :
@@ -23,49 +19,15 @@ CameraController_c::~CameraController_c()
 }
 
 bool CameraController_c::keyPressed(const OIS::KeyEvent & arg)
-{
-
-	switch (arg.key)
-	{
-	case OIS::KeyCode::KC_W:
-		sendMsg(new Msg::CameraMove(_myEntity->getId(), Msg_Base::self,Msg::CameraMove::Move::FOREWARD));
-		break;
-	case S:
-		sendMsg(new Msg::CameraMove(_myEntity->getId(), Msg_Base::self, Msg::CameraMove::Move::BACKWARD));
-		break;
-	case A:
-		sendMsg(new Msg::CameraMove(_myEntity->getId(), Msg_Base::self, Msg::CameraMove::Move::LEFT));
-		break;
-	case D:
-		sendMsg(new Msg::CameraMove(_myEntity->getId(), Msg_Base::self, Msg::CameraMove::Move::RIGHT));
-		break;
-	default:
-		break;
-	}
+{	
 	
-	return false;
+	return true;
 }
 
 bool CameraController_c::keyReleased(const OIS::KeyEvent & arg)
 {
-	switch (arg.key)
-	{
-	case W:
-		sendMsg(new Msg::CameraStop(_myEntity->getId(), Msg_Base::self, Msg::CameraStop::Move::FOREWARD));
-		break;
-	case S:
-		sendMsg(new Msg::CameraStop(_myEntity->getId(), Msg_Base::self, Msg::CameraStop::Move::BACKWARD));
-		break;
-	case A:
-		sendMsg(new Msg::CameraStop(_myEntity->getId(), Msg_Base::self, Msg::CameraStop::Move::LEFT));
-		break;
-	case D:
-		sendMsg(new Msg::CameraStop(_myEntity->getId(), Msg_Base::self, Msg::CameraStop::Move::RIGHT));
-		break;
-	default:
-		break;
-	}
-	return false;
+	
+	return true;
 }
 
 bool CameraController_c::mouseMoved(const OIS::MouseEvent & arg)

@@ -6,7 +6,7 @@
 #include <algorithm>
 
 #include "btBulletCollisionCommon.h"
-#include "PlayerController.h"
+#include "PlayerController_c.h"
 Scene::Scene():
 	isSendingMessages(false)
 {
@@ -15,7 +15,30 @@ Scene::Scene():
 	entities.push_back(robot);
 
 	robot->addComponent(new MeshRenderer_c("fish.mesh")); //pruebas
-	robot->addComponent(new PlayerController_c()); //pruebas
+	//robot->addComponent(new PlayerController_c()); //pruebas
+	robot->init();
+
+	//CAMARA DE PRUEBA
+	Entity* player = new Entity(this, 2, "Player");
+	entities.push_back(player);
+
+	player->addComponent(new Camera_c(GraphicsManager::getInstance()));//pruebas camara
+	player->addComponent(new CameraController_c(InputManager::getInstance())); // pruebas
+	{//Add rigidBody
+		btCollisionShape* fallShape = new btSphereShape(1);
+		btDefaultMotionState* fallMotionState =
+			new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 5, 0)));
+		btScalar mass = 1;
+		btVector3 fallInertia(0, 0, 0);
+		fallShape->calculateLocalInertia(mass, fallInertia);
+		btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, fallMotionState, fallShape, fallInertia);
+		player->addComponent(new RigidBody_c(fallRigidBodyCI));
+	}
+
+	player->addComponent(new Walker_c());
+	player->addComponent(new PlayerController_c());
+	player->init();
+
 	{//Add rigidBody
 		btCollisionShape* fallShape = new btSphereShape(1);
 		btDefaultMotionState* fallMotionState =
@@ -26,19 +49,9 @@ Scene::Scene():
 		btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, fallMotionState, fallShape, fallInertia);
 		robot->addComponent(new RigidBody_c(fallRigidBodyCI));
 	}
-	robot->init();
 	//////////////////////////////////////////////////////////////////////////
-
-
-	//CAMARA DE PRUEBA
-	Entity* camara = new Entity(this, 2, "Camara");
-	entities.push_back(camara);
-
-	camara->addComponent(new Camera_c(GraphicsManager::getInstance()));//pruebas camara
-	camara->addComponent(new CameraController_c(InputManager::getInstance())); // pruebas
-	camara->init();
-
 	Entity* ground = new Entity(this, 3, "ground");
+	ground->addComponent(new MeshRenderer_c("WoodPallet.mesh")); //pruebas
 	entities.push_back(ground);
 	{
 		btCollisionShape* groundShape = new btStaticPlaneShape(btVector3(0, 1, 0), 1);
