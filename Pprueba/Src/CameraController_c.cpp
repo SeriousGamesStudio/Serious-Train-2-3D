@@ -21,13 +21,13 @@ CameraController_c::~CameraController_c()
 bool CameraController_c::keyPressed(const OIS::KeyEvent & arg)
 {	
 	
-	return false;
+	return true;
 }
 
 bool CameraController_c::keyReleased(const OIS::KeyEvent & arg)
 {
 	
-	return false;
+	return true;
 }
 
 bool CameraController_c::mouseMoved(const OIS::MouseEvent & arg)
