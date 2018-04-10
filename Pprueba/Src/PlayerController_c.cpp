@@ -6,7 +6,7 @@
 #include <math.h>
 #include "InputManager.h"
 
-#define PI 3.141592653589793238463
+#define PI 3.14159265358f
 
 PlayerController_c::PlayerController_c() :
 	Component(ComponentType::PLAYERCONTROLLER),
@@ -144,11 +144,9 @@ void PlayerController_c::updateMovementDirection()
 		//back-left
 		else if (b && l)		angle = PI *  0.75f;
 	}
-	printf("*************************************************************");
-	printf("Camera looking at: %f, %f,%f\n", lookingAt.x(), lookingAt.y(), lookingAt.z());
-	walkingTo = lookingAt;
-	walkingTo.rotate({ 0,1,0 }, angle);
-	printf("Walking to: %f, %f, %f\n", walkingTo.x(), walkingTo.y(), walkingTo.z());
-	printf("*************************************************************");
+	printf("*************************************************************\n");
+	printf("Camera looking at: %f, %f, %f\n", lookingAt.x(), lookingAt.y(), lookingAt.z());
+	walkingTo = lookingAt.rotate({ 0,1,0 }, angle);
+	printf("Walking to:        %f, %f, %f\n", walkingTo.x(), walkingTo.y(), walkingTo.z());
 	walker->setDirection(walkingTo.x(), walkingTo.z());
 }

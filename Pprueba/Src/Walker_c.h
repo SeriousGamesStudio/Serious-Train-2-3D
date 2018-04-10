@@ -22,5 +22,6 @@ public:
 private:
 	btVector3 currentDirection;
 	RigidBody_c* rb;
+	btTransform trans;
 };
 #endif // !_H_CAMERA_C_H_

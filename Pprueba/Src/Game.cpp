@@ -69,7 +69,6 @@ void Game::run()
 {
 	clock_t lastTicks = clock();
 	clock_t elapsedTicks = 0;
-	double deltaTime;/*in seconds*/
 	sceneManager->pushScene(new Scene());
 	while (!exit)
 	{
@@ -85,3 +84,4 @@ void Game::run()
 		elapsedTicks = clock() - lastTicks;
 	}
 }
+

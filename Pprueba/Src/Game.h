@@ -20,6 +20,10 @@ public:
 	bool start();
 	bool stop();
 
+	inline float getDeltaTime() const {
+		return deltaTime;
+	};
+
 private:
 	Game();
 	static Game* instance;
@@ -33,6 +37,9 @@ private:
 	GraphicsManager *graphicsManager;
 	PhysicsManager *physicsManager;
 	DataManager dataManager;
+
+
+	double deltaTime;/*in seconds*/
 
 };
 #endif //!_H_GAME_H_
