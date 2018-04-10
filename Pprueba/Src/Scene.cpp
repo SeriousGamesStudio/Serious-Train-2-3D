@@ -51,7 +51,7 @@ Scene::Scene():
 	}
 	//////////////////////////////////////////////////////////////////////////
 	Entity* ground = new Entity(this, 3, "ground");
-	ground->addComponent(new MeshRenderer_c("penguin.mesh")); //pruebas
+	ground->addComponent(new MeshRenderer_c("WoodPallet.mesh")); //pruebas
 	entities.push_back(ground);
 	{
 		btCollisionShape* groundShape = new btStaticPlaneShape(btVector3(0, 1, 0), 1);

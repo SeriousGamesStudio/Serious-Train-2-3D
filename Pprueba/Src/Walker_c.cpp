@@ -2,7 +2,7 @@
 #include "Components.h"
 
 Walker_c::Walker_c():
-	Component(ComponentType::CAMERA)
+	Component(ComponentType::WALKER)
 {
 	
 	rb = nullptr;
@@ -28,10 +28,15 @@ void Walker_c::update()
 	// Aplicar una fuerza al rigidBody de la entidad
 	// Cómo aplicamos las fuerza para que sean constantes??
 	// Esto lo deberíamos haber aprendido en física, peero no lo hemos hecho
-	btVector3 force = btVector3(currentDirection.absolute());
-	rb->get()->applyCentralForce( force*= 50);
-	// Or should we use this?
-	//rb->get()->setLinearVelocity(/*vel vector*/)
+	currentDirection *= 50;
+	/*
+	printf("------------------------------------------------------\n");
+	printf("Player Direction: %f, %f, %f\n", currentDirection.getX(), currentDirection.y(), currentDirection.z());
+	*/
+	rb->get()->setLinearVelocity(currentDirection);
+
+	btVector3 d = rb->get()->getCenterOfMassPosition();
+	//printf("Player position: %f, %f, %f\n", d.getX(), d.getY(), d.getZ());
 }
 
 void Walker_c::listen(Msg_Base * msg)
@@ -42,5 +47,8 @@ void Walker_c::listen(Msg_Base * msg)
 void Walker_c::setDirection(float x, float z)
 {
 	currentDirection.setValue(x, 0, z);
-	currentDirection.normalize();
+#ifdef _DEBUG
+	if (!currentDirection.isZero())
+#endif // _DEBUG
+		currentDirection.normalize();
 }

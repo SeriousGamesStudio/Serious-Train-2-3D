@@ -54,17 +54,20 @@ PlayerController_c::~PlayerController_c()
 
 bool PlayerController_c::keyPressed(const OIS::KeyEvent & arg)
 {
+	//No entra
 	if (arg.key == forwardKey)	forward = true;
 	if (arg.key == backKey)		back	= true;
 	if (arg.key == rightKey)	right	= true;
 	if (arg.key == leftKey)		left	= true;
-
+	//Poner aquí breakpoint y cambiar a la aplicación. 
+	//Se pulsan las teclas y no salta el breakpoint, así que no entra a la función
 	updateMovementDirection();
 	return true;
 }
 
 bool PlayerController_c::keyReleased(const OIS::KeyEvent & arg)
 {
+	//No entra
 	if (arg.key == forwardKey)	forward	= false;
 	if (arg.key == backKey)		back	= false;
 	if (arg.key == rightKey)	right	= false;
@@ -97,6 +100,7 @@ void PlayerController_c::listen(Msg_Base * msg)
 		Msg::LookAt* p = static_cast<Msg::LookAt*>(msg);
 		lookingAt.setValue(p->x, 0, p->z);
 		updateMovementDirection();
+		break;
 	}
 	default:
 		break;
@@ -105,21 +109,46 @@ void PlayerController_c::listen(Msg_Base * msg)
 
 void PlayerController_c::updateMovementDirection()
 {
-	//Setting the vector from the seight
-	btVector3 keyDir = btVector3(0,0,0);
-	if (forward)
-		keyDir.setZ(keyDir.z()+1);
-	if (back)
-		keyDir.setZ(keyDir.z() - 1);
-	if (right)
-		keyDir.setX(keyDir.x() + 1);
-	if (left)
-		keyDir.setX(keyDir.x() - 1);
-	keyDir.normalize();
+	bool f = forward;
+	bool b = back;
+	bool r = right;
+	bool l = left;
 
-	walkingTo.setX(lookingAt.x() * keyDir.x());
-	walkingTo.setZ(lookingAt.z() * keyDir.z());
+	if (f && b)	f = b = false;
+	if (l && r)	r = l = false;
 
+	//If no direction return
+	if (!f && !b && !r && !l) {
+		walker->setDirection(0, 0);
+		return;
+	}
+	float angle = 0.0f;
 
+	{//Get rotation angle
+	/*SIMPLE MOVES*/
+		//foward
+			 if (f && !r && !l)/*angle = 0*/;		
+		//back
+		else if (b && !r && !l) angle = PI;
+		//right
+		else if (!f && !b && r) angle = PI * -0.5f;
+		//left
+		else if (!f && !b && l)	angle = PI *  0.5f;
+	/*COMPOSE MOVES*/
+		//foward-right
+		else if (f && r)		angle = PI * -0.25f;
+		//foward-left
+		else if (f && l)		angle = PI *  0.25f;
+		//back-right
+		else if (b && r)		angle = PI * -0.75f;
+		//back-left
+		else if (b && l)		angle = PI *  0.75f;
+	}
+	printf("*************************************************************");
+	printf("Camera looking at: %f, %f,%f\n", lookingAt.x(), lookingAt.y(), lookingAt.z());
+	walkingTo = lookingAt;
+	walkingTo.rotate({ 0,1,0 }, angle);
+	printf("Walking to: %f, %f, %f\n", walkingTo.x(), walkingTo.y(), walkingTo.z());
+	printf("*************************************************************");
 	walker->setDirection(walkingTo.x(), walkingTo.z());
 }
