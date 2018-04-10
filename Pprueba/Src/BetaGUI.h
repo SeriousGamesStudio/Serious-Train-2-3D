@@ -8,9 +8,11 @@
 #include <OgreFontManager.h>
 #include <vector>
 #include <OIS.h>
+#include <functional>
+
 
 using namespace std;
-namespace BetaGUI {
+namespace GUIndilla {
 
 	class GUI;
 	class MousePointer;
@@ -123,13 +125,8 @@ namespace BetaGUI {
 		Ogre::uint x, y, w, h;                    // Dimensions
 		GUI *mGUI;                        // mGUI pointer
 		Ogre::OverlayContainer* mO;            // Overlay
-		std::vector<BetaGUI::Button*> mB;    // Buttons
-		std::vector<BetaGUI::TextInput*> mT;    // TextInputs
-	};
-
-	class BetaGUIListener {
-	public:
-		virtual void onButtonPress(Button *ref) = 0;
+		std::vector<GUIndilla::Button*> mB;    // Buttons
+		std::vector<GUIndilla::TextInput*> mT;    // TextInputs
 	};
 
 	class Callback {
@@ -138,22 +135,21 @@ namespace BetaGUI {
 		friend class Button;
 
 		Callback() {
-			t = 0;
+			_function = defaultCallback;
 		}
 
-		Callback(void(*functionPointer)(Button *ref)) {
-			t = 1;
-			fp = functionPointer;
+		Callback(std::function<void()> function) {
+			_function = function;
 		}
-
-		Callback(BetaGUIListener *l) {
-			t = 2;
-			LS = l;
-		}
+		void onButtonPress() {
+			_function();
+		};
 	protected:
-		Ogre::uchar t;                    // Type of callback: 0 - None, 1 - FunctionPointer 2 - GUIListener, 3 - Move Window, 4 - Resize
-		void(*fp)(Button *ref);        // Function pointer (if 1)
-		BetaGUIListener *LS;        // GuiListener (if 2)
+		static void defaultCallback()
+		{
+			printf("This button dont give a shit when pressed\n");
+		}
+		std::function<void()> _function;
 	};
 
 	class Button {
@@ -177,7 +173,7 @@ namespace BetaGUI {
 		}
 		Ogre::OverlayContainer* mO, *mCP;            // Main Overlay and Caption
 		Ogre::String mmn, mma;                        // MaterialName Normal, MaterialName Active
-		BetaGUI::Callback callback;            // Callback to use
+		GUIndilla::Callback callback;            // Callback to use
 		Ogre::uint x, y, w, h;                        // Dimensions.
 	};
 

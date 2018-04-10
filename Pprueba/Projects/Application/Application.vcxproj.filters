@@ -63,7 +63,7 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\TrashCollector.h" />
     <ClInclude Include="..\..\Src\BetaGUI.h">
-      <Filter>Kernel</Filter>
+      <Filter>Kernel\GUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -120,14 +120,14 @@
     <ClCompile Include="..\..\Src\Sound.cpp">
       <Filter>Kernel</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Src\BetaGUI.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Src\CameraController_c.cpp">
       <Filter>Components\Input</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\Camera_c.cpp">
       <Filter>Components\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\BetaGUI.cpp">
+      <Filter>Kernel\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +151,9 @@
     </Filter>
     <Filter Include="Components\Behaviour">
       <UniqueIdentifier>{14cba20c-a5fe-4c46-b1a7-942471582772}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernel\GUI">
+      <UniqueIdentifier>{79826438-0d58-423b-9a31-72a85d030623}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

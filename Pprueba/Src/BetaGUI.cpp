@@ -2,7 +2,7 @@
 #include "InputManager.h"
 using namespace Ogre;
 using namespace std;
-namespace BetaGUI {
+namespace GUIndilla {
 	GUI::GUI(const String & font, const uint & fontSize)
 		:mXW(0),
 		mousePointer(0),
@@ -22,7 +22,7 @@ namespace BetaGUI {
 		WN.clear();
 	}
 
-	bool GUI::injectMouse(const uint & x,const uint & y, const bool & LMB) {
+	bool GUI::injectMouse(const uint & x,const uint & y, const bool & LMB = false) {
 
 
 		if (mXW) {
@@ -96,7 +96,7 @@ namespace BetaGUI {
 	}
 
 	Window* GUI::createWindow(const Ogre::Vector4 & Dimensions,const Ogre::String & Material, const WINDOW_TYPE &type, const Ogre::String & caption) {
-		Window* window = new BetaGUI::Window(Dimensions, Material, type, caption, this);
+		Window* window = new GUIndilla::Window(Dimensions, Material, type, caption, this);
 		WN.push_back(window);
 		return window;
 	}
@@ -113,15 +113,7 @@ namespace BetaGUI {
 		mAB(0)
 	{
 		mO = gui->createOverlay("BetaGUI.w" + StringConverter::toString(gui->wc++), Vector2(Dimensions.x, Dimensions.y), Vector2(Dimensions.z, Dimensions.w), Material);
-		if (t >= 2) {
-			Callback c; c.t = 4;
-			mRZ = createButton(Vector4(Dimensions.z - 16, Dimensions.w - 16, 16, 16), Material + ".resize", "", c);
-		}
-
-		if (t == 1 || t == 3) {
-			Callback c; c.t = 3;
-		}
-		mTB = createButton(Vector4(0, 0, Dimensions.z, 22), Material + ".titlebar", caption, Callback());
+		mTB = createButton(Vector4(0, 0, Dimensions.z, 22), Material + ".titlebar", caption,Callback());
 
 	}
 
@@ -247,25 +239,7 @@ namespace BetaGUI {
 				mATI = 0;
 			}
 
-			switch (mAB->callback.t) {
-			default: return true;
-			case 1:
-				mAB->callback.fp(mAB);
-				return true;
-			case 2:
-				mAB->callback.LS->onButtonPress(mAB);
-				return true;
-			case 3:
-				mO->setPosition(x = px - (mAB->w / 2), y = py - (mAB->h / 2));
-				return true;
-			case 4:
-				mO->setDimensions(w = px - x + 8, h = py - y + 8);
-				mRZ->mO->setPosition(mRZ->x = w - 16, mRZ->y = h - 16);
-				if (mTB) {
-					mTB->mO->setWidth(mTB->w = w);
-				}
-				return true;
-			}
+			mAB->callback.onButtonPress();
 
 		}
 
@@ -328,11 +302,14 @@ namespace BetaGUI {
 	bool MousePointer::mouseMoved(const OIS::MouseEvent & arg)
 	{
 		mMP->setPosition(arg.state.X.abs, arg.state.Y.abs);
+		_GUI->injectMouse(arg.state.X.abs, arg.state.Y.abs);
 		return true;
 	}
 
 	bool MousePointer::mousePressed(const OIS::MouseEvent & arg, OIS::MouseButtonID id)
 	{
+		mMP->setPosition(arg.state.X.abs, arg.state.Y.abs);
+		_GUI->injectMouse(arg.state.X.abs, arg.state.Y.abs,arg.state.buttonDown(id));
 		return true;
 	}
 

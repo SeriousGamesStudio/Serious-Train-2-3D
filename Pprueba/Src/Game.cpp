@@ -2,12 +2,17 @@
 #include <ctime>
 #include "Scene.h"
 #include "Sound.h"
+#include <functional>
 #pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
 #include "TrashCollector.h"
 
 #pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
-using namespace BetaGUI;
+using namespace GUIndilla;
 Game* Game::instance = nullptr;
+
+void printNothingImportant() {
+	printf("lmao this nigga \n");
+}
 
 Game::Game() :
 	dataManager(this)
@@ -59,10 +64,11 @@ bool Game::start()
 	Scene * initial = new Scene();
 	sceneManager->pushScene(initial);
 	mGUI = new GUI("Caption",13);
-	BetaGUI::Window* window = mGUI->createWindow(Ogre::Vector4(100, 100, 300, 100), "bgui.window", BetaGUI::WT_NONE, "Magical Doubler");
+	Window* window = mGUI->createWindow(Ogre::Vector4(100, 100, 300, 100), "bgui.window", WT_NONE, "Magical");
 	//window->createStaticText(Ogre::Vector4(4, 22, 198, 40), "Type in a number and I'll double it!");
-	BetaGUI::Button* mDoubleIt = window->createButton(Ogre::Vector4(108, 50, 104, 24), "bgui.button", "Go on then!", BetaGUI::Callback());
-	mGUI->createWindow(Ogre::Vector4(500, 100, 300, 100), "bgui.window", BetaGUI::WT_NONE, "verdad")->createStaticText(Ogre::Vector4(4, 22, 198, 40), "la Madre de manu la chupa");
+	std::function<void()> printshit = printNothingImportant;
+	Button* mDoubleIt = window->createButton(Ogre::Vector4(108, 50, 104, 24), "bgui.button", "Go on then!", Callback(printshit));
+	mGUI->createWindow(Ogre::Vector4(500, 100, 300, 100), "bgui.window",WT_MOVE, "verdad")->createButton(Ogre::Vector4(4, 22, 198, 40), "bgui.button","la Madre de manu la chupa",Callback());
 	mGUI->createMousePointer(Ogre::Vector2(32, 32), "bgui.pointer");
 	
 	run();

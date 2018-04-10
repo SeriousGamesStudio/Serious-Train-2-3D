@@ -28,7 +28,7 @@ private:
 
 private:
 	bool exit;
-	BetaGUI::GUI *mGUI;
+	GUIndilla::GUI *mGUI;
 	SceneManager *sceneManager;
 	InputManager * inputManager;
 	SoundManager * soundManager;
