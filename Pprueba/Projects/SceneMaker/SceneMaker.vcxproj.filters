@@ -26,5 +26,8 @@
     <ClInclude Include="..\..\Src\SMComponents.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\SMEntitys.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
