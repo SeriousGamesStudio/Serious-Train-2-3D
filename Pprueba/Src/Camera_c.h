@@ -10,7 +10,7 @@ class Camera_c :
 	public Component
 {
 public:
-	Camera_c(GraphicsManager* graphicsManager);
+	Camera_c();
 	~Camera_c();
 	
 	virtual void update();
@@ -19,7 +19,6 @@ public:
 	void setPosition(float x, float y, float z);
 
 private:
-	GraphicsManager* graphicsManager_;
 	Ogre::Camera* cam;
 	bool foreward, backward, left, right;
 };

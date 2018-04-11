@@ -4,13 +4,10 @@
 #include "Components.h"
 #include <iostream>
 
-Camera_c::Camera_c(GraphicsManager * graphicsManager): 
+Camera_c::Camera_c(): 
 	Component(ComponentType::CAMERA)
 {
-	graphicsManager_ = graphicsManager;
-	cam = graphicsManager_->getCamera();
-	//camNode_ = graphicsManager_->createNewNode(NULL);
-
+	cam = GraphicsManager::getInstance()->getCamera();
 }
 
 Camera_c::~Camera_c()
@@ -20,6 +17,7 @@ Camera_c::~Camera_c()
 
 void Camera_c::update()
 {
+	//Esto es MUY provisional
 	float x = static_cast<RigidBody_c*>(_myEntity->getComponent(ComponentType::RIGIDBODY))->get()->getCenterOfMassPosition().getX();
 	float y = static_cast<RigidBody_c*>(_myEntity->getComponent(ComponentType::RIGIDBODY))->get()->getCenterOfMassPosition().getY();
 	float z = static_cast<RigidBody_c*>(_myEntity->getComponent(ComponentType::RIGIDBODY))->get()->getCenterOfMassPosition().getZ();
