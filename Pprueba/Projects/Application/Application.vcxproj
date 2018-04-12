@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Src\Animation_c.h" />
     <ClInclude Include="..\..\Src\Camera_c.h" />
     <ClInclude Include="..\..\Src\CameraController_c.h" />
     <ClInclude Include="..\..\Src\Collider_c.h" />
@@ -37,6 +38,7 @@
     <ClInclude Include="..\..\Src\Walker_c.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Src\Animation_c.cpp" />
     <ClCompile Include="..\..\Src\Camera_c.cpp" />
     <ClCompile Include="..\..\Src\CameraController_c.cpp" />
     <ClCompile Include="..\..\Src\Collider_c.cpp" />
@@ -64,7 +66,7 @@
     <ProjectGuid>{41D4F585-BC8E-4D52-B33F-88A595432442}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Application</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

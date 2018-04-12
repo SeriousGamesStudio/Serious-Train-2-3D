@@ -16,6 +16,7 @@ Scene::Scene():
 
 	robot->addComponent(new MeshRenderer_c("fish.mesh")); //pruebas
 	//robot->addComponent(new PlayerController_c()); //pruebas
+	robot->addComponent(new Animation_c());
 	robot->init();
 
 	//CAMARA DE PRUEBA
@@ -44,6 +45,14 @@ Scene::Scene():
 	player->addComponent(new Walker_c());
 	player->addComponent(new PlayerController_c());
 	player->init();
+
+	
+	//ANIMACION PRUEBAS
+	
+	
+	
+
+
 
 	{//Add rigidBody
 		btCollisionShape* fallShape = new btSphereShape(1);

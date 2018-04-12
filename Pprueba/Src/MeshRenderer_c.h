@@ -13,9 +13,9 @@ class MeshRenderer_c :
 public:
 	MeshRenderer_c(std::string meshName);
 	~MeshRenderer_c();
-
+	
 	virtual void listen(Msg_Base* msg);
-
+	inline Ogre::SceneNode* getSceneNode() { return scnNode_; }
 
 private:
 	Ogre::SceneNode* scnNode_;

@@ -1,6 +1,6 @@
 #include "GraphicsManager.h"
 #include "Game.h"
-#include "TrashCollector.h"
+
 
 GraphicsManager* GraphicsManager::instance = nullptr;
 
