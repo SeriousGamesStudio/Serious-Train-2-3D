@@ -56,7 +56,7 @@ Scene::Scene():
 		robot->addComponent(new RigidBody_c(fallRigidBodyCI));
 	}
 	//////////////////////////////////////////////////////////////////////////
-	Entity* ground = new Entity(this, 3, "ground");
+	Entity* ground = new Entity(this, 4, "ground");
 	ground->addComponent(new MeshRenderer_c("WoodPallet.mesh")); //pruebas
 	entities.push_back(ground);
 	{

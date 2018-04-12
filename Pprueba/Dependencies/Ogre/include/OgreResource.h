@@ -88,7 +88,7 @@ namespace Ogre {
             @deprecated
                 Use Listener::loadingComplete instead.
             */
-            OGRE_DEPRECATED virtual void backgroundLoadingComplete(Resource*) {}
+			//COMENTADO POR BORJA PARA QUE NO SALGAN WARNINGS!! OGRE_DEPRECATED virtual void backgroundLoadingComplete(Resource*) {}
 
             /** Callback to indicate that background preparing has completed.
             @deprecated

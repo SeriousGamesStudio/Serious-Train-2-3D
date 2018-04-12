@@ -21,8 +21,9 @@ public:
 	bool stop();
 
 	inline float getDeltaTime() const {
-		return deltaTime;
-	};
+		return (float)deltaTime;
+	}; 
+
 
 private:
 	Game();
