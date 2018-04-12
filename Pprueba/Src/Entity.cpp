@@ -32,8 +32,10 @@ void Entity::tick()
 	sendMessages();
 	for each (Component* c in components)
 	{
-		c->update();
-		c->lateUpdate();
+		if (c->isEnable()) {
+			c->update();
+			c->lateUpdate();
+		}
 	}
 }
 
