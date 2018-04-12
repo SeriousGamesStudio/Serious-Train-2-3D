@@ -3,26 +3,27 @@
 #include "GraphicsManager.h"
 #include "Component.h"
 #include "Components.h"
-class GraphicsManager;
 
 class Animation_c:
 	public Component
 {
 public:
-	Animation_c(GraphicsManager* graphicsMgr);
+	Animation_c();
 	~Animation_c();
 
-	void start();
-	virtual void update(const Ogre::FrameEvent & evt);
+	virtual void start();
+	virtual void update();
 	//ANIMATIONS
-	void shakeAnimation();
+	void setAnimation(std::string animName);
 
 private:
-	GraphicsManager* graphicsMgr_;
-
+	MeshRenderer_c * mesh;
+	Ogre::Entity* _ogreEntity;
+	
 	//ANIMATION SET
-	Ogre::AnimationState* animStateShake_;
-	Ogre::Animation* shake_;
+	Ogre::AnimationState* currentState;
+
+	
 };
 
 #endif // !_H_ANIMATION_H_

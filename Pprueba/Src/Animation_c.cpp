@@ -1,35 +1,48 @@
 #include "Animation_c.h"
+#include "Entity.h"
 
-
-Animation_c::Animation_c(GraphicsManager* graphicsMgr):
-	Component(ComponentType::ANIMATION),
-	graphicsMgr_(graphicsMgr)
+Animation_c::Animation_c():
+	Component(ComponentType::ANIMATION)
 	
 {
-	start();
+	currentState = nullptr;
+	
 
 }
 
 Animation_c::~Animation_c()
 {
+
 }
 
 void Animation_c::start()
 {
-	shakeAnimation();
+	mesh = static_cast<MeshRenderer_c*>(_myEntity->getComponent(ComponentType::MESHRENDERER));
+	_ogreEntity = static_cast<Ogre::Entity*>(mesh->getSceneNode()->getAttachedObject(0));
+	setAnimation("swim");
 }
 
-void Animation_c::update(const Ogre::FrameEvent & evt)
+void Animation_c::update()
 {
-	animStateShake_->addTime(evt.timeSinceLastFrame);
+	currentState->addTime(0.16f);
 }
 
-void Animation_c::shakeAnimation()
+void Animation_c::setAnimation(std::string animName)
 {
+	if (currentState) { // si hay una puesta previamente se para
+		currentState->setLoop(false);
+		currentState->setEnabled(false);
+	}
+	currentState = _ogreEntity->getAnimationState(animName);
 
-	animStateShake_ = graphicsMgr_->getInstance()->getSceneManager()->getEntity("robot")->getAnimationState("swim");
-	animStateShake_->setLoop(true);
-	animStateShake_->setEnabled(true);
+	if (currentState) { // se activa la que se asigna si hay alguna 
+		currentState->setLoop(true);
+		currentState->setEnabled(true);
+	}
+
+	
+
+	//animStateSwim_ = mesh->getSceneNode()->getCreator()->createAnimationState("animFishSwim"); pa
 	
 }
 

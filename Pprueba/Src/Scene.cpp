@@ -17,7 +17,7 @@ Scene::Scene():
 	robot->addComponent(new MeshRenderer_c("fish.mesh")); //pruebas
 	robot->addComponent(new PlayerController_c()); //pruebas
 	//ANIMACION PRUEBAS
-	robot->addComponent(new Animation_c(GraphicsManager::getInstance()));
+	robot->addComponent(new Animation_c());
 	
 	
 
