@@ -50,16 +50,12 @@ namespace GUIndilla {
 	class GUI {
 	public:
 		friend class Window;
-		friend class Button;
-		friend class TextInput;
 
 
 		GUI(const Ogre::String & font, const Ogre::uint & fontSize);
 		~GUI();
 		bool injectMouse(const Ogre::uint & x, const Ogre::uint & y, const bool & LMB);
-		bool injectKey(const Ogre::String &  key, const Ogre::uint & x, const Ogre::uint & y);
-		void injectBackspace(const Ogre::uint & x, const Ogre::uint & y);
-		Window*     createWindow(const Ogre::Vector4 &Dimensions , const Ogre::String & Material, const WINDOW_TYPE & type,const Ogre::String & caption = "");
+		Window*     createWindow(const Ogre::Vector4 &Dimensions , const Ogre::String & Material, const WINDOW_TYPE & type=WINDOW_TYPE::WT_NONE,const Ogre::String & caption = "");
 		void destroyWindow(Window *window) {
 			mXW = window;
 		}
@@ -99,10 +95,6 @@ namespace GUIndilla {
 		friend class TextInput;
 		friend class GUI;
 
-		Button*        createButton(const Ogre::Vector4 &Dimensions , const Ogre::String & Material, const Ogre::String & Text, Callback callback);
-		TextInput*    createTextInput(const Ogre::Vector4 &Dimensions , const Ogre::String & Material, const Ogre::String & value, const Ogre::uint & length);
-		void        createStaticText(const Ogre::Vector4 &Dimensions , const Ogre::String & Text);
-
 		void hide() {
 			mO->hide();
 		}
@@ -119,7 +111,6 @@ namespace GUIndilla {
 		~Window();
 
 		bool check(const Ogre::uint & x, const Ogre::uint & y, const bool & LMB); 
-		bool checkKey(const Ogre::String & key,const Ogre::uint & x,const Ogre::uint & y);
 		TextInput* mATI;                // Active TextInput
 		Button *mRZ, *mAB, *mTB;            // Resizer, ActiveButton, Titlebar
 		Ogre::uint x, y, w, h;                    // Dimensions
@@ -132,7 +123,6 @@ namespace GUIndilla {
 	class Callback {
 	public:
 		friend class Window;
-		friend class Button;
 
 		Callback() {
 			_function = defaultCallback;
@@ -152,51 +142,4 @@ namespace GUIndilla {
 		std::function<void()> _function;
 	};
 
-	class Button {
-	public:
-		friend class Window;
-
-		Button(const Ogre::Vector4 &Dimensions , const Ogre::String & Material, const Ogre::String & Text, Callback callback, Window *parent);
-		~Button() {
-			mO->getParent()->removeChild(mO->getName());
-			mCP->getParent()->removeChild(mCP->getName());
-		}
-	protected:
-		inline void activate(const bool & a) {
-			if (!a && mmn != "")
-				mO->setMaterialName(mmn);
-			if (a && mma != "")
-				mO->setMaterialName(mma);
-		}
-		inline bool in(const Ogre::uint &mx, const Ogre::uint& my, const Ogre::uint &px, const Ogre::uint& py) {
-			return (!(mx >= x + px && my >= y + py)) || (!(mx <= x + px + w && my <= y + py + h));
-		}
-		Ogre::OverlayContainer* mO, *mCP;            // Main Overlay and Caption
-		Ogre::String mmn, mma;                        // MaterialName Normal, MaterialName Active
-		GUIndilla::Callback callback;            // Callback to use
-		Ogre::uint x, y, w, h;                        // Dimensions.
-	};
-
-	class TextInput {
-	public:
-		friend class Window;
-
-		TextInput(const Ogre::Vector4 &Dimensions , const Ogre::String & Material, const Ogre::String & value, const Ogre::uint & length, Window *parent);
-		~TextInput() {}
-		Ogre::String getValue() {
-			return value;
-		}
-
-		inline void setValue(const Ogre::String & v) {
-			mCP->setCaption(value = v);
-		}
-
-	protected:
-		inline bool in(const Ogre::uint &mx, const Ogre::uint& my, const Ogre::uint& px, const Ogre::uint& py) {
-			return (!(mx >= x + px && my >= y + py)) || (!(mx <= x + px + w && my <= y + py + h));
-		}
-		Ogre::OverlayContainer* mO, *mCP;
-		Ogre::String mmn, mma, value;
-		Ogre::uint x, y, w, h, length;
-	};
 } // End of Namespace

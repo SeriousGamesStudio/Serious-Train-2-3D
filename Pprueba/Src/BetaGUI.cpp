@@ -17,12 +17,13 @@ namespace GUIndilla {
 	}
 
 	GUI::~GUI() {
+		delete mousePointer;
 		for (uint i = 0; i < WN.size(); i++)
 			delete WN[i];
 		WN.clear();
 	}
 
-	bool GUI::injectMouse(const uint & x,const uint & y, const bool & LMB = false) {
+	bool GUI::injectMouse(const uint & x, const uint & y, const bool & LMB = false) {
 
 
 		if (mXW) {
@@ -36,7 +37,7 @@ namespace GUIndilla {
 			}
 		}
 
-		for (uint i = 0; i<WN.size(); i++) {
+		for (uint i = 0; i < WN.size(); i++) {
 			if (WN[i]->check(x, y, LMB)) {
 				return true;
 			}
@@ -44,31 +45,16 @@ namespace GUIndilla {
 
 		return false;
 	}
-	bool GUI::injectKey(const String & key, const uint & x, const uint &y) {
-		for (uint i = 0; i<WN.size(); i++) {
-			if (WN[i]->checkKey(key, x, y)) {
-				return true;
-			}
-		}
-		return false;
-	}
 
-	void GUI::injectBackspace(const uint & x, const uint & y) {
-		injectKey("!b", x, y);
-	}
 
 	OverlayContainer* GUI::createOverlay(const String & name, const Vector2 &position, const Vector2 &dimensions, const Ogre::String & material, const Ogre::String & caption,const bool &autoAdd) {
 		String type = "Panel";
-
-		if (caption != "")
-			type = "TextArea";
-
 		OverlayContainer* e = static_cast<OverlayContainer*>(OverlayManager::getSingleton().createOverlayElement(type, name));
 
-		e->setMetricsMode(Ogre::GMM_PIXELS);
+		e->setMetricsMode(Ogre::GMM_RELATIVE);
 		e->setDimensions(dimensions.x, dimensions.y);
 		e->setPosition(position.x, position.y);
-
+		
 		if (material != "")
 			e->setMaterialName(material);
 
@@ -113,7 +99,6 @@ namespace GUIndilla {
 		mAB(0)
 	{
 		mO = gui->createOverlay("BetaGUI.w" + StringConverter::toString(gui->wc++), Vector2(Dimensions.x, Dimensions.y), Vector2(Dimensions.z, Dimensions.w), Material);
-		mTB = createButton(Vector4(0, 0, Dimensions.z, 22), Material + ".titlebar", caption,Callback());
 
 	}
 
@@ -127,140 +112,16 @@ namespace GUIndilla {
 		mGUI->mO->remove2D(mO);
 	}
 
-	Button* Window::createButton(const Vector4 & D, const String & M, const String & T, Callback C) {
-		Button *x = new Button(D, M, T, C, this);
-		mB.push_back(x);
-		return x;
-	}
-
-	Button::Button(const Ogre::Vector4 & Dimensions, const String & m, const String & Text, Callback cb, Window *parent)
-		: x(Dimensions.x),
-		y(Dimensions.y),
-		w(Dimensions.z),
-		h(Dimensions.w),
-		mmn(m),
-		mma(m)
-	{
-
-		Ogre::ResourcePtr ma = Ogre::MaterialManager::getSingleton().getByName(mmn + ".active");
-		if (!ma.isNull())
-			mma += ".active";
-
-		mO = parent->mGUI->createOverlay(parent->mO->getName() + "b" + StringConverter::toString(parent->mGUI->bc++), Vector2(x, y), Vector2(w, h), m, "", false);
-		mCP = parent->mGUI->createOverlay(mO->getName() + "c", Vector2(4, (h - parent->mGUI->mFontSize) / 2), Vector2(w, h), "", Text, false);
-		parent->mO->addChild(mO);
-		mO->show();
-		mO->addChild(mCP);
-		mCP->show();
-		callback = cb;
-	}
-
-	TextInput* Window::createTextInput(const Vector4 &D,const String & M, const String&  V, const uint & L) {
-		TextInput *x = new TextInput(D, M, V, L, this);
-		mT.push_back(x);
-		return x;
-	}
-
-	void Window::createStaticText(const Vector4 &  D, const String & T) {
-		OverlayContainer* x = mGUI->createOverlay(mO->getName() + StringConverter::toString(mGUI->tc++), Vector2(D.x, D.y), Vector2(D.z, D.w), "", T, false);
-		mO->addChild(x);
-		x->show();
-	}
-
-	TextInput::TextInput(const Vector4 & D, const String & M, const String & V, const uint & L, Window *P)
-		: x(D.x), y(D.y), w(D.z), h(D.w), value(V), mmn(M), mma(M), length(L)
-	{
-		ResourcePtr ma = Ogre::MaterialManager::getSingleton().getByName(mmn + ".active");
-		if (!ma.isNull())
-			mma += ".active";
-
-		mO = P->mGUI->createOverlay(P->mO->getName() + "t" + StringConverter::toString(P->mGUI->tc++), Vector2(x, y), Vector2(w, h), M, "", false);
-		mCP = P->mGUI->createOverlay(mO->getName() + "c", Vector2(4, (h - P->mGUI->mFontSize) / 2), Vector2(w, h), "", V, false);
-		P->mO->addChild(mO);
-		mO->show();
-		mO->addChild(mCP);
-		mCP->show();
-	}
-
-	bool Window::checkKey(const String & k, const uint & px, const uint & py) {
-
-		if (!mO->isVisible())
-			return false;
-
-		if (!(px >= x&&py >= y) || !(px <= x + w&&py <= y + h))return false;
-
-		if (mATI == 0)
-			return false;
-
-		if (k == "!b") {
-			mATI->setValue(mATI->value.substr(0, mATI->value.length() - 1));
-			return true;
-		}
-
-		if (mATI->value.length() >= mATI->length)
-			return true;
-
-		mATI->mCP->setCaption(mATI->value += k);
-		return true;
-	}
+	
 
 	bool Window::check(const uint & px, const uint&  py, const bool & LMB) {
 		
 		if (!mO->isVisible())
 			return false;
-
-		if (!(px >= x && py >= y) || !(px <= x + w && py <= y + h)) {
-			if (mAB) {
-				mAB->activate(false);
-			}
-			return false;
-		}
-
-		if (mAB) {
-			mAB->activate(false);
-		}
-
-		for (uint i = 0; i < mB.size(); i++) {
-			if (mB[i]->in(px, py, x, y))
-				continue;
-
-			if (mAB) {
-				mAB->activate(false);
-			}
-
-			mAB = mB[i];
-			mAB->activate(true);
-
-			if (!LMB)
-				return true;
-
-			if (mATI) {
-				mATI->mO->setMaterialName(mATI->mmn);
-				mATI = 0;
-			}
-
-			mAB->callback.onButtonPress();
-
-		}
-
-
 		if (!LMB)
 			return true;
 
-		for (uint i = 0; i<mT.size(); i++) {
-
-			if (mT[i]->in(px, py, x, y))
-				continue;
-
-			mATI = mT[i];
-			mATI->mO->setMaterialName(mATI->mma);
-			return true;
-		}
-
-		if (mATI) {
-			mATI->mO->setMaterialName(mATI->mmn);
-			mATI = 0;
-		}
+		
 
 		return true;
 	}
@@ -273,7 +134,13 @@ namespace GUIndilla {
 		_GUI = gui;
 		Overlay* o = OverlayManager::getSingleton().create("BetaGUI.MP");
 		o->setZOrder(649);
-		mMP = _GUI->createOverlay("bg.mp", Vector2(0, 0), dimensions, material, "", false);
+
+		mMP = static_cast<OverlayContainer*>(OverlayManager::getSingleton().createOverlayElement("Panel", "bg.mp"));
+
+		mMP->setMetricsMode(Ogre::GMM_PIXELS);
+		mMP->setDimensions(dimensions.x, dimensions.y);
+		mMP->setPosition(0, 0);
+		mMP->setMaterialName(material);
 		o->add2D(mMP);
 		o->show();
 		mMP->show();

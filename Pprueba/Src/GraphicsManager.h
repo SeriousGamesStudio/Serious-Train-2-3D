@@ -18,6 +18,13 @@ public:
 	void renderFrame();
 	Ogre::SceneNode* createNewNode(std::string meshName);
 
+	void initGUI();
+	GUIndilla::GUI *getGUI() {
+		if (!_GUI) {
+			initGUI();
+		}
+		return _GUI;
+	};
 
 	
 	

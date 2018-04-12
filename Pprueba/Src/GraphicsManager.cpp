@@ -19,6 +19,7 @@ GraphicsManager::GraphicsManager() :
 GraphicsManager::~GraphicsManager()
 {
 	delete _GUI;
+	delete overlaySystem;
 	delete root;
 	instance = nullptr;
 }
@@ -118,8 +119,7 @@ bool GraphicsManager::start()
 	Ogre::Real(vp->getActualHeight()));
 
 	//------------------------------------------------------------------------------------------------------
-	_GUI = new GUIndilla::GUI("Caption", 13);
-	_GUI->createMousePointer(Ogre::Vector2(32, 32), "bgui.pointer");
+	_GUI = nullptr;
 
 
 	//------------------------------------------------------------------------------------------------------
@@ -171,4 +171,12 @@ Ogre::SceneNode * GraphicsManager::createNewNode(std::string meshName)
 	}
 
 	return newNode;
+}
+
+void GraphicsManager::initGUI()
+{
+	if (!_GUI) {
+		_GUI = new GUIndilla::GUI("Caption", 13);
+		_GUI->createMousePointer(Ogre::Vector2(32, 32), "bgui.pointer");
+	}
 }

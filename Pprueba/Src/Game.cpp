@@ -58,6 +58,9 @@ bool Game::start()
 	inputManager = InputManager::getInstance();
 	inputManager->initialise(graphicsManager->getWindow());
 
+	//incializar el GUI
+	graphicsManager->getGUI()->createWindow(Ogre::Vector4(0,0,0.1f,0.1f), "bgui.window");
+
 	if(!soundManager->initialise())
 		printf("SoundManager no se ha iniciado \n");
 	Scene * initial = new Scene();
