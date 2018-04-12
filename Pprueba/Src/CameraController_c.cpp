@@ -18,6 +18,12 @@ CameraController_c::~CameraController_c()
 	InputManager::getInstance()->removeKeyListener(this);
 }
 
+
+void CameraController_c::start()
+{
+	cam = static_cast<Camera_c*>(_myEntity->getComponent(ComponentType::CAMERA));
+}
+
 bool CameraController_c::keyPressed(const OIS::KeyEvent & arg)
 {	
 	
@@ -32,8 +38,8 @@ bool CameraController_c::keyReleased(const OIS::KeyEvent & arg)
 
 bool CameraController_c::mouseMoved(const OIS::MouseEvent & arg)
 {
-	
-	sendMsg(new Msg::CameraOrientate(_myEntity->getId(), Msg_Base::self, (float)arg.state.X.rel/ MOUSE_SENSIBILITY, (float) arg.state.Y.rel /MOUSE_SENSIBILITY));
+	cam->rotateCamera((float)arg.state.X.rel / MOUSE_SENSIBILITY, (float)-arg.state.Y.rel / MOUSE_SENSIBILITY);
+
 	return true;
 }
 

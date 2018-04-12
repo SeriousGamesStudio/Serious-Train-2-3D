@@ -3,8 +3,6 @@
 
 #include "Component.h"
 #include <Ogre.h>
-class GraphicsManager;
-
 
 class Camera_c :
 	public Component
@@ -14,9 +12,9 @@ public:
 	~Camera_c();
 	
 	virtual void update();
-	virtual void listen(Msg_Base* msg);
 
 	void setPosition(float x, float y, float z);
+	void rotateCamera(float x, float y, float z = 0.0f);
 
 private:
 	Ogre::Camera* cam;

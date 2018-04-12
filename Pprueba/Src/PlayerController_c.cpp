@@ -5,6 +5,7 @@
 #include "Notifications.h"
 #include <math.h>
 #include "InputManager.h"
+#include <iostream>
 
 #define PI 3.14159265358f
 

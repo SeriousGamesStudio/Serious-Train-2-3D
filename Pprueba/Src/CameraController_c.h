@@ -3,8 +3,7 @@
 
 #include "Component.h"
 #include "InputManager.h"
-#include "Camera_c.h"
-#include "Notifications.h"
+class Camera_c;
 
 class CameraController_c:
 	public Component, 
@@ -14,6 +13,9 @@ class CameraController_c:
 public:
 	CameraController_c();
 	~CameraController_c();
+
+	virtual void start();
+
 	virtual bool keyPressed(const OIS::KeyEvent &arg);
 	virtual bool keyReleased(const OIS::KeyEvent &arg);
 	virtual bool mouseMoved(const OIS::MouseEvent &arg);
@@ -22,5 +24,6 @@ public:
 
 
 private:
+	Camera_c * cam;
 };
 #endif // !_H_CAMERACONTROLLER_C_H_
