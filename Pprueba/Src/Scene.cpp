@@ -22,8 +22,8 @@ Scene::Scene():
 	Entity* player = new Entity(this, 2, "Player");
 	entities.push_back(player);
 
-	player->addComponent(new Camera_c(GraphicsManager::getInstance()));//pruebas camara
-	player->addComponent(new CameraController_c(InputManager::getInstance())); // pruebas
+	player->addComponent(new Camera_c());//pruebas camara
+	player->addComponent(new CameraController_c()); // pruebas
 	{//Add rigidBody
 		btCollisionShape* fallShape = new btSphereShape(1);
 		btDefaultMotionState* fallMotionState =

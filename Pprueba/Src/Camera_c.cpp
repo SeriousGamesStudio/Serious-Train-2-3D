@@ -4,11 +4,10 @@
 #include "Components.h"
 #include <iostream>
 
-Camera_c::Camera_c(GraphicsManager * graphicsManager): 
+Camera_c::Camera_c(): 
 	Component(ComponentType::CAMERA)
 {
-	graphicsManager_ = graphicsManager;
-	cam = graphicsManager_->getCamera();
+	cam = GraphicsManager::getInstance()->getCamera();
 	//camNode_ = graphicsManager_->createNewNode(NULL);
 
 }
