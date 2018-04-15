@@ -113,6 +113,14 @@ namespace GUIndilla {
 		return x;
 	}
 
+	Button * GUI::createStaticText(const Ogre::Vector4 & Dimensions, const Ogre::String & Text, const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor)
+	{
+		nButtons++;
+		Button *x = new Button(Dimensions, "", Text, Callback(), this, posType, vertAnch, horAnchor);
+		Elementos.push_back(x);
+		return nullptr;
+	}
+
 	
 	
 
