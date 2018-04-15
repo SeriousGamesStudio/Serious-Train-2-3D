@@ -15,7 +15,7 @@ Scene::Scene():
 	entities.push_back(robot);
 
 	robot->addComponent(new MeshRenderer_c("fish.mesh")); //pruebas
-	//robot->addComponent(new PlayerController_c()); //pruebas
+														  //robot->addComponent(new PlayerController_c()); //pruebas
 	robot->addComponent(new Animation_c());
 	robot->init();
 
@@ -40,17 +40,17 @@ Scene::Scene():
 	Entity* plane = new Entity(this, 3, "Plano");
 	entities.push_back(plane);
 
-	plane->addComponent(new PlaneRenderer_c("plane", "nm_bk.png")); 
+	plane->addComponent(new PlaneRenderer_c("plane", "nm_bk.png"));
 	// el ultimo parametro es la imagen que hace de textura del plano por si quieres cambiarla
 	player->addComponent(new Walker_c());
 	player->addComponent(new PlayerController_c());
 	player->init();
 
-	
+
 	//ANIMACION PRUEBAS
-	
-	
-	
+
+
+
 
 
 

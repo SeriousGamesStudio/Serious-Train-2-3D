@@ -2,10 +2,16 @@
 #include <ctime>
 #include "Scene.h"
 #include "Sound.h"
+#include <functional>
 #pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
 #include "TrashCollector.h"
 
+using namespace GUIndilla;
 Game* Game::instance = nullptr;
+
+void stopGame() {
+	Game::getInstance()->stop();
+}
 
 Game::Game() :
 	dataManager(this)
@@ -51,25 +57,34 @@ bool Game::start()
 	inputManager = InputManager::getInstance();
 	inputManager->initialise(graphicsManager->getWindow());
 
-#ifdef _DEBUG
-	if(!soundManager->initialise())
+	//incializar el GUI
+	GUI * g = graphicsManager->getGUI();
+	std::function<void()> fun = stopGame;
+	g->createButton(Ogre::Vector4(0.9, 0.9, 0.1, 0.1),"bgui.button","Salir del juego",Callback(fun),POSITION_TYPE::PT_REL);
+	g->createStaticImage(Ogre::Vector4(-50, -50, 100, 100), "crossAir", POSITION_TYPE::PT_ABSOLUTE, VERTICAL_ANCHOR::VA_CENTER, HORINZONTAL_ANCHOR::HA_CENTER);
+	g->createStaticText(Ogre::Vector4(-50, -50, 100, 100), "texto to guapo", POSITION_TYPE::PT_ABSOLUTE, VERTICAL_ANCHOR::VA_CENTER, HORINZONTAL_ANCHOR::HA_CENTER);
+
+	if (!soundManager->initialise())
 		printf("SoundManager no se ha iniciado \n");
+#ifdef _DEBUG
+	
+	Scene * initial = new Scene();
+	sceneManager->pushScene(initial);
+	
 #endif // _DEBUG
 	run();
 	return true;
 }
 
-bool Game::stop()
+void Game::stop()
 {
 	exit = true;
-	return true;
 }
 
 void Game::run()
 {
 	clock_t lastTicks = clock();
 	clock_t elapsedTicks = 0;
-	sceneManager->pushScene(new Scene());
 	while (!exit)
 	{
 		//getting the time passed since last frame

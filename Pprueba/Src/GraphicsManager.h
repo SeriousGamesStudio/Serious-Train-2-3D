@@ -3,6 +3,10 @@
 
 
 #include "Ogre.h"
+#include "MeshRenderer_c.h"
+#include "OgreOverlaySystem.h"
+#include <OgreOverlayManager.h>
+#include "GUIndilla.h"
 
 class Game;
 
@@ -14,6 +18,13 @@ public:
 	void renderFrame();
 	Ogre::SceneNode* createNewNode(std::string meshName);
 
+	void initGUI();
+	GUIndilla::GUI *getGUI() {
+		if (!_GUI) {
+			initGUI();
+		}
+		return _GUI;
+	};
 
 	
 	
@@ -37,12 +48,17 @@ private:
 	Ogre::String mOgreLog;
 	Ogre::ConfigFile cf;
 
+
 	Ogre::RenderWindow* mWindow;
 	Ogre::Camera * cam;
 	Ogre::Viewport * vp;
 	
 	Ogre::Light *light;
 
+	Ogre::OverlaySystem * overlaySystem;
+	Ogre::OverlayManager* overlayManager;
+
+	GUIndilla::GUI *_GUI;
 	//PLANO
 	
 	

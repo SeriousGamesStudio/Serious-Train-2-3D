@@ -1,6 +1,6 @@
 #include "GraphicsManager.h"
 #include "Game.h"
-
+#include "TrashCollector.h"
 
 GraphicsManager* GraphicsManager::instance = nullptr;
 
@@ -14,6 +14,8 @@ GraphicsManager::GraphicsManager() :
 
 GraphicsManager::~GraphicsManager()
 {
+	delete _GUI;
+	delete overlaySystem;
 	delete root;
 	instance = nullptr;
 }
@@ -31,6 +33,8 @@ bool GraphicsManager::start()
 
 	root = new Ogre::Root(mPluginsCfg);
 
+	overlaySystem = new Ogre::OverlaySystem();
+	overlayManager = Ogre::OverlayManager::getSingletonPtr();
 	//Rutas de recursos y plugins
 
 
@@ -93,6 +97,8 @@ bool GraphicsManager::start()
 
 	//we generate the default sceneManager. (more SceneManagers in Ogre::ST_....)
 	scnMgr = root->createSceneManager(Ogre::ST_GENERIC);
+	scnMgr->addRenderQueueListener(overlaySystem);
+	//panel->setMaterialName("MaterialName"); // Optional background material
 
 	//------------------------------------------------------------------------------------------------------
 	//Camera Creation
@@ -108,9 +114,9 @@ bool GraphicsManager::start()
 	Ogre::Real(vp->getActualWidth()) /
 	Ogre::Real(vp->getActualHeight()));
 
-
 	//------------------------------------------------------------------------------------------------------
-	
+	_GUI = nullptr;
+
 
 	//------------------------------------------------------------------------------------------------------
 	//Scene SetUp
@@ -161,4 +167,12 @@ Ogre::SceneNode * GraphicsManager::createNewNode(std::string meshName)
 	}
 
 	return newNode;
+}
+
+void GraphicsManager::initGUI()
+{
+	if (!_GUI) {
+		_GUI = new GUIndilla::GUI("Value", 16);
+		_GUI->createMousePointer(Ogre::Vector2(32, 32), "bgui.pointer");
+	}
 }
