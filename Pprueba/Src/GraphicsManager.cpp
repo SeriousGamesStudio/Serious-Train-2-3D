@@ -176,7 +176,7 @@ Ogre::SceneNode * GraphicsManager::createNewNode(std::string meshName)
 void GraphicsManager::initGUI()
 {
 	if (!_GUI) {
-		_GUI = new GUIndilla::GUI("Caption", 13);
+		_GUI = new GUIndilla::GUI("Value", 16);
 		_GUI->createMousePointer(Ogre::Vector2(32, 32), "bgui.pointer");
 	}
 }

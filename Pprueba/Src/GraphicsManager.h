@@ -6,7 +6,7 @@
 #include "MeshRenderer_c.h"
 #include "OgreOverlaySystem.h"
 #include <OgreOverlayManager.h>
-#include "BetaGUI.h"
+#include "GUIndilla.h"
 
 class Game;
 

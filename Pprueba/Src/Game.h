@@ -18,7 +18,7 @@ public:
 	~Game();
 	
 	bool start();
-	bool stop();
+	void stop();
 
 private:
 	Game();
