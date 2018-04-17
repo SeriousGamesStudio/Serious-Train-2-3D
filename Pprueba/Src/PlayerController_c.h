@@ -5,7 +5,7 @@
 #include "btBulletDynamicsCommon.h"
 
 
-class RigidBody_c;
+class Transform_c;
 class Walker_c;
 class Camera_c;
 class PlayerController_c: public Component, public OIS::MouseListener, public OIS::KeyListener
@@ -30,7 +30,7 @@ private:
 	OIS::KeyCode rightKey;
 	OIS::KeyCode leftKey;
 	Walker_c* walker;
-	RigidBody_c* rb;
+	Transform_c* transform;
 	Camera_c* cam;
 	btVector3 lookingAt, walkingTo;
 private:

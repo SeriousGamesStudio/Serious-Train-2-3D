@@ -2,16 +2,16 @@
 #include "Components.h"
 
 
-Trasform_c::Trasform_c(ConstructorInfo info) :
-	t(btTransform(info.q, info.v)), Component(ComponentType::TRANSFORM)
+Transform_c::Transform_c(const btVector3& position, const btQuaternion& rotation):
+	Component(ComponentType::TRANSFORM), t(rotation, position)
 {}
 
-Trasform_c::~Trasform_c()
+Transform_c::~Transform_c()
 {
 
 }
 
-void Trasform_c::start()
+void Transform_c::start()
 {
 
 }

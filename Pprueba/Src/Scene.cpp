@@ -25,16 +25,7 @@ Scene::Scene():
 
 	player->addComponent(new Camera_c());//pruebas camara
 	player->addComponent(new CameraController_c()); // pruebas
-	{//Add rigidBody
-		btCollisionShape* fallShape = new btSphereShape(1);
-		btDefaultMotionState* fallMotionState =
-			new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 5, 0)));
-		btScalar mass = 1;
-		btVector3 fallInertia(0, 0, 0);
-		fallShape->calculateLocalInertia(mass, fallInertia);
-		btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, fallMotionState, fallShape, fallInertia);
-		player->addComponent(new RigidBody_c(fallRigidBodyCI));
-	}
+	player->addComponent(new Transform_c(btVector3(0,5,0), btQuaternion(0,0,0,1)));
 
 	// PLANO PRUEBAS
 	Entity* plane = new Entity(this, 3, "Plano");

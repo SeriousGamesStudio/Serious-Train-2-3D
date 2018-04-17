@@ -19,11 +19,6 @@ Camera_c::~Camera_c()
 
 void Camera_c::update()
 {
-	float x = static_cast<RigidBody_c*>(_myEntity->getComponent(ComponentType::RIGIDBODY))->get()->getCenterOfMassPosition().getX();
-	float y = static_cast<RigidBody_c*>(_myEntity->getComponent(ComponentType::RIGIDBODY))->get()->getCenterOfMassPosition().getY();
-	float z = static_cast<RigidBody_c*>(_myEntity->getComponent(ComponentType::RIGIDBODY))->get()->getCenterOfMassPosition().getZ();
-	//std::cout << "x: " << x << " y: " << y << " z " << z<<"\n";
-	cam->setPosition(x, y, z);
 }
 
 void Camera_c::setPosition(float x, float y, float z)

@@ -5,7 +5,7 @@
 #include <Ogre.h>
 class GraphicsManager;
 
-class RigidBody_c;
+class Transform_c;
 class Walker_c :
 	public Component
 {
@@ -22,6 +22,9 @@ public:
 private:
 	btVector3 currentDirection;
 	RigidBody_c* rb;
-	btTransform trans;
+	Transform_c* trans;
+
+private:
+	btTransform& updateTransform();
 };
 #endif // !_H_CAMERA_C_H_
