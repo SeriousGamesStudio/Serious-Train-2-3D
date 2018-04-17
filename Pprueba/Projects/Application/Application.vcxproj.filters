@@ -70,6 +70,9 @@
     <ClCompile Include="..\..\Src\Walker_c.cpp">
       <Filter>Components\Behaviour</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\GameManager_c.cpp">
+      <Filter>Components\Behaviour</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\TrashCollector.h" />
@@ -146,6 +149,9 @@
       <Filter>Kernel</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Walker_c.h">
+      <Filter>Components\Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\GameManager_c.h">
       <Filter>Components\Behaviour</Filter>
     </ClInclude>
   </ItemGroup>

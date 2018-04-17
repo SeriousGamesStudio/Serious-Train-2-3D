@@ -19,6 +19,10 @@ Scene::Scene():
 	robot->addComponent(new Animation_c());
 	robot->init();
 
+	//vagon
+	
+
+
 	//CAMARA DE PRUEBA
 	Entity* player = new Entity(this, 2, "Player");
 	entities.push_back(player);
@@ -77,6 +81,11 @@ Scene::Scene():
 		ground->addComponent(new RigidBody_c(groundRigidBodyCI));
 	}
 	ground->init();
+	
+	//vagon
+	Entity* vagon = new Entity(this, 5, "vagon");
+	vagon->addComponent(new MeshRenderer_c("Vagon.mesh"));
+	vagon->init();
 }
 
 Scene::~Scene()
