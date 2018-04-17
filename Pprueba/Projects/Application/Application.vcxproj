@@ -16,7 +16,9 @@
     <ClInclude Include="..\..\Src\Collider_c.h" />
     <ClInclude Include="..\..\Src\Component.h" />
     <ClInclude Include="..\..\Src\Components.h" />
+    <ClInclude Include="..\..\Src\ComponentsConstructors.h" />
     <ClInclude Include="..\..\Src\DataManager.h" />
+    <ClInclude Include="..\..\Src\Definitions.h" />
     <ClInclude Include="..\..\Src\Entity.h" />
     <ClInclude Include="..\..\Src\Game.h" />
     <ClInclude Include="..\..\Src\ObjectsFactory.h" />

@@ -1,7 +1,8 @@
-#include "SceneManager.h"
 #include "Scene.h"
+#include "SceneManager.h"
 #include "ObjectsFactory.h"
 #include "Game.h"
+#include "DataManager.h"
 
 #include <algorithm>
 
@@ -10,64 +11,13 @@
 Scene::Scene():
 	isSendingMessages(false)
 {
-	//OBJETO PESCADO DE PRUEBA
-	Entity* robot = new Entity(this, 1, "robot");  //id a partir de 1
-	entities.push_back(robot);
-
-	robot->addComponent(new MeshRenderer_c("fish.mesh")); //pruebas
-	//robot->addComponent(new PlayerController_c()); //pruebas
-	robot->init();
-
-	//CAMARA DE PRUEBA
-	Entity* player = new Entity(this, 2, "Player");
-	entities.push_back(player);
-
-	player->addComponent(new Camera_c());//pruebas camara
-	player->addComponent(new CameraController_c()); // pruebas
-	{//Add rigidBody
-		btCollisionShape* fallShape = new btSphereShape(1);
-		btDefaultMotionState* fallMotionState =
-			new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 5, 0)));
-		btScalar mass = 1;
-		btVector3 fallInertia(0, 0, 0);
-		fallShape->calculateLocalInertia(mass, fallInertia);
-		btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, fallMotionState, fallShape, fallInertia);
-		player->addComponent(new RigidBody_c(fallRigidBodyCI));
-	}
-
-	// PLANO PRUEBAS
-	Entity* plane = new Entity(this, 3, "Plano");
-	entities.push_back(plane);
-
-	plane->addComponent(new PlaneRenderer_c("plane", "nm_bk.png")); 
-	// el ultimo parametro es la imagen que hace de textura del plano por si quieres cambiarla
-	player->addComponent(new Walker_c());
-	player->addComponent(new PlayerController_c());
-	player->init();
-
-	{//Add rigidBody
-		btCollisionShape* fallShape = new btSphereShape(1);
-		btDefaultMotionState* fallMotionState =
-			new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 30, 0)));
-		btScalar mass = 1;
-		btVector3 fallInertia(0, 0, 0);
-		fallShape->calculateLocalInertia(mass, fallInertia);
-		btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, fallMotionState, fallShape, fallInertia);
-		robot->addComponent(new RigidBody_c(fallRigidBodyCI));
-	}
-	//////////////////////////////////////////////////////////////////////////
-	Entity* ground = new Entity(this, 3, "ground");
-	ground->addComponent(new MeshRenderer_c("WoodPallet.mesh")); //pruebas
-	entities.push_back(ground);
+	std::string sceneDataPath;//Esto queda por ver cómo darle valor y tal leyendo de fichero
+	SceneData sceneData = DataManager::getInstance()->loadScene(sceneDataPath);
+	for (auto entityData : sceneData)
 	{
-		btCollisionShape* groundShape = new btStaticPlaneShape(btVector3(0, 1, 0), 1);
-		btDefaultMotionState* groundMotionState =
-			new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, -25, 0)));
-		btRigidBody::btRigidBodyConstructionInfo
-			groundRigidBodyCI(0, groundMotionState, groundShape, btVector3(0, 0, 0));
-		ground->addComponent(new RigidBody_c(groundRigidBodyCI));
+		Entity* newEntity = ObjectsFactory::create(entityData);
+		entities.push_back(newEntity);
 	}
-	ground->init();
 }
 
 Scene::~Scene()

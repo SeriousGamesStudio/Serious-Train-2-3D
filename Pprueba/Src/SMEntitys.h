@@ -40,9 +40,10 @@ private:
 			CT::CAMERA,
 			CT::CAMERA_CONTROLLER,
 			CT::MESH_RENDERER,
+			CT::PLAYER_CONTROLLER,
 			CT::WALKER,
 			CT::RIGIDBODY
-		}
+		},
 	};
 
 };
