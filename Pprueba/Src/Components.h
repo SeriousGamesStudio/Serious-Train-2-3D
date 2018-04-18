@@ -12,11 +12,10 @@ enum ComponentType
 	CAMERA,
 	PLANERENDERER,
 	WALKER,
-	size
+	size//This element MUST be always the last one
 
 };
 #include <string>
-#include <vector>
 static std::string getComponentStringId[ComponentType::size];
 
 #include "Collider_c.h"

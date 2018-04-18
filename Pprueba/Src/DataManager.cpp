@@ -86,6 +86,7 @@ ComponentType getComponentTypeFromString(std::string s)
 //Create a ComponentConstructor of type "type" with the info of "node"(if needed)
 ComponentConstructors::ComponentConstructor* getComponentConstructor(ComponentType type, rapidxml::xml_node<>* node) 
 {
+	//TODO: as inprovement we should just return nullprt if !node so we don't create an object without useful value
 	ComponentConstructors::ComponentConstructor* componentConstructor = nullptr;
 	switch (type)
 	{

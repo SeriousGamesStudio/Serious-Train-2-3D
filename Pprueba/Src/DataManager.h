@@ -15,6 +15,10 @@ struct EntityConstructionData {
 	ObjectsFactory::Prefab prefab;
 	ConstructionData data;
 	std::string entityName;
+	~EntityConstructionData() //Somos limpios e implementamos una destructora para la memoria dinámica que creamos
+	{
+		for (auto it = data.begin(); it != data.end(); it++) delete it->second;
+	}
 };
 //Container of all the info need from the Scene to init itself
 typedef std::vector<EntityConstructionData> SceneData;
