@@ -3,6 +3,7 @@
 
 #include <string>
 #include "rapidxml.hpp"
+#include "Components.h"
 
 namespace ComponentConstructors {
 
@@ -12,22 +13,22 @@ namespace ComponentConstructors {
 		ComponentConstructor() {};
 		virtual ~ComponentConstructor() {};
 
-		virtual rapidxml::xml_node<> getXML() = 0;
+		//virtual rapidxml::xml_node<>* getXML() = 0;
 	protected:
+		//Parses xml node to init the info needed to construct the component
 		virtual void parse(rapidxml::xml_node<>* src) {};
 	};
-
-
+	
 	class PlayerController :
 		public ComponentConstructor
 	{
 	public:
 		PlayerController() : ComponentConstructor() {};
 		~PlayerController() {};
-		rapidxml::xml_node<> getXML()
+		/*rapidxml::xml_node<>* getXML()
 		{
-			return "<PlayerController/>\n";
-		};
+			return rapidxml::memory_pool<char>::allocate_node();
+		};*/
 	};
 
 	class Camera :
@@ -36,10 +37,10 @@ namespace ComponentConstructors {
 	public:
 		Camera(): ComponentConstructor() {};
 		~Camera() {};
-		rapidxml::xml_node<> getXML()
+		/*rapidxml::xml_node<> getXML()
 		{
 			return "<Camera/>\n";
-		}
+		}*/
 	};
 
 	class CameraController:
@@ -49,10 +50,10 @@ namespace ComponentConstructors {
 		CameraController() : ComponentConstructor() {};
 		~CameraController() {};
 
-		rapidxml::xml_node<> getXML()
+		/*rapidxml::xml_node<> getXML()
 		{
 			return "<CameraController/>\n";
-		}
+		}*/
 	};
 
 	class Walker :
@@ -61,37 +62,37 @@ namespace ComponentConstructors {
 	public:
 		Walker() : ComponentConstructor(){};
 		~Walker() {};
-		rapidxml::xml_node<> getXML()
+		/*rapidxml::xml_node<> getXML()
 		{
 			return "<Walker/>\n";
-		}
+		}*/
 	};
 
 	class MeshRenderer :
 		public ComponentConstructor
 	{
 	public:
-		MeshRenderer(rapidxml::xml_node<>* src) : ComponentConstructor(), meshPath()
+		MeshRenderer(rapidxml::xml_node<>* src) : ComponentConstructor(), meshPath("")
 		{
 			parse(src);
 		}
 		~MeshRenderer() {};
 
-		rapidxml::xml_node<> getXML()
+		/*rapidxml::xml_node<> getXML()
 		{
 			std::string s = "";
 			s += "<MeshRenderer>\n";
 			s += "\t<MeshPath>" + meshPath + "<MeshPath/>\n";
 			s += "<MeshRenderer/>\n";
 			return s;
-		}
+		}*/
 
 	private:
-		rapidxml::xml_node<> meshPath;
+		std::string meshPath;
 
 		void parse(rapidxml::xml_node<>* src)
 		{
-			//NOT IMPLEMENTED
+			meshPath = src->first_node("MeshPath")->value();
 		}
 	};
 
@@ -103,7 +104,7 @@ namespace ComponentConstructors {
 			ComponentConstructor() { parse(src); };
 		~PlaneRenderer() {};
 
-		rapidxml::xml_node<>	getXML()
+		/*rapidxml::xml_node<>	getXML()
 		{
 			std::string s = "";
 			s += "<PlaneRenderer>\n";
@@ -111,7 +112,7 @@ namespace ComponentConstructors {
 			s += "\t<TexturePath>" + texturePath + "<TexturePath/>\n";
 			s += "<PlaneRenderer/>\n";
 			return s;
-		}
+		}*/
 
 	private:
 		std::string meshPath;
@@ -119,7 +120,8 @@ namespace ComponentConstructors {
 
 		void parse(rapidxml::xml_node<>* src)
 		{
-			//NotImplemented
+			meshPath = src->first_node("MeshPath")->value();
+			texturePath = src->first_node("TexturePath")->value();
 		};
 	};
 

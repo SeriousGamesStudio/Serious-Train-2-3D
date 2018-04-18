@@ -11,6 +11,7 @@ class Entity;
 class ObjectsFactory
 {
 public:
+	//Prefabs supported
 	enum Prefab 
 	{
 		CUSTOM,
@@ -22,8 +23,10 @@ public:
 public:
 	ObjectsFactory();
 	~ObjectsFactory();
-
+	//Gets a garanteed unique string to identify a Prefab from enum
 	static std::string stringIdOfPrefab[Prefab::size];
+
+	//Creates an build an entity with info given
 	static Entity* create(EntityConstructionData& entityData);
 
 private:
