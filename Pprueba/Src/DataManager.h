@@ -3,7 +3,12 @@
 
 #include "ObjectsFactory.h"
 #include <string>
+#include <bitset>
 
+// esto se tiene que calcular dinámicamente en tiempo de compilación,
+// pero por ahora puede valer
+#define STORE_WEAPONS_COUNT 10
+#define LEVELS_COUNT 2
 
 ///////////////////////TYPE DECLARATIONS//////////////////////////////////////////////////////////
 
@@ -37,10 +42,13 @@ typedef std::vector<EntityConstructionData> SceneData;
 struct GameState
 {
 //////////////////////////////////////////////////////////////////////////////////////////////////
-//Todos los atributos tienen que ser en memoria estática contenida aquí. PROHIBIDO usar punteros//
+//PROHIBIDO USAR PUNTEROS. Todos los atributos tienen que ser en memoria estática contenida aquí//
 //////////////////////////////////////////////////////////////////////////////////////////////////
 	unsigned int score;
-	//Muchas más cosis
+	unsigned int gold;
+	std::bitset<STORE_WEAPONS_COUNT> storeWeapons;
+	std::bitset<LEVELS_COUNT> levelsUnlocked;
+	//dunno more cosis...
 };
 ///////////////////////GAME STATE/////////////////////////////////////////////////////////////////
 

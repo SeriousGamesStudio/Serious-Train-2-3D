@@ -2,7 +2,7 @@
 #include "Components.h"
 
 Collider_c::Collider_c(btCollisionShape* shape) :
-	Component(ComponentType::COLLIDER), _shape(shape)
+	Component(ComponentType::COLLIDER,"Collider"), _shape(shape)
 {
 
 }

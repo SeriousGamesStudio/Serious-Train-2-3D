@@ -4,7 +4,7 @@
 
 
 RigidBody_c::RigidBody_c(btRigidBody::btRigidBodyConstructionInfo info) :
-	Component(ComponentType::RIGIDBODY), rb(btRigidBody(info))
+	Component(ComponentType::RIGIDBODY, "RigidBody"), rb(btRigidBody(info))
 {
 }
 

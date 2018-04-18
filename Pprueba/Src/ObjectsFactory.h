@@ -39,6 +39,8 @@ private:
 	unsigned int currentId;
 	static ObjectsFactory* instance;
 	std::vector<ComponentType> componentsOfPrefab[Prefab::size];
+
+	void init();
 };
 
 #endif //!_H_OBJECTSFACTORY_H_

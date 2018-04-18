@@ -3,7 +3,7 @@
 #include "GraphicsManager.h"
 
 PlaneRenderer_c::PlaneRenderer_c(std::string meshName, std::string textName):
-	Component(ComponentType::PLANERENDERER)
+	Component(ComponentType::PLANERENDERER, "PlaneRenderer")
 {
 	plane_ = GraphicsManager::getInstance()->getSceneManager()->getRootSceneNode()->createChildSceneNode("nPlane");
 

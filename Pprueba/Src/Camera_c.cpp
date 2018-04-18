@@ -5,7 +5,7 @@
 #include <iostream>
 
 Camera_c::Camera_c(): 
-	Component(ComponentType::CAMERA)
+	Component(ComponentType::CAMERA, "Camera")
 {
 	cam = GraphicsManager::getInstance()->getCamera();
 }
