@@ -10,6 +10,7 @@ class Entity;
 
 class ObjectsFactory
 {
+public:
 	enum Prefab 
 	{
 		CUSTOM,
@@ -18,11 +19,11 @@ class ObjectsFactory
 		size
 	};
 
-
 public:
 	ObjectsFactory();
 	~ObjectsFactory();
 
+	static std::string stringIdOfPrefab[Prefab::size];
 	static Entity* create(EntityConstructionData& entityData);
 
 private:

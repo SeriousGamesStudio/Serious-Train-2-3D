@@ -3,12 +3,12 @@
 
 #include <string>
 #include "Notifications.h"
-enum class ComponentType;
+enum ComponentType;
 class Entity;
 class Component
 {
 public:
-	Component(ComponentType type);
+	Component(ComponentType type, std::string typeString);
 	virtual ~Component();
 
 	virtual void awake() {};

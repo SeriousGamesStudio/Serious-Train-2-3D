@@ -10,16 +10,27 @@ ObjectsFactory::ObjectsFactory():
 	currentId(0)
 {
 	instance = this;
-
-	componentsOfPrefab[Prefab::PLAYER] = 
-	{
-		ComponentType::CAMERA,
-		ComponentType::CAMERACONTROLLER,
-		ComponentType::COLLIDER,
-		ComponentType::TRANSFORM,
-		ComponentType::WALKER
-	};
-	componentsOfPrefab[Prefab::ENEMY] = {};
+	{//Player init
+		componentsOfPrefab[Prefab::PLAYER] =
+		{
+			ComponentType::CAMERA,
+			ComponentType::CAMERACONTROLLER,
+			ComponentType::COLLIDER,
+			ComponentType::TRANSFORM,
+			ComponentType::WALKER
+		};
+		stringIdOfPrefab[Prefab::PLAYER] = "Player"; 
+	}
+	{//Enemy init
+		componentsOfPrefab[Prefab::ENEMY] = 
+		{
+			ComponentType::COLLIDER,
+			ComponentType::TRANSFORM,
+			ComponentType::WALKER
+			//etc
+		};
+		stringIdOfPrefab[Prefab::ENEMY] = "Enemy";
+	}
 
 }
 

@@ -1,7 +1,7 @@
 #ifndef _H_COMPONENTS_H_
 #define _H_COMPONENTS_H_
 
-enum class ComponentType
+enum ComponentType
 {
 	RIGIDBODY,
 	TRANSFORM,
@@ -11,10 +11,13 @@ enum class ComponentType
 	CAMERACONTROLLER,
 	CAMERA,
 	PLANERENDERER,
-	WALKER
+	WALKER,
+	size
 
 };
-
+#include <string>
+#include <vector>
+static std::string getComponentStringId[ComponentType::size];
 
 #include "Collider_c.h"
 #include "RigidBody_c.h"

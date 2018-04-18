@@ -1,14 +1,15 @@
 #include "Component.h"
+#include "Components.h"
 #include "Entity.h"
 #include "Scene.h"
 #include "Notifications.h"
 
+#include <string>
 
-
-Component::Component(ComponentType type_) :
+Component::Component(ComponentType type_, std::string typeString) :
 	_enable(true), type(type_)
 {
-
+	getComponentStringId[type] = typeString;
 }
 
 Component::~Component()

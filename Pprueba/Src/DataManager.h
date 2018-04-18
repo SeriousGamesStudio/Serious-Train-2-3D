@@ -1,31 +1,36 @@
 #ifndef _H_DATAMANAGER_H_
 #define _H_DATAMANAGER_H_
 
-#include <string>
-#include <vector>
-#include <map>
+#include "ObjectsFactory.h"
+#include "vcruntime_new.h"   // for operator new
+#include "xstring"           // for string
 
-#include "ComponentsConstructors.h"
 
 ///////////////////////TYPE DECLARATIONS////////////////////////////////////////////////
-enum ComponentType;
-enum Prefab;
+
+//Container useful for ObjectsFactory
 typedef std::map<ComponentType, ComponentConstructors::ComponentConstructor*> ConstructionData;
 
+//Container useful for Scene to use into the ObjectsFactory
 struct EntityConstructionData {
-	Prefab prefab;
+	ObjectsFactory::Prefab prefab;
 	ConstructionData data;
 	std::string entityName;
 };
+//Container of all the info need from the Scene to init itself
 typedef std::vector<EntityConstructionData> SceneData;
+
 ///////////////////////TYPE DECLARATIONS////////////////////////////////////////////////
 
-
+///////////////////////GAME STATE///////////////////////////////////////////////////////
+//Current State of the Game(the gameplay way)
 struct GameState
 {
 	unsigned int score;
 	//Muchas más cosis
 };
+///////////////////////GAME STATE///////////////////////////////////////////////////////
+
 class DataManager
 {
 public:
@@ -38,9 +43,27 @@ public:
 	};
 	~DataManager() { instance = nullptr; };
 
+
+	/*******************************************************************
+	 * Save the currentState of the game
+	 * params:
+	 *  -path: the path to the file where the game state will save
+	********************************************************************/
 	void saveGame(std::string path);
+
+	/*******************************************************************
+	* Load a game state from a file
+	* params:
+	* - path: the path to the file which have to load the game state
+	*******************************************************************/
 	void loadGame(std::string path);
 
+	/*******************************************************************
+	* Load the information need to build a scene
+	* params:
+	* - path: the path to the file wich contains the data needed 
+	*         to build the scene.
+	********************************************************************/
 	SceneData& loadScene(std::string path);
 
 private:
