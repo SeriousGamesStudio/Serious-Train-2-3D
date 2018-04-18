@@ -17,7 +17,13 @@ struct EntityConstructionData {
 	std::string entityName;
 	~EntityConstructionData() //Somos limpios e implementamos una destructora para la memoria dinámica que creamos
 	{
-		for (auto it = data.begin(); it != data.end(); it++) delete it->second;
+		for (auto it = data.begin(); it != data.end(); it++) 
+		{
+			if (it->second) {
+				delete it->second;
+				it->second = nullptr;
+			}
+		}
 	}
 };
 //Container of all the info need from the Scene to init itself
