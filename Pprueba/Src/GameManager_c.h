@@ -14,6 +14,7 @@ public:
 	virtual void listen(Msg_Base* msg);
 
 private:
+	static void closeGame();
 
 };
 

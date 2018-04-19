@@ -35,6 +35,11 @@ public:
 	Entity* whoIs(EntityId id);
 	Entity* whoIs(std::string name);
 
+	void setGameManager();
+
+	inline GameManager_c* getGameManager() { return (GameManager_c*)_gameManager->getComponent(ComponentType::GAMEMANAGER); }
+
+
 	std::string const getNameOf(EntityId id);
 	EntityId const getIdOf(std::string name);
 
@@ -43,6 +48,9 @@ private:
 	std::deque<Msg_Base*> messages;
 	std::vector<Msg_Base*> messagesBuffer;
 	std::unordered_map<MsgId, std::vector<Component*>> listeners;
+
+	Entity * _gameManager;
+
 	bool isSendingMessages;
 	void _msgDeliver();
 	void _dumpMessages();

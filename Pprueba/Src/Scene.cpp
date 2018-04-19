@@ -8,7 +8,7 @@
 #include "btBulletCollisionCommon.h"
 #include "Components.h"
 Scene::Scene():
-	isSendingMessages(false)
+	isSendingMessages(false), _gameManager(0)
 {
 	//OBJETO PESCADO DE PRUEBA
 	Entity* robot = new Entity(this, 1, "robot");  //id a partir de 1
@@ -91,6 +91,7 @@ Scene::Scene():
 Scene::~Scene()
 {
 	for (Entity* e : entities) delete e;
+	delete _gameManager;
 }
 
 ///////////////////////////////TICK///////////////////////////////////////
@@ -154,6 +155,16 @@ Entity* Scene::whoIs(std::string name)
 		if (entity->getName() == name)
 			return entity;
 	return nullptr;
+}
+
+void Scene::setGameManager()
+{
+	if (!_gameManager) {
+		_gameManager = new Entity(this, 0, "GameManager");
+		_gameManager->addComponent(new GameManager_c());
+		_gameManager->init();
+	}
+
 }
 
 std::string const Scene::getNameOf(EntityId id)
