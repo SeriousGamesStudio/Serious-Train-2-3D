@@ -294,7 +294,7 @@ namespace ComponentConstructors {
 			rotation[2] = std::stof(src->first_node("Rotation")->first_node("z")->value());
 			rotation[3] = std::stof(src->first_node("Rotation")->first_node("w")->value());
 		}
-	}
+	};
 
 };
 #endif // !_COMPONENTS_CONSTRUCTORS_

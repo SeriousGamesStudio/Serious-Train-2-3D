@@ -5,7 +5,8 @@
 #include "Entity.h"         // for Entity
 #include "Component.h"
 
-static ObjectsFactory* instance = nullptr;
+ ObjectsFactory* ObjectsFactory::instance = nullptr;
+ std::string ObjectsFactory::stringIdOfPrefab[ObjectsFactory::Prefab::size];
 
 ObjectsFactory::ObjectsFactory():
 	currentId(0)

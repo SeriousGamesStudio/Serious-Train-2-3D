@@ -6,10 +6,9 @@
 
 #include <string>
 
-Component::Component(ComponentType type_, std::string typeString) :
-	_enable(true), type(type_)
+Component::Component(ComponentType type_) :
+	_enable(true)
 {
-	getComponentStringId[type] = typeString;
 }
 
 Component::~Component()

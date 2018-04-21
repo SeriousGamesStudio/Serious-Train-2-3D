@@ -7,8 +7,7 @@
 
 Game* Game::instance = nullptr;
 
-Game::Game() :
-	dataManager(this)
+Game::Game()
 {
 }
 
@@ -22,7 +21,6 @@ Game * Game::getInstance()
 	return instance;
 }
 
-//TODO: destructor not implemented
 //free resources calling resources' freeing functions of each manager
 Game::~Game()
 {
@@ -50,6 +48,8 @@ bool Game::start()
 
 	inputManager = InputManager::getInstance();
 	inputManager->initialise(graphicsManager->getWindow());
+
+	dataManager = DataManager::getInstance();
 
 #ifdef _DEBUG
 	if(!soundManager->initialise())

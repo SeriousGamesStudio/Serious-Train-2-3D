@@ -10,7 +10,7 @@
 #define PI 3.14159265358f
 
 PlayerController_c::PlayerController_c() :
-	Component(ComponentType::PLAYERCONTROLLER, "PlayerController"),
+	Component(ComponentType::PLAYERCONTROLLER),
 	forward(false), back(false), right(false), left(false),
 	forwardKey(OIS::KeyCode::KC_W), backKey(OIS::KeyCode::KC_S), rightKey(OIS::KeyCode::KC_D), leftKey(OIS::KeyCode::KC_A),
 	lookingAt(btVector3(0,0,0)), walkingTo(btVector3(0,0,0))

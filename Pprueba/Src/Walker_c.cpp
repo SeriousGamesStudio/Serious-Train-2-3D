@@ -9,7 +9,7 @@ float auxZ = 0;
 const float VELOCITY = 50.0f;
 
 Walker_c::Walker_c():
-	Component(ComponentType::WALKER, "Walker"), currentDirection(btVector3(0,0,0)), rb(nullptr)
+	Component(ComponentType::WALKER), currentDirection(btVector3(0,0,0)), rb(nullptr)
 {
 	aux1 = btVector3(currentDirection);
 	trans = btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 0, 0));

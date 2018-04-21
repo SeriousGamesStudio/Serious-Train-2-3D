@@ -2,6 +2,7 @@
 #define _H_CAMERACONTROLLER_C_H_
 
 #include "Component.h"
+#include "OIS.h"
 
 class CameraController_c:
 	public Component, 

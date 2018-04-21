@@ -1,28 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="..\..\Src\DataManager.h">
-      <Filter>Kernel\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\GraphicsManager.h">
-      <Filter>Kernel\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\InputManager.h">
-      <Filter>Kernel\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\PhysicsManager.h">
-      <Filter>Kernel\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\SceneManager.h">
-      <Filter>Kernel\Managers</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Src\RigidBody_c.h">
-      <Filter>Components\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Transform_c.h">
-      <Filter>Components\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Collider_c.h">
       <Filter>Components\Physics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Scene.h">
@@ -34,20 +13,9 @@
     <ClInclude Include="..\..\Src\Game.h">
       <Filter>Kernel</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\Entity.h">
-      <Filter>Kernel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Component.h">
-      <Filter>Kernel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\ObjectsFactory.h" />
     <ClInclude Include="..\..\Src\Collider_c.h" />
     <ClInclude Include="..\..\Src\MeshRenderer_c.h">
       <Filter>Components\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Components.h" />
-    <ClInclude Include="..\..\Src\SoundManager.h">
-      <Filter>Kernel\Managers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\CameraController_c.h">
       <Filter>Components\Input</Filter>
@@ -68,56 +36,74 @@
     <ClInclude Include="..\..\Src\Walker_c.h">
       <Filter>Components\Behaviour</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\ComponentsConstructors.h" />
-    <ClInclude Include="..\..\Src\Definitions.h" />
+    <ClInclude Include="..\..\Src\rapidxml.hpp">
+      <Filter>rapidXML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\rapidxml_iterators.hpp">
+      <Filter>rapidXML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\rapidxml_print.hpp">
+      <Filter>rapidXML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\rapidxml_utils.hpp">
+      <Filter>rapidXML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Collider_c.h">
+      <Filter>Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Transform_c.h">
+      <Filter>Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Definitions.h">
+      <Filter>Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Component.h">
+      <Filter>Kernel\Components Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Components.h">
+      <Filter>Kernel\Components Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\ComponentsConstructors.h">
+      <Filter>Kernel\Components Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Entity.h">
+      <Filter>Kernel\Entities Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\ObjectsFactory.h">
+      <Filter>Kernel\Entities Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\DataManager.h">
+      <Filter>Kernel\Managers\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\GraphicsManager.h">
+      <Filter>Kernel\Managers\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\InputManager.h">
+      <Filter>Kernel\Managers\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\PhysicsManager.h">
+      <Filter>Kernel\Managers\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\SceneManager.h">
+      <Filter>Kernel\Managers\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\SoundManager.h">
+      <Filter>Kernel\Managers\Sound</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Src\DataManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\GraphicsManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\InputManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\PhysicsManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\SceneManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Src\RigidBody_c.cpp">
-      <Filter>Components\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Transform_c.cpp">
-      <Filter>Components\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Collider_c.cpp">
       <Filter>Components\Physics</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\Scene.cpp">
       <Filter>Kernel</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Src\main.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Src\Game.cpp">
       <Filter>Kernel</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Src\Entity.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Component.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\ObjectsFactory.cpp" />
     <ClCompile Include="..\..\Src\Collider_c.cpp" />
     <ClCompile Include="..\..\Src\MeshRenderer_c.cpp">
       <Filter>Components\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\SoundManager.cpp">
-      <Filter>Kernel\Managers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\Sound.cpp">
       <Filter>Kernel</Filter>
@@ -137,6 +123,41 @@
     <ClCompile Include="..\..\Src\PlaneRenderer_c.cpp">
       <Filter>Components\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Collider_c.cpp">
+      <Filter>Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Transform_c.cpp">
+      <Filter>Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Component.cpp">
+      <Filter>Kernel\Components Stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Entity.cpp">
+      <Filter>Kernel\Entities Stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\ObjectsFactory.cpp">
+      <Filter>Kernel\Entities Stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\DataManager.cpp">
+      <Filter>Kernel\Managers\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\GraphicsManager.cpp">
+      <Filter>Kernel\Managers\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\InputManager.cpp">
+      <Filter>Kernel\Managers\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\PhysicsManager.cpp">
+      <Filter>Kernel\Managers\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\SceneManager.cpp">
+      <Filter>Kernel\Managers\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\SoundManager.cpp">
+      <Filter>Kernel\Managers\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\main.cpp" />
+    <ClCompile Include="..\..\Src\Components.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Kernel">
@@ -159,6 +180,33 @@
     </Filter>
     <Filter Include="Components\Behaviour">
       <UniqueIdentifier>{14cba20c-a5fe-4c46-b1a7-942471582772}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rapidXML">
+      <UniqueIdentifier>{756d4907-3b5c-4455-8c7b-1099d5542c68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernel\Components Stuff">
+      <UniqueIdentifier>{07931523-bce5-45b1-8c34-fac3f6ff5b61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernel\Entities Stuff">
+      <UniqueIdentifier>{a12214c9-f749-405c-9a9f-0ce5d66c283f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernel\Managers\Data">
+      <UniqueIdentifier>{5c3c0f0c-4791-4434-a989-bd718fca28f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernel\Managers\Physics">
+      <UniqueIdentifier>{fb873fae-8c0e-47bf-8247-8be820676f55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernel\Managers\Input">
+      <UniqueIdentifier>{fed48aa5-215a-4be6-a262-78bc262e76a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernel\Managers\Graphics">
+      <UniqueIdentifier>{8ee62e57-69d8-42ea-b62b-149dc1336a52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernel\Managers\Scene">
+      <UniqueIdentifier>{08c70a79-3616-48a8-b6ac-599cf645b309}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernel\Managers\Sound">
+      <UniqueIdentifier>{8725c795-5815-45b3-be8b-d7023d62e020}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

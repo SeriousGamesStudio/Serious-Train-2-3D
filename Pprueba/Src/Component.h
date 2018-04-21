@@ -12,9 +12,8 @@ public:
 	* Component constructor.
 	* params:
 	* - type: enum that represents this kind of component
-	* - typeString: string that repesents the kind of component
 	*********************************************************/
-	Component(ComponentType type, std::string typeString);
+	Component(ComponentType type);
 	virtual ~Component();
 	/***********************************************************************************
 	* Virtual method. It's called once when the entity owner of this component has value

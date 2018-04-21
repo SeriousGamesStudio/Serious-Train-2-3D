@@ -3,7 +3,7 @@
 
 
 Trasform_c::Trasform_c(ConstructorInfo info) :
-	t(btTransform(info.q, info.v)), Component(ComponentType::TRANSFORM, "Transform")
+	t(btTransform(info.q, info.v)), Component(ComponentType::TRANSFORM)
 {}
 
 Trasform_c::~Trasform_c()

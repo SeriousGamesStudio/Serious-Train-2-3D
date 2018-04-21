@@ -8,7 +8,7 @@
 #include "ObjectsFactory.h"
 
 
-
+DataManager* DataManager::instance = nullptr;
 DataManager::DataManager()
 {
 	gameState = {};
@@ -22,6 +22,62 @@ void DataManager::saveGame(std::string path)
 void DataManager::loadGame(std::string path)
 {
 	//TODO: gameState<<path
+}
+
+//Get the prefab enum from a identificantion string
+ObjectsFactory::Prefab getPrefabFromString(std::string s)
+{
+	int prefab = 0;
+	while (s != ObjectsFactory::stringIdOfPrefab[prefab] && prefab < ObjectsFactory::Prefab::size) { prefab++; }
+	return (ObjectsFactory::Prefab)prefab;
+};
+
+//Get the component type enum from a identification string
+ComponentType getComponentTypeFromString(std::string s) 
+{
+	int componentType = 0;
+	while (s != getComponentString[(ComponentType)componentType] && componentType < ComponentType::size) { componentType++; }
+	return (ComponentType)componentType;
+}
+
+//Create a ComponentConstructor of type "type" with the info of "node"(if needed)
+ComponentConstructors::ComponentConstructor* getComponentConstructor(ComponentType type, rapidxml::xml_node<>* node) 
+{
+	//TODO: as inprovement we should just return nullprt if !node so we don't create an object without useful value
+	ComponentConstructors::ComponentConstructor* componentConstructor = nullptr;
+	switch (type)
+	{
+	case ComponentType::RIGIDBODY:
+		//componentConstructor = new ComponentConstructors::RigidBody(node);
+		break;
+	case ComponentType::TRANSFORM:
+		//componentConstructor = new ComponentConstructors::Transform(node);
+		break;
+	case ComponentType::COLLIDER:
+		//componentConstructor = new ComponentConstructors::Collider(node);
+		break;
+	case ComponentType::MESHRENDERER:
+		componentConstructor = new ComponentConstructors::MeshRenderer(node);
+		break;
+	case ComponentType::PLAYERCONTROLLER:
+		componentConstructor = new ComponentConstructors::PlayerController();
+		break;
+	case ComponentType::CAMERACONTROLLER:
+		componentConstructor = new ComponentConstructors::CameraController();
+		break;
+	case ComponentType::CAMERA:
+		componentConstructor = new ComponentConstructors::Camera();
+		break;
+	case ComponentType::PLANERENDERER:
+		componentConstructor = new ComponentConstructors::PlaneRenderer(node);
+		break;
+	case ComponentType::WALKER:
+		componentConstructor = new ComponentConstructors::Walker();
+		break;
+	default:
+		break;
+	}
+	return componentConstructor;
 }
 
 SceneData & DataManager::loadScene(std::string path)
@@ -66,59 +122,4 @@ SceneData & DataManager::loadScene(std::string path)
 	}
 	//return the scene data completed
 	return sceneData;
-}
-//Get the prefab enum from a identificantion string
-ObjectsFactory::Prefab getPrefabFromString(std::string s)
-{
-	int prefab = 0;
-	while (s != ObjectsFactory::stringIdOfPrefab[prefab] && prefab < ObjectsFactory::Prefab::size) { prefab++; }
-	return (ObjectsFactory::Prefab)prefab;
-};
-
-//Get the component type enum from a identification string
-ComponentType getComponentTypeFromString(std::string s) 
-{
-	int componentType = 0;
-	while (s != getComponentStringId[componentType] && componentType < ComponentType::size) { componentType++; }
-	return (ComponentType)componentType;
-}
-
-//Create a ComponentConstructor of type "type" with the info of "node"(if needed)
-ComponentConstructors::ComponentConstructor* getComponentConstructor(ComponentType type, rapidxml::xml_node<>* node) 
-{
-	//TODO: as inprovement we should just return nullprt if !node so we don't create an object without useful value
-	ComponentConstructors::ComponentConstructor* componentConstructor = nullptr;
-	switch (type)
-	{
-	case ComponentType::RIGIDBODY:
-		//componentConstructor = new ComponentConstructors::RigidBody(node);
-		break;
-	case ComponentType::TRANSFORM:
-		//componentConstructor = new ComponentConstructors::Transform(node);
-		break;
-	case ComponentType::COLLIDER:
-		//componentConstructor = new ComponentConstructors::Collider(node);
-		break;
-	case ComponentType::MESHRENDERER:
-		componentConstructor = new ComponentConstructors::MeshRenderer(node);
-		break;
-	case ComponentType::PLAYERCONTROLLER:
-		componentConstructor = new ComponentConstructors::PlayerController();
-		break;
-	case ComponentType::CAMERACONTROLLER:
-		componentConstructor = new ComponentConstructors::CameraController();
-		break;
-	case ComponentType::CAMERA:
-		componentConstructor = new ComponentConstructors::Camera();
-		break;
-	case ComponentType::PLANERENDERER:
-		componentConstructor = new ComponentConstructors::PlaneRenderer(node);
-		break;
-	case ComponentType::WALKER:
-		componentConstructor = new ComponentConstructors::Walker();
-		break;
-	default:
-		break;
-	}
-	return componentConstructor;
 }

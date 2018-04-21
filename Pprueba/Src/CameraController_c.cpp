@@ -7,7 +7,9 @@
 #define MOUSE_SENSIBILITY 1000.f
 
 CameraController_c::CameraController_c() :
-	Component(ComponentType::CAMERACONTROLLER, "CameraController")
+	Component(ComponentType::CAMERACONTROLLER),
+	OIS::MouseListener(),
+	OIS::KeyListener()
 {
 	InputManager::getInstance()->addMouseListener(this, "ratonCamara");
 	InputManager::getInstance()->addKeyListener(this, "teclaCamara");

@@ -3,7 +3,7 @@
 #include "Components.h"
 
 MeshRenderer_c::MeshRenderer_c(std::string meshName) :
-	Component(ComponentType::MESHRENDERER, "MeshRenderer")
+	Component(ComponentType::MESHRENDERER)
 {
 	scnNode_ = GraphicsManager::getInstance()->createNewNode(meshName);
 }
