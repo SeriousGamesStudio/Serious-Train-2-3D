@@ -4,6 +4,7 @@
 #include "DataManager.h"    // for EntityConstructionData
 #include "Entity.h"         // for Entity
 #include "Component.h"
+#include "Components.h"
 
  ObjectsFactory* ObjectsFactory::instance = nullptr;
  std::string ObjectsFactory::stringIdOfPrefab[ObjectsFactory::Prefab::size];
@@ -69,19 +70,24 @@ Component * ObjectsFactory::buildComponent(ComponentType componentType, Componen
 	{
 	case ComponentType::RIGIDBODY:
 		{
-			//PEREZA! hay que hacer el constructor del rigid body y todo eso -.-''
+		auto* c = static_cast<ComponentConstructors::RigidBody*>(info);
+		newComponent = new RigidBody_c(c->mass);
 		}	
 		break;
 	case ComponentType::TRANSFORM: 
-		{
+	{
 		auto* c = static_cast<ComponentConstructors::Transform*>(info);
-		// este transform está obsoleto, así que paso
-		//newComponent = new Trasform_c();
+		newComponent = new Transform_c(c->position[0], c->position[1], c->position[2], c->rotation[0], c->rotation[1], c->rotation[2], c->rotation[3]);
 		}
 		break;
 	case ComponentType::COLLIDER: 
 		{
-		//Componente obsoleto, paso
+		auto*p = static_cast<ComponentConstructors::Collider*>(info);
+		Collider_c::Dimensions d;
+		if (p->dimensions.x) d.x = p->dimensions.x;
+		if (p->dimensions.y) d.y = p->dimensions.y;
+		if (p->dimensions.z) d.z = p->dimensions.z;
+		newComponent = new Collider_c((Collider_c::Shape)p->shape, d, btTransform(btQuaternion(btVector3(p->rotationAxis.x, p->rotationAxis.y, p->rotationAxis.z), p->rotationAngle), btVector3(p->position.x, p->position.y, p->position.z)));
 		}
 		break;
 	case ComponentType::MESHRENDERER: 

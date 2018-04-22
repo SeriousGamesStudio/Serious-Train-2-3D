@@ -17,6 +17,9 @@ public:
 
 	void stepUp(double deltaTime);
 
+	void addCollisionShape(btCollisionObject* newCollisionObject);
+	void removeCollisionShape(btCollisionObject* co);
+
 	void addRigidBody(btRigidBody* newRigidBody);
 	void removeRigidBody(btRigidBody* rb);
 

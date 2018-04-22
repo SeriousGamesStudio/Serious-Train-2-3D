@@ -48,6 +48,18 @@ void PhysicsManager::stepUp(double deltaTime/*seconds*/)
 	world->stepSimulation((float)deltaTime, maxSubSteps);
 }
 
+void PhysicsManager::addCollisionShape(btCollisionObject * newCollisionObject)
+{
+	if (world)
+		world->addCollisionObject(newCollisionObject);
+}
+
+void PhysicsManager::removeCollisionShape(btCollisionObject * co)
+{
+	if (world)
+		world->removeCollisionObject(co);
+}
+
 void PhysicsManager::addRigidBody(btRigidBody * newRigidBody)
 {
 	if (world)

@@ -11,6 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Src\GUIndilla.h" />
+    <ClInclude Include="..\..\Src\Animation_c.h" />
     <ClInclude Include="..\..\Src\Camera_c.h" />
     <ClInclude Include="..\..\Src\CameraController_c.h" />
     <ClInclude Include="..\..\Src\Collider_c.h" />
@@ -43,6 +45,8 @@
     <ClInclude Include="..\..\Src\Walker_c.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Src\GUIndilla.cpp" />
+    <ClCompile Include="..\..\Src\Animation_c.cpp" />
     <ClCompile Include="..\..\Src\Camera_c.cpp" />
     <ClCompile Include="..\..\Src\CameraController_c.cpp" />
     <ClCompile Include="..\..\Src\Collider_c.cpp" />
@@ -123,7 +127,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>OgreMain_d.lib;OIS_static_d.lib;Bullet3Collision_Debug.lib;Bullet3Common_Debug.lib;Bullet3Dynamics_Debug.lib;Bullet3Geometry_Debug.lib;Bullet3OpenCL_clew_Debug.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;BulletInverseDynamics_Debug.lib;BulletSoftBody_Debug.lib;LinearMath_Debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>OgreOverlay_d.lib;OgreMain_d.lib;OIS_static_d.lib;Bullet3Collision_Debug.lib;Bullet3Common_Debug.lib;Bullet3Dynamics_Debug.lib;Bullet3Geometry_Debug.lib;Bullet3OpenCL_clew_Debug.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;BulletInverseDynamics_Debug.lib;BulletSoftBody_Debug.lib;LinearMath_Debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\irrKlang\lib;$(SolutionDir)Dependencies\OIS\lib;$(SolutionDir)Dependencies\Ogre\lib\$(Configuration);$(SolutionDir)Dependencies\Bullet3\lib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Bscmake>

@@ -18,11 +18,12 @@ public:
 	~Game();
 	
 	bool start();
-	bool stop();
+	void stop();
 
 	inline float getDeltaTime() const {
 		return (float)deltaTime;
-	};
+	}; 
+
 
 private:
 	Game();
@@ -37,6 +38,7 @@ private:
 	GraphicsManager *graphicsManager;
 	PhysicsManager *physicsManager;
 	DataManager* dataManager;
+
 
 
 	double deltaTime;/*in seconds*/

@@ -31,10 +31,10 @@ void Entity::tick()
 {
 	sendMessages();
 	for each (Component* c in components)
-		c->update();
+		if (c->isEnable()) c->update();
 
 	for each (Component* c in components)
-		c->lateUpdate();
+		if (c->isEnable()) c->lateUpdate();
 }
 
 void Entity::create(std::vector<Component*>& newComponents)

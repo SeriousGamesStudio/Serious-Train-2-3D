@@ -274,6 +274,7 @@ namespace ComponentConstructors {
 	class Transform :
 		public ComponentConstructor
 	{
+	public:
 		Transform(rapidxml::xml_node<>* src) : ComponentConstructor()
 		{
 			parse(src);

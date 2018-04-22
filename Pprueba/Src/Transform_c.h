@@ -4,22 +4,18 @@
 #include "PhysicsManager.h"
 #include "Component.h"
 
-class Trasform_c :
+class Transform_c :
 	public Component
 {
 public:
-	struct ConstructorInfo
-	{
-		btVector3 v;
-		btQuaternion q;
-	};
 
-	Trasform_c(ConstructorInfo info);
-	virtual ~Trasform_c();
+	Transform_c(const btVector3& position, const btQuaternion& rotation);
+	Transform_c(float px, float py, float pz, float qx, float qy, float qz, float qw);
+	virtual ~Transform_c();
 
 	inline btTransform& get() { return t; };
+	inline const btTransform& get() const { return t; };
 
-	virtual void start();
 private:
 	btTransform t;
 

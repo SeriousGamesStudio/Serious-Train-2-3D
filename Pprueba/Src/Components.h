@@ -23,7 +23,8 @@ enum ComponentType
 	CAMERA,
 	PLANERENDERER,
 	WALKER,
-	size//This element MUST be always the last one
+	ANIMATION,
+	size
 
 };
 #include <string>

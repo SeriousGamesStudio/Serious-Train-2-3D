@@ -17,32 +17,17 @@ Camera_c::~Camera_c()
 
 void Camera_c::update()
 {
-	//Esto es MUY provisional
-	float x = static_cast<RigidBody_c*>(_myEntity->getComponent(ComponentType::RIGIDBODY))->get()->getCenterOfMassPosition().getX();
-	float y = static_cast<RigidBody_c*>(_myEntity->getComponent(ComponentType::RIGIDBODY))->get()->getCenterOfMassPosition().getY();
-	float z = static_cast<RigidBody_c*>(_myEntity->getComponent(ComponentType::RIGIDBODY))->get()->getCenterOfMassPosition().getZ();
-	//std::cout << "x: " << x << " y: " << y << " z " << z<<"\n";
-	cam->setPosition(x, y, z);
-}
-
-void Camera_c::listen(Msg_Base * msg)
-{
-	
-	Msg::CameraOrientate * o = static_cast<Msg::CameraOrientate*>(msg);
-	switch (msg->id)		//tipo de mensaje
-	{			
-	case MsgId::CAMERA_ORIENTATE:
-		cam->yaw((Ogre::Radian)o->degreesX);
-		cam->pitch((Ogre::Radian)o->degreesY);
-		sendMsg(new Msg::LookAt(_myEntity->getId(), Msg_Base::self, cam->getDirection().x, cam->getDirection().y, cam->getDirection().z));
-		break;
-	default:
-		break;
-	}
-	
 }
 
 void Camera_c::setPosition(float x, float y, float z)
 {
 	cam->setPosition(x, y, z);
+}
+
+void Camera_c::rotateCamera(float x, float y, float z)
+{
+	cam->yaw((Ogre::Radian)x);
+	cam->pitch((Ogre::Radian)y);
+	if (z != 0) cam->roll((Ogre::Radian)z);
+	sendMsg( new Msg::LookAt( _myEntity->getId(), Msg_Base::self, cam->getDirection().x, cam->getDirection().y, cam->getDirection().z));
 }

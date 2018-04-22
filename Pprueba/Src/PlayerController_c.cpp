@@ -26,13 +26,13 @@ void PlayerController_c::start()
 {
 
 	walker = static_cast<Walker_c*>(_myEntity->getComponent(ComponentType::WALKER));
-	rb = static_cast<RigidBody_c*>(_myEntity->getComponent(ComponentType::RIGIDBODY));
+	transform = static_cast<Transform_c*>(_myEntity->getComponent(ComponentType::TRANSFORM));
 	cam = static_cast<Camera_c*>(_myEntity->getComponent(ComponentType::CAMERA));
 #ifdef _DEBUG
 	if (!walker)
 		printf("ERROR: La entidad no contiene 'Walker' component!\n");
-	if (!rb)
-		printf("ERROR: La entidad no contiene 'RigidBody' component!\n");
+	if (!transform)
+		printf("ERROR: La entidad no contiene 'Transform_c' component!\n");
 	if (!cam)
 		printf("ERROR: La entidad no contiene 'Camera' component!\n");
 #endif // _DEBUG
@@ -42,10 +42,10 @@ void PlayerController_c::start()
 void PlayerController_c::update() 
 {
 	//get rb position
-	btVector3 rbPos = rb->get()->getCenterOfMassPosition();
+	btVector3 pos = transform->get().getOrigin();
 	//add height of the player
 	//set camera to that position
-	cam->setPosition(rbPos.x(), rbPos.y(), rbPos.z());
+	cam->setPosition(pos.x(), pos.y(), pos.z());
 }
 PlayerController_c::~PlayerController_c()
 {
@@ -145,9 +145,12 @@ void PlayerController_c::updateMovementDirection()
 		//back-left
 		else if (b && l)		angle = PI *  0.75f;
 	}
+
+#ifdef _DEBUG
 	printf("*************************************************************\n");
 	printf("Camera looking at: %f, %f, %f\n", lookingAt.x(), lookingAt.y(), lookingAt.z());
 	walkingTo = lookingAt.rotate({ 0,1,0 }, angle);
 	printf("Walking to:        %f, %f, %f\n", walkingTo.x(), walkingTo.y(), walkingTo.z());
 	walker->setDirection(walkingTo.x(), walkingTo.z());
+#endif // _DEBUG
 }
