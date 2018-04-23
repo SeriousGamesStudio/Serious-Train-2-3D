@@ -13,6 +13,7 @@ enum class ComponentType
 	PLANERENDERER,
 	WALKER,
 	ANIMATION,
+	WEAPON,
 
 };
 
@@ -29,5 +30,6 @@ enum class ComponentType
 #include "Animation_c.h"
 #include "Walker_c.h"
 #include "PlaneRenderer_c.h"
+#include "Weapon_c.h"
 #endif //!_H_COMPONENTS_H_
 

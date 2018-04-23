@@ -37,6 +37,7 @@
     <ClInclude Include="..\..\Src\Transform_c.h" />
     <ClInclude Include="..\..\Src\TrashCollector.h" />
     <ClInclude Include="..\..\Src\Walker_c.h" />
+    <ClInclude Include="Weapon_c.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\GUIndilla.cpp" />
@@ -63,6 +64,7 @@
     <ClCompile Include="..\..\Src\SoundManager.cpp" />
     <ClCompile Include="..\..\Src\Transform_c.cpp" />
     <ClCompile Include="..\..\Src\Walker_c.cpp" />
+    <ClCompile Include="..\..\Src\Weapon_c.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{41D4F585-BC8E-4D52-B33F-88A595432442}</ProjectGuid>
