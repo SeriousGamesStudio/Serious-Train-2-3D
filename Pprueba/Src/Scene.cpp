@@ -15,7 +15,7 @@ Scene::Scene():
 	SceneData sceneData = DataManager::getInstance()->loadScene(sceneDataPath);
 	for (auto entityData : sceneData)
 	{
-		Entity* newEntity = ObjectsFactory::create(entityData);
+		Entity* newEntity = ObjectsFactory::getInstance()->create(entityData);
 		entities.push_back(newEntity);
 	}
 }

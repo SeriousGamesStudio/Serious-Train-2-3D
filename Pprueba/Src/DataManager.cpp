@@ -7,7 +7,7 @@
 #include <vector>
 #include "ObjectsFactory.h"
 
-
+typedef std::vector<EntityConstructionData> SceneData;
 DataManager* DataManager::instance = nullptr;
 DataManager::DataManager()
 {
@@ -24,13 +24,6 @@ void DataManager::loadGame(std::string path)
 	//TODO: gameState<<path
 }
 
-//Get the prefab enum from a identificantion string
-ObjectsFactory::Prefab getPrefabFromString(std::string s)
-{
-	int prefab = 0;
-	while (s != ObjectsFactory::stringIdOfPrefab[prefab] && prefab < ObjectsFactory::Prefab::size) { prefab++; }
-	return (ObjectsFactory::Prefab)prefab;
-};
 
 //Get the component type enum from a identification string
 ComponentType getComponentTypeFromString(std::string s) 
@@ -48,13 +41,13 @@ ComponentConstructors::ComponentConstructor* getComponentConstructor(ComponentTy
 	switch (type)
 	{
 	case ComponentType::RIGIDBODY:
-		//componentConstructor = new ComponentConstructors::RigidBody(node);
+		componentConstructor = new ComponentConstructors::RigidBody(node);
 		break;
 	case ComponentType::TRANSFORM:
-		//componentConstructor = new ComponentConstructors::Transform(node);
+		componentConstructor = new ComponentConstructors::Transform(node);
 		break;
 	case ComponentType::COLLIDER:
-		//componentConstructor = new ComponentConstructors::Collider(node);
+		componentConstructor = new ComponentConstructors::Collider(node);
 		break;
 	case ComponentType::MESHRENDERER:
 		componentConstructor = new ComponentConstructors::MeshRenderer(node);
@@ -79,7 +72,6 @@ ComponentConstructors::ComponentConstructor* getComponentConstructor(ComponentTy
 	}
 	return componentConstructor;
 }
-
 SceneData & DataManager::loadScene(std::string path)
 {
 	//Init the sceneData (it's just a custom vector)
@@ -100,22 +92,21 @@ SceneData & DataManager::loadScene(std::string path)
 	root_node = doc.first_node("Scene");
 
 	//Iterate for all entities of the scene
-	for (xml_node<>* entity_node = root_node->first_node("Entity"); entity_node; entity_node = entity_node->next_sibling()) 
+	for (xml_node<>* entity_node = root_node->first_node("Entity"); entity_node; entity_node = entity_node->next_sibling())
 	{
 		//Create an Entity Construction Data
 		EntityConstructionData eData;
 		eData.entityName = entity_node->first_attribute("name")->value();
-		eData.prefab = getPrefabFromString(entity_node->first_attribute("prefab")->value());
 
 		//Iterate for all components of the entity
-		for (xml_node<>* component_node = entity_node->first_node(); component_node; component_node = component_node->next_sibling()) 
+		for (xml_node<>* component_node = entity_node->first_node(); component_node; component_node = component_node->next_sibling())
 		{
 			//Get component type
 			ComponentType componentType = getComponentTypeFromString(component_node->first_attribute("type")->value());
 			//Get the constructor for that component
 			ComponentConstructors::ComponentConstructor* cc = getComponentConstructor(componentType, component_node->first_node());
 			//Add them to entity data
-			eData.data.emplace(componentType, cc);
+			eData.data.push_back({ componentType, cc });
 		}
 		//add the complete entity data into the scene data
 		sceneData.push_back(eData);

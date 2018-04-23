@@ -1,9 +1,10 @@
 #ifndef _H_DATAMANAGER_H_
 #define _H_DATAMANAGER_H_
 
-#include "ObjectsFactory.h"
 #include <string>
 #include <bitset>
+#include <vector>
+#include "ComponentsConstructors.h"
 
 // esto se tiene que calcular dinámicamente en tiempo de compilación,
 // pero por ahora puede valer
@@ -13,22 +14,20 @@
 ///////////////////////TYPE DECLARATIONS//////////////////////////////////////////////////////////
 
 //Container useful for ObjectsFactory
-typedef std::map<ComponentType, ComponentConstructors::ComponentConstructor*> ConstructionData;
-
+//typedef std::map<ComponentType, ComponentConstructors::ComponentConstructor*> ConstructionData;
+struct ComponentConstructorData 
+{
+	ComponentType type;
+	ComponentConstructors::ComponentConstructor* componentConstructor;
+};
 //Container useful for Scene to use into the ObjectsFactory
 struct EntityConstructionData {
-	ObjectsFactory::Prefab prefab;
-	ConstructionData data;
+	std::vector<ComponentConstructorData> data;
 	std::string entityName;
 	~EntityConstructionData() //Somos limpios e implementamos una destructora para la memoria dinámica que creamos
 	{
-		for (auto it = data.begin(); it != data.end(); it++) 
-		{
-			if (it->second) {
-				delete it->second;
-				it->second = nullptr;
-			}
-		}
+		for (ComponentConstructorData e : data)
+			delete e.componentConstructor;
 	}
 };
 //Container of all the info need from the Scene to init itself

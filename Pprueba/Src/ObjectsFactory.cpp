@@ -7,57 +7,33 @@
 #include "Components.h"
 
  ObjectsFactory* ObjectsFactory::instance = nullptr;
- std::string ObjectsFactory::stringIdOfPrefab[ObjectsFactory::Prefab::size];
+ //std::string ObjectsFactory::stringIdOfPrefab[ObjectsFactory::Prefab::size];
 
 ObjectsFactory::ObjectsFactory():
 	currentId(0)
 {
 	instance = this;
-	init();
 }
-void ObjectsFactory::init()
-{
-	{//Player init
-		componentsOfPrefab[Prefab::PLAYER] =
-		{
-			ComponentType::CAMERA,
-			ComponentType::CAMERACONTROLLER,
-			ComponentType::COLLIDER,
-			ComponentType::TRANSFORM,
-			ComponentType::WALKER
-		};
-		stringIdOfPrefab[Prefab::PLAYER] = "Player";
-	}
-	{//Enemy init
-		componentsOfPrefab[Prefab::ENEMY] =
-		{
-			ComponentType::COLLIDER,
-			ComponentType::TRANSFORM,
-			ComponentType::WALKER
-			//etc
-		};
-		stringIdOfPrefab[Prefab::ENEMY] = "Enemy";
-	}
-}
+
 
 ObjectsFactory::~ObjectsFactory()
 {
 }
 
-Entity * ObjectsFactory::create(EntityConstructionData & entityData)
+Entity * ObjectsFactory::create(const EntityConstructionData & entityData)
 {
-	Entity* newEntity = new Entity(SceneManager::getInstance()->currentScene(), instance->getUniqueId(), entityData.entityName);
+	Entity* newEntity = new Entity(SceneManager::getInstance()->currentScene(), getUniqueId(), entityData.entityName);
 
-	instance->buildEntity((Prefab)((int)entityData.prefab), newEntity, entityData.data);
+	buildEntity(newEntity, entityData.data);
 
 	return newEntity;
 }
 
-void ObjectsFactory::buildEntity(Prefab prefab, Entity * e, ConstructionData & data)
+void ObjectsFactory::buildEntity(Entity * e, const std::vector<ComponentConstructorData> & data)
 {
-	for (ComponentType componentType : componentsOfPrefab[prefab])
+	for (auto c : data)
 	{
-		e->addComponent(buildComponent(componentType, data[componentType]));
+		e->addComponent(buildComponent(c.type, c.componentConstructor));
 	}
 	e->init();
 }

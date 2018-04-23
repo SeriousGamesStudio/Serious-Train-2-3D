@@ -3,44 +3,34 @@
 
 #include "Components.h"
 namespace ComponentConstructors { class ComponentConstructor; }
-struct EntityConstructionData;
-typedef std::map<ComponentType, ComponentConstructors::ComponentConstructor*> ConstructionData;
 class Component;
 class Entity;
+class ComponentConstructorData;
+class EntityConstructionData;
 
 class ObjectsFactory
 {
 public:
-	//Prefabs supported
-	enum Prefab 
-	{
-		CUSTOM,
-		PLAYER,
-		ENEMY,
-		size
-	};
-
-public:
-	ObjectsFactory();
 	~ObjectsFactory();
-	//Gets a garanteed unique string to identify a Prefab from enum
-	static std::string stringIdOfPrefab[Prefab::size];
-
+	static ObjectsFactory* getInstance() 
+	{
+		if (!instance)
+			instance = new ObjectsFactory();
+		return instance;
+	}
 	//Creates an build an entity with info given
-	static Entity* create(EntityConstructionData& entityData);
+	 Entity* create(const EntityConstructionData& entityData);
 
 private:
+	ObjectsFactory();
 	/////////////////////BUILDERS/////////////////////////
-	void buildEntity(Prefab prefab, Entity* e, ConstructionData& data);
+	void buildEntity(Entity* e, const std::vector<ComponentConstructorData>& data);
 	Component* buildComponent(ComponentType componentType, ComponentConstructors::ComponentConstructor* info);
 	/////////////AUXILIAR FUNCTIONS///////////////////////
 	unsigned int getUniqueId();
 	//////////////////////////////////////////////////////
 	unsigned int currentId;
 	static ObjectsFactory* instance;
-	std::vector<ComponentType> componentsOfPrefab[Prefab::size];
-
-	void init();
 };
 
 #endif //!_H_OBJECTSFACTORY_H_
