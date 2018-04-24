@@ -70,6 +70,12 @@
     <ClCompile Include="..\..\Src\Walker_c.cpp">
       <Filter>Components\Behaviour</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Sound_c.cpp">
+      <Filter>Components\Behaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\SoundListener_c.cpp">
+      <Filter>Components\Behaviour</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Src\GameManager_c.cpp">
       <Filter>Components\Behaviour</Filter>
     </ClCompile>
@@ -149,6 +155,12 @@
       <Filter>Kernel</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Walker_c.h">
+      <Filter>Components\Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Sound_c.h">
+      <Filter>Components\Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\SoundListener_c.h">
       <Filter>Components\Behaviour</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\GameManager_c.h">

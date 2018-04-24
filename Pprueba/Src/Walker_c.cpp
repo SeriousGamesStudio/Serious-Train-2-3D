@@ -76,6 +76,6 @@ btTransform& Walker_c::updateTransform()
 	trans->get().getOrigin().setX(trans->get().getOrigin().getX() + (currentDirection.getX() * VELOCITY * Game::getInstance()->getDeltaTime()));
 	trans->get().getOrigin().setY(trans->get().getOrigin().getY() + (currentDirection.getY() * VELOCITY * Game::getInstance()->getDeltaTime()));
 	trans->get().getOrigin().setZ(trans->get().getOrigin().getZ() + (currentDirection.getZ() * VELOCITY * Game::getInstance()->getDeltaTime()));
-
+	sendMsg(new Msg::ChangePosition(_myEntity->getId(), Msg_Base::self, trans->get().getOrigin().getX(), trans->get().getOrigin().getY(), trans->get().getOrigin().getZ()));
 	return trans->get();
 }

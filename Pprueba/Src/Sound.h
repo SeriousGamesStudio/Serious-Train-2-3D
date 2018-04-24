@@ -1,14 +1,14 @@
 #ifndef _H_SOUND_H_
 #define _H_SOUND_H_
 #include "SoundManager.h"
-class Sound_c
+class Sound
 {
 public:
 	//By default the sound the sound is unnasigned and it will be the death sound of roblox
 	//and it will be in the position (0,0,0), and it wont be a loop
-	Sound_c(SoundManager * soundManager,const std::string & file = std::string("OOf.mp3"), 
+	Sound(const std::string & file = std::string("OOf.mp3"), 
 		const irrklang::vec3df & postion = irrklang::vec3df(0.f,0.f,0.f),const bool & loop=false);
-	~Sound_c();
+	virtual ~Sound();
 	
 	// change the source of the sound
 	void setFile(const std::string & file = std::string("OOf.mp3"), const bool & loop = false);
@@ -48,9 +48,8 @@ public:
 
 private:
 	irrklang::ISound * _sound;
-	SoundManager * soundManager;
 	irrklang::vec3df _position;
-	 std::string _filename;
-	 bool _loop;
+	std::string _filename;
+	bool _loop;
 };
 #endif

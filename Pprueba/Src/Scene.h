@@ -11,6 +11,7 @@
 #include "Component.h"
 #include "Notifications.h"
 #include "Entity.h"
+#include "Components.h"
 
 #include "MeshRenderer_c.h"
 

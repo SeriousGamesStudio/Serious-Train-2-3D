@@ -1,62 +1,61 @@
 #include "Sound.h"
 
-Sound_c::Sound_c(SoundManager * soundManager_, const std::string & file, const irrklang::vec3df & position, const bool & loop)
+Sound::Sound(const std::string & file, const irrklang::vec3df & position, const bool & loop)
 {
 	_sound = nullptr;
-	soundManager = soundManager_;
 	setSoundPosition(position);
 	_loop = loop;
 	setFile(file, _loop);
 }
 
-Sound_c::~Sound_c()
+Sound::~Sound()
 {
 	if (_sound) {
 		_sound->drop();
 	}
 }
 
-void Sound_c::setFile(const std::string & file, const bool & loop)
+void Sound::setFile(const std::string & file, const bool & loop)
 {
 	if (_sound) {
 		_sound->drop();
 	}
 	_filename = file;
-	_sound = soundManager->getSound(_filename, _position, loop);
+	_sound = SoundManager::getInstance()->getSound(_filename, _position, loop);
 }
 
-bool Sound_c::isPlaying(void)
+bool Sound::isPlaying(void)
 {
 	if (!_sound)
 		return false;
 	return !_sound->getIsPaused();
 }
 
-bool Sound_c::isLoop(void)
+bool Sound::isLoop(void)
 {
 	if (!_sound)
 		return false;
 	return _sound->isLooped();
 }
 
-bool Sound_c::isFinished(void)
+bool Sound::isFinished(void)
 {
 	if (!_sound)
 		return false;
 	return _sound->isFinished();
 }
 
-void Sound_c::restartSound(void)
+void Sound::restartSound(void)
 {
 	_sound->setPlayPosition(irrklang::ik_u32(0));
 }
 
-void Sound_c::stopSound(void)
+void Sound::stopSound(void)
 {
 	_sound->stop();
 }
 
-void Sound_c::playSound(void)
+void Sound::playSound(void)
 {
 	if (_sound) {
 		if (isPlaying()) 
@@ -68,32 +67,32 @@ void Sound_c::playSound(void)
 	}
 }
 
-void Sound_c::pauseSound(void)
+void Sound::pauseSound(void)
 {
 	if (_sound)
 		_sound->setIsPaused(true);
 }
 
-void Sound_c::setPlay(const bool & play)
+void Sound::setPlay(const bool & play)
 {
 	if (_sound) {
 		_sound->setIsPaused(!play);
 	}
 }
 
-void Sound_c::setLoop(const bool & loop)
+void Sound::setLoop(const bool & loop)
 {
 	if (_sound)
 		_sound->setIsLooped(loop);
 }
 
-void Sound_c::setVolume(const float & newVolume)
+void Sound::setVolume(const float & newVolume)
 {
 	if(_sound)
 		_sound->setVolume(newVolume);
 }
 
-float Sound_c::getVolume(void)
+float Sound::getVolume(void)
 {
 	if (!_sound) {
 		return 0.f;
@@ -101,7 +100,7 @@ float Sound_c::getVolume(void)
 	return _sound->getVolume();
 }
 
-irrklang::vec3df Sound_c::getSoundPosition(void)
+irrklang::vec3df Sound::getSoundPosition(void)
 {
 	if (!_sound) {
 		return { 0,0,0 };
@@ -109,12 +108,12 @@ irrklang::vec3df Sound_c::getSoundPosition(void)
 	return _position;
 }
 
-void Sound_c::setSoundPosition(const float & x, const float & y, const float & z)
+void Sound::setSoundPosition(const float & x, const float & y, const float & z)
 {
 	setSoundPosition(irrklang::vec3df(x, y, z));
 }
 
-void Sound_c::setSoundPosition(const irrklang::vec3df & newPos)
+void Sound::setSoundPosition(const irrklang::vec3df & newPos)
 {
 	if (_sound) {
 		_sound->setPosition(_position);

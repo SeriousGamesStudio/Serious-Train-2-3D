@@ -17,6 +17,17 @@ Scene::Scene():
 	robot->addComponent(new MeshRenderer_c("fish.mesh")); //pruebas
 														  //robot->addComponent(new PlayerController_c()); //pruebas
 	robot->addComponent(new Animation_c());
+	robot->addComponent(new Sound_c("ophelia.mp3", true));
+	{//Add rigidBody
+		btCollisionShape* fallShape = new btSphereShape(1);
+		btDefaultMotionState* fallMotionState =
+			new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 30, 0)));
+		btScalar mass = 1;
+		btVector3 fallInertia(0, 9.8f, 0);
+		fallShape->calculateLocalInertia(mass, fallInertia);
+		btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, fallMotionState, fallShape, fallInertia);
+		robot->addComponent(new RigidBody_c(fallRigidBodyCI));
+	}
 	robot->init();
 
 	//vagon
@@ -30,6 +41,7 @@ Scene::Scene():
 	player->addComponent(new Camera_c());//pruebas camara
 	player->addComponent(new CameraController_c()); // pruebas
 	player->addComponent(new Transform_c(btVector3(0,5,0), btQuaternion(0,0,0,1)));
+	player->addComponent(new SoundListener_c());
 
 	// PLANO PRUEBAS
 	Entity* plane = new Entity(this, 3, "Plano");
@@ -49,16 +61,7 @@ Scene::Scene():
 
 
 
-	{//Add rigidBody
-		btCollisionShape* fallShape = new btSphereShape(1);
-		btDefaultMotionState* fallMotionState =
-			new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 30, 0)));
-		btScalar mass = 1;
-		btVector3 fallInertia(0, 0, 0);
-		fallShape->calculateLocalInertia(mass, fallInertia);
-		btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, fallMotionState, fallShape, fallInertia);
-		robot->addComponent(new RigidBody_c(fallRigidBodyCI));
-	}
+	
 	//////////////////////////////////////////////////////////////////////////
 	Entity* ground = new Entity(this, 4, "ground");
 	ground->addComponent(new MeshRenderer_c("WoodPallet.mesh")); //pruebas
@@ -75,6 +78,7 @@ Scene::Scene():
 	
 	//vagon
 	Entity* vagon = new Entity(this, 5, "vagon");
+	entities.push_back(vagon);
 	vagon->addComponent(new MeshRenderer_c("Vagon.mesh"));
 	vagon->init();
 }

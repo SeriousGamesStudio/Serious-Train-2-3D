@@ -13,6 +13,8 @@ enum class ComponentType
 	PLANERENDERER,
 	WALKER,
 	ANIMATION,
+	SOUND,
+	SOUNDLISTENER,
 	GAMEMANAGER,
 
 };
@@ -30,6 +32,8 @@ enum class ComponentType
 #include "Animation_c.h"
 #include "Walker_c.h"
 #include "PlaneRenderer_c.h"
+#include "Sound_c.h"
+#include "SoundListener_c.h"
 #include "GameManager_c.h"
 #endif //!_H_COMPONENTS_H_
 
