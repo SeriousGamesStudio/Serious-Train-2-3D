@@ -5,7 +5,7 @@ using EntityId = unsigned int;
 
 enum class MsgId : unsigned int
 {
-	EXIT, CHANGED_POSITION, PLAYER_MOVE,  CAMERA_ORIENTATE, LOOKING_TO
+	EXIT, CHANGED_POSITION, PLAYER_MOVE,  CAMERA_ORIENTATE, LOOKING_TO, TOGGLE_MOUSE
 };
 
 struct Msg_Base

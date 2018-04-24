@@ -30,6 +30,9 @@ Scene::Scene():
 	player->addComponent(new Camera_c());//pruebas camara
 	player->addComponent(new CameraController_c()); // pruebas
 	player->addComponent(new Transform_c(btVector3(0,5,0), btQuaternion(0,0,0,1)));
+	player->addComponent(new Walker_c());
+	player->addComponent(new PlayerController_c());
+	player->init();
 
 	// PLANO PRUEBAS
 	Entity* plane = new Entity(this, 3, "Plano");
@@ -37,13 +40,19 @@ Scene::Scene():
 
 	plane->addComponent(new PlaneRenderer_c("plane", "nm_bk.png"));
 	// el ultimo parametro es la imagen que hace de textura del plano por si quieres cambiarla
-	player->addComponent(new Walker_c());
-	player->addComponent(new PlayerController_c());
-	player->init();
 
+	//CUBO para colisiones
+	Entity* box = new Entity(this, 4, "Box");
+	entities.push_back(box);
 
-	//ANIMACION PRUEBAS
-
+	box->addComponent(new MeshRenderer_c("barrel.mesh"));
+	box->addComponent(new Transform_c(btVector3(50, 0, 50), btQuaternion(0, 0, 0, 1)));
+	box->addComponent(new RigidBody_c(btRigidBody::btRigidBodyConstructionInfo(
+		4,
+		new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(50, 0, 50))),
+		new btCapsuleShape(5, 5),
+		btVector3(0, 0, 0)
+		)));
 
 
 
