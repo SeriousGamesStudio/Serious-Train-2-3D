@@ -73,6 +73,9 @@
     <ClCompile Include="..\..\Src\Weapon_c.cpp">
       <Filter>Components\Input</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\EnemyBehaviour.cpp">
+      <Filter>Components\Behaviour</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\TrashCollector.h" />
@@ -151,7 +154,10 @@
     <ClInclude Include="..\..\Src\Walker_c.h">
       <Filter>Components\Behaviour</Filter>
     </ClInclude>
-    <ClInclude Include="Weapon_c.h">
+    <ClInclude Include="..\..\Src\EnemyBehaviour.h">
+      <Filter>Components\Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Weapon_c.h">
       <Filter>Components\Input</Filter>
     </ClInclude>
   </ItemGroup>

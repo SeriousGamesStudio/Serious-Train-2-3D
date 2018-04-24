@@ -72,12 +72,13 @@ namespace Msg
 	{
 	public:
 
-		Shoot(EntityId sender, EntityId reciver, int dmg) :
-			Msg_Base(MsgId::RAYCAST_HIT, sender, reciver), dmg_(dmg)
+		Shoot(EntityId sender, EntityId reciver, int dmg, void* collisionWith) :
+			Msg_Base(MsgId::RAYCAST_HIT, sender, reciver), dmg_(dmg), collisionWith_(collisionWith)
 		{};
 		~Shoot() {};
 
 		int dmg_;
+		void* collisionWith_;
 	};
 	
 
