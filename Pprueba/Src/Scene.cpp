@@ -18,7 +18,16 @@ Scene::Scene():
 														  //robot->addComponent(new PlayerController_c()); //pruebas
 	robot->addComponent(new Animation_c());
 	robot->addComponent(new Sound_c("ophelia.mp3", true));
-	
+	{//Add rigidBody
+		btCollisionShape* fallShape = new btSphereShape(1);
+		btDefaultMotionState* fallMotionState =
+			new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 30, 0)));
+		btScalar mass = 1;
+		btVector3 fallInertia(0, 9.8f, 0);
+		fallShape->calculateLocalInertia(mass, fallInertia);
+		btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, fallMotionState, fallShape, fallInertia);
+		robot->addComponent(new RigidBody_c(fallRigidBodyCI));
+	}
 	robot->init();
 
 	//CAMARA DE PRUEBA
@@ -48,16 +57,7 @@ Scene::Scene():
 
 
 
-	{//Add rigidBody
-		btCollisionShape* fallShape = new btSphereShape(1);
-		btDefaultMotionState* fallMotionState =
-			new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 30, 0)));
-		btScalar mass = 1;
-		btVector3 fallInertia(0, 0, 0);
-		fallShape->calculateLocalInertia(mass, fallInertia);
-		btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, fallMotionState, fallShape, fallInertia);
-		robot->addComponent(new RigidBody_c(fallRigidBodyCI));
-	}
+	
 	//////////////////////////////////////////////////////////////////////////
 	Entity* ground = new Entity(this, 4, "ground");
 	ground->addComponent(new MeshRenderer_c("WoodPallet.mesh")); //pruebas

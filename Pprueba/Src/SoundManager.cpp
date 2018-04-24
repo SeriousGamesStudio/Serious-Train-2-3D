@@ -35,7 +35,7 @@ bool SoundManager::initialise(void)
 void SoundManager::setListenerPosition(const Ogre::Vector3 &position, const Ogre::Vector3 &lookAt)
 {
 	vec3df pos = vec3df(position.x, position.y, position.z);
-	vec3df look = vec3df(lookAt.x, lookAt.y, lookAt.z);
+	vec3df look = vec3df((float)lookAt.x, (float)lookAt.y, (float)lookAt.z);
 
 	engine->setListenerPosition(pos, look);
 }
