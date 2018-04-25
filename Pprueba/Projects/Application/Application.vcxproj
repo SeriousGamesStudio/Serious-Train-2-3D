@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Src\EnemyBehaviour.h" />
     <ClInclude Include="..\..\Src\GameManager_c.h" />
     <ClInclude Include="..\..\Src\GUIndilla.h" />
     <ClInclude Include="..\..\Src\Animation_c.h" />
@@ -38,9 +39,11 @@
     <ClInclude Include="..\..\Src\Transform_c.h" />
     <ClInclude Include="..\..\Src\TrashCollector.h" />
     <ClInclude Include="..\..\Src\Walker_c.h" />
+    <ClInclude Include="..\..\Src\Weapon_c.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\GameManager_c.cpp" />
+    <ClCompile Include="..\..\Src\EnemyBehaviour.cpp" />
     <ClCompile Include="..\..\Src\GUIndilla.cpp" />
     <ClCompile Include="..\..\Src\Animation_c.cpp" />
     <ClCompile Include="..\..\Src\Camera_c.cpp" />

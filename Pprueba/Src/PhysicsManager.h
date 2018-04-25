@@ -22,7 +22,7 @@ public:
 
 	void addRigidBody(btRigidBody* newRigidBody);
 	void removeRigidBody(btRigidBody* rb);
-
+	btDiscreteDynamicsWorld* getWorld() { return world; }
 private:
 	PhysicsManager();
 	void init();

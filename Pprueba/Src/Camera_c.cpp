@@ -3,7 +3,7 @@
 #include "GraphicsManager.h"
 #include "Components.h"
 #include <iostream>
-#define UMBRAL_ROTACION 0.8
+#define UMBRAL_ROTATION 0.8
 
 Camera_c::Camera_c(): 
 	Component(ComponentType::CAMERA)
@@ -31,7 +31,7 @@ void Camera_c::rotateCamera(float x, float y, float z)
 {
 	
 	cam->yaw((Ogre::Radian)x);
-	if ( y > 0 && cam->getDirection().y < UMBRAL_ROTACION || y < 0 && cam->getDirection().y > -UMBRAL_ROTACION) 
+	if ( y > 0 && cam->getDirection().y < UMBRAL_ROTATION || y < 0 && cam->getDirection().y > -UMBRAL_ROTATION) 
 		cam->pitch((Ogre::Radian)y);
 
 	if (z != 0) cam->roll((Ogre::Radian)z);
