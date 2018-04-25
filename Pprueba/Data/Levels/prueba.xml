@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene>
+	<!-->Player <!-->
+	<Entity name="Player">
+		<Component type = "Walker"/>
+		<Component type = "Camera"/>
+		<Component type = "PlayerController"/>
+		<Component type = "CameraController"/>
+		<Component type = "Transform">
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>1</x>
+				<y>0</y>
+				<z>0</z>
+				<angle>0</angle>
+			</Rotation>
+		</Component>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  5 </Height>
+				<RadiousZ> 2 </RadiousZ>
+			</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>1</x>
+				<y>0</y>
+				<z>0</z>
+				<angle>0</angle>
+			</Rotation>
+		</Component>
+	</Entity>
+
+	<!-->Enemy1<!-->
+	<Entity name = "Ground">
+		<Component type= "PlaneRenderer">
+			<MeshPath>suelo</MeshPath>
+			<TexturePath>nm_bk.png</TexturePath>
+		</Component>
+	</Entity>
+
+	<!--> ETC <!-->
+</Scene>

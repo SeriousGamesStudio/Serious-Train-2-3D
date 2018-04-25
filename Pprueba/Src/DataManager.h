@@ -17,21 +17,33 @@
 //typedef std::map<ComponentType, ComponentConstructors::ComponentConstructor*> ConstructionData;
 struct ComponentConstructorData 
 {
-	ComponentType type;
-	ComponentConstructors::ComponentConstructor* componentConstructor;
+	ComponentType type;//Enum
+	ComponentConstructors::ComponentConstructor* componentConstructor;//abstract type to polymorfism
 };
 //Container useful for Scene to use into the ObjectsFactory
 struct EntityConstructionData {
 	std::vector<ComponentConstructorData> data;
 	std::string entityName;
-	~EntityConstructionData() //Somos limpios e implementamos una destructora para la memoria dinámica que creamos
+	~EntityConstructionData() //We're clean and free the dynamic memory of ea
 	{
 		for (ComponentConstructorData e : data)
+			if (e.componentConstructor)
 			delete e.componentConstructor;
 	}
 };
 //Container of all the info need from the Scene to init itself
-typedef std::vector<EntityConstructionData> SceneData;
+//typedef std::vector<EntityConstructionData*> SceneData;
+struct SceneData :
+	public std::vector<EntityConstructionData*>
+{
+	~SceneData() 
+	{
+		for (auto* e : *this)
+		{
+			delete e;
+		}
+	}
+};
 
 ///////////////////////TYPE DECLARATIONS//////////////////////////////////////////////////////////
 
@@ -84,7 +96,7 @@ public:
 	* - path: the path to the file wich contains the data needed 
 	*         to build the scene.
 	********************************************************************/
-	SceneData& loadScene(std::string path);
+	SceneData* loadScene(std::string path);
 
 private:
 	static DataManager* instance;

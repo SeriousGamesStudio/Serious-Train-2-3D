@@ -209,9 +209,11 @@ namespace ComponentConstructors {
 		std::string shapeToString[4] = { "SPHERE", "BOX", "CYLINDER", "CAPSULE" };
 		Shape stringToShape(std::string s)
 		{
-			for (int i = 0; i < 4; i++)
-				if (s == shapeToString[i])
+			for (int i = 0; i < 4; i++) {
+				if (s == shapeToString[i]) {
 					return (Shape)i;
+				}
+			}
 		}
 		struct Dimensions { float x = 0; float y = 0; float z = 0; };
 		Collider(rapidxml::xml_node<>* src) : ComponentConstructor()
@@ -228,45 +230,52 @@ namespace ComponentConstructors {
 	private:
 		void parse(rapidxml::xml_node<>* src)
 		{
+			//Get the tags
+			rapidxml::xml_node<>* shapeNode = src->first_node();
+			rapidxml::xml_node<>* dimensionsNode = shapeNode->next_sibling();
+			rapidxml::xml_node<>* positionNode = dimensionsNode->next_sibling();
+			rapidxml::xml_node<>* rotationNode = positionNode->next_sibling();
+
 			//Get the shape
-			shape = stringToShape(src->first_node("Shape")->value());
+			shape = stringToShape(shapeNode->value());
+
 			//Get the Collision Shape dimensions 
 			switch (shape)
 			{
 			case ComponentConstructors::RigidBody::SPHERE:
-				dimensions.x = std::stof(src->first_node("Radious")->value());
+				dimensions.x = std::stof(dimensionsNode->first_node("Radious")->value());
 				break;
 			case ComponentConstructors::RigidBody::BOX:
-				dimensions.x = std::stof(src->first_node("Width")->value());
-				dimensions.y = std::stof(src->first_node("Height")->value());
-				dimensions.z = std::stof(src->first_node("Deep")->value());
+				dimensions.x = std::stof(dimensionsNode->first_node("Width")->value());
+				dimensions.y = std::stof(dimensionsNode->first_node()->next_sibling("Height")->value());
+				dimensions.z = std::stof(dimensionsNode->first_node()->next_sibling("Depth")->value());
 				break;
 			case ComponentConstructors::RigidBody::CYLINDER:
-				if (!src->first_node("RadiousX") || !src->first_node("RadiousZ"))
-					dimensions.x = dimensions.z = std::stof(src->first_node("Radious")->value());
+				if (!dimensionsNode->first_node("RadiousX") || !dimensionsNode->first_node("RadiousZ"))
+					dimensions.x = dimensions.z = std::stof(dimensionsNode->first_node("Radious")->value());
 				else
 				{
-					dimensions.x = std::stof(src->first_node("RadiousX")->value());
-					dimensions.z = std::stof(src->first_node("RadiousZ")->value());
+					dimensions.x = std::stof(dimensionsNode->first_node("RadiousX")->value());
+					dimensions.z = std::stof(dimensionsNode->first_node()->next_sibling("RadiousZ")->value());
 				}
-				dimensions.y = std::stof(src->first_node("Height")->value());
+				dimensions.y = std::stof(dimensionsNode->first_node()->next_sibling("Height")->value());
 				break;
 			case ComponentConstructors::RigidBody::CAPSULE:
-				dimensions.x = std::stof(src->first_node("Radious")->value());
-				dimensions.y = std::stof(src->first_node("Height")->value());
+				dimensions.x = std::stof(dimensionsNode->first_node("Radious")->value());
+				dimensions.y = std::stof(dimensionsNode->first_node()->next_sibling("Height")->value());
 				break;
 			default:
 				break;
 			}
 			//Get position
-			position.x = std::stof(src->first_node("Position")->first_node("x")->value());
-			position.y = std::stof(src->first_node("Position")->first_node("y")->value());
-			position.z = std::stof(src->first_node("Position")->first_node("z")->value());
+			position.x = std::stof(positionNode->first_node("x")->value());
+			position.y = std::stof(positionNode->first_node()->next_sibling("y")->value());
+			position.z = std::stof(positionNode->first_node()->next_sibling("z")->value());
 			//Get rotation
-			rotationAxis.x = std::stof(src->first_node("Rotation")->first_node("x")->value());
-			rotationAxis.y = std::stof(src->first_node("Rotation")->first_node("y")->value());
-			rotationAxis.z = std::stof(src->first_node("Rotation")->first_node("z")->value());
-			rotationAngle = std::stof(src->first_node("Rotation")->first_node("angle")->value());
+			rotationAxis.x = std::stof(rotationNode->first_node("x")->value());
+			rotationAxis.y = std::stof(rotationNode->first_node()->next_sibling("y")->value());
+			rotationAxis.z = std::stof(rotationNode->first_node()->next_sibling("z")->value());
+			rotationAngle = std::stof(rotationNode->first_node()->next_sibling("angle")->value());
 		}
 
 	};
@@ -286,14 +295,16 @@ namespace ComponentConstructors {
 	private:
 		void parse(rapidxml::xml_node<>* src)
 		{
-			position[0] = std::stof(src->first_node("Position")->first_node("x")->value());
-			position[1] = std::stof(src->first_node("Position")->first_node("y")->value());
-			position[2] = std::stof(src->first_node("Position")->first_node("z")->value());
+			rapidxml::xml_node<>* positionNode = src->first_node();
+			rapidxml::xml_node<>* rotationNode = positionNode->next_sibling();
+			position[0] = std::stof(positionNode->first_node("x")->value());
+			position[1] = std::stof(positionNode->first_node()->next_sibling()->value());
+			position[2] = std::stof(positionNode->first_node()->next_sibling()->value());
 
-			rotation[0] = std::stof(src->first_node("Rotation")->first_node("x")->value());
-			rotation[1] = std::stof(src->first_node("Rotation")->first_node("y")->value());
-			rotation[2] = std::stof(src->first_node("Rotation")->first_node("z")->value());
-			rotation[3] = std::stof(src->first_node("Rotation")->first_node("w")->value());
+			rotation[0] = std::stof(rotationNode->first_node("x")->value());
+			rotation[1] = std::stof(rotationNode->first_node()->next_sibling()->value());
+			rotation[2] = std::stof(rotationNode->first_node()->next_sibling()->value());
+			rotation[3] = std::stof(rotationNode->first_node()->next_sibling()->value());
 		}
 	};
 

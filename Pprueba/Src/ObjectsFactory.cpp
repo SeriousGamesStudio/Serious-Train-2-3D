@@ -5,6 +5,7 @@
 #include "Entity.h"         // for Entity
 #include "Component.h"
 #include "Components.h"
+#include "Scene.h"
 
  ObjectsFactory* ObjectsFactory::instance = nullptr;
  //std::string ObjectsFactory::stringIdOfPrefab[ObjectsFactory::Prefab::size];
@@ -20,9 +21,9 @@ ObjectsFactory::~ObjectsFactory()
 {
 }
 
-Entity * ObjectsFactory::create(const EntityConstructionData & entityData)
+Entity * ObjectsFactory::create(const EntityConstructionData & entityData, Scene* currentScene)
 {
-	Entity* newEntity = new Entity(SceneManager::getInstance()->currentScene(), getUniqueId(), entityData.entityName);
+	Entity* newEntity = new Entity(currentScene, getUniqueId(), entityData.entityName);
 
 	buildEntity(newEntity, entityData.data);
 

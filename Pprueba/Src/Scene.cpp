@@ -11,13 +11,14 @@
 Scene::Scene():
 	isSendingMessages(false)
 {
-	std::string sceneDataPath;//Esto queda por ver cómo darle valor y tal leyendo de fichero
-	SceneData sceneData = DataManager::getInstance()->loadScene(sceneDataPath);
-	for (auto entityData : sceneData)
+	std::string sceneDataPath = "..\\Data\\Levels\\prueba.xml";//Esto queda por ver cómo darle valor y tal leyendo de fichero
+	SceneData* sceneData = DataManager::getInstance()->loadScene(sceneDataPath);
+	for (auto entityData : *sceneData)
 	{
-		Entity* newEntity = ObjectsFactory::getInstance()->create(entityData);
+		Entity* newEntity = ObjectsFactory::getInstance()->create(*entityData, this);
 		entities.push_back(newEntity);
 	}
+	delete sceneData;
 }
 
 Scene::~Scene()

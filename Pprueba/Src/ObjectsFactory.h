@@ -7,6 +7,7 @@ class Component;
 class Entity;
 class ComponentConstructorData;
 class EntityConstructionData;
+class Scene;
 
 class ObjectsFactory
 {
@@ -19,7 +20,7 @@ public:
 		return instance;
 	}
 	//Creates an build an entity with info given
-	 Entity* create(const EntityConstructionData& entityData);
+	 Entity* create(const EntityConstructionData& entityData, Scene* currentScene);
 
 private:
 	ObjectsFactory();

@@ -7,7 +7,7 @@
 #include <string>
 
 Component::Component(ComponentType type_) :
-	_enable(true)
+	_enable(true), type(type_)
 {
 }
 

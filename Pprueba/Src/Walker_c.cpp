@@ -27,7 +27,7 @@ Walker_c::~Walker_c()
 void Walker_c::start() {
 	trans = static_cast<Transform_c*>(_myEntity->getComponent(ComponentType::TRANSFORM));
 #ifdef _DEBUG
-
+	if (!trans) printf("NO SE HA ENCONTRADO EL COMPONENT TRANSFORM");
 #endif // _DEBUG
 
 }

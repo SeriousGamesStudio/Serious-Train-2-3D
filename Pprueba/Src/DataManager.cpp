@@ -7,7 +7,7 @@
 #include <vector>
 #include "ObjectsFactory.h"
 
-typedef std::vector<EntityConstructionData> SceneData;
+//typedef std::vector<EntityConstructionData*> SceneData;
 DataManager* DataManager::instance = nullptr;
 DataManager::DataManager()
 {
@@ -72,10 +72,10 @@ ComponentConstructors::ComponentConstructor* getComponentConstructor(ComponentTy
 	}
 	return componentConstructor;
 }
-SceneData & DataManager::loadScene(std::string path)
+SceneData * DataManager::loadScene(std::string path)
 {
 	//Init the sceneData (it's just a custom vector)
-	SceneData sceneData = SceneData();
+	SceneData* sceneData = new SceneData();
 
 	//Create the xml structure
 	using namespace rapidxml;
@@ -95,8 +95,8 @@ SceneData & DataManager::loadScene(std::string path)
 	for (xml_node<>* entity_node = root_node->first_node("Entity"); entity_node; entity_node = entity_node->next_sibling())
 	{
 		//Create an Entity Construction Data
-		EntityConstructionData eData;
-		eData.entityName = entity_node->first_attribute("name")->value();
+		EntityConstructionData* eData = new EntityConstructionData();
+		eData->entityName = entity_node->first_attribute("name")->value();
 
 		//Iterate for all components of the entity
 		for (xml_node<>* component_node = entity_node->first_node(); component_node; component_node = component_node->next_sibling())
@@ -104,12 +104,12 @@ SceneData & DataManager::loadScene(std::string path)
 			//Get component type
 			ComponentType componentType = getComponentTypeFromString(component_node->first_attribute("type")->value());
 			//Get the constructor for that component
-			ComponentConstructors::ComponentConstructor* cc = getComponentConstructor(componentType, component_node->first_node());
+			ComponentConstructors::ComponentConstructor* cc = getComponentConstructor(componentType, component_node);
 			//Add them to entity data
-			eData.data.push_back({ componentType, cc });
+			eData->data.push_back({ componentType, cc });
 		}
 		//add the complete entity data into the scene data
-		sceneData.push_back(eData);
+		sceneData->push_back(eData);
 	}
 	//return the scene data completed
 	return sceneData;
