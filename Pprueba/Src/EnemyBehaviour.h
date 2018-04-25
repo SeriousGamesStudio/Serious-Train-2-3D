@@ -18,6 +18,7 @@ const Attributes  fly2fly =
 { 80, 50 , 150};
 
 class Collider_c;
+class RigidBody_c;
 
 class EnemyBehaviour_c :
 	public Component
@@ -36,7 +37,7 @@ public:
 private:
 	Attributes at;
 	Collider_c* col;
-
+	RigidBody_c* rb;
 };
 
 

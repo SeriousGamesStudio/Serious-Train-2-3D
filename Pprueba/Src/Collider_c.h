@@ -49,6 +49,7 @@ public:
 	void setTransform(const btTransform& trans);
 	void setTransform(const Transform_c& trans);
 
+
 private:
 	Transform_c* entityTransform;
 	btCollisionShape* _collisionShape;

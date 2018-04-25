@@ -50,6 +50,8 @@ Scene::Scene():
 		new btCapsuleShape(15, 15),
 		btVector3(0, 0, 0)
 		)));
+	//feedback raycast
+	box->addComponent(new EnemyBehaviour_c(EnemyBehaviour_c::NORMAL));
 
 
 
@@ -83,7 +85,8 @@ Scene::Scene():
 	Entity* vagon = new Entity(this, 5, "vagon");
 	MeshRenderer_c* mesh = new MeshRenderer_c("Vagon.mesh");
 	vagon->addComponent(mesh);
-	mesh->getSceneNode()->scale(10, 10, 10);
+	mesh->getSceneNode()->scale(7, 7, 7);
+	mesh->getSceneNode()->setPosition(-10, 50, -10);
 	vagon->init();
 	
 }
