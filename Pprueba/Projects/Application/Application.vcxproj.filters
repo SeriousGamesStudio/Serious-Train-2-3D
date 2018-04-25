@@ -1,253 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\Src\Animation_c.cpp">
-      <Filter>Components\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Camera_c.cpp">
-      <Filter>Components\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\CameraController_c.cpp">
-      <Filter>Components\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Collider_c.cpp">
-      <Filter>Components\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Component.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\DataManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Entity.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Game.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\GraphicsManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\InputManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\main.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\MeshRenderer_c.cpp">
-      <Filter>Components\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\ObjectsFactory.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\PhysicsManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\PlaneRenderer_c.cpp">
-      <Filter>Components\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\PlayerController_c.cpp">
-      <Filter>Components\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\SceneManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\SoundManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\RigidBody_c.cpp">
-      <Filter>Components\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Transform_c.cpp">
-      <Filter>Components\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Scene.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Sound.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Walker_c.cpp">
-      <Filter>Components\Behaviour</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\GameManager_c.cpp">
-      <Filter>Components\Behaviour</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\EnemyBehaviour.cpp">
-      <Filter>Components\Behaviour</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Src\TrashCollector.h" />
-    <ClInclude Include="..\..\Src\GUIndilla.h">
-      <Filter>Kernel\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Animation_c.h">
-      <Filter>Components\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Camera_c.h">
-      <Filter>Components\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\CameraController_c.h">
-      <Filter>Components\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Collider_c.h">
-      <Filter>Components\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Component.h">
-      <Filter>Kernel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Components.h">
-      <Filter>Kernel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\DataManager.h">
-      <Filter>Kernel\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Entity.h">
-      <Filter>Kernel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Game.h">
-      <Filter>Kernel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\GraphicsManager.h">
-      <Filter>Kernel\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\InputManager.h">
-      <Filter>Kernel\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\MeshRenderer_c.h">
-      <Filter>Components\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Notifications.h">
-      <Filter>Kernel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\PhysicsManager.h">
-      <Filter>Kernel\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\ObjectsFactory.h">
-      <Filter>Kernel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\PlaneRenderer_c.h">
-      <Filter>Components\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\PlayerController_c.h">
-      <Filter>Components\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\SceneManager.h">
-      <Filter>Kernel\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\SoundManager.h">
-      <Filter>Kernel\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\RigidBody_c.h">
-      <Filter>Components\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Transform_c.h">
-      <Filter>Components\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Scene.h">
-      <Filter>Kernel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Sound.h">
-      <Filter>Kernel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Walker_c.h">
-      <Filter>Components\Behaviour</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\EnemyBehaviour.h">
-      <Filter>Components\Behaviour</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Weapon_c.h">
-      <Filter>Components\Input</Filter>
-    <ClInclude Include="..\..\Src\GameManager_c.h">
-      <Filter>Components\Behaviour</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Src\DataManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\GraphicsManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\InputManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\PhysicsManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\SceneManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\RigidBody_c.cpp">
-      <Filter>Components\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Transform_c.cpp">
-      <Filter>Components\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Collider_c.cpp">
-      <Filter>Components\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Scene.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\main.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Game.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Entity.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Component.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\ObjectsFactory.cpp" />
+    <ClCompile Include="..\..\Src\GameManager_c.cpp" />
+    <ClCompile Include="..\..\Src\EnemyBehaviour.cpp" />
+    <ClCompile Include="..\..\Src\GUIndilla.cpp" />
+    <ClCompile Include="..\..\Src\Animation_c.cpp" />
+    <ClCompile Include="..\..\Src\Camera_c.cpp" />
+    <ClCompile Include="..\..\Src\CameraController_c.cpp" />
     <ClCompile Include="..\..\Src\Collider_c.cpp" />
-    <ClCompile Include="..\..\Src\MeshRenderer_c.cpp">
-      <Filter>Components\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\SoundManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Sound.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\CameraController_c.cpp">
-      <Filter>Components\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Camera_c.cpp">
-      <Filter>Components\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\GUIndilla.cpp">
-      <Filter>Kernel\GUI</Filter>
-    </ClCompile>
+    <ClCompile Include="..\..\Src\Component.cpp" />
+    <ClCompile Include="..\..\Src\DataManager.cpp" />
+    <ClCompile Include="..\..\Src\Entity.cpp" />
+    <ClCompile Include="..\..\Src\Game.cpp" />
+    <ClCompile Include="..\..\Src\MeshRenderer_c.cpp" />
+    <ClCompile Include="..\..\Src\ObjectsFactory.cpp" />
+    <ClCompile Include="..\..\Src\PlaneRenderer_c.cpp" />
+    <ClCompile Include="..\..\Src\PlayerController_c.cpp" />
+    <ClCompile Include="..\..\Src\RigidBody_c.cpp" />
+    <ClCompile Include="..\..\Src\SceneManager.cpp" />
+    <ClCompile Include="..\..\Src\GraphicsManager.cpp" />
+    <ClCompile Include="..\..\Src\InputManager.cpp" />
+    <ClCompile Include="..\..\Src\main.cpp" />
+    <ClCompile Include="..\..\Src\PhysicsManager.cpp" />
+    <ClCompile Include="..\..\Src\Scene.cpp" />
+    <ClCompile Include="..\..\Src\Sound.cpp" />
+    <ClCompile Include="..\..\Src\SoundManager.cpp" />
+    <ClCompile Include="..\..\Src\Transform_c.cpp" />
+    <ClCompile Include="..\..\Src\Walker_c.cpp" />
+    <ClCompile Include="..\..\Src\Weapon_c.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Kernel">
-      <UniqueIdentifier>{f990aeed-94fe-41a8-ad5b-b7dd1c265288}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Kernel\Managers">
-      <UniqueIdentifier>{5dbc2fdd-e615-4098-bf70-ac40e95f004d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Components">
-      <UniqueIdentifier>{95a9ae32-cbb6-4a3a-adb1-e0456c2d56dd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Components\Physics">
-      <UniqueIdentifier>{acec7444-6851-4536-82cf-355c8c2c493c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Components\Graphics">
-      <UniqueIdentifier>{b0b0c0e1-5d3b-4ece-ae13-d59a2036b64c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Components\Input">
-      <UniqueIdentifier>{594b9887-1e02-4eca-b4d6-11e76df9c5ba}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Components\Behaviour">
-      <UniqueIdentifier>{14cba20c-a5fe-4c46-b1a7-942471582772}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Kernel\GUI">
-      <UniqueIdentifier>{79826438-0d58-423b-9a31-72a85d030623}</UniqueIdentifier>
-    </Filter>
+    <ClInclude Include="..\..\Src\EnemyBehaviour.h" />
+    <ClInclude Include="..\..\Src\GameManager_c.h" />
+    <ClInclude Include="..\..\Src\GUIndilla.h" />
+    <ClInclude Include="..\..\Src\Animation_c.h" />
+    <ClInclude Include="..\..\Src\Camera_c.h" />
+    <ClInclude Include="..\..\Src\CameraController_c.h" />
+    <ClInclude Include="..\..\Src\Collider_c.h" />
+    <ClInclude Include="..\..\Src\Component.h" />
+    <ClInclude Include="..\..\Src\Components.h" />
+    <ClInclude Include="..\..\Src\DataManager.h" />
+    <ClInclude Include="..\..\Src\Entity.h" />
+    <ClInclude Include="..\..\Src\Game.h" />
+    <ClInclude Include="..\..\Src\ObjectsFactory.h" />
+    <ClInclude Include="..\..\Src\PlaneRenderer_c.h" />
+    <ClInclude Include="..\..\Src\PlayerController_c.h" />
+    <ClInclude Include="..\..\Src\RigidBody_c.h" />
+    <ClInclude Include="..\..\Src\MeshRenderer_c.h" />
+    <ClInclude Include="..\..\Src\SceneManager.h" />
+    <ClInclude Include="..\..\Src\GraphicsManager.h" />
+    <ClInclude Include="..\..\Src\InputManager.h" />
+    <ClInclude Include="..\..\Src\Notifications.h" />
+    <ClInclude Include="..\..\Src\PhysicsManager.h" />
+    <ClInclude Include="..\..\Src\Scene.h" />
+    <ClInclude Include="..\..\Src\Sound.h" />
+    <ClInclude Include="..\..\Src\SoundManager.h" />
+    <ClInclude Include="..\..\Src\Transform_c.h" />
+    <ClInclude Include="..\..\Src\TrashCollector.h" />
+    <ClInclude Include="..\..\Src\Walker_c.h" />
+    <ClInclude Include="..\..\Src\Weapon_c.h" />
   </ItemGroup>
 </Project>

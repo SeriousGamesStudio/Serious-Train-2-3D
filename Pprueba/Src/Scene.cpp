@@ -19,10 +19,6 @@ Scene::Scene():
 	robot->addComponent(new Animation_c());
 	robot->init();
 
-	//vagon
-	
-
-
 	//CAMARA DE PRUEBA
 	Entity* player = new Entity(this, 2, "Player");
 	entities.push_back(player);
@@ -30,7 +26,7 @@ Scene::Scene():
 	player->addComponent(new Camera_c());//pruebas camara
 	player->addComponent(new CameraController_c()); // pruebas
 	player->addComponent(new Transform_c(btVector3(0,5,0), btQuaternion(0,0,0,1)));
-	player->addComponent(new Weapon_c(100,100,100));
+	player->addComponent(new Weapon_c(1000,100,100));
 	player->addComponent(new Walker_c());
 	player->addComponent(new PlayerController_c());
 	player->init();
@@ -51,7 +47,7 @@ Scene::Scene():
 	box->addComponent(new RigidBody_c(btRigidBody::btRigidBodyConstructionInfo(
 		4,
 		new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(50, 0, 50))),
-		new btCapsuleShape(5, 5),
+		new btCapsuleShape(15, 15),
 		btVector3(0, 0, 0)
 		)));
 
@@ -85,8 +81,11 @@ Scene::Scene():
 	
 	//vagon
 	Entity* vagon = new Entity(this, 5, "vagon");
-	vagon->addComponent(new MeshRenderer_c("Vagon.mesh"));
+	MeshRenderer_c* mesh = new MeshRenderer_c("Vagon.mesh");
+	vagon->addComponent(mesh);
+	mesh->getSceneNode()->scale(10, 10, 10);
 	vagon->init();
+	
 }
 
 Scene::~Scene()
