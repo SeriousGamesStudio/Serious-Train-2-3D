@@ -3,6 +3,7 @@
 #include "GraphicsManager.h"
 #include "Components.h"
 #include <iostream>
+#define UMBRAL_ROTACION 0.8
 
 Camera_c::Camera_c(): 
 	Component(ComponentType::CAMERA)
@@ -28,8 +29,11 @@ void Camera_c::setPosition(float x, float y, float z)
 
 void Camera_c::rotateCamera(float x, float y, float z)
 {
+	
 	cam->yaw((Ogre::Radian)x);
-	cam->pitch((Ogre::Radian)y);
+	if ( y > 0 && cam->getDirection().y < UMBRAL_ROTACION || y < 0 && cam->getDirection().y > -UMBRAL_ROTACION) 
+		cam->pitch((Ogre::Radian)y);
+
 	if (z != 0) cam->roll((Ogre::Radian)z);
 	sendMsg( new Msg::LookAt( _myEntity->getId(), Msg_Base::self, cam->getDirection().x, cam->getDirection().y, cam->getDirection().z));
 }
