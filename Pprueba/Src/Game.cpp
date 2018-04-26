@@ -65,12 +65,10 @@ bool Game::start()
 	
 	if (!soundManager->initialise())
 		printf("SoundManager no se ha iniciado \n");
-#ifdef _DEBUG
 	
 	Scene * initial = new Scene();
 	sceneManager->pushScene(initial);
-	
-#endif // _DEBUG
+
 	run();
 	return true;
 }

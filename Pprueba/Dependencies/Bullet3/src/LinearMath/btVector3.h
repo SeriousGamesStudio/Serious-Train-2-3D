@@ -782,15 +782,16 @@ operator+(const btVector3& v1, const btVector3& v2)
 SIMD_FORCE_INLINE btVector3 
 operator*(const btVector3& v1, const btVector3& v2) 
 {
+	return btVector3(
+		v1.m_floats[0] * v2.m_floats[0],
+		v1.m_floats[1] * v2.m_floats[1],
+		v1.m_floats[2] * v2.m_floats[2]);
 #if defined(BT_USE_SSE_IN_API) && defined (BT_USE_SSE)
 	return btVector3(_mm_mul_ps(v1.mVec128, v2.mVec128));
 #elif defined(BT_USE_NEON)
 	return btVector3(vmulq_f32(v1.mVec128, v2.mVec128));
 #else
-	return btVector3(
-			v1.m_floats[0] * v2.m_floats[0], 
-			v1.m_floats[1] * v2.m_floats[1], 
-			v1.m_floats[2] * v2.m_floats[2]);
+	
 #endif
 }
 

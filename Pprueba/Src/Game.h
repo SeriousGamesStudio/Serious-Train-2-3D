@@ -24,11 +24,11 @@ public:
 		return (float)deltaTime;
 	}; 
 
+	void run();
 
 private:
 	Game();
 	static Game* instance;
-	void run();
 
 private:
 	bool exit;

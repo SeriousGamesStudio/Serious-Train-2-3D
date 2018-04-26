@@ -150,7 +150,8 @@ void GraphicsManager::renderFrame()
 		Game::getInstance()->stop();
 		return;
 	}
-	if (!root->renderOneFrame())return;
+	if (!root->renderOneFrame())
+		return;
 }
 
 Ogre::SceneNode * GraphicsManager::createNewNode(std::string meshName)

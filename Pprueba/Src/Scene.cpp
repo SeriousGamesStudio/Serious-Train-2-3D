@@ -40,7 +40,7 @@ Scene::Scene():
 
 	player->addComponent(new Camera_c());//pruebas camara
 	player->addComponent(new CameraController_c()); // pruebas
-	player->addComponent(new Transform_c(btVector3(0,5,0), btQuaternion(0,0,0,1)));
+	player->addComponent(new Transform_c(btVector3(10,5,0), btQuaternion(0,0,0,1)));
 	player->addComponent(new SoundListener_c());
 
 	// PLANO PRUEBAS
