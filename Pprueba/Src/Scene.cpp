@@ -88,6 +88,7 @@ Scene::Scene():
 	mesh->getSceneNode()->scale(7, 7, 7);
 	mesh->getSceneNode()->setPosition(-10, 50, -10);
 	vagon->init();
+	entities.push_back(vagon);
 	
 }
 
