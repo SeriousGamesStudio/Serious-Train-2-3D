@@ -89,6 +89,8 @@ Scene::Scene():
 	mesh->getSceneNode()->setPosition(-10, 50, -10);
 	vagon->init();
 	entities.push_back(vagon);
+
+
 	
 }
 
@@ -187,7 +189,7 @@ void Scene::_msgDeliver()
 		isSendingMessages = true;
 		Msg_Base* msg = messages.front();
 		for (Component* listener : listeners[msg->id]) {
-			if (msg->reciver) {
+			if (msg->reciver != 0) {
 				if (msg->reciver == listener->getEntity()->getId())
 					listener->listen(msg);
 			}

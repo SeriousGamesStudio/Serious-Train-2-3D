@@ -86,12 +86,12 @@ namespace Msg
 	{
 	public:
 
-		ToggleMouse(EntityId sender, EntityId reciver, bool active) :
-			Msg_Base(MsgId::TOGGLE_MOUSE, sender, reciver), active_(active)
+		ToggleMouse(EntityId sender, EntityId reciver) :
+			Msg_Base(MsgId::TOGGLE_MOUSE, sender, reciver)
 		{};
 		~ToggleMouse() {};
 
-		bool active_;
+		
 	};
 	
 
