@@ -22,9 +22,11 @@ void GameManager_c::listen(Msg_Base * msg)
 	switch (msg->id)
 	{
 	case MsgId::TOGGLE_MOUSE:
+	{
 		Msg::ToggleMouse* t = static_cast<Msg::ToggleMouse*>(msg);
 		t->active_ = !t->active_;
-		
+		break;
+	}
 	default:
 		break;
 	}
