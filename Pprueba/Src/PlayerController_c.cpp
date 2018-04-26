@@ -63,7 +63,8 @@ bool PlayerController_c::keyPressed(const OIS::KeyEvent & arg)
 	//Poner aquí breakpoint y cambiar a la aplicación. 
 	//Se pulsan las teclas y no salta el breakpoint, así que no entra a la función
 	if (arg.key == toggleMouseKey) {
-		//sendMsg(new Msg_Base(MsgId::TOGGLE_MOUSE, Msg_Base::self, _myEntity->getComponent(ComponentType::GAMEMANAGER)->getComponentType()));
+		sendMsg(new Msg::ToggleMouse(_myEntity->getId(), Msg_Base::broadcast, true);
+
 	}
 	updateMovementDirection();
 	return true;

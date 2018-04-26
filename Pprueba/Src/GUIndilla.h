@@ -70,7 +70,7 @@ namespace GUIndilla {
 		Button * createStaticText(const Ogre::Vector4 & Dimensions, const Ogre::String & Text, const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch = VERTICAL_ANCHOR::VA_TOP, const HORINZONTAL_ANCHOR & horAnchor = HORINZONTAL_ANCHOR::HA_LEFT);
 
 
-
+		inline MousePointer* getMousePointer() { return mousePointer; }
 		inline int getNBotones() { return nButtons; }
 		
 

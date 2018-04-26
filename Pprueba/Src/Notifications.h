@@ -5,7 +5,7 @@ using EntityId = unsigned int;
 
 enum class MsgId : unsigned int
 {
-	EXIT, CHANGED_POSITION, PLAYER_MOVE,  CAMERA_ORIENTATE, LOOKING_TO, RAYCAST_HIT
+	EXIT, CHANGED_POSITION, PLAYER_MOVE,  CAMERA_ORIENTATE, LOOKING_TO, RAYCAST_HIT, TOGGLE_MOUSE
 };
 
 struct Msg_Base
@@ -79,6 +79,19 @@ namespace Msg
 
 		int dmg_;
 		void* collisionWith_;
+	};
+	//toggle mouse
+	struct ToggleMouse :
+		public Msg_Base
+	{
+	public:
+
+		ToggleMouse(EntityId sender, EntityId reciver, bool active) :
+			Msg_Base(MsgId::TOGGLE_MOUSE, sender, reciver), active_(active)
+		{};
+		~ToggleMouse() {};
+
+		bool active_;
 	};
 	
 

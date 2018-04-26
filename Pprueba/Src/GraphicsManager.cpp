@@ -130,6 +130,11 @@ bool GraphicsManager::start()
 }
 
 
+void GraphicsManager::toggleMouse(bool toggle)
+{
+	getGUI()->getMousePointer()->setActive(toggle);
+}
+
 Ogre::RenderWindow*  GraphicsManager::getWindow() const {
 	return mWindow;
 }
