@@ -16,7 +16,7 @@ const float VELOCITY = 50.0f;
 Walker_c::Walker_c():
 	Component(ComponentType::WALKER), currentDirection(btVector3(0,0,0)), rb(nullptr)
 {
-	aux1 = btVector3(currentDirection);
+	
 }
 
 Walker_c::~Walker_c()
@@ -27,7 +27,7 @@ Walker_c::~Walker_c()
 void Walker_c::start() {
 	trans = static_cast<Transform_c*>(_myEntity->getComponent(ComponentType::TRANSFORM));
 #ifdef _DEBUG
-
+	aux1 = currentDirection;
 #endif // _DEBUG
 
 }
