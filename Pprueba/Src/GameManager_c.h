@@ -2,6 +2,7 @@
 #define _H_GAMEMANAGER_C_H_
 #include "Component.h"
 
+class GraphicsManager;
 class GameManager_c: 
 	public Component
 {
@@ -15,6 +16,8 @@ public:
 
 private:
 	static void closeGame();
+	//GraphicsManager* grM_;
+	bool active_;
 
 };
 

@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Src\EnemyBehaviour.h" />
     <ClInclude Include="..\..\Src\GameManager_c.h" />
     <ClInclude Include="..\..\Src\GUIndilla.h" />
     <ClInclude Include="..\..\Src\Animation_c.h" />
@@ -40,9 +41,11 @@
     <ClInclude Include="..\..\Src\Transform_c.h" />
     <ClInclude Include="..\..\Src\TrashCollector.h" />
     <ClInclude Include="..\..\Src\Walker_c.h" />
+    <ClInclude Include="..\..\Src\Weapon_c.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\GameManager_c.cpp" />
+    <ClCompile Include="..\..\Src\EnemyBehaviour.cpp" />
     <ClCompile Include="..\..\Src\GUIndilla.cpp" />
     <ClCompile Include="..\..\Src\Animation_c.cpp" />
     <ClCompile Include="..\..\Src\Camera_c.cpp" />
@@ -69,12 +72,13 @@
     <ClCompile Include="..\..\Src\Sound_c.cpp" />
     <ClCompile Include="..\..\Src\Transform_c.cpp" />
     <ClCompile Include="..\..\Src\Walker_c.cpp" />
+    <ClCompile Include="..\..\Src\Weapon_c.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{41D4F585-BC8E-4D52-B33F-88A595432442}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Application</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

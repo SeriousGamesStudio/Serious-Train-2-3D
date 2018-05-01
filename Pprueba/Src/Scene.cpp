@@ -30,18 +30,18 @@ Scene::Scene():
 	}
 	robot->init();
 
-	//vagon
-	
-
-
 	//CAMARA DE PRUEBA
 	Entity* player = new Entity(this, 2, "Player");
 	entities.push_back(player);
 
 	player->addComponent(new Camera_c());//pruebas camara
 	player->addComponent(new CameraController_c()); // pruebas
-	player->addComponent(new Transform_c(btVector3(10,5,0), btQuaternion(0,0,0,1)));
+	player->addComponent(new Transform_c(btVector3(0,5,0), btQuaternion(0,0,0,1)));
+	player->addComponent(new Weapon_c(1000,100,100));
+	player->addComponent(new Walker_c());
+	player->addComponent(new PlayerController_c());
 	player->addComponent(new SoundListener_c());
+	player->init();
 
 	// PLANO PRUEBAS
 	Entity* plane = new Entity(this, 3, "Plano");
@@ -49,13 +49,21 @@ Scene::Scene():
 
 	plane->addComponent(new PlaneRenderer_c("plane", "nm_bk.png"));
 	// el ultimo parametro es la imagen que hace de textura del plano por si quieres cambiarla
-	player->addComponent(new Walker_c());
-	player->addComponent(new PlayerController_c());
-	player->init();
 
+	//CUBO para colisiones
+	Entity* box = new Entity(this, 4, "Box");
+	entities.push_back(box);
 
-	//ANIMACION PRUEBAS
-
+	box->addComponent(new MeshRenderer_c("barrel.mesh"));
+	box->addComponent(new Transform_c(btVector3(50, 0, 50), btQuaternion(0, 0, 0, 1)));
+	box->addComponent(new RigidBody_c(btRigidBody::btRigidBodyConstructionInfo(
+		4,
+		new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(50, 0, 50))),
+		new btCapsuleShape(15, 15),
+		btVector3(0, 0, 0)
+		)));
+	//feedback raycast
+	box->addComponent(new EnemyBehaviour_c(EnemyBehaviour_c::NORMAL));
 
 
 
@@ -79,14 +87,20 @@ Scene::Scene():
 	//vagon
 	Entity* vagon = new Entity(this, 5, "vagon");
 	entities.push_back(vagon);
-	vagon->addComponent(new MeshRenderer_c("Vagon.mesh"));
+	MeshRenderer_c* mesh = new MeshRenderer_c("Vagon.mesh");
+	vagon->addComponent(mesh);
+	mesh->getSceneNode()->scale(7, 7, 7);
+	mesh->getSceneNode()->setPosition(-10, 50, -10);
 	vagon->init();
+
+
+	
 }
 
 Scene::~Scene()
 {
-	for (Entity* e : entities) delete e;
 	delete _gameManager;
+	for (Entity* e : entities) delete e;
 }
 
 ///////////////////////////////TICK///////////////////////////////////////
@@ -178,7 +192,7 @@ void Scene::_msgDeliver()
 		isSendingMessages = true;
 		Msg_Base* msg = messages.front();
 		for (Component* listener : listeners[msg->id]) {
-			if (msg->reciver) {
+			if (msg->reciver != 0) {
 				if (msg->reciver == listener->getEntity()->getId())
 					listener->listen(msg);
 			}

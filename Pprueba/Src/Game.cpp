@@ -68,6 +68,8 @@ bool Game::start()
 	
 	Scene * initial = new Scene();
 	sceneManager->pushScene(initial);
+	initial->setGameManager();
+	
 
 	run();
 	return true;

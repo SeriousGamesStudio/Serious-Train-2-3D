@@ -33,6 +33,7 @@ private:
 	Transform_c* transform;
 	Camera_c* cam;
 	btVector3 lookingAt, walkingTo;
+	OIS::KeyCode toggleMouseKey;
 private:
 	void updateMovementDirection();
 };

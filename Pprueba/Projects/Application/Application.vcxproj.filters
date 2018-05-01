@@ -2,16 +2,16 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\..\Src\Animation_c.cpp">
-      <Filter>Components\Graphics</Filter>
+      <Filter>Componentes\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\Camera_c.cpp">
-      <Filter>Components\Graphics</Filter>
+      <Filter>Componentes\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\CameraController_c.cpp">
-      <Filter>Components\Input</Filter>
+      <Filter>Componentes\Input</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\Collider_c.cpp">
-      <Filter>Components\Physics</Filter>
+      <Filter>Componentes\Physics</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\Component.cpp">
       <Filter>Kernel</Filter>
@@ -19,14 +19,23 @@
     <ClCompile Include="..\..\Src\DataManager.cpp">
       <Filter>Kernel\Managers</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\EnemyBehaviour.cpp">
+      <Filter>Componentes\Behaviour</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Src\Entity.cpp">
       <Filter>Kernel</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\Game.cpp">
       <Filter>Kernel</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\GameManager_c.cpp">
+      <Filter>Kernel\Managers</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Src\GraphicsManager.cpp">
       <Filter>Kernel\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\GUIndilla.cpp">
+      <Filter>Kernel</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\InputManager.cpp">
       <Filter>Kernel\Managers</Filter>
@@ -35,7 +44,7 @@
       <Filter>Kernel</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\MeshRenderer_c.cpp">
-      <Filter>Components\Graphics</Filter>
+      <Filter>Componentes\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\ObjectsFactory.cpp">
       <Filter>Kernel</Filter>
@@ -44,22 +53,13 @@
       <Filter>Kernel\Managers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\PlaneRenderer_c.cpp">
-      <Filter>Components\Graphics</Filter>
+      <Filter>Componentes\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\PlayerController_c.cpp">
-      <Filter>Components\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\SceneManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\SoundManager.cpp">
-      <Filter>Kernel\Managers</Filter>
+      <Filter>Componentes\Input</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\RigidBody_c.cpp">
-      <Filter>Components\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Transform_c.cpp">
-      <Filter>Components\Physics</Filter>
+      <Filter>Componentes\Physics</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\Scene.cpp">
       <Filter>Kernel</Filter>
@@ -67,44 +67,54 @@
     <ClCompile Include="..\..\Src\Sound.cpp">
       <Filter>Kernel</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Src\Walker_c.cpp">
-      <Filter>Components\Behaviour</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Src\Sound_c.cpp">
-      <Filter>Components\Behaviour</Filter>
+      <Filter>Componentes\Behaviour</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\SoundListener_c.cpp">
-      <Filter>Components\Behaviour</Filter>
+      <Filter>Componentes\Behaviour</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Src\GameManager_c.cpp">
-      <Filter>Components\Behaviour</Filter>
+    <ClCompile Include="..\..\Src\SceneManager.cpp">
+      <Filter>Kernel\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\SoundManager.cpp">
+      <Filter>Kernel\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Walker_c.cpp">
+      <Filter>Componentes\Behaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Weapon_c.cpp">
+      <Filter>Componentes\Behaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Transform_c.cpp">
+      <Filter>Componentes\Physics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Src\EnemyBehaviour.h" />
     <ClInclude Include="..\..\Src\TrashCollector.h" />
-    <ClInclude Include="..\..\Src\GUIndilla.h">
-      <Filter>Kernel\GUI</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Src\Animation_c.h">
-      <Filter>Components\Graphics</Filter>
+      <Filter>Componentes\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Camera_c.h">
-      <Filter>Components\Graphics</Filter>
+      <Filter>Componentes\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\CameraController_c.h">
-      <Filter>Components\Input</Filter>
+      <Filter>Componentes\Input</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Collider_c.h">
-      <Filter>Components\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Component.h">
-      <Filter>Kernel</Filter>
+      <Filter>Componentes\Physics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Components.h">
       <Filter>Kernel</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\Component.h">
+      <Filter>Kernel</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Src\DataManager.h">
       <Filter>Kernel\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EnemyBehaviour.h">
+      <Filter>Componentes\Behaviour</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Entity.h">
       <Filter>Kernel</Filter>
@@ -112,38 +122,38 @@
     <ClInclude Include="..\..\Src\Game.h">
       <Filter>Kernel</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\GameManager_c.h">
+      <Filter>Kernel\Managers</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Src\GraphicsManager.h">
       <Filter>Kernel\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\GUIndilla.h">
+      <Filter>Kernel</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\InputManager.h">
       <Filter>Kernel\Managers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\MeshRenderer_c.h">
-      <Filter>Components\Graphics</Filter>
+      <Filter>Componentes\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Notifications.h">
+      <Filter>Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\ObjectsFactory.h">
       <Filter>Kernel</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\PhysicsManager.h">
       <Filter>Kernel\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\ObjectsFactory.h">
-      <Filter>Kernel</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Src\PlaneRenderer_c.h">
-      <Filter>Components\Graphics</Filter>
+      <Filter>Componentes\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\PlayerController_c.h">
-      <Filter>Components\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\SceneManager.h">
-      <Filter>Kernel\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\SoundManager.h">
-      <Filter>Kernel\Managers</Filter>
+      <Filter>Componentes\Input</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\RigidBody_c.h">
-      <Filter>Components\Physics</Filter>
+      <Filter>Componentes\Physics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Scene.h">
       <Filter>Kernel</Filter>
@@ -151,107 +161,49 @@
     <ClInclude Include="..\..\Src\Sound.h">
       <Filter>Kernel</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\Walker_c.h">
-      <Filter>Components\Behaviour</Filter>
+    <ClInclude Include="..\..\Src\SoundListener_c.h">
+      <Filter>Componentes\Behaviour</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Sound_c.h">
-      <Filter>Components\Behaviour</Filter>
+      <Filter>Componentes\Behaviour</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\SoundListener_c.h">
-      <Filter>Components\Behaviour</Filter>
+    <ClInclude Include="..\..\Src\SceneManager.h">
+      <Filter>Kernel\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\GameManager_c.h">
-      <Filter>Components\Behaviour</Filter>
+    <ClInclude Include="..\..\Src\SoundManager.h">
+      <Filter>Kernel\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Weapon_c.h">
+      <Filter>Componentes\Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Walker_c.h">
+      <Filter>Componentes\Behaviour</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Transform_c.h">
-      <Filter>Kernel</Filter>
+      <Filter>Componentes\Physics</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Src\DataManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\GraphicsManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\InputManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\PhysicsManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\SceneManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\RigidBody_c.cpp">
-      <Filter>Components\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Transform_c.cpp">
-      <Filter>Components\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Collider_c.cpp">
-      <Filter>Components\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Scene.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\main.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Game.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Entity.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Component.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\ObjectsFactory.cpp" />
-    <ClCompile Include="..\..\Src\Collider_c.cpp" />
-    <ClCompile Include="..\..\Src\MeshRenderer_c.cpp">
-      <Filter>Components\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\SoundManager.cpp">
-      <Filter>Kernel\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Sound.cpp">
-      <Filter>Kernel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\CameraController_c.cpp">
-      <Filter>Components\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Camera_c.cpp">
-      <Filter>Components\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\GUIndilla.cpp">
-      <Filter>Kernel\GUI</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Kernel">
-      <UniqueIdentifier>{f990aeed-94fe-41a8-ad5b-b7dd1c265288}</UniqueIdentifier>
+      <UniqueIdentifier>{2afb05fe-0020-413a-a6ce-2dd522ca06df}</UniqueIdentifier>
     </Filter>
     <Filter Include="Kernel\Managers">
-      <UniqueIdentifier>{5dbc2fdd-e615-4098-bf70-ac40e95f004d}</UniqueIdentifier>
+      <UniqueIdentifier>{81443a0c-10c6-4761-8950-7d2a808ace89}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Components">
-      <UniqueIdentifier>{95a9ae32-cbb6-4a3a-adb1-e0456c2d56dd}</UniqueIdentifier>
+    <Filter Include="Componentes">
+      <UniqueIdentifier>{72318aab-c93c-4920-8d3e-e0954898b721}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Components\Physics">
-      <UniqueIdentifier>{acec7444-6851-4536-82cf-355c8c2c493c}</UniqueIdentifier>
+    <Filter Include="Componentes\Input">
+      <UniqueIdentifier>{e26d40a5-ad43-43c2-b3fd-b4cbe5e98c08}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Components\Graphics">
-      <UniqueIdentifier>{b0b0c0e1-5d3b-4ece-ae13-d59a2036b64c}</UniqueIdentifier>
+    <Filter Include="Componentes\Behaviour">
+      <UniqueIdentifier>{49eb709c-8439-4ca6-9463-85bee7ecbb2d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Components\Input">
-      <UniqueIdentifier>{594b9887-1e02-4eca-b4d6-11e76df9c5ba}</UniqueIdentifier>
+    <Filter Include="Componentes\Graphics">
+      <UniqueIdentifier>{9a990ac3-e1e8-482e-a065-56220be141d3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Components\Behaviour">
-      <UniqueIdentifier>{14cba20c-a5fe-4c46-b1a7-942471582772}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Kernel\GUI">
-      <UniqueIdentifier>{79826438-0d58-423b-9a31-72a85d030623}</UniqueIdentifier>
+    <Filter Include="Componentes\Physics">
+      <UniqueIdentifier>{57c5c3a9-089e-4dfe-8977-ddcc15f1d6a8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

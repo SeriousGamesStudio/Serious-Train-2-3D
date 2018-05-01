@@ -40,5 +40,3 @@ bool CameraController_c::mouseReleased(const OIS::MouseEvent & arg, OIS::MouseBu
 {
 	return true;
 }
-
-

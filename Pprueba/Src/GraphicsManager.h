@@ -26,7 +26,7 @@ public:
 		return _GUI;
 	};
 
-	
+	void toggleMouse(bool toggle);
 	
 	 Ogre::RenderWindow* getWindow() const ;
 	 Ogre::Light* getLight() { return light; }

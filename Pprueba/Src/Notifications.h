@@ -5,7 +5,7 @@ using EntityId = unsigned int;
 
 enum class MsgId : unsigned int
 {
-	EXIT, CHANGED_POSITION, PLAYER_MOVE,  CAMERA_ORIENTATE, LOOKING_TO
+	EXIT, CHANGED_POSITION, PLAYER_MOVE,  CAMERA_ORIENTATE, LOOKING_TO, RAYCAST_HIT, TOGGLE_MOUSE
 };
 
 struct Msg_Base
@@ -66,6 +66,35 @@ namespace Msg
 
 		float x, y, z;
 	};
+	//RayCast
+	struct Shoot :
+		public Msg_Base
+	{
+	public:
+
+		Shoot(EntityId sender, EntityId reciver, int dmg, void* collisionWith) :
+			Msg_Base(MsgId::RAYCAST_HIT, sender, reciver), dmg_(dmg), collisionWith_(collisionWith)
+		{};
+		~Shoot() {};
+
+		int dmg_;
+		void* collisionWith_;
+	};
+	//toggle mouse
+	struct ToggleMouse :
+		public Msg_Base
+	{
+	public:
+
+		ToggleMouse(EntityId sender, EntityId reciver) :
+			Msg_Base(MsgId::TOGGLE_MOUSE, sender, reciver)
+		{};
+		~ToggleMouse() {};
+
+		
+	};
+	
+
 }; 
 #endif //!_H_NOTIFICATIONS_H_
 

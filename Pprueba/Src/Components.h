@@ -16,6 +16,8 @@ enum class ComponentType
 	SOUND,
 	SOUNDLISTENER,
 	GAMEMANAGER,
+	WEAPON,
+	ENEMYBEHAVIOUR
 
 };
 
@@ -35,5 +37,7 @@ enum class ComponentType
 #include "Sound_c.h"
 #include "SoundListener_c.h"
 #include "GameManager_c.h"
+#include "Weapon_c.h"
+#include "EnemyBehaviour.h"
 #endif //!_H_COMPONENTS_H_
 

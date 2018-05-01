@@ -26,8 +26,7 @@ Walker_c::~Walker_c()
 void Walker_c::start() {
 	trans = static_cast<Transform_c*>(_myEntity->getComponent(ComponentType::TRANSFORM));
 #ifdef _DEBUG
-	aux1 = btVector3(currentDirection);
-
+	aux1 = currentDirection;
 #endif // _DEBUG
 
 }
