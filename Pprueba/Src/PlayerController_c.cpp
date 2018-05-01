@@ -7,7 +7,6 @@
 #include "InputManager.h"
 #include <iostream>
 
-#define PI 3.14159265358f
 
 PlayerController_c::PlayerController_c() :
 	Component(ComponentType::PLAYERCONTROLLER),
@@ -15,7 +14,6 @@ PlayerController_c::PlayerController_c() :
 	forwardKey(OIS::KeyCode::KC_W), backKey(OIS::KeyCode::KC_S), rightKey(OIS::KeyCode::KC_D), leftKey(OIS::KeyCode::KC_A),
 	lookingAt(btVector3(0,0,0)), walkingTo(btVector3(0,0,0))
 {
-	std::cout << "constructora";
 	InputManager::getInstance()->addKeyListener(this, "tecladoJugador");
 	InputManager::getInstance()->addMouseListener(this, "ratonJugador");
 	//Change predefined keys if the user changes the configuration
@@ -55,26 +53,57 @@ PlayerController_c::~PlayerController_c()
 
 bool PlayerController_c::keyPressed(const OIS::KeyEvent & arg)
 {
-	//No entra
-	if (arg.key == forwardKey)	forward = true;
-	if (arg.key == backKey)		back	= true;
-	if (arg.key == rightKey)	right	= true;
-	if (arg.key == leftKey)		left	= true;
+	bool somethingChange = false;
+	
+
+	if (arg.key == forwardKey) {
+		forward = true;
+		somethingChange = true;
+	}
+	if (arg.key == backKey) { 
+		back = true; 
+		somethingChange = true;
+	}
+	if (arg.key == rightKey) { 
+		right = true; 
+		somethingChange = true;
+	}
+	if (arg.key == leftKey) { 
+		left = true; 
+		somethingChange = true; 
+	}
 	//Poner aquí breakpoint y cambiar a la aplicación. 
 	//Se pulsan las teclas y no salta el breakpoint, así que no entra a la función
-	updateMovementDirection();
+	if(somethingChange)
+		updateMovementDirection();
+	
 	return true;
 }
 
 bool PlayerController_c::keyReleased(const OIS::KeyEvent & arg)
 {
-	//No entra
-	if (arg.key == forwardKey)	forward	= false;
-	if (arg.key == backKey)		back	= false;
-	if (arg.key == rightKey)	right	= false;
-	if (arg.key == leftKey)		left	= false;
+	bool somethingChange = false;
 
-	updateMovementDirection();
+	//No entra
+	if (arg.key == forwardKey){	
+		forward	= false;
+		somethingChange = true;
+	}
+	if (arg.key == backKey) {
+		back = false;
+		somethingChange = true;
+	}
+	if (arg.key == rightKey) {
+		right = false;
+		somethingChange = true;
+	}
+	if (arg.key == leftKey) {
+		left = false; 
+		somethingChange = true;
+	}
+	if(somethingChange)
+		updateMovementDirection();
+	
 	return true;
 }
 
@@ -130,20 +159,20 @@ void PlayerController_c::updateMovementDirection()
 		//foward
 			 if (f && !r && !l)/*angle = 0*/;		
 		//back
-		else if (b && !r && !l) angle = PI;
+		else if (b && !r && !l) angle = 3.141592653589f;
 		//right
-		else if (!f && !b && r) angle = PI * -0.5f;
+		else if (!f && !b && r) angle = 3.141592653589f * -0.5f;
 		//left
-		else if (!f && !b && l)	angle = PI *  0.5f;
+		else if (!f && !b && l)	angle = 3.141592653589f *  0.5f;
 	/*COMPOSE MOVES*/
 		//foward-right
-		else if (f && r)		angle = PI * -0.25f;
+		else if (f && r)		angle = 3.141592653589f * -0.25f;
 		//foward-left
-		else if (f && l)		angle = PI *  0.25f;
+		else if (f && l)		angle = 3.141592653589f *  0.25f;
 		//back-right
-		else if (b && r)		angle = PI * -0.75f;
+		else if (b && r)		angle = 3.141592653589f * -0.75f;
 		//back-left
-		else if (b && l)		angle = PI *  0.75f;
+		else if (b && l)		angle = 3.141592653589f *  0.75f;
 	}
 
 	walkingTo = lookingAt.rotate({ 0,1,0 }, angle);

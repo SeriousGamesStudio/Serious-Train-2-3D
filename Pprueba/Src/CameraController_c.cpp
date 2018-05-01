@@ -3,7 +3,6 @@
 #include "Components.h"
 #include "Camera_c.h"
 
-#define MOUSE_SENSIBILITY 1000.f
 
 CameraController_c::CameraController_c() :
 	Component(ComponentType::CAMERACONTROLLER)
@@ -27,7 +26,7 @@ void CameraController_c::start()
 
 bool CameraController_c::mouseMoved(const OIS::MouseEvent & arg)
 {
-	cam->rotateCamera((float)-arg.state.X.rel / MOUSE_SENSIBILITY, (float)-arg.state.Y.rel / MOUSE_SENSIBILITY);
+	cam->rotateCamera((float)-arg.state.X.rel / 1000.f, (float)-arg.state.Y.rel / 1000.f);
 
 	return true;
 }

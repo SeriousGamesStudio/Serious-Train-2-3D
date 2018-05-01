@@ -23,6 +23,7 @@ private:
 	btVector3 currentDirection;
 	RigidBody_c* rb;
 	Transform_c* trans;
+	float _velocity;
 
 private:
 	btTransform& updateTransform();

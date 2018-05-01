@@ -11,11 +11,11 @@ float auxY = 0;
 float auxZ = 0;
 #endif // _DEBUG
 
-const float VELOCITY = 50.0f;
 
 Walker_c::Walker_c():
 	Component(ComponentType::WALKER), currentDirection(btVector3(0,0,0)), rb(nullptr)
 {
+	_velocity = 50.0f;
 }
 
 Walker_c::~Walker_c()
@@ -67,15 +67,15 @@ void Walker_c::setDirection(float x, float z)
 	currentDirection.setValue(x, 0, z);
 #ifdef _DEBUG
 	if (!currentDirection.isZero())
-#endif // _DEBUG
 		currentDirection.normalize();
+#endif // _DEBUG
 }
 
 btTransform& Walker_c::updateTransform()
 {
-	trans->get().getOrigin().setX(trans->get().getOrigin().getX() + (currentDirection.getX() * VELOCITY * Game::getInstance()->getDeltaTime()));
-	trans->get().getOrigin().setY(trans->get().getOrigin().getY() + (currentDirection.getY() * VELOCITY * Game::getInstance()->getDeltaTime()));
-	trans->get().getOrigin().setZ(trans->get().getOrigin().getZ() + (currentDirection.getZ() * VELOCITY * Game::getInstance()->getDeltaTime()));
+	trans->get().getOrigin().setX(trans->get().getOrigin().getX() + (currentDirection.getX() * _velocity * Game::getInstance()->getDeltaTime()));
+	trans->get().getOrigin().setY(trans->get().getOrigin().getY() + (currentDirection.getY() * _velocity * Game::getInstance()->getDeltaTime()));
+	trans->get().getOrigin().setZ(trans->get().getOrigin().getZ() + (currentDirection.getZ() * _velocity * Game::getInstance()->getDeltaTime()));
 	sendMsg(new Msg::ChangePosition(_myEntity->getId(), Msg_Base::self, trans->get().getOrigin().getX(), trans->get().getOrigin().getY(), trans->get().getOrigin().getZ()));
 	return trans->get();
 }

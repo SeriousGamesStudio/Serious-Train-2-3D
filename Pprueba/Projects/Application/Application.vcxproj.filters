@@ -145,9 +145,6 @@
     <ClInclude Include="..\..\Src\RigidBody_c.h">
       <Filter>Components\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\Transform_c.h">
-      <Filter>Components\Physics</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Src\Scene.h">
       <Filter>Kernel</Filter>
     </ClInclude>
@@ -165,6 +162,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\GameManager_c.h">
       <Filter>Components\Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Transform_c.h">
+      <Filter>Kernel</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
