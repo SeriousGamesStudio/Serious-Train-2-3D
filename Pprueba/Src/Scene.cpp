@@ -1,7 +1,8 @@
-#include "SceneManager.h"
 #include "Scene.h"
+#include "SceneManager.h"
 #include "ObjectsFactory.h"
 #include "Game.h"
+#include "DataManager.h"
 
 #include <algorithm>
 
@@ -10,100 +11,14 @@
 Scene::Scene():
 	isSendingMessages(false), _gameManager(0)
 {
-	//OBJETO PESCADO DE PRUEBA
-	Entity* robot = new Entity(this, 1, "robot");  //id a partir de 1
-	entities.push_back(robot);
-
-	robot->addComponent(new MeshRenderer_c("fish.mesh")); //pruebas
-														  //robot->addComponent(new PlayerController_c()); //pruebas
-	robot->addComponent(new Animation_c());
-	robot->addComponent(new Sound_c("ophelia.mp3", true));
-	{//Add rigidBody
-		btCollisionShape* fallShape = new btSphereShape(1);
-		btDefaultMotionState* fallMotionState =
-			new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 30, 0)));
-		btScalar mass = 1;
-		btVector3 fallInertia(0, 9.8f, 0);
-		fallShape->calculateLocalInertia(mass, fallInertia);
-		btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, fallMotionState, fallShape, fallInertia);
-		robot->addComponent(new RigidBody_c(fallRigidBodyCI));
-	}
-	robot->init();
-
-	//CAMARA DE PRUEBA
-	Entity* player = new Entity(this, 2, "Player");
-	entities.push_back(player);
-
-	player->addComponent(new Camera_c());//pruebas camara
-	player->addComponent(new CameraController_c()); // pruebas
-	player->addComponent(new Transform_c(btVector3(0,5,0), btQuaternion(0,0,0,1)));
-	player->addComponent(new Weapon_c(1000,100,100));
-	player->addComponent(new Walker_c());
-	player->addComponent(new PlayerController_c());
-	player->addComponent(new SoundListener_c());
-	player->init();
-
-	// PLANO PRUEBAS
-	Entity* plane = new Entity(this, 3, "Plano");
-	entities.push_back(plane);
-
-	plane->addComponent(new PlaneRenderer_c("plane", "nm_bk.png"));
-	// el ultimo parametro es la imagen que hace de textura del plano por si quieres cambiarla
-
-	//CUBO para colisiones
-	Entity* box = new Entity(this, 4, "Box");
-	entities.push_back(box);
-
-	box->addComponent(new MeshRenderer_c("barrel.mesh"));
-	//box->addComponent(new Transform_c(btVector3(50, 0, 50), btQuaternion(0, 0, 0, 1)));
+	std::string sceneDataPath = "..\\Data\\Levels\\prueba.xml";//Esto queda por ver cómo darle valor y tal leyendo de fichero
+	SceneData* sceneData = DataManager::getInstance()->loadScene(sceneDataPath);
+	for (auto entityData : *sceneData)
 	{
-
-	btVector3 posicion(10, 0, 20);
-	
-	Collider_c::Dimensions dim { dim.x = dim.y = dim.z = 5 };
-	box->addComponent(new Transform_c(posicion, btQuaternion(0, 0, 0, 1)));
-	//btCollisionShape* coll = new btBoxShape(btVector3(5,5,5));
-	Collider_c* coll = new Collider_c(Collider_c::Shape::BOX, dim, btTransform(btQuaternion(0, 0, 0, 1), posicion));
-	box->addComponent(coll);
-	//btDefaultMotionState* barrelMotionState = new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), posicion));
-	//btRigidBody::btRigidBodyConstructionInfo barrelRigidBodyCI(0, barrelMotionState, coll->getCollisionShape()/* esto puede que pete*/, btVector3(0, 0, 0));
-	//
-	//box->addComponent(new RigidBody_c(barrelRigidBodyCI));
+		Entity* newEntity = ObjectsFactory::getInstance()->create(*entityData, this);
+		entities.push_back(newEntity);
 	}
-	//feedback raycast
-	box->addComponent(new EnemyBehaviour_c(EnemyBehaviour_c::NORMAL));
-	box->init();
-
-
-
-
-
-	
-	//////////////////////////////////////////////////////////////////////////
-	//Entity* ground = new Entity(this, 4, "ground");
-	//ground->addComponent(new MeshRenderer_c("WoodPallet.mesh")); //pruebas
-	//entities.push_back(ground);
-	//{
-	//	btCollisionShape* groundShape = new btStaticPlaneShape(btVector3(0, 1, 0), 1);
-	//	btDefaultMotionState* groundMotionState =
-	//		new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, -25, 0)));
-	//	btRigidBody::btRigidBodyConstructionInfo
-	//		groundRigidBodyCI(0, groundMotionState, groundShape, btVector3(0, 0, 0));
-	//	ground->addComponent(new RigidBody_c(groundRigidBodyCI));
-	//}
-	//ground->init();
-	
-	//vagon
-	Entity* vagon = new Entity(this, 5, "vagon");
-	entities.push_back(vagon);
-	MeshRenderer_c* mesh = new MeshRenderer_c("Vagon.mesh");
-	vagon->addComponent(mesh);
-	mesh->getSceneNode()->scale(7, 7, 7);
-	mesh->getSceneNode()->setPosition(-10, 50, -10);
-	vagon->init();
-
-
-	
+	delete sceneData;
 }
 
 Scene::~Scene()

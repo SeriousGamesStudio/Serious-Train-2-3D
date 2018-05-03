@@ -20,12 +20,18 @@
     <ClInclude Include="..\..\Src\Collider_c.h" />
     <ClInclude Include="..\..\Src\Component.h" />
     <ClInclude Include="..\..\Src\Components.h" />
+    <ClInclude Include="..\..\Src\ComponentsConstructors.h" />
     <ClInclude Include="..\..\Src\DataManager.h" />
+    <ClInclude Include="..\..\Src\Definitions.h" />
     <ClInclude Include="..\..\Src\Entity.h" />
     <ClInclude Include="..\..\Src\Game.h" />
     <ClInclude Include="..\..\Src\ObjectsFactory.h" />
     <ClInclude Include="..\..\Src\PlaneRenderer_c.h" />
     <ClInclude Include="..\..\Src\PlayerController_c.h" />
+    <ClInclude Include="..\..\Src\rapidxml.hpp" />
+    <ClInclude Include="..\..\Src\rapidxml_iterators.hpp" />
+    <ClInclude Include="..\..\Src\rapidxml_print.hpp" />
+    <ClInclude Include="..\..\Src\rapidxml_utils.hpp" />
     <ClInclude Include="..\..\Src\RigidBody_c.h" />
     <ClInclude Include="..\..\Src\MeshRenderer_c.h" />
     <ClInclude Include="..\..\Src\SceneManager.h" />
@@ -52,6 +58,7 @@
     <ClCompile Include="..\..\Src\CameraController_c.cpp" />
     <ClCompile Include="..\..\Src\Collider_c.cpp" />
     <ClCompile Include="..\..\Src\Component.cpp" />
+    <ClCompile Include="..\..\Src\Components.cpp" />
     <ClCompile Include="..\..\Src\DataManager.cpp" />
     <ClCompile Include="..\..\Src\Entity.cpp" />
     <ClCompile Include="..\..\Src\Game.cpp" />

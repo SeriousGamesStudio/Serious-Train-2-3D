@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="..\..\Src\GUIndilla.cpp" />
+    <ClCompile Include="..\..\Src\main.cpp" />
+    <ClCompile Include="..\..\Src\Sound.cpp" />
     <ClCompile Include="..\..\Src\Animation_c.cpp">
       <Filter>Componentes\Graphics</Filter>
     </ClCompile>
@@ -26,6 +29,9 @@
       <Filter>Kernel</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\Game.cpp">
+      <Filter>Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\ObjectsFactory.cpp">
       <Filter>Kernel</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\GameManager_c.cpp">
@@ -55,8 +61,11 @@
     <ClCompile Include="..\..\Src\PlaneRenderer_c.cpp">
       <Filter>Componentes\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Src\PlayerController_c.cpp">
-      <Filter>Componentes\Input</Filter>
+    <ClCompile Include="..\..\Src\SceneManager.cpp">
+      <Filter>Kernel\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\SoundManager.cpp">
+      <Filter>Kernel\Managers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\RigidBody_c.cpp">
       <Filter>Componentes\Physics</Filter>
@@ -88,9 +97,18 @@
     <ClCompile Include="..\..\Src\Transform_c.cpp">
       <Filter>Componentes\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Components.cpp" />
+    <ClCompile Include="..\..\Src\PlayerController_c.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\EnemyBehaviour.h" />
+    <ClInclude Include="..\..\Src\GUIndilla.h" />
+    <ClInclude Include="..\..\Src\Definitions.h" />
+    <ClInclude Include="..\..\Src\rapidxml.hpp" />
+    <ClInclude Include="..\..\Src\rapidxml_iterators.hpp" />
+    <ClInclude Include="..\..\Src\rapidxml_print.hpp" />
+    <ClInclude Include="..\..\Src\rapidxml_utils.hpp" />
+    <ClInclude Include="..\..\Src\Sound.h" />
     <ClInclude Include="..\..\Src\TrashCollector.h" />
     <ClInclude Include="..\..\Src\Animation_c.h">
       <Filter>Componentes\Graphics</Filter>
@@ -110,8 +128,8 @@
     <ClInclude Include="..\..\Src\Component.h">
       <Filter>Kernel</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\DataManager.h">
-      <Filter>Kernel\Managers</Filter>
+    <ClInclude Include="..\..\Src\ComponentsConstructors.h">
+      <Filter>Kernel</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\EnemyBehaviour.h">
       <Filter>Componentes\Behaviour</Filter>
@@ -137,8 +155,8 @@
     <ClInclude Include="..\..\Src\MeshRenderer_c.h">
       <Filter>Componentes\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\Notifications.h">
-      <Filter>Kernel</Filter>
+    <ClInclude Include="..\..\Src\SoundManager.h">
+      <Filter>Kernel\Managers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\ObjectsFactory.h">
       <Filter>Kernel</Filter>
@@ -156,9 +174,6 @@
       <Filter>Componentes\Physics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Scene.h">
-      <Filter>Kernel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Sound.h">
       <Filter>Kernel</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\SoundListener_c.h">
@@ -182,6 +197,8 @@
     <ClInclude Include="..\..\Src\Transform_c.h">
       <Filter>Componentes\Physics</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\DataManager.h" />
+    <ClInclude Include="..\..\Src\Notifications.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Kernel">

@@ -13,8 +13,7 @@ void stopGame() {
 	Game::getInstance()->stop();
 }
 
-Game::Game() :
-	dataManager(this)
+Game::Game()
 {
 }
 
@@ -28,7 +27,6 @@ Game * Game::getInstance()
 	return instance;
 }
 
-//TODO: destructor not implemented
 //free resources calling resources' freeing functions of each manager
 Game::~Game()
 {
@@ -65,6 +63,9 @@ bool Game::start()
 	
 	if (!soundManager->initialise())
 		printf("SoundManager no se ha iniciado \n");
+	dataManager = DataManager::getInstance();
+
+
 	
 	Scene * initial = new Scene();
 	sceneManager->pushScene(initial);

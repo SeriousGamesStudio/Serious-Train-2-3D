@@ -27,6 +27,7 @@ void Walker_c::start() {
 	trans = static_cast<Transform_c*>(_myEntity->getComponent(ComponentType::TRANSFORM));
 #ifdef _DEBUG
 	aux1 = currentDirection;
+	if (!trans) printf("NO SE HA ENCONTRADO EL COMPONENT TRANSFORM");
 #endif // _DEBUG
 
 }

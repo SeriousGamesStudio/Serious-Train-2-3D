@@ -37,8 +37,8 @@ private:
 	SoundManager * soundManager;
 	GraphicsManager *graphicsManager;
 	PhysicsManager *physicsManager;
-	DataManager dataManager;
-	
+	DataManager* dataManager;
+
 
 
 	double deltaTime;/*in seconds*/
