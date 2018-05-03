@@ -303,13 +303,13 @@ namespace ComponentConstructors {
 			rapidxml::xml_node<>* positionNode = src->first_node();
 			rapidxml::xml_node<>* rotationNode = positionNode->next_sibling();
 			position[0] = std::stof(positionNode->first_node("x")->value());
-			position[1] = std::stof(positionNode->first_node()->next_sibling()->value());
-			position[2] = std::stof(positionNode->first_node()->next_sibling()->next_sibling()->value());
+			position[1] = std::stof(positionNode->first_node()->next_sibling("y")->value());
+			position[2] = std::stof(positionNode->first_node()->next_sibling("z")->value());
 
 			rotation[0] = std::stof(rotationNode->first_node("x")->value());
-			rotation[1] = std::stof(rotationNode->first_node()->next_sibling()->value());
-			rotation[2] = std::stof(rotationNode->first_node()->next_sibling()->next_sibling()->value());
-			rotation[3] = std::stof(rotationNode->first_node()->next_sibling()->next_sibling()->next_sibling()->value());
+			rotation[1] = std::stof(rotationNode->first_node()->next_sibling("y")->value());
+			rotation[2] = std::stof(rotationNode->first_node()->next_sibling("z")->value());
+			rotation[3] = std::stof(rotationNode->first_node()->next_sibling("w")->value());
 		}
 	};
 
@@ -379,8 +379,8 @@ namespace ComponentConstructors {
 		void parse(rapidxml::xml_node<>* src) 
 		{
 			range = std::stof(src->first_node()->value());
-			damage = std::stoi(src->first_node()->next_sibling()->value());
-			cadency = std::stof(src->first_node()->next_sibling()->next_sibling()->value());
+			damage = std::stoi(src->first_node()->next_sibling("Damage")->value());
+			cadency = std::stof(src->first_node()->next_sibling("Cadency")->value());
 		}
 	};
 	class Animation :
