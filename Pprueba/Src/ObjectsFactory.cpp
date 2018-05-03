@@ -8,7 +8,6 @@
 #include "Scene.h"
 
  ObjectsFactory* ObjectsFactory::instance = nullptr;
- //std::string ObjectsFactory::stringIdOfPrefab[ObjectsFactory::Prefab::size];
 
 ObjectsFactory::ObjectsFactory():
 	currentId(0)
@@ -99,6 +98,12 @@ Component * ObjectsFactory::buildComponent(ComponentType componentType, Componen
 			newComponent = new Walker_c();
 		}
 		break;
+	case ComponentType::ENEMYBEHAVIOUR:
+	{
+		auto*c = static_cast<ComponentConstructors::EnemyBehaviour*>(info);
+
+		newComponent = new EnemyBehaviour_c(c->type);
+	}
 	default: break;
 	}
 

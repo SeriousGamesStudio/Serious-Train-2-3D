@@ -67,6 +67,8 @@ ComponentConstructors::ComponentConstructor* getComponentConstructor(ComponentTy
 	case ComponentType::WALKER:
 		componentConstructor = new ComponentConstructors::Walker();
 		break;
+	case ComponentType::ENEMYBEHAVIOUR:
+		componentConstructor = new ComponentConstructors::EnemyBehaviour(node);
 	default:
 		break;
 	}
@@ -106,7 +108,7 @@ SceneData * DataManager::loadScene(std::string path)
 			//Get the constructor for that component
 			ComponentConstructors::ComponentConstructor* cc = getComponentConstructor(componentType, component_node);
 			//Add them to entity data
-			eData->data.push_back({ componentType, cc });
+			eData->data.push_back(ComponentConstructorData(componentType, cc));
 		}
 		//add the complete entity data into the scene data
 		sceneData->push_back(eData);

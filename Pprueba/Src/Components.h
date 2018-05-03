@@ -45,7 +45,8 @@ static std::map<ComponentType, const std::string> getComponentString =
 	{ComponentType::CAMERACONTROLLER,	"CameraController"},
 	{ComponentType::CAMERA,				"Camera"},
 	{ComponentType::PLANERENDERER,		"PlaneRenderer"},
-	{ComponentType::WALKER,				"Walker"}
+	{ComponentType::WALKER,				"Walker"},
+	{ComponentType::ENEMYBEHAVIOUR,		"EnemyBehaiviour"}
 };
 
 #include "Camera_c.h"

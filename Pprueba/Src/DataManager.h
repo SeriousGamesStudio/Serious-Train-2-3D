@@ -17,6 +17,9 @@
 //typedef std::map<ComponentType, ComponentConstructors::ComponentConstructor*> ConstructionData;
 struct ComponentConstructorData 
 {
+	ComponentConstructorData() {};
+	ComponentConstructorData(ComponentType _type, ComponentConstructors::ComponentConstructor* cc):
+	type(_type), componentConstructor(cc){};
 	ComponentType type;//Enum
 	ComponentConstructors::ComponentConstructor* componentConstructor;//abstract type to polymorfism
 };

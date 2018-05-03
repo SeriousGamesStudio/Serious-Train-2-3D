@@ -308,6 +308,34 @@ namespace ComponentConstructors {
 		}
 	};
 
+	class EnemyBehaviour:
+		public ComponentConstructor
+	{
+	public:
+		EnemyBehaviour(rapidxml::xml_node<>* src) : ComponentConstructor() 
+		{
+			parse(src);
+		};
+		~EnemyBehaviour() {};
+		EnemyBehaviour_c::Type type;
+	private:
+		std::string typesString[EnemyBehaviour_c::Type::size] = { "Normal", "Fly" };
+		EnemyBehaviour_c::Type getTypeFromString(std::string s) 
+		{
+			for (int index = 0 ; index < EnemyBehaviour_c::Type::size; index++)
+			{
+				if (typesString[index] == s)
+					return (EnemyBehaviour_c::Type)index;
+			}
+			return EnemyBehaviour_c::Type::size;
+		}
+		void parse(rapidxml::xml_node<>* src)
+		{
+			rapidxml::xml_node<>* typeNode = src->first_node();
+			type = getTypeFromString(typeNode->value());
+		}
+	};
+
 };
 #endif // !_COMPONENTS_CONSTRUCTORS_
 
