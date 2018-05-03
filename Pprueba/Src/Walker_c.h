@@ -21,11 +21,10 @@ public:
 
 private:
 	btVector3 currentDirection;
-	RigidBody_c* rb;
-	Transform_c* trans;
+	Collider_c* collider;
 	float _velocity;
 
 private:
-	btTransform& updateTransform();
+	void updatePosition();
 };
 #endif // !_H_CAMERA_C_H_
