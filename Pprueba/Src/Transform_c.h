@@ -15,10 +15,18 @@ public:
 	inline btTransform& get() { return t; };
 	inline const btTransform& get() const { return t; };
 
-
+	void setPosition(float x, float y, float z);
+	
 	virtual void start();
+	virtual void update();
 private:
 	btTransform t;
+	btTransform old;
 
 };
 #endif //!_H_TRANSFORM_C_H_
+
+
+
+
+

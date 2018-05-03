@@ -1,6 +1,8 @@
-#include "Components.h"
+#include "EnemyBehaviour.h"
 #include "Entity.h"
-#include "Notifications.h"
+#include <iostream>
+
+#include "Scene.h"
 
 
 EnemyBehaviour_c::EnemyBehaviour_c(Type t) :
@@ -26,6 +28,9 @@ void EnemyBehaviour_c::start()
 {
 	col = static_cast<Collider_c*>(_myEntity->getComponent(ComponentType::COLLIDER));
 	rb = static_cast<RigidBody_c*>(_myEntity->getComponent(ComponentType::RIGIDBODY));
+	
+
+	_myEntity->getScene()->addListiner(MsgId::RAYCAST_HIT, this);
 }
 
 void EnemyBehaviour_c::update()
@@ -45,8 +50,10 @@ void EnemyBehaviour_c::listen(Msg_Base * msg)
 		{
 			at.hp -= p->dmg_;
 			if (at.hp <= 0); // destroy entity ajjaj
+			std::cout << "diana" << std::endl;
 			//feedback del raycast
-			rb->get()->applyForce(btVector3(0, 5, 0), rb->get()->getCenterOfMassPosition());
+			//delete _myEntity;
+			//rb->get()->applyForce(btVector3(0, 5, 0), rb->get()->getCenterOfMassPosition());
 		}
 
 

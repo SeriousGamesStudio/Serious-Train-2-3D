@@ -25,6 +25,8 @@ void Weapon_c::update()
 bool Weapon_c::mousePressed(const OIS::MouseEvent & arg, OIS::MouseButtonID id)
 {
 	//raycast
+	btVector3 origin = t->get().getOrigin();
+
 	btVector3 end = t->get().getOrigin() + (aiming*range_);
 	btCollisionWorld::ClosestRayResultCallback RayCallback(t->get().getOrigin(), end);
 	

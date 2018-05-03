@@ -22,14 +22,5 @@ void RigidBody_c::start()
 
 void RigidBody_c::update()
 {
-	{//Update position
-		btTransform trans;
-		rb.getMotionState()->getWorldTransform(trans);
-
-		float x = trans.getOrigin().getX();
-		float y = trans.getOrigin().getY();
-		float z = trans.getOrigin().getZ();
-
-		sendMsg(new Msg::ChangePosition(_myEntity->getId(), Msg_Base::self, x, y, z));
-	}
+	
 }

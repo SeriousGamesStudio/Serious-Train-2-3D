@@ -37,9 +37,9 @@ void Walker_c::update()
 	if (currentDirection != aux1) {
 		aux1 = currentDirection;
 
-		printf("------------------------------------------------------\n");
+		/*printf("------------------------------------------------------\n");
 		printf("Player Direction: %f, %f, %f\n", currentDirection.getX(), currentDirection.y(), currentDirection.z());
-		printf("------------------------------------------------------\n");
+		printf("------------------------------------------------------\n");*/
 	}
 #endif // _DEBUG
 
@@ -51,7 +51,7 @@ void Walker_c::update()
 		auxX = d.getX();
 		auxY = d.getY();
 		auxZ = d.getZ();
-		printf("Player position: %f, %f, %f\n", d.getX(), d.getY(), d.getZ());
+		//printf("Player position: %f, %f, %f\n", d.getX(), d.getY(), d.getZ());
 	}
 #endif // _DEBUG
 }
