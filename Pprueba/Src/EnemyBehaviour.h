@@ -1,6 +1,8 @@
 #ifndef _H_ENEMYBEHAVIOUR_H_
 #define _H_ENEMYBEHAVIOUR_H_
 #include "Component.h"
+#include "Components.h"
+
 
 struct Attributes
 {
@@ -24,7 +26,7 @@ class EnemyBehaviour_c :
 	public Component
 {
 public:
-	enum Type{ NORMAL, FLY};
+	enum Type{ NORMAL, FLY };
 public:
 	EnemyBehaviour_c(Type t);
 	~EnemyBehaviour_c();
@@ -38,6 +40,7 @@ private:
 	Attributes at;
 	Collider_c* col;
 	RigidBody_c* rb;
+	
 };
 
 

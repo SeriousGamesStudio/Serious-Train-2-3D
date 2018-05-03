@@ -1,6 +1,8 @@
-#include "Components.h"
+#include "EnemyBehaviour.h"
 #include "Entity.h"
-#include "Notifications.h"
+#include <iostream>
+
+#include "Scene.h"
 
 
 EnemyBehaviour_c::EnemyBehaviour_c(Type t) :
@@ -26,6 +28,9 @@ void EnemyBehaviour_c::start()
 {
 	col = static_cast<Collider_c*>(_myEntity->getComponent(ComponentType::COLLIDER));
 	rb = static_cast<RigidBody_c*>(_myEntity->getComponent(ComponentType::RIGIDBODY));
+	
+
+	_myEntity->getScene()->addListiner(MsgId::RAYCAST_HIT, this);
 }
 
 void EnemyBehaviour_c::update()
@@ -41,6 +46,7 @@ void EnemyBehaviour_c::listen(Msg_Base * msg)
 	case MsgId::RAYCAST_HIT:
 	{
 		Msg::Shoot* p = static_cast<Msg::Shoot*>(msg);
+		std::cout << "diana" << std::endl;
 		if ((btCollisionObject*)p->collisionWith_ == &col->getCollisionObject())
 		{
 			at.hp -= p->dmg_;

@@ -43,15 +43,23 @@ Scene::Scene():
 	entities.push_back(box);
 
 	box->addComponent(new MeshRenderer_c("barrel.mesh"));
-	box->addComponent(new Transform_c(btVector3(50, 0, 50), btQuaternion(0, 0, 0, 1)));
-	box->addComponent(new RigidBody_c(btRigidBody::btRigidBodyConstructionInfo(
-		4,
-		new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(50, 0, 50))),
-		new btCapsuleShape(15, 15),
-		btVector3(0, 0, 0)
-		)));
+	//box->addComponent(new Transform_c(btVector3(50, 0, 50), btQuaternion(0, 0, 0, 1)));
+	{
+
+	btVector3 posicion(50, 0, 50);
+	
+	Collider_c::Dimensions dim { dim.x = dim.y = dim.z = 5 };
+	
+	Collider_c* coll = new Collider_c(Collider_c::Shape::BOX, dim, btTransform(btQuaternion(0, 0, 0, 1), posicion));
+	box->addComponent(coll);
+	//btDefaultMotionState* barrelMotionState = new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), posicion));
+	//btRigidBody::btRigidBodyConstructionInfo barrelRigidBodyCI(0, barrelMotionState, coll->getCollisionShape() /*esto puede que pete*/, btVector3(0, 0, 0));
+	//
+	//box->addComponent(new RigidBody_c(barrelRigidBodyCI));
+	}
 	//feedback raycast
 	box->addComponent(new EnemyBehaviour_c(EnemyBehaviour_c::NORMAL));
+	box->init();
 
 
 
@@ -68,18 +76,18 @@ Scene::Scene():
 		robot->addComponent(new RigidBody_c(fallRigidBodyCI));
 	}
 	//////////////////////////////////////////////////////////////////////////
-	Entity* ground = new Entity(this, 4, "ground");
-	ground->addComponent(new MeshRenderer_c("WoodPallet.mesh")); //pruebas
-	entities.push_back(ground);
-	{
-		btCollisionShape* groundShape = new btStaticPlaneShape(btVector3(0, 1, 0), 1);
-		btDefaultMotionState* groundMotionState =
-			new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, -25, 0)));
-		btRigidBody::btRigidBodyConstructionInfo
-			groundRigidBodyCI(0, groundMotionState, groundShape, btVector3(0, 0, 0));
-		ground->addComponent(new RigidBody_c(groundRigidBodyCI));
-	}
-	ground->init();
+	//Entity* ground = new Entity(this, 4, "ground");
+	//ground->addComponent(new MeshRenderer_c("WoodPallet.mesh")); //pruebas
+	//entities.push_back(ground);
+	//{
+	//	btCollisionShape* groundShape = new btStaticPlaneShape(btVector3(0, 1, 0), 1);
+	//	btDefaultMotionState* groundMotionState =
+	//		new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, -25, 0)));
+	//	btRigidBody::btRigidBodyConstructionInfo
+	//		groundRigidBodyCI(0, groundMotionState, groundShape, btVector3(0, 0, 0));
+	//	ground->addComponent(new RigidBody_c(groundRigidBodyCI));
+	//}
+	//ground->init();
 	
 	//vagon
 	Entity* vagon = new Entity(this, 5, "vagon");
@@ -189,7 +197,7 @@ void Scene::_msgDeliver()
 		isSendingMessages = true;
 		Msg_Base* msg = messages.front();
 		for (Component* listener : listeners[msg->id]) {
-			if (msg->reciver != 0) {
+			if (msg->reciver != Msg_Base::broadcast) {
 				if (msg->reciver == listener->getEntity()->getId())
 					listener->listen(msg);
 			}

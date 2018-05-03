@@ -9,6 +9,7 @@ class Transform_c;
 class Collider_c :
 	public Component
 {
+public:
 	enum class Shape 
 	{
 		SPHERE, 
@@ -26,7 +27,7 @@ class Collider_c :
 
 
 public:
-	Collider_c(Shape shape, Dimensions dim, btTransform& trans);
+	Collider_c(Shape shape, Dimensions dim, btTransform trans);
 	virtual ~Collider_c();
 
 	virtual void start();

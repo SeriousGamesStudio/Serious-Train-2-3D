@@ -6,7 +6,7 @@
 #include "PhysicsManager.h"
 
 
-Collider_c::Collider_c(Shape shape, Dimensions dim, btTransform& trans) :
+Collider_c::Collider_c(Shape shape, Dimensions dim, btTransform trans) :
 	Component(ComponentType::COLLIDER), _collisionShape(nullptr), _collisionObject(btCollisionObject())
 {
 	switch (shape)

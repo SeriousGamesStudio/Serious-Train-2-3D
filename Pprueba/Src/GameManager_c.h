@@ -16,7 +16,6 @@ public:
 
 private:
 	static void closeGame();
-	//GraphicsManager* grM_;
 	bool active_;
 
 };

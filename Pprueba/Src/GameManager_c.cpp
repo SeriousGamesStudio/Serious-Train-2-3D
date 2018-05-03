@@ -12,7 +12,7 @@ GameManager_c::~GameManager_c()
 
 void GameManager_c::start()
 {
-	//grM_ = GraphicsManager::getInstance();
+	
 	_myEntity->getScene()->addListiner(MsgId::TOGGLE_MOUSE, this);
 }
 
