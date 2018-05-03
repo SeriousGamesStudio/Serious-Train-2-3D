@@ -46,14 +46,15 @@ Scene::Scene():
 	//box->addComponent(new Transform_c(btVector3(50, 0, 50), btQuaternion(0, 0, 0, 1)));
 	{
 
-	btVector3 posicion(50, 0, 50);
+	btVector3 posicion(10, 0, 20);
 	
 	Collider_c::Dimensions dim { dim.x = dim.y = dim.z = 5 };
-	
+	box->addComponent(new Transform_c(posicion, btQuaternion(0, 0, 0, 1)));
+	//btCollisionShape* coll = new btBoxShape(btVector3(5,5,5));
 	Collider_c* coll = new Collider_c(Collider_c::Shape::BOX, dim, btTransform(btQuaternion(0, 0, 0, 1), posicion));
 	box->addComponent(coll);
 	//btDefaultMotionState* barrelMotionState = new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), posicion));
-	//btRigidBody::btRigidBodyConstructionInfo barrelRigidBodyCI(0, barrelMotionState, coll->getCollisionShape() /*esto puede que pete*/, btVector3(0, 0, 0));
+	//btRigidBody::btRigidBodyConstructionInfo barrelRigidBodyCI(0, barrelMotionState, coll->getCollisionShape()/* esto puede que pete*/, btVector3(0, 0, 0));
 	//
 	//box->addComponent(new RigidBody_c(barrelRigidBodyCI));
 	}

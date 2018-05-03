@@ -46,13 +46,14 @@ void EnemyBehaviour_c::listen(Msg_Base * msg)
 	case MsgId::RAYCAST_HIT:
 	{
 		Msg::Shoot* p = static_cast<Msg::Shoot*>(msg);
-		std::cout << "diana" << std::endl;
 		if ((btCollisionObject*)p->collisionWith_ == &col->getCollisionObject())
 		{
 			at.hp -= p->dmg_;
 			if (at.hp <= 0); // destroy entity ajjaj
+			std::cout << "diana" << std::endl;
 			//feedback del raycast
-			rb->get()->applyForce(btVector3(0, 5, 0), rb->get()->getCenterOfMassPosition());
+			//delete _myEntity;
+			//rb->get()->applyForce(btVector3(0, 5, 0), rb->get()->getCenterOfMassPosition());
 		}
 
 
