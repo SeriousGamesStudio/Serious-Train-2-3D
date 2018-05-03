@@ -49,7 +49,8 @@ static std::map<ComponentType, const std::string> getComponentString =
 	{ComponentType::ENEMYBEHAVIOUR,		"EnemyBehaiviour"},
 	{ComponentType::SOUND,				"Sound"},
 	{ComponentType::SOUNDLISTENER,		"SoundListener"},
-	{ComponentType::WEAPON,				"Weapon"}
+	{ComponentType::WEAPON,				"Weapon"},
+	{ComponentType::ANIMATION,			"Animation"}
 };
 
 #include "Camera_c.h"

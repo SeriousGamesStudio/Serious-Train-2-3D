@@ -116,6 +116,8 @@ Component * ObjectsFactory::buildComponent(ComponentType componentType, Componen
 		auto*c = static_cast<ComponentConstructors::Weapon*>(info);
 		newComponent = new Weapon_c(c->range, c->damage, c->cadency);
 	}
+	case ComponentType::ANIMATION:
+		newComponent = new Animation_c();
 	default: break;
 	}
 

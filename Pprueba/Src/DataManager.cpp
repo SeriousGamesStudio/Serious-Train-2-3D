@@ -79,6 +79,9 @@ ComponentConstructors::ComponentConstructor* getComponentConstructor(ComponentTy
 	case ComponentType::WEAPON:
 		componentConstructor = new ComponentConstructors::Weapon(node);
 		break;
+	case ComponentType::ANIMATION:
+		componentConstructor = new ComponentConstructors::Animation();
+		break;
 	default:
 		break;
 	}

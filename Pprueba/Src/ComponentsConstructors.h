@@ -383,6 +383,13 @@ namespace ComponentConstructors {
 			cadency = std::stof(src->first_node()->next_sibling()->next_sibling()->value());
 		}
 	};
+	class Animation :
+		public ComponentConstructor
+	{
+	public:
+		Animation() :ComponentConstructor() {};
+		~Animation() {}
+	};
 
 };
 #endif // !_COMPONENTS_CONSTRUCTORS_
