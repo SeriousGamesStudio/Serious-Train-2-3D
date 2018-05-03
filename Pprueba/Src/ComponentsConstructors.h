@@ -7,6 +7,11 @@
 
 namespace ComponentConstructors {
 
+	bool stringToBoolean(std::string s) 
+	{
+		return s == "True" || s == "true" || s == "TRUE";
+	}
+
 	class ComponentConstructor 
 	{
 	public:
@@ -299,12 +304,12 @@ namespace ComponentConstructors {
 			rapidxml::xml_node<>* rotationNode = positionNode->next_sibling();
 			position[0] = std::stof(positionNode->first_node("x")->value());
 			position[1] = std::stof(positionNode->first_node()->next_sibling()->value());
-			position[2] = std::stof(positionNode->first_node()->next_sibling()->value());
+			position[2] = std::stof(positionNode->first_node()->next_sibling()->next_sibling()->value());
 
 			rotation[0] = std::stof(rotationNode->first_node("x")->value());
 			rotation[1] = std::stof(rotationNode->first_node()->next_sibling()->value());
-			rotation[2] = std::stof(rotationNode->first_node()->next_sibling()->value());
-			rotation[3] = std::stof(rotationNode->first_node()->next_sibling()->value());
+			rotation[2] = std::stof(rotationNode->first_node()->next_sibling()->next_sibling()->value());
+			rotation[3] = std::stof(rotationNode->first_node()->next_sibling()->next_sibling()->next_sibling()->value());
 		}
 	};
 
@@ -333,6 +338,49 @@ namespace ComponentConstructors {
 		{
 			rapidxml::xml_node<>* typeNode = src->first_node();
 			type = getTypeFromString(typeNode->value());
+		}
+	};
+	class Sound :
+		public ComponentConstructor
+	{
+	public:
+		Sound(rapidxml::xml_node<>* src) : ComponentConstructor()
+		{
+			parse(src);
+		}
+		std::string file;
+		bool loop;
+	private:
+		void parse (rapidxml::xml_node<>* src)
+		{
+			file = src->first_node()->value();
+			loop = stringToBoolean(src->first_node()->next_sibling()->value());
+		}
+	};
+	class SoundListener: public ComponentConstructor
+	{
+	public:
+		SoundListener() : ComponentConstructor() {}
+		~SoundListener() {}
+	};
+	class Weapon :
+		public ComponentConstructor
+	{
+	public:
+		Weapon(rapidxml::xml_node<>* src) : ComponentConstructor()
+		{
+			parse(src);
+		}
+		~Weapon() {}
+		float range;
+		int damage;
+		float cadency;
+	private:
+		void parse(rapidxml::xml_node<>* src) 
+		{
+			range = std::stof(src->first_node()->value());
+			damage = std::stoi(src->first_node()->next_sibling()->value());
+			cadency = std::stof(src->first_node()->next_sibling()->next_sibling()->value());
 		}
 	};
 

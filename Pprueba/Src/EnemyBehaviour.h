@@ -26,7 +26,7 @@ class EnemyBehaviour_c :
 	public Component
 {
 public:
-	enum Type{ NORMAL, FLY };
+	enum Type{ NORMAL, FLY, size };
 public:
 	EnemyBehaviour_c(Type t);
 	~EnemyBehaviour_c();

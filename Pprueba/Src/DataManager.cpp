@@ -69,6 +69,16 @@ ComponentConstructors::ComponentConstructor* getComponentConstructor(ComponentTy
 		break;
 	case ComponentType::ENEMYBEHAVIOUR:
 		componentConstructor = new ComponentConstructors::EnemyBehaviour(node);
+		break;
+	case ComponentType::SOUND:
+		componentConstructor = new ComponentConstructors::Sound(node);
+		break;
+	case ComponentType::SOUNDLISTENER:
+		componentConstructor = new ComponentConstructors::SoundListener();
+		break;
+	case ComponentType::WEAPON:
+		componentConstructor = new ComponentConstructors::Weapon(node);
+		break;
 	default:
 		break;
 	}

@@ -101,8 +101,20 @@ Component * ObjectsFactory::buildComponent(ComponentType componentType, Componen
 	case ComponentType::ENEMYBEHAVIOUR:
 	{
 		auto*c = static_cast<ComponentConstructors::EnemyBehaviour*>(info);
-
 		newComponent = new EnemyBehaviour_c(c->type);
+	}
+	case ComponentType::SOUND:
+	{
+		auto*c = static_cast<ComponentConstructors::Sound*>(info);
+		newComponent = new Sound_c(c->file, c->loop);
+	}
+	case ComponentType::SOUNDLISTENER:
+		newComponent = new SoundListener_c();
+		break;
+	case ComponentType::WEAPON:
+	{
+		auto*c = static_cast<ComponentConstructors::Weapon*>(info);
+		newComponent = new Weapon_c(c->range, c->damage, c->cadency);
 	}
 	default: break;
 	}
