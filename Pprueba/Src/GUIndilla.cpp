@@ -67,7 +67,7 @@ namespace GUIndilla {
 
 			textArea->setMetricsMode(Ogre::GMM_PIXELS);
 			textArea->setPosition(0, 0);
-			textArea->setDimensions(100, 100);
+			textArea->setDimensions(dimensions.x, dimensions.y);
 			textArea->setCaption(caption);
 			textArea->setCharHeight(16);
 			textArea->setFontName("Caption");
@@ -121,6 +121,17 @@ namespace GUIndilla {
 		return nullptr;
 	}
 
+	void GUI::ClearGUI()
+	{
+		for (auto e : Elementos)
+		{
+			delete e;
+		}
+		botones.clear();
+		Elementos.clear();
+		nButtons = 0;
+	}
+
 	
 	
 
@@ -164,21 +175,47 @@ namespace GUIndilla {
 
 	bool MousePointer::IsMouseOver(Ogre::OverlayContainer * over)
 	{
-		/*
-		float overX = over->getLeft();
-		float overW = over->getLeft()+over->getWidth();
-		float overY = over->getTop();
-		float overH = over->getTop() + over->getHeight();
-		printf("x: %f , y: %f ,w: %f , h: %f \n", overX, overY, overW, overH);
-		printf("x: %f , y: %f \n", getLeft(), getTop());
-		*/
-		if (getTop() < over->getTop())
+	
+		double overX = over->_getLeft();
+		double overY = over->_getTop();
+		switch (over->getVerticalAlignment())
+		{
+		case Ogre::GVA_CENTER:
+			overY += 0.5;
+			break;
+		case Ogre::GVA_BOTTOM:
+			overY += 1.0;
+
+			break;
+		default:
+			break;
+		}
+
+		switch (over->getHorizontalAlignment())
+		{
+		case Ogre::GHA_CENTER:
+			overX += 0.5;
+
+			break;
+		case Ogre::GHA_RIGHT:
+			overX += 1.0;
+
+			break;
+		default:
+			break;
+		}
+		double overH = overY + over->_getRelativeHeight();
+		double overW = overX +over->_getRelativeWidth();
+		
+		
+		
+		if (getTop() < overY)
 			return false;
-		if (getLeft() < over->getLeft())
+		if (getLeft() < overX)
 			return false;
-		if (getTop() > over->getTop()+over->getHeight())
+		if (getTop() > overH)
 			return false;
-		if (getLeft() > over->getLeft() + over->getWidth())
+		if (getLeft() > overW)
 			return false;
 		return true;
 	}
@@ -219,7 +256,13 @@ namespace GUIndilla {
 		
 		mO->show();
 		callback = _callback;
+		
+	}
 
+	Button::~Button()
+	{
+
+		Ogre::OverlayManager::getSingletonPtr()->destroyOverlayElement(mO);
 	}
 
 } // End of Betajaen's GUI. Normal programming can resume now.

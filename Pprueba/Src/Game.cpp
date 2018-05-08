@@ -5,13 +5,12 @@
 #include <functional>
 #pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
 #include "TrashCollector.h"
+#include "ButtonFucntions.h"
 
 using namespace GUIndilla;
 Game* Game::instance = nullptr;
 
-void stopGame() {
-	Game::getInstance()->stop();
-}
+
 
 Game::Game() :
 	dataManager(this)
@@ -59,16 +58,14 @@ bool Game::start()
 
 	//incializar el GUI
 	GUI * g = graphicsManager->getGUI();
-	std::function<void()> fun = stopGame;
-	g->createButton(Ogre::Vector4(0.9, 0.9, 0.1, 0.1),"bgui.button","Salir del juego",Callback(fun),POSITION_TYPE::PT_REL);
-	g->createStaticImage(Ogre::Vector4(-25, -25, 50, 50), "crossAir", POSITION_TYPE::PT_ABSOLUTE, VERTICAL_ANCHOR::VA_CENTER, HORINZONTAL_ANCHOR::HA_CENTER);
+	
+	StartMenu();
+
 	
 	if (!soundManager->initialise())
 		printf("SoundManager no se ha iniciado \n");
 	
-	Scene * initial = new Scene();
-	sceneManager->pushScene(initial);
-	initial->setGameManager();
+	
 	
 
 	run();

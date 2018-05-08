@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Src\ButtonFucntions.h" />
     <ClInclude Include="..\..\Src\EnemyBehaviour.h" />
     <ClInclude Include="..\..\Src\GameManager_c.h" />
     <ClInclude Include="..\..\Src\GUIndilla.h" />

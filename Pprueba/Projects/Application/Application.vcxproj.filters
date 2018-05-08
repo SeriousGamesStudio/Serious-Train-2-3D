@@ -182,6 +182,9 @@
     <ClInclude Include="..\..\Src\Transform_c.h">
       <Filter>Componentes\Physics</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\ButtonFucntions.h">
+      <Filter>Kernel</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Kernel">
