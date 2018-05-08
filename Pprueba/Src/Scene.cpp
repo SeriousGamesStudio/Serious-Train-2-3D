@@ -38,7 +38,8 @@ Scene::Scene():
 	player->addComponent(new CameraController_c()); // pruebas
 	player->addComponent(new Transform_c(btVector3(0,5,0), btQuaternion(0,0,0,1)));
 	player->addComponent(new Weapon_c(1000,100,100));
-	player->addComponent(new Walker_c());
+	player->addComponent(new Walker_c(30));
+	player->addComponent(new Collider_c(Collider_c::Shape::CAPSULE, { 20.f,20.f,20.f }, btTransform()));
 	player->addComponent(new PlayerController_c());
 	player->addComponent(new SoundListener_c());
 	player->init();

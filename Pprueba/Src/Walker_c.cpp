@@ -2,20 +2,14 @@
 #include "Components.h"
 #include "Game.h"
 #include "Transform_c.h"
+#include "PhysicsManager.h"
 
 
-#ifdef _DEBUG
-btVector3 aux1;
-float auxX = 0;
-float auxY = 0;
-float auxZ = 0;
-#endif // _DEBUG
 
-
-Walker_c::Walker_c():
-	Component(ComponentType::WALKER), currentDirection(btVector3(0,0,0)), collider(nullptr)
+Walker_c::Walker_c(float velocity, btConvexShape* shape):
+	Component(ComponentType::WALKER), btKinematicCharacterController(new btPairCachingGhostObject(), shape, 0.5), _velocity(velocity)
 {
-	_velocity = 50.0f;
+	
 }
 
 Walker_c::~Walker_c()
@@ -23,61 +17,18 @@ Walker_c::~Walker_c()
 	//Has no dynamic memory allocated
 }
 
-void Walker_c::start() {
-	collider = static_cast<Collider_c*>(_myEntity->getComponent(ComponentType::COLLIDER));
-#ifdef _DEBUG
-	aux1 = currentDirection;
-#endif // _DEBUG
 
+void Walker_c::start()
+{
+	m_convexShape = (btConvexShape*)static_cast<Collider_c*>(getComponent(ComponentType::COLLIDER))->getCollisionShape();
 }
 
 void Walker_c::update()
 {
-#ifdef _DEBUG
-	if (currentDirection != aux1) {
-		aux1 = currentDirection;
-
-		/*printf("------------------------------------------------------\n");
-		printf("Player Direction: %f, %f, %f\n", currentDirection.getX(), currentDirection.y(), currentDirection.z());
-		printf("------------------------------------------------------\n");*/
-	}
-#endif // _DEBUG
-
-	updatePosition();
-
-#ifdef _DEBUG
-	btVector3 d = collider->getTransform()->get().getOrigin();
-	if (d.getX() != auxX || d.getY() != auxY || d.getZ() != auxZ) {
-		auxX = d.getX();
-		auxY = d.getY();
-		auxZ = d.getZ();
-		//printf("Player position: %f, %f, %f\n", d.getX(), d.getY(), d.getZ());
-	}
-#endif // _DEBUG
-}
-
-void Walker_c::listen(Msg_Base * msg)
-{
-	//No necesita mensajes
+	updateAction(PhysicsManager::getInstance()->getWorld(), Game::getInstance()->getDeltaTime());
 }
 
 void Walker_c::setDirection(float x, float z)
 {
-	currentDirection.setValue(x, 0, z);
-#ifdef _DEBUG
-	if (!currentDirection.isZero())
-		currentDirection.normalize();
-#endif // _DEBUG
-}
-
-void Walker_c::updatePosition()
-{
-	/*
-	trans->get().getOrigin().setX(trans->get().getOrigin().getX() + (currentDirection.getX() * _velocity * Game::getInstance()->getDeltaTime()));
-	trans->get().getOrigin().setY(trans->get().getOrigin().getY() + (currentDirection.getY() * _velocity * Game::getInstance()->getDeltaTime()));
-	trans->get().getOrigin().setZ(trans->get().getOrigin().getZ() + (currentDirection.getZ() * _velocity * Game::getInstance()->getDeltaTime()));
-	*/
-	//sendMsg(new Msg::ChangePosition(_myEntity->getId(), Msg_Base::self, trans->get().getOrigin().getX(), trans->get().getOrigin().getY(), trans->get().getOrigin().getZ()));
-
-	//collider->getCollisionShape().
+	setWalkDirection(btVector3(x, 0, z));
 }

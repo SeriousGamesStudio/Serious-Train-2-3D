@@ -26,14 +26,14 @@ Collider_c::Collider_c(Shape shape, Dimensions dim, btTransform trans) :
 	default:
 		break;
 	}
-	if (!_collisionShape)
+	if (!_collisionShape) {
 		printf("ERROR: No se ha podido inicializar el collisionShape");
-	else 
-	{
-		_collisionObject.setCollisionShape(_collisionShape);
-		_collisionObject.setWorldTransform(trans);
+		return;
 	}
 
+	_collisionObject.setCollisionShape(_collisionShape);
+	_collisionObject.setWorldTransform(trans);
+	
 	PhysicsManager::getInstance()->addCollisionShape(&_collisionObject);
 
 }

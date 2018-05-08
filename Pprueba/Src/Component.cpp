@@ -25,3 +25,8 @@ void Component::sendMsg(Msg_Base* newMsg)
 
 
 }
+
+Component * Component::getComponent(ComponentType type)
+{
+	return _myEntity->getComponent(type);
+}

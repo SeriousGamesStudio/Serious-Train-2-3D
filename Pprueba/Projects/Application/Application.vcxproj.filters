@@ -90,7 +90,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Src\EnemyBehaviour.h" />
     <ClInclude Include="..\..\Src\TrashCollector.h" />
     <ClInclude Include="..\..\Src\Animation_c.h">
       <Filter>Componentes\Graphics</Filter>
@@ -181,6 +180,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Transform_c.h">
       <Filter>Componentes\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EnemyBehaviour.h">
+      <Filter>Componentes\Behaviour</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

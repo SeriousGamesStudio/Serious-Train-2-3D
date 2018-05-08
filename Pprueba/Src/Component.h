@@ -24,6 +24,7 @@ public:
 	inline void enable() { _enable = true; }
 	inline void disable() { _enable = false; }
 	inline Entity* getEntity() const { return _myEntity; };
+
 private:
 	bool _enable;
 	ComponentType type;
@@ -32,6 +33,8 @@ private:
 protected:
 	Entity * _myEntity;
 	void sendMsg(Msg_Base* newMsg);
+
+	Component* getComponent(ComponentType type);
 };
 #endif //!_H_COMPONENT_H_
 
