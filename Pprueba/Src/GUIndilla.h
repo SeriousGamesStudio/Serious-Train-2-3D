@@ -156,6 +156,15 @@ namespace GUIndilla {
 		                      // Dimensions.
 	};
 
+	class GUIText {
+	public:
+		GUIText(const Vector2 & position, const Ogre::String & caption, const int charsize, const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor);
+		~GUIText();
+		TextAreaOverlayElement * getOverlayElement();
+	private:
+		TextAreaOverlayElement * text;
+	};
+
 } // End of Namespace
 #endif // !_H_GUINDILLA_H_
 
