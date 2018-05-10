@@ -2,8 +2,7 @@
 #define _H_WEAPON_H_
 #include "InputManager.h"
 #include "Component.h"
-
-class Transform_c;
+#include "Transform_c.h"
 class Weapon_c:
 	public Component,
 	public OIS::MouseListener

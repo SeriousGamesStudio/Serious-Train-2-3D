@@ -1,4 +1,6 @@
 #include "Components.h"
+#include "Weapon_c.h"
+#include "Transform_c.h"
 #include "Entity.h"
 #include "Notifications.h"
 #include "PhysicsManager.h"

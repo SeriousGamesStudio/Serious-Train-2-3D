@@ -3,10 +3,26 @@
 #include "ObjectsFactory.h"
 #include "Game.h"
 
+#include "Collider_c.h"
+#include "RigidBody_c.h"
+#include "Transform_c.h"
+
+#include "MeshRenderer_c.h"
+
+#include "Camera_c.h"
+#include "PlayerController_c.h"
+#include "CameraController_c.h"
+#include "Animation_c.h"
+#include "Walker_c.h"
+#include "PlaneRenderer_c.h"
+#include "Sound_c.h"
+#include "SoundListener_c.h"
+#include "GameManager_c.h"
+#include "Weapon_c.h"
+#include "EnemyBehaviour.h"
 #include <algorithm>
 
 #include "btBulletCollisionCommon.h"
-#include "Components.h"
 Scene::Scene():
 	isSendingMessages(false), _gameManager(0)
 {

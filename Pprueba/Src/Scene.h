@@ -12,11 +12,11 @@
 #include "Notifications.h"
 #include "Entity.h"
 #include "Components.h"
-
 #include "MeshRenderer_c.h"
 
 class SceneManager;
 class Game;
+class GameManager_c;
 
 class Scene
 {

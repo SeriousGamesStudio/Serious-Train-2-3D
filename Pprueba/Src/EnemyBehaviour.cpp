@@ -3,6 +3,8 @@
 #include <iostream>
 
 #include "Scene.h"
+#include "Collider_c.h"
+#include "RigidBody_c.h"
 
 
 EnemyBehaviour_c::EnemyBehaviour_c(Type t) :

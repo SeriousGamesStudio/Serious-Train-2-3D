@@ -3,9 +3,13 @@
 #include "RigidBody_c.h"
 #include "Components.h"
 #include "Notifications.h"
-#include <math.h>
 #include "InputManager.h"
+#include "Walker_c.h"
+#include "Transform_c.h"
+#include "Camera_c.h"
+
 #include <iostream>
+#include <math.h>
 
 
 PlayerController_c::PlayerController_c() :
