@@ -1,5 +1,5 @@
 #include "GUIndilla.h"
-#include <OgreTextAreaOverlayElement.h>
+
 #include "InputManager.h"
 using namespace Ogre;
 using namespace std;
@@ -29,7 +29,7 @@ namespace GUIndilla {
 			activeButton = nullptr;
 		}
 		for (uint i = 0; i < botones.size(); i++) {
-			if (mousePointer->IsMouseOver(botones[i]->getContainer())) {
+			if (botones[i]->getActive() && mousePointer->IsMouseOver(botones[i]->getMainOverlay())) {
 				activeButton = botones[i];
 				activeButton->activate(true);
 
@@ -55,6 +55,7 @@ namespace GUIndilla {
 		e->setVerticalAlignment((GuiVerticalAlignment)vertAnch);
 		e->setDimensions(dimensions.x, dimensions.y);
 		e->setPosition(position.x, position.y);
+		
 		
 		if (material != "")
 			e->setMaterialName(material);
@@ -240,7 +241,7 @@ namespace GUIndilla {
 		return true;
 	}
 
-	Button::Button(const Ogre::Vector4 & Dimensions, const Ogre::String & Material, const Ogre::String & Text, const Callback & _callback, GUI*gui, const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor)
+	Button::Button(const Ogre::Vector4 & Dimensions, const Ogre::String & Material, const Ogre::String & Text, const Callback & _callback, GUI*gui, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor)
 		:
 		mmn(Material),
 		mma(Material)
@@ -252,7 +253,7 @@ namespace GUIndilla {
 		Ogre::String name;
 		name.append("b");
 		name.append(std::to_string(gui->getNBotones()));
-		mO = gui->createOverlay(name, Vector2(Dimensions.x, Dimensions.y), Vector2(Dimensions.z, Dimensions.w), posType,vertAnch,horAnchor,Material, Text);
+		
 		
 		mO->show();
 		callback = _callback;
@@ -262,7 +263,58 @@ namespace GUIndilla {
 	Button::~Button()
 	{
 
-		Ogre::OverlayManager::getSingletonPtr()->destroyOverlayElement(mO);
 	}
+
+	GUIElement::~GUIElement()
+	{
+	}
+
+	void GUIElement::setMainOverlay(Ogre::OverlayContainer * newOverlay)
+	{
+		if(mainOverlay)
+			Ogre::OverlayManager::getSingletonPtr()->destroyOverlayElement(mainOverlay);
+		mainOverlay = newOverlay;
+	}
+
+	void GUIElement::setPosition(const Ogre::Real & x, const Ogre::Real & y)
+	{
+		mainOverlay->setPosition(x, y);
+	}
+
+	Ogre::Real GUIElement::getLeft()
+	{
+		return mainOverlay->getLeft();
+	}
+
+	Ogre::Real GUIElement::getTop()
+	{
+		return mainOverlay->getTop();
+	}
+
+	void GUIElement::setDimension(const Ogre::Real & w, const Ogre::Real & h)
+	{
+		mainOverlay->setDimensions(w, h);
+	}
+
+	Ogre::Real GUIElement::getWidht()
+	{
+		return mainOverlay->getWidth();
+	}
+
+	Ogre::Real GUIElement::getHeight()
+	{
+		return mainOverlay->getHeight();
+	}
+
+	void GUIElement::setActive(const bool & active)
+	{
+		(active) ?mainOverlay->show() : mainOverlay->hide();
+	}
+
+	bool GUIElement::getActive()
+	{
+		return mainOverlay->isVisible();
+	}
+
 
 } // End of Betajaen's GUI. Normal programming can resume now.

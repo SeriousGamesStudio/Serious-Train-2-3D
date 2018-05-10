@@ -9,6 +9,7 @@
 #include <OgreOverlayContainer.h>
 #include <OgreOverlayManager.h>
 #include <OgreFontManager.h>
+#include <OgreTextAreaOverlayElement.h>
 #include <vector>
 #include <OIS.h>
 #include <functional>
@@ -135,34 +136,62 @@ namespace GUIndilla {
 		std::function<void()> _function;
 	};
 
-	class Button {
+	class GUIElement
+	{
+	public:
+		virtual ~GUIElement();
+		inline Ogre::OverlayContainer* getMainOverlay() { return mainOverlay; }
+		void setMainOverlay(Ogre::OverlayContainer* newOverlay);
+
+		void setPosition(const Ogre::Real & x, const Ogre::Real & y);
+		Ogre::Real getLeft();
+		Ogre::Real getTop();
+		
+		void setDimension(const Ogre::Real & w, const Ogre::Real & h);
+		Ogre::Real  getWidht();
+		Ogre::Real  getHeight();
+
+
+		void setActive(const bool & active);
+		bool getActive();
+	protected:
+
+
+		
+
+
+	private:
+		Ogre::OverlayContainer* mainOverlay;
+	};
+
+	class Button:
+		public GUIElement
+	{
 	public:
 
-		Button(const Ogre::Vector4 & Dimensions, const Ogre::String &  Material, const Ogre::String & Text, const Callback & callback, GUI*gui,  const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor);
-		~Button();
+		Button(const Ogre::Vector4 & Dimensions, const Ogre::String &  Material, const Ogre::String & Text, const Callback & callback, GUI*gui,  const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor);
+		virtual ~Button();
 		inline void activate(bool a) {
 			if (!a && mmn != "")
-				mO->setMaterialName(mmn);
+				getMainOverlay()->setMaterialName(mmn);
 			if (a && mma != "")
-				mO->setMaterialName(mma);
+				getMainOverlay()->setMaterialName(mma);
 		}
-		inline Ogre::OverlayContainer* getContainer() { return mO; }
 		Callback callback;            // Callback to use
 	protected:
 		
-			
-		Ogre::OverlayContainer* mO;
 		Ogre::String mmn, mma;                        // MaterialName Normal, MaterialName Active
 		                      // Dimensions.
 	};
 
-	class GUIText {
+	class GUIText :
+		public GUIElement
+	{
 	public:
-		GUIText(const Vector2 & position, const Ogre::String & caption, const int charsize, const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor);
+		GUIText(const Ogre::Vector2 & position, const Ogre::String & caption, const int charsize, const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor);
 		~GUIText();
-		TextAreaOverlayElement * getOverlayElement();
+		void setText(const Ogre::String & newText);
 	private:
-		TextAreaOverlayElement * text;
 	};
 
 } // End of Namespace
