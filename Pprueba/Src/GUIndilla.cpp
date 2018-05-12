@@ -47,10 +47,10 @@ namespace GUIndilla {
 	}
 
 
-	OverlayContainer* GUI::createOverlay(const String & name, const Vector2 &position, const Vector2 &dimensions, const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor,const Ogre::String & material, const Ogre::String & caption) {
+	OverlayContainer* GUI::createOverlay(const String & name, const Vector2 &position, const Vector2 &dimensions, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor,const Ogre::String & material, const Ogre::String & caption) {
 		String type = "Panel";
 		OverlayContainer* e = static_cast<OverlayContainer*>(OverlayManager::getSingleton().createOverlayElement(type, name));
-		e->setMetricsMode((Ogre::GuiMetricsMode)posType);
+		e->setMetricsMode(Ogre::GuiMetricsMode::GMM_PIXELS);
 		e->setHorizontalAlignment((GuiHorizontalAlignment)horAnchor);
 		e->setVerticalAlignment((GuiVerticalAlignment)vertAnch);
 		e->setDimensions(dimensions.x, dimensions.y);
@@ -87,6 +87,27 @@ namespace GUIndilla {
 		return e;
 	}
 
+	Ogre::OverlayContainer * GUI::createTextOverlay(const Ogre::String & name, const Ogre::Vector2 & position, const int & charSize,const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor, const Ogre::String & caption)
+	{
+		TextAreaOverlayElement* textArea = static_cast<TextAreaOverlayElement*>(
+			OverlayManager::getSingleton().createOverlayElement("TextArea", name + ".caption"));
+		textArea->setHorizontalAlignment(Ogre::GHA_CENTER);
+		textArea->setVerticalAlignment(Ogre::GVA_CENTER);
+
+		textArea->setMetricsMode(Ogre::GMM_PIXELS);
+		textArea->setPosition(position.x,position.y);
+		textArea->setCaption(caption);
+		textArea->setCharHeight(charSize);
+		textArea->setFontName("Caption");
+		textArea->setColourBottom(ColourValue(0.3, 0.5, 0.3));
+		textArea->setColourTop(ColourValue(0.5, 0.7, 0.5));
+		mO->add2D((OverlayContainer*)textArea);
+		textArea->show();
+		mO->show();
+
+		return (OverlayContainer*)textArea;
+	}
+
 	MousePointer* GUI::createMousePointer(const Vector2 & d, const String & m) {
 		
 		if (!mousePointer) {
@@ -100,7 +121,7 @@ namespace GUIndilla {
 	Button * GUI::createButton(const Ogre::Vector4 & D, const Ogre::String & M, const Ogre::String & T, const Callback & C, const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor)
 	{
 		nButtons++;
-		Button *x = new Button(D, M, T, C,this,posType,vertAnch,horAnchor);
+		Button *x = new Button(D, M, T, C,this,vertAnch,horAnchor);
 		botones.push_back(x);
 		Elementos.push_back(x);
 		return x;
@@ -109,17 +130,17 @@ namespace GUIndilla {
 	Button * GUI::createStaticImage(const Ogre::Vector4 & Dimensions, const Ogre::String & Material, const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor)
 	{
 		nButtons++;
-		Button *x = new Button(Dimensions, Material, "", Callback(), this,posType,vertAnch,horAnchor);
+		Button *x = new Button(Dimensions, Material, "", Callback(), this,vertAnch,horAnchor);
 		Elementos.push_back(x);
 		return x;
 	}
 
-	Button * GUI::createStaticText(const Ogre::Vector4 & Dimensions, const Ogre::String & Text, const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor)
+	GUIText * GUI::createStaticText(const Ogre::Vector2 & position, const Ogre::String & Text, const int & charsize,  const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor)
 	{
 		nButtons++;
-		Button *x = new Button(Dimensions, "", Text, Callback(), this, posType, vertAnch, horAnchor);
+		GUIText *x = new GUIText(position, Text,charsize, vertAnch, horAnchor, this);
 		Elementos.push_back(x);
-		return nullptr;
+		return x;
 	}
 
 	void GUI::ClearGUI()
@@ -253,9 +274,10 @@ namespace GUIndilla {
 		Ogre::String name;
 		name.append("b");
 		name.append(std::to_string(gui->getNBotones()));
+		setMainOverlay(gui->createOverlay(name, { Dimensions.x,Dimensions.y }, { Dimensions.z,Dimensions.w }, vertAnch, horAnchor, mmn, Text));
 		
 		
-		mO->show();
+		getMainOverlay()->show();
 		callback = _callback;
 		
 	}
@@ -317,4 +339,21 @@ namespace GUIndilla {
 	}
 
 
-} // End of Betajaen's GUI. Normal programming can resume now.
+	GUIText::GUIText(const Ogre::Vector2 & position, const Ogre::String & caption, const int & charsize, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor, GUI* gui)
+	{
+		Ogre::String name;
+		name.append("t");
+		name.append(std::to_string(gui->getNBotones()));
+		setMainOverlay(gui->createTextOverlay(name, { position.x,position.y },charsize , vertAnch, horAnchor, caption));
+		getMainOverlay()->show();
+	}
+
+	GUIText::~GUIText()
+	{
+	}
+
+	void GUIText::setText(const Ogre::String & newText)
+	{
+	}
+
+} 
