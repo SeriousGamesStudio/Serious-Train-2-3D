@@ -173,7 +173,6 @@ namespace GUIndilla {
 	public:
 
 		Button(const Ogre::Vector4 & Dimensions, const Ogre::String &  Material, const Ogre::String & Text, const Callback & callback, GUI*gui,  const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor);
-		virtual ~Button();
 		inline void activate(bool a) {
 			if (!a && mmn != "")
 				getMainOverlay()->setMaterialName(mmn);

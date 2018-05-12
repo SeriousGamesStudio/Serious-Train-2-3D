@@ -145,10 +145,7 @@ namespace GUIndilla {
 
 	void GUI::ClearGUI()
 	{
-		for (auto e : Elementos)
-		{
-			delete e;
-		}
+		mO->clear();
 		botones.clear();
 		Elementos.clear();
 		nButtons = 0;
@@ -282,19 +279,16 @@ namespace GUIndilla {
 		
 	}
 
-	Button::~Button()
-	{
-
-	}
+	
 
 	GUIElement::~GUIElement()
 	{
+		
 	}
 
 	void GUIElement::setMainOverlay(Ogre::OverlayContainer * newOverlay)
 	{
-		if(mainOverlay)
-			Ogre::OverlayManager::getSingletonPtr()->destroyOverlayElement(mainOverlay);
+		
 		mainOverlay = newOverlay;
 	}
 
@@ -354,6 +348,6 @@ namespace GUIndilla {
 
 	void GUIText::setText(const Ogre::String & newText)
 	{
+		
 	}
-
-} 
+}
