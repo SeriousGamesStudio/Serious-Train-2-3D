@@ -6,7 +6,12 @@
 		<Component type = "Camera"/>
 		<Component type = "PlayerController"/>
 		<Component type = "CameraController"/>
-    <Component type = "SoundListener"/>
+		<Component type = "SoundListener"/>
+		<Component type = "Weapon">
+      <Range>5</Range>
+      <Damage>5</Damage>
+      <Cadency>1</Cadency>
+		</Component>
 		<Component type = "Transform">
 			<Position>
 				<x>0</x>
@@ -17,7 +22,7 @@
 				<x>1</x>
 				<y>0</y>
 				<z>0</z>
-				<w>0</w>
+				<w>5</w>
 			</Rotation>
 		</Component>
 		<Component type = "Collider">
@@ -54,10 +59,13 @@
     <Component type= "MeshRenderer">
       <MeshPath>fish.mesh</MeshPath>
     </Component>
+    <Component type="EnemyBehaiviour">
+      <Type>Fly</Type>
+    </Component>
     <Component type="Collider">
     <Shape>SPHERE</Shape>
       <Dimensions>
-        <Radious>5</Radious>
+        <Radious>10</Radious>
       </Dimensions>
       <Position>
       <x>0</x>
@@ -89,11 +97,12 @@
 		<z>1</z>
 		<w>0</w>
 	</Rotation>
-</Component>
+	</Component>
     <Component type= "Sound">
       <Source>ophelia.mp3</Source>
       <Loop>true</Loop>
     </Component>
+	<Component type= "Animation"/>
   </Entity>
 
 	<!--> ETC <!-->
