@@ -1,0 +1,13 @@
+<Component type = "Transform">
+	<Position>
+		<x>5</x>
+		<y>5</y>
+		<z>5</z>
+	</Position>
+	<Rotation>
+		<x>5</x>
+		<y>5</y>
+		<z>5</z>
+		<w>5</w>
+	</Rotation>
+</Component>

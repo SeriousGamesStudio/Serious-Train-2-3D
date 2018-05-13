@@ -1,0 +1,4 @@
+<Component type="PlaneRenderer">
+	<MeshPath>mesh.mesh</MeshPath>
+	<TexturePath>texture.png</TexturePath>
+</Component>

@@ -6,6 +6,7 @@
 		<Component type = "Camera"/>
 		<Component type = "PlayerController"/>
 		<Component type = "CameraController"/>
+    <Component type = "SoundListener"/>
 		<Component type = "Transform">
 			<Position>
 				<x>0</x>
@@ -16,7 +17,7 @@
 				<x>1</x>
 				<y>0</y>
 				<z>0</z>
-				<angle>0</angle>
+				<w>0</w>
 			</Rotation>
 		</Component>
 		<Component type = "Collider">
@@ -35,10 +36,11 @@
 				<x>1</x>
 				<y>0</y>
 				<z>0</z>
-				<angle>0</angle>
+				<w>0</w>
 			</Rotation>
 		</Component>
 	</Entity>
+
 
 	<!-->Enemy1<!-->
 	<Entity name = "Ground">
@@ -47,6 +49,52 @@
 			<TexturePath>nm_bk.png</TexturePath>
 		</Component>
 	</Entity>
+
+  <Entity name = "Fish">
+    <Component type= "MeshRenderer">
+      <MeshPath>fish.mesh</MeshPath>
+    </Component>
+    <Component type="Collider">
+    <Shape>SPHERE</Shape>
+      <Dimensions>
+        <Radious>5</Radious>
+      </Dimensions>
+      <Position>
+      <x>0</x>
+      <y>0</y>
+      <z>0</z>
+      </Position>
+    <Rotation>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+      <w>0</w>
+    </Rotation>
+    <Mass>5</Mass>
+    <Inertia>
+      <x>0</x>
+      <y>0</y>
+      <z>0</z>
+     </Inertia>
+    </Component>
+  <Component type = "Transform">
+	<Position>
+		<x>0</x>
+		<y>0</y>
+		<z>10</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+		<w>0</w>
+	</Rotation>
+</Component>
+    <Component type= "Sound">
+      <Source>ophelia.mp3</Source>
+      <Loop>true</Loop>
+    </Component>
+  </Entity>
 
 	<!--> ETC <!-->
 </Scene>

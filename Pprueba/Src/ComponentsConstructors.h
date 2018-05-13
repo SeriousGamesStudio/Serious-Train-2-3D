@@ -7,7 +7,7 @@
 
 namespace ComponentConstructors {
 
-	bool stringToBoolean(std::string s) 
+	static bool stringToBool(std::string s) 
 	{
 		return s == "True" || s == "true" || s == "TRUE";
 	}
@@ -280,7 +280,7 @@ namespace ComponentConstructors {
 			rotationAxis.x = std::stof(rotationNode->first_node("x")->value());
 			rotationAxis.y = std::stof(rotationNode->first_node()->next_sibling("y")->value());
 			rotationAxis.z = std::stof(rotationNode->first_node()->next_sibling("z")->value());
-			rotationAngle = std::stof(rotationNode->first_node()->next_sibling("angle")->value());
+			rotationAngle = std::stof(rotationNode->first_node()->next_sibling("w")->value());
 		}
 
 	};
@@ -354,7 +354,7 @@ namespace ComponentConstructors {
 		void parse (rapidxml::xml_node<>* src)
 		{
 			file = src->first_node()->value();
-			loop = stringToBoolean(src->first_node()->next_sibling()->value());
+			loop = stringToBool(src->first_node()->next_sibling()->value());
 		}
 	};
 	class SoundListener: public ComponentConstructor

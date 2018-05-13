@@ -97,17 +97,19 @@ Component * ObjectsFactory::buildComponent(ComponentType componentType, Componen
 		{
 			newComponent = new Walker_c();
 		}
-		break;
+	break;
 	case ComponentType::ENEMYBEHAVIOUR:
 	{
 		auto*c = static_cast<ComponentConstructors::EnemyBehaviour*>(info);
 		newComponent = new EnemyBehaviour_c(c->type);
 	}
+	break;
 	case ComponentType::SOUND:
 	{
 		auto*c = static_cast<ComponentConstructors::Sound*>(info);
 		newComponent = new Sound_c(c->file, c->loop);
 	}
+	break;
 	case ComponentType::SOUNDLISTENER:
 		newComponent = new SoundListener_c();
 		break;
@@ -116,9 +118,12 @@ Component * ObjectsFactory::buildComponent(ComponentType componentType, Componen
 		auto*c = static_cast<ComponentConstructors::Weapon*>(info);
 		newComponent = new Weapon_c(c->range, c->damage, c->cadency);
 	}
+	break;
 	case ComponentType::ANIMATION:
 		newComponent = new Animation_c();
-	default: break;
+		break;
+	default: 
+		break;
 	}
 
 	return newComponent;
