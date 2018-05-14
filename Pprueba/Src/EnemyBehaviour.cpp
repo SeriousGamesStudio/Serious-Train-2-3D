@@ -1,8 +1,6 @@
 #include "EnemyBehaviour.h"
-#include "Entity.h"
-#include <iostream>
-
 #include "Scene.h"
+
 #include "Collider_c.h"
 #include "RigidBody_c.h"
 
@@ -52,13 +50,11 @@ void EnemyBehaviour_c::listen(Msg_Base * msg)
 		{
 			at.hp -= p->dmg_;
 			if (at.hp <= 0); // destroy entity ajjaj
-			std::cout << "diana" << std::endl;
+			//std::cout << "diana" << std::endl;
 			//feedback del raycast
 			//delete _myEntity;
 			//rb->get()->applyForce(btVector3(0, 5, 0), rb->get()->getCenterOfMassPosition());
 		}
-
-
 		break;
 	}
 	default:

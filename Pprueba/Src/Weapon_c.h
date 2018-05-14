@@ -2,6 +2,7 @@
 #define _H_WEAPON_H_
 #include "InputManager.h"
 #include "Component.h"
+#include "Components.h"
 #include "Transform_c.h"
 class Weapon_c:
 	public Component,

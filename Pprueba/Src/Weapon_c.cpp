@@ -1,10 +1,6 @@
-#include "Components.h"
 #include "Weapon_c.h"
-#include "Transform_c.h"
-#include "Entity.h"
-#include "Notifications.h"
 #include "PhysicsManager.h"
-#include <iostream>
+#include "Entity.h"
 Weapon_c::Weapon_c(float r, int dmg, float cad):
 	Component(ComponentType::WEAPON), range_(r), dmg_(dmg), cadency_(cad)
 {
@@ -39,7 +35,7 @@ bool Weapon_c::mousePressed(const OIS::MouseEvent & arg, OIS::MouseButtonID id)
 	if (RayCallback.hasHit()) {
 		end = RayCallback.m_hitPointWorld;
 		//btVector3 normal = RayCallback.m_hitNormalWorld;
-		std::cout << "disparo"<< std::endl;
+		//std::cout << "disparo"<< std::endl;
 		sendMsg(new Msg::Shoot(_myEntity->getId(), Msg_Base::broadcast, dmg_, (void*)RayCallback.m_collisionObject));
 		// Do some clever stuff here skrr
 	}

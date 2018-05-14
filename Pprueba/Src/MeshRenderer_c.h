@@ -1,9 +1,10 @@
 #ifndef _H_MESHRENDERER_H_
 #define _H_MESHRENDERER_H_
 #include "Component.h"
-#include <Ogre.h>
+#include "Components.h"
 
 #include <string>
+#include <Ogre.h>
 class GraphicsManager;
 
 

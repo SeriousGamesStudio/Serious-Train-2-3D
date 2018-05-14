@@ -1,6 +1,5 @@
 #include "RigidBody_c.h"
 #include "Entity.h"
-#include "Components.h"
 
 
 RigidBody_c::RigidBody_c(btRigidBody::btRigidBodyConstructionInfo info) :

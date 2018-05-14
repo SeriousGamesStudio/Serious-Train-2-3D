@@ -2,6 +2,7 @@
 #define _H_CAMERA_C_H_
 
 #include "Component.h"
+#include "Components.h"
 #include <Ogre.h>
 
 class Camera_c :

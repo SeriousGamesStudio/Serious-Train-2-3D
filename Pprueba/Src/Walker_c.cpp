@@ -1,8 +1,6 @@
-#include "Entity.h"
-#include "Components.h"
 #include "Walker_c.h"
-#include "Game.h"
 #include "Transform_c.h"
+#include "Game.h"
 
 
 #ifdef _DEBUG

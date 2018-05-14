@@ -1,6 +1,5 @@
 #include "Sound_c.h"
 #include "Components.h"
-#include "Entity.h"
 Sound_c::Sound_c(const std::string & file, const bool & loop): Sound(file, irrklang::vec3df(0.f, 0.f, 0.f),loop), Component(ComponentType::SOUND)
 {
 }

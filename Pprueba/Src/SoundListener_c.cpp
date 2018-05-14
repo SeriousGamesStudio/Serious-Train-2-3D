@@ -1,6 +1,5 @@
 #include "SoundManager.h"
 #include "Components.h"
-#include "Entity.h"
 #include "SoundListener_c.h"
 
 SoundListener_c::SoundListener_c(): Component(ComponentType::SOUNDLISTENER) {

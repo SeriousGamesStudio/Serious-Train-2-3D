@@ -3,6 +3,7 @@
 
 #include "PhysicsManager.h"
 #include "Component.h"
+#include "Components.h"
 
 class Transform_c :
 	public Component

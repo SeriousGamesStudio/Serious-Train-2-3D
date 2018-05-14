@@ -1,6 +1,5 @@
 #include "MeshRenderer_c.h"
 #include "GraphicsManager.h"
-#include "Components.h"
 
 MeshRenderer_c::MeshRenderer_c(std::string meshName) :
 	Component(ComponentType::MESHRENDERER)

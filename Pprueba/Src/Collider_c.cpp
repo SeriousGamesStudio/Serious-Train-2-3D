@@ -1,9 +1,6 @@
 #include "Collider_c.h"
-#include "Component.h"
-#include "Components.h"
 #include "Entity.h"
 #include "Transform_c.h"
-#include "PhysicsManager.h"
 
 
 Collider_c::Collider_c(Shape shape, Dimensions dim, btTransform trans) :

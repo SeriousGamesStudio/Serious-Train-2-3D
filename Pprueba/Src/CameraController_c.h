@@ -2,6 +2,7 @@
 #define _H_CAMERACONTROLLER_C_H_
 
 #include "Component.h"
+#include "Components.h"
 #include "InputManager.h"
 class Camera_c;
 

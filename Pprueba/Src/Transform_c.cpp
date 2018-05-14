@@ -1,5 +1,4 @@
 #include "Transform_c.h"
-#include "Components.h"
 #include "Entity.h"
 
 Transform_c::Transform_c(const btVector3& position, const btQuaternion& rotation):

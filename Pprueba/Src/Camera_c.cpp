@@ -1,8 +1,6 @@
 #include "Camera_c.h"
 #include "Entity.h"
 #include "GraphicsManager.h"
-#include "Components.h"
-#include <iostream>
 #define UMBRAL_ROTATION 0.8
 
 Camera_c::Camera_c(): 

@@ -2,8 +2,9 @@
 #define _H_WALKER_C_H_
 
 #include "Component.h"
+#include "Components.h"
 #include "RigidBody_c.h"
-#include <Ogre.h>
+
 class GraphicsManager;
 
 class Transform_c;

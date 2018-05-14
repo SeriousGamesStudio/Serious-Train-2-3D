@@ -1,9 +1,10 @@
 #ifndef _H_PLANERENDERER_H_
 #define  _H_PLANERENDERER_H_
 #include "Component.h"
-#include <Ogre.h>
-#include <string>
+#include "Components.h"
 
+#include <string>
+#include <Ogre.h>
 class GraphicsManager;
 
 class PlaneRenderer_c:

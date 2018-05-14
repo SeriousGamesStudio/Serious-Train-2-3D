@@ -2,6 +2,7 @@
 #define _H_RIGIDBODY_C_H_
 
 #include "Component.h"
+#include "Components.h"
 #include "PhysicsManager.h"
 
 class RigidBody_c :

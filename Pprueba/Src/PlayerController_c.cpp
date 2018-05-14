@@ -1,14 +1,10 @@
 #include "PlayerController_c.h"
 #include "Entity.h"
-#include "RigidBody_c.h"
-#include "Components.h"
-#include "Notifications.h"
-#include "InputManager.h"
+
 #include "Walker_c.h"
 #include "Transform_c.h"
 #include "Camera_c.h"
 
-#include <iostream>
 #include <math.h>
 
 

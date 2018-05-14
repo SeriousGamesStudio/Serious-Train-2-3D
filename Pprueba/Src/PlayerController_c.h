@@ -1,5 +1,8 @@
-#pragma once
+#ifndef _H_PLAYERCONTROLLER_C_H_
+#define _H_PLAYERCONTROLLER_C_H_
+
 #include "Component.h"
+#include "Components.h"
 #include "Notifications.h"
 #include "InputManager.h"
 #include "btBulletDynamicsCommon.h"
@@ -38,3 +41,4 @@ private:
 	void updateMovementDirection();
 };
 
+#endif

@@ -1,5 +1,4 @@
 #include "PlaneRenderer_c.h"
-#include "Components.h"
 #include "GraphicsManager.h"
 
 PlaneRenderer_c::PlaneRenderer_c(std::string meshName, std::string textName):
