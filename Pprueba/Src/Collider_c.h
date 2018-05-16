@@ -19,7 +19,7 @@ public:
 		CAPSULE
 	};
 
-	union Dimensions
+	struct Dimensions
 	{
 		float x;
 		float y;
