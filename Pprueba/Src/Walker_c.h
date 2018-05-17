@@ -2,15 +2,14 @@
 #define _H_WALKER_C_H_
 
 #include "Component.h"
-#include "BulletDynamics\Character\btKinematicCharacterController.h"
-#include "BulletCollision\CollisionDispatch\btGhostObject.h"
 
-class Transform_c;
-class Walker_c :
-	public Component, public btKinematicCharacterController
+
+class RigidBody_c;
+class Walker_c:
+	public Component
 {
 public:
-	Walker_c(float velocity, btConvexShape* shape = nullptr);
+	Walker_c(float velocity);
 	~Walker_c();
 
 	virtual void start();
@@ -20,6 +19,8 @@ public:
 
 private:
 	float _velocity;
+	RigidBody_c* rb;
+	btVector3 direction;
 
 };
 #endif // !_H_CAMERA_C_H_

@@ -4,6 +4,8 @@
 #include "Component.h"
 #include "PhysicsManager.h"
 
+class Transform_c;
+
 class RigidBody_c :
 	public Component
 {
@@ -19,6 +21,7 @@ public:
 private:
 	PhysicsManager * _pM;
 	btRigidBody rb;
+	Transform_c* transform;
 };
 #endif //!_H_RIGIDBODY_C_H_
 

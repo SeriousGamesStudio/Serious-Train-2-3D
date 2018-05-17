@@ -88,6 +88,9 @@
     <ClCompile Include="..\..\Src\Transform_c.cpp">
       <Filter>Componentes\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\PlaneCollider_c.cpp">
+      <Filter>Componentes\Physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\TrashCollector.h" />
@@ -183,6 +186,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\EnemyBehaviour.h">
       <Filter>Componentes\Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\PlaneCollider_c.h">
+      <Filter>Componentes\Physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

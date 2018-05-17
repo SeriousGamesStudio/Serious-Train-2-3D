@@ -180,10 +180,13 @@ void PlayerController_c::updateMovementDirection()
 	}
 
 	walkingTo = lookingAt.rotate({ 0,1,0 }, angle);
+	/*
 #ifdef _DEBUG
 	printf("*************************************************************\n");
 	printf("Camera looking at: %f, %f, %f\n", lookingAt.x(), lookingAt.y(), lookingAt.z());
 	printf("Walking to:        %f, %f, %f\n", walkingTo.x(), walkingTo.y(), walkingTo.z());
 #endif // _DEBUG
+*/
 	walker->setDirection(walkingTo.x(), walkingTo.z());
+
 }

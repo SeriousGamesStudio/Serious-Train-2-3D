@@ -6,6 +6,7 @@ enum class ComponentType
 	RIGIDBODY,
 	TRANSFORM,
 	COLLIDER,
+	PLANECOLLIDER,
 	MESHRENDERER,
 	PLAYERCONTROLLER,
 	CAMERACONTROLLER,
@@ -25,7 +26,7 @@ enum class ComponentType
 #include "Collider_c.h"
 #include "RigidBody_c.h"
 #include "Transform_c.h"
-
+#include "PlaneCollider_c.h"
 #include "MeshRenderer_c.h"
 
 #include "Camera_c.h"

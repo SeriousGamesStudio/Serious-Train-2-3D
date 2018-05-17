@@ -16,6 +16,7 @@ Scene::Scene():
 
 	robot->addComponent(new MeshRenderer_c("fish.mesh")); //pruebas
 														  //robot->addComponent(new PlayerController_c()); //pruebas
+	robot->addComponent(new Transform_c(btVector3(0, 30, 0), btQuaternion(0, 0, 0, 1)));
 	robot->addComponent(new Animation_c());
 	robot->addComponent(new Sound_c("ophelia.mp3", true));
 	{//Add rigidBody
@@ -30,16 +31,17 @@ Scene::Scene():
 	}
 	robot->init();
 
-	//CAMARA DE PRUEBA
+	//Player
 	Entity* player = new Entity(this, 2, "Player");
 	entities.push_back(player);
 
 	player->addComponent(new Camera_c());//pruebas camara
 	player->addComponent(new CameraController_c()); // pruebas
-	player->addComponent(new Transform_c(btVector3(0,5,0), btQuaternion(0,0,0,1)));
+	player->addComponent(new Transform_c(btVector3(0,2, 100), btQuaternion(0,0,0,1)));
 	player->addComponent(new Weapon_c(1000,100,100));
-	player->addComponent(new Walker_c(30));
-	player->addComponent(new Collider_c(Collider_c::Shape::CAPSULE, { 20.f,20.f,20.f }, btTransform()));
+	player->addComponent(new Walker_c(50));
+	//player->addComponent(new Collider_c(Collider_c::Shape::CAPSULE, { 20.f,20.f,20.f }, btTransform()));
+	player->addComponent(new RigidBody_c(btRigidBody::btRigidBodyConstructionInfo(1, new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 7, 100))), new btCylinderShape(btVector3(1, 6, 1)))));
 	player->addComponent(new PlayerController_c());
 	player->addComponent(new SoundListener_c());
 	player->init();
@@ -49,6 +51,7 @@ Scene::Scene():
 	entities.push_back(plane);
 
 	plane->addComponent(new PlaneRenderer_c("plane", "nm_bk.png"));
+	plane->addComponent(new PlaneCollider_c(btVector3(0, 1, 0)));
 	// el ultimo parametro es la imagen que hace de textura del plano por si quieres cambiarla
 
 	//CUBO para colisiones
@@ -58,18 +61,16 @@ Scene::Scene():
 	box->addComponent(new MeshRenderer_c("barrel.mesh"));
 	//box->addComponent(new Transform_c(btVector3(50, 0, 50), btQuaternion(0, 0, 0, 1)));
 	{
-
-	btVector3 posicion(10, 0, 20);
 	
-	Collider_c::Dimensions dim { dim.x = dim.y = dim.z = 5 };
-	box->addComponent(new Transform_c(posicion, btQuaternion(0, 0, 0, 1)));
+
+	box->addComponent(new Transform_c(btVector3(10, 2, 10), btQuaternion(0,0,0,1)));
 	//btCollisionShape* coll = new btBoxShape(btVector3(5,5,5));
-	Collider_c* coll = new Collider_c(Collider_c::Shape::BOX, dim, btTransform(btQuaternion(0, 0, 0, 1), posicion));
-	box->addComponent(coll);
-	//btDefaultMotionState* barrelMotionState = new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), posicion));
-	//btRigidBody::btRigidBodyConstructionInfo barrelRigidBodyCI(0, barrelMotionState, coll->getCollisionShape()/* esto puede que pete*/, btVector3(0, 0, 0));
+	//Collider_c* coll = new Collider_c(Collider_c::Shape::BOX, dim, btTransform(btQuaternion(0, 0, 0, 1), posicion));
+	//box->addComponent(coll);
+	btDefaultMotionState* barrelMotionState = new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(10, 2, 10)));
+	btRigidBody::btRigidBodyConstructionInfo barrelRigidBodyCI(0, barrelMotionState, new btCylinderShape(btVector3(1, 2, 1))/* esto puede que pete*/, btVector3(0, 0, 0));
 	//
-	//box->addComponent(new RigidBody_c(barrelRigidBodyCI));
+	box->addComponent(new RigidBody_c(barrelRigidBodyCI));
 	}
 	//feedback raycast
 	box->addComponent(new EnemyBehaviour_c(EnemyBehaviour_c::NORMAL));

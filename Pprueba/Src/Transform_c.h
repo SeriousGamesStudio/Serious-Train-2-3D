@@ -16,6 +16,7 @@ public:
 	inline const btTransform& get() const { return t; };
 
 	void setPosition(float x, float y, float z);
+	void set(const btTransform& trans) { t = trans; };
 	
 	virtual void start();
 	virtual void update();
