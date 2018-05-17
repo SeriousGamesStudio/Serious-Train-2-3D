@@ -1,14 +1,14 @@
 #include "Component.h"
+#include "Components.h"
 #include "Entity.h"
 #include "Scene.h"
 #include "Notifications.h"
 
-
+#include <string>
 
 Component::Component(ComponentType type_) :
 	_enable(true), type(type_)
 {
-
 }
 
 Component::~Component()

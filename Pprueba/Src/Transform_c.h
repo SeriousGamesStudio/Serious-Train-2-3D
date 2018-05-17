@@ -11,6 +11,7 @@ class Transform_c :
 public:
 
 	Transform_c(const btVector3& position, const btQuaternion& rotation);
+	Transform_c(float px, float py, float pz, float qx, float qy, float qz, float qw);
 	virtual ~Transform_c();
 
 	inline btTransform& get() { return t; };

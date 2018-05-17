@@ -33,7 +33,7 @@ void SceneManager::tick()
 
 Scene* SceneManager::currentScene()
 {
-	return scenes.top();
+	return scenes.empty() ? nullptr : scenes.top();
 }
 
 void SceneManager::pushScene(Scene* newScene)

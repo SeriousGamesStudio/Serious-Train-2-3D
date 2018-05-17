@@ -1,6 +1,8 @@
 #include "CameraController_c.h"
+#include "Notifications.h"
 #include "Entity.h"
-#include "Camera_c.h"
+#include "Components.h"
+#include "Camera_c.h"//??Si no lo usáis ??? :\
 
 
 CameraController_c::CameraController_c() :

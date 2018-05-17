@@ -7,8 +7,6 @@ Camera_c::Camera_c():
 	Component(ComponentType::CAMERA)
 {
 	cam = GraphicsManager::getInstance()->getCamera();
-	//camNode_ = graphicsManager_->createNewNode(NULL);
-
 }
 
 Camera_c::~Camera_c()

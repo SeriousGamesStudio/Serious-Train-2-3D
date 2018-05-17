@@ -1,0 +1,15 @@
+<Component type="Collider">
+	<Shape>SPHERE</Shape>
+	<Radious>5</Radious>
+	<Position>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Rotation>
+</Component>

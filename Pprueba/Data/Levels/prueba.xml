@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene>
+	<!-->Player <!-->
+	<Entity name="Player">
+		<Component type = "Walker"/>
+		<Component type = "Camera"/>
+		<Component type = "PlayerController"/>
+		<Component type = "CameraController"/>
+		<Component type = "SoundListener"/>
+		<Component type = "Weapon">
+      <Range>5</Range>
+      <Damage>5</Damage>
+      <Cadency>1</Cadency>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>1</x>
+				<y>0</y>
+				<z>0</z>
+				<w>5</w>
+			</Rotation>
+		</Component>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  5 </Height>
+				<RadiousZ> 2 </RadiousZ>
+			</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>1</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Rotation>
+		</Component>
+	</Entity>
+
+
+	<!-->Enemy1<!-->
+	<Entity name = "Ground">
+		<Component type= "PlaneRenderer">
+			<MeshPath>suelo</MeshPath>
+			<TexturePath>nm_bk.png</TexturePath>
+		</Component>
+	</Entity>
+
+  <Entity name = "Fish">
+    <Component type= "MeshRenderer">
+      <MeshPath>fish.mesh</MeshPath>
+    </Component>
+    <Component type="EnemyBehaiviour">
+      <Type>Fly</Type>
+    </Component>
+    <Component type="Collider">
+    <Shape>SPHERE</Shape>
+      <Dimensions>
+        <Radious>10</Radious>
+      </Dimensions>
+      <Position>
+      <x>0</x>
+      <y>0</y>
+      <z>0</z>
+      </Position>
+    <Rotation>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+      <w>0</w>
+    </Rotation>
+    <Mass>5</Mass>
+    <Inertia>
+      <x>0</x>
+      <y>0</y>
+      <z>0</z>
+     </Inertia>
+    </Component>
+  <Component type = "Transform">
+	<Position>
+		<x>0</x>
+		<y>0</y>
+		<z>10</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+		<w>0</w>
+	</Rotation>
+	</Component>
+    <Component type= "Sound">
+      <Source>ophelia.mp3</Source>
+      <Loop>true</Loop>
+    </Component>
+	<Component type= "Animation"/>
+  </Entity>
+  <Entity name = "vagon">
+    <Component type= "MeshRenderer">
+      <MeshPath>vagon.mesh</MeshPath>
+    </Component>
+    <Component type = "Transform">
+      <Position>
+        <x>0</x>
+        <y>0</y>
+        <z>10</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+        <w>0</w>
+      </Rotation>
+    </Component>
+
+  </Entity>
+	<!--> ETC <!-->
+</Scene>
