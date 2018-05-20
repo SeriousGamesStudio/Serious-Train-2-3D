@@ -1,5 +1,6 @@
 #include "Weapon_c.h"
 #include "PhysicsManager.h"
+#include "Notifications.h"
 #include "Entity.h"
 Weapon_c::Weapon_c(float r, int dmg, float cad):
 	Component(ComponentType::WEAPON), range_(r), dmg_(dmg), cadency_(cad)

@@ -3,7 +3,7 @@
 #include "Component.h"
 #include "Components.h"
 
-
+class Walker_c;
 struct Attributes
 {
 	int hp;
@@ -40,6 +40,7 @@ private:
 	Attributes at;
 	Collider_c* col;
 	RigidBody_c* rb;
+	/*Walker_c* wal;*/
 	
 };
 

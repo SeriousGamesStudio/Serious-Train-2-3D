@@ -98,10 +98,11 @@
       <Filter>Componentes\Physics</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\Components.cpp" />
-    <ClCompile Include="..\..\Src\PlayerController_c.cpp" />
+    <ClCompile Include="..\..\Src\PlayerController_c.cpp">
+      <Filter>Componentes\Input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Src\EnemyBehaviour.h" />
     <ClInclude Include="..\..\Src\GUIndilla.h" />
     <ClInclude Include="..\..\Src\Definitions.h" />
     <ClInclude Include="..\..\Src\rapidxml.hpp" />
@@ -196,8 +197,8 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\DataManager.h" />
     <ClInclude Include="..\..\Src\Notifications.h" />
-    <ClInclude Include="..\..\Src\Components.h">
-      <Filter>Kernel</Filter>
+    <ClInclude Include="..\..\Src\EnemyBehaviour.h">
+      <Filter>Componentes\Behaviour</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\EnemyBehaviour.h">
       <Filter>Componentes\Behaviour</Filter>

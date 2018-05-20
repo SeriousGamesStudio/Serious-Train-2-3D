@@ -7,8 +7,12 @@
 		<Component type = "PlayerController"/>
 		<Component type = "CameraController"/>
 		<Component type = "SoundListener"/>
+    <Component type= "MeshRenderer">
+      <MeshPath>caucasian_male_1_Body.mesh</MeshPath>
+      <Scale>2</Scale>
+    </Component>
 		<Component type = "Weapon">
-      <Range>5</Range>
+      <Range>100</Range>
       <Damage>5</Damage>
       <Cadency>1</Cadency>
 		</Component>
@@ -47,7 +51,7 @@
 	</Entity>
 
 
-	<!-->Enemy1<!-->
+	<!-->Suelo<!-->
 	<Entity name = "Ground">
 		<Component type= "PlaneRenderer">
 			<MeshPath>suelo</MeshPath>
@@ -105,15 +109,17 @@
     </Component>
 	<Component type= "Animation"/>
   </Entity>
+  
+  <!-->vagones<!-->
   <Entity name = "vagon">
     <Component type= "MeshRenderer">
       <MeshPath>vagon.mesh</MeshPath>
-      <Scale>10</Scale>
+      <Scale>5</Scale>
     </Component>
     <Component type = "Transform">
       <Position>
         <x>0</x>
-        <y>0</y>
+        <y>30</y>
         <z>10</z>
       </Position>
       <Rotation>
@@ -125,5 +131,243 @@
     </Component>
 
   </Entity>
+
+  <Entity name = "vagon1">
+    <Component type= "MeshRenderer">
+      <MeshPath>vagon.mesh</MeshPath>
+      <Scale>5</Scale>
+    </Component>
+    <Component type = "Transform">
+      <Position>
+        <x>100</x>
+        <y>30</y>
+        <z>10</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+        <w>0</w>
+      </Rotation>
+    </Component>
+  </Entity>
+  <Entity name = "vagon2">
+    <Component type= "MeshRenderer">
+      <MeshPath>vagon.mesh</MeshPath>
+      <Scale>5</Scale>
+    </Component>
+    <Component type = "Transform">
+      <Position>
+        <x>200</x>
+        <y>30</y>
+        <z>10</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+        <w>0</w>
+      </Rotation>
+    </Component>
+
+  </Entity>
+  
+  <!-->Enemigos<!-->
+  <Entity name = "enemy">
+    <Component type= "MeshRenderer">
+      <MeshPath>barrel.mesh</MeshPath>
+      <Scale>2</Scale>
+    </Component>
+    <Component type="EnemyBehaiviour">
+      <Type>Normal</Type>
+    </Component>
+    <Component type = "Transform">
+      <Position>
+        <x>20</x>
+        <y>-17</y>
+        <z>200</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+        <w>0</w>
+      </Rotation>
+    </Component>
+    <Component type="Collider">
+      <Shape>CYLINDER</Shape>
+      <Dimensions>
+        <RadiousX>5</RadiousX>
+        <Height>5</Height>
+        <RadiousZ>5</RadiousZ>
+      
+    </Dimensions>
+      <Position>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+        <w>0</w>
+      </Rotation>
+      <Mass>5</Mass>
+      <Inertia>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+      </Inertia>
+    </Component>    
+  </Entity>
+
+  <Entity name = "enemy">
+    <Component type= "MeshRenderer">
+      <MeshPath>barrel.mesh</MeshPath>
+      <Scale>2</Scale>
+    </Component>
+    <Component type="EnemyBehaiviour">
+      <Type>Normal</Type>
+    </Component>
+    <Component type = "Transform">
+      <Position>
+        <x>60</x>
+        <y>-17</y>
+        <z>200</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+        <w>0</w>
+      </Rotation>
+    </Component>
+    <Component type="Collider">
+      <Shape>CYLINDER</Shape>
+      <Dimensions>
+        <RadiousX>5</RadiousX>
+        <Height>5</Height>
+        <RadiousZ>5</RadiousZ>
+
+      </Dimensions>
+      <Position>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+        <w>0</w>
+      </Rotation>
+      <Mass>5</Mass>
+      <Inertia>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+      </Inertia>
+    </Component>
+  </Entity>
+  <Entity name = "enemy">
+    <Component type= "MeshRenderer">
+      <MeshPath>barrel.mesh</MeshPath>
+      <Scale>2</Scale>
+    </Component>
+    <Component type="EnemyBehaiviour">
+      <Type>Normal</Type>
+    </Component>
+    <Component type = "Transform">
+      <Position>
+        <x>100</x>
+        <y>-17</y>
+        <z>200</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+        <w>0</w>
+      </Rotation>
+    </Component>
+    <Component type="Collider">
+      <Shape>CYLINDER</Shape>
+      <Dimensions>
+        <RadiousX>5</RadiousX>
+        <Height>5</Height>
+        <RadiousZ>5</RadiousZ>
+
+      </Dimensions>
+      <Position>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+        <w>0</w>
+      </Rotation>
+      <Mass>5</Mass>
+      <Inertia>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+      </Inertia>
+    </Component>
+  </Entity>
+  <Entity name = "enemy">
+    <Component type= "MeshRenderer">
+      <MeshPath>barrel.mesh</MeshPath>
+      <Scale>2</Scale>
+    </Component>
+    <Component type="EnemyBehaiviour">
+      <Type>Normal</Type>
+    </Component>
+    <Component type = "Transform">
+      <Position>
+        <x>140</x>
+        <y>-17</y>
+        <z>200</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+        <w>0</w>
+      </Rotation>
+    </Component>
+    <Component type="Collider">
+      <Shape>CYLINDER</Shape>
+      <Dimensions>
+        <RadiousX>5</RadiousX>
+        <Height>5</Height>
+        <RadiousZ>5</RadiousZ>
+
+      </Dimensions>
+      <Position>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+        <w>0</w>
+      </Rotation>
+      <Mass>5</Mass>
+      <Inertia>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+      </Inertia>
+    </Component>
+    <!--<Component type = "Walker">
+      </Component>-->
+  </Entity>
+  
 	<!--> ETC <!-->
 </Scene>

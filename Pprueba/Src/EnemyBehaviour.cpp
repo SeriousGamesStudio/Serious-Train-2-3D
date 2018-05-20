@@ -1,8 +1,9 @@
 #include "EnemyBehaviour.h"
 #include "Scene.h"
-
 #include "Collider_c.h"
 #include "RigidBody_c.h"
+#include "Walker_c.h"
+#include <iostream>
 
 
 EnemyBehaviour_c::EnemyBehaviour_c(Type t) :
@@ -28,13 +29,14 @@ void EnemyBehaviour_c::start()
 {
 	col = static_cast<Collider_c*>(_myEntity->getComponent(ComponentType::COLLIDER));
 	rb = static_cast<RigidBody_c*>(_myEntity->getComponent(ComponentType::RIGIDBODY));
+	/*wal = static_cast<Walker_c*>(_myEntity->getComponent(ComponentType::WALKER));*/
 	
-
 	_myEntity->getScene()->addListiner(MsgId::RAYCAST_HIT, this);
 }
 
 void EnemyBehaviour_c::update()
 {
+	/*wal->setDirection(0, -10);*/
 }
 
 
@@ -50,7 +52,7 @@ void EnemyBehaviour_c::listen(Msg_Base * msg)
 		{
 			at.hp -= p->dmg_;
 			if (at.hp <= 0); // destroy entity ajjaj
-			//std::cout << "diana" << std::endl;
+			std::cout << "diana" << std::endl;
 			//feedback del raycast
 			//delete _myEntity;
 			//rb->get()->applyForce(btVector3(0, 5, 0), rb->get()->getCenterOfMassPosition());
