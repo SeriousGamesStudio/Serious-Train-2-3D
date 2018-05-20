@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include "Scene.h"
 #include "Component.h"
 
 
@@ -76,4 +77,9 @@ Component* Entity::getComponent(ComponentType type) {
 			return c;
 	}
 	return nullptr;
+}
+
+void Entity::destroy()
+{
+	_scene->destroyEntity(this);
 }

@@ -4,7 +4,6 @@
 #include <vector>
 #include <string>
 #include <queue>
-#include <typeinfo>
 
 #include "Notifications.h"
 
@@ -31,6 +30,8 @@ public:
 	Component* getComponent(ComponentType type);
 
 	inline Scene* getScene() { return _scene; };
+
+	void destroy();
 
 private:
 	Scene * _scene;

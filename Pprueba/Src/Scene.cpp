@@ -153,3 +153,8 @@ void Scene::_dumpMessages()
 		messagesBuffer.clear();
 	}
 }
+
+void Scene::destroyEntity(Entity* entity)
+{
+	entities.remove(entity);
+}

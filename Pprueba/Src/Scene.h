@@ -44,6 +44,7 @@ public:
 	std::string const getNameOf(EntityId id);
 	EntityId const getIdOf(std::string name);
 
+	void destroyEntity(Entity* entity);
 private:
 	std::list <Entity*> entities;
 	std::deque<Msg_Base*> messages;
@@ -55,6 +56,7 @@ private:
 	bool isSendingMessages;
 	void _msgDeliver();
 	void _dumpMessages();
+
 };
 
 
