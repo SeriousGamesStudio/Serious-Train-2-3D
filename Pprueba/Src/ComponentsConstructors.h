@@ -78,7 +78,7 @@ namespace ComponentConstructors {
 		public ComponentConstructor
 	{
 	public:
-		MeshRenderer(rapidxml::xml_node<>* src) : ComponentConstructor(), meshPath("")
+		MeshRenderer(rapidxml::xml_node<>* src) : ComponentConstructor(), meshPath(""), scale(1)
 		{
 			parse(src);
 		}
@@ -98,8 +98,10 @@ namespace ComponentConstructors {
 	private:
 		void parse(rapidxml::xml_node<>* src)
 		{
-			meshPath = src->first_node("MeshPath")->value();
-			scale = std::stof(src->first_node("Scale")->value());
+			rapidxml::xml_node<>* meshNode = src->first_node("MeshPath");
+			rapidxml::xml_node<>* scaleNode = src->first_node()->next_sibling("Scale");
+			meshPath = meshNode->value();
+			scale = std::stof(scaleNode->value());
 		}
 	};
 

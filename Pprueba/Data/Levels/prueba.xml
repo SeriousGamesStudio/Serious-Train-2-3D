@@ -58,6 +58,7 @@
   <Entity name = "Fish">
     <Component type= "MeshRenderer">
       <MeshPath>fish.mesh</MeshPath>
+      <Scale>1</Scale>
     </Component>
     <Component type="EnemyBehaiviour">
       <Type>Fly</Type>
