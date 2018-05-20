@@ -1,10 +1,11 @@
 #include "MeshRenderer_c.h"
 #include "GraphicsManager.h"
 
-MeshRenderer_c::MeshRenderer_c(std::string meshName) :
+MeshRenderer_c::MeshRenderer_c(std::string meshName, float scale) :
 	Component(ComponentType::MESHRENDERER)
 {
 	scnNode_ = GraphicsManager::getInstance()->createNewNode(meshName);
+	scnNode_->scale(scale, scale, scale);
 }
 
 MeshRenderer_c::~MeshRenderer_c()

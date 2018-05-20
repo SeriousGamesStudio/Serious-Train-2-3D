@@ -94,10 +94,12 @@ namespace ComponentConstructors {
 		}*/
 
 		std::string meshPath;
+		float scale;
 	private:
 		void parse(rapidxml::xml_node<>* src)
 		{
 			meshPath = src->first_node("MeshPath")->value();
+			scale = std::stof(src->first_node("Scale")->value());
 		}
 	};
 

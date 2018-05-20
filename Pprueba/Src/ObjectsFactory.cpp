@@ -91,7 +91,7 @@ Component * ObjectsFactory::buildComponent(ComponentType componentType, Componen
 	case ComponentType::MESHRENDERER: 
 		{
 			auto* c = static_cast<ComponentConstructors::MeshRenderer*>(info);
-			newComponent = new MeshRenderer_c(c->meshPath);
+			newComponent = new MeshRenderer_c(c->meshPath, c->scale);
 		}
 		break;
 	case ComponentType::PLAYERCONTROLLER: 

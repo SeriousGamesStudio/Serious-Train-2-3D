@@ -107,6 +107,7 @@
   <Entity name = "vagon">
     <Component type= "MeshRenderer">
       <MeshPath>vagon.mesh</MeshPath>
+      <Scale>10</Scale>
     </Component>
     <Component type = "Transform">
       <Position>

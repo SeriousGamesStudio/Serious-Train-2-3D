@@ -12,7 +12,7 @@ class MeshRenderer_c :
 	public Component
 {
 public:
-	MeshRenderer_c(std::string meshName);
+	MeshRenderer_c(std::string meshName, float scale);
 	~MeshRenderer_c();
 	
 	virtual void listen(Msg_Base* msg);
