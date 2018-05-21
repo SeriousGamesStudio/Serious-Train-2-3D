@@ -40,7 +40,7 @@ private:
 	Attributes at;
 	Collider_c* col;
 	RigidBody_c* rb;
-	/*Walker_c* wal;*/
+	Walker_c* wal;
 	
 };
 

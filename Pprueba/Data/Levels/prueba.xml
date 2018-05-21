@@ -55,10 +55,11 @@
 	<Entity name = "Ground">
 		<Component type= "PlaneRenderer">
 			<MeshPath>suelo</MeshPath>
-			<TexturePath>nm_bk.png</TexturePath>
+			<TexturePath>floor_diffuse.PNG</TexturePath>
 		</Component>
 	</Entity>
-
+  
+    <!--Pescao-->
   <Entity name = "Fish">
     <Component type= "MeshRenderer">
       <MeshPath>fish.mesh</MeshPath>
@@ -67,6 +68,8 @@
     <Component type="EnemyBehaiviour">
       <Type>Fly</Type>
     </Component>
+    <Component type="Walker">
+      </Component>
     <Component type="Collider">
     <Shape>SPHERE</Shape>
       <Dimensions>
@@ -181,6 +184,8 @@
     <Component type="EnemyBehaiviour">
       <Type>Normal</Type>
     </Component>
+    <Component type="Walker">
+      </Component>
     <Component type = "Transform">
       <Position>
         <x>20</x>
@@ -230,6 +235,8 @@
     <Component type="EnemyBehaiviour">
       <Type>Normal</Type>
     </Component>
+    <Component type="Walker">
+      </Component>
     <Component type = "Transform">
       <Position>
         <x>60</x>
@@ -278,6 +285,8 @@
     <Component type="EnemyBehaiviour">
       <Type>Normal</Type>
     </Component>
+    <Component type="Walker">
+      </Component>
     <Component type = "Transform">
       <Position>
         <x>100</x>
@@ -326,6 +335,8 @@
     <Component type="EnemyBehaiviour">
       <Type>Normal</Type>
     </Component>
+    <Component type="Walker">
+      </Component>
     <Component type = "Transform">
       <Position>
         <x>140</x>
@@ -365,8 +376,6 @@
         <z>0</z>
       </Inertia>
     </Component>
-    <!--<Component type = "Walker">
-      </Component>-->
   </Entity>
   
 	<!--> ETC <!-->

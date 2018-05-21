@@ -28,15 +28,18 @@ EnemyBehaviour_c::~EnemyBehaviour_c()
 void EnemyBehaviour_c::start()
 {
 	col = static_cast<Collider_c*>(_myEntity->getComponent(ComponentType::COLLIDER));
-	rb = static_cast<RigidBody_c*>(_myEntity->getComponent(ComponentType::RIGIDBODY));
-	/*wal = static_cast<Walker_c*>(_myEntity->getComponent(ComponentType::WALKER));*/
 	
+	wal = static_cast<Walker_c*>(_myEntity->getComponent(ComponentType::WALKER));
+	if (!wal)
+			std::cout<< "no se ha encontrado walker"<< std::endl;
 	_myEntity->getScene()->addListiner(MsgId::RAYCAST_HIT, this);
 }
 
 void EnemyBehaviour_c::update()
 {
-	/*wal->setDirection(0, -10);*/
+	
+	wal->setDirection(0, -10);
+
 }
 
 
