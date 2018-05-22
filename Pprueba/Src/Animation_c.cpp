@@ -32,7 +32,7 @@ void Animation_c::setAnimation(std::string animName)
 	if (currentState) { // si hay una puesta previamente se para
 		currentState->setLoop(false);
 		currentState->setEnabled(false);
-	 
+	}
 	currentState = _ogreEntity->getAnimationState(animName);  
 
 	if (currentState) { // se activa la que se asigna si hay alguna 
