@@ -56,7 +56,8 @@ void EnemyBehaviour_c::listen(Msg_Base * msg)
 		if ((btCollisionObject*)p->collisionWith_ == &col->getCollisionObject())
 		{
 			at.hp -= p->dmg_;
-			if (at.hp <= 0); // destroy entity ajjaj
+			if (at.hp <= 0) 
+				destroyMyEntity(); // destroy entity ajjaj
 			std::cout << "diana" << std::endl;
 			//feedback del raycast
 			//delete _myEntity;

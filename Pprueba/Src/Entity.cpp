@@ -1,9 +1,10 @@
 #include "Entity.h"
+#include "Scene.h"
 #include "Component.h"
 
 
 Entity::Entity(Scene* scene_, EntityId id_, std::string name_) :
-	_scene(scene_), _id(id_), _name(name_)
+	_scene(scene_), _id(id_), _name(name_), _alive(true)
 {
 
 }
@@ -76,4 +77,9 @@ Component* Entity::getComponent(ComponentType type) {
 			return c;
 	}
 	return nullptr;
+}
+
+void Entity::destroy()
+{
+	_alive = false;
 }

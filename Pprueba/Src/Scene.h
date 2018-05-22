@@ -46,6 +46,7 @@ public:
 
 private:
 	std::list <Entity*> entities;
+	std::list <Entity*> graveland;
 	std::deque<Msg_Base*> messages;
 	std::vector<Msg_Base*> messagesBuffer;
 	std::unordered_map<MsgId, std::vector<Component*>> listeners;
@@ -55,6 +56,8 @@ private:
 	bool isSendingMessages;
 	void _msgDeliver();
 	void _dumpMessages();
+	void destroyEntity(Entity* entity);
+
 };
 
 

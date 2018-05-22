@@ -73,6 +73,8 @@ protected:
 
 	//Sends a new message to the indicated entity
 	void sendMsg(Msg_Base* newMsg);
+	Component* getComponent(ComponentType type);
+	void destroyMyEntity();
 };
 #endif //!_H_COMPONENT_H_
 

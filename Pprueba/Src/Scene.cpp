@@ -33,8 +33,17 @@ void Scene::tick()
 	if (!messages.empty())
 		_msgDeliver();
 
-	for (Entity* e : entities)
+	if (!graveland.empty()) {
+		for (auto e : graveland)
+			destroyEntity(e);
+		graveland.clear();
+	}
+
+	for (Entity* e : entities) {
 		e->tick();
+		if (!e->isAlive())
+			graveland.push_back(e);
+	}
 }
 ///////////////////////////////TICK///////////////////////////////////////
 
@@ -136,4 +145,10 @@ void Scene::_dumpMessages()
 			messages.push_back(m);
 		messagesBuffer.clear();
 	}
+}
+
+void Scene::destroyEntity(Entity* entity)
+{
+	entities.remove(entity);
+	delete entity;
 }
