@@ -95,9 +95,9 @@
     </Component>
   <Component type = "Transform">
 	<Position>
-		<x>0</x>
-		<y>0</y>
-		<z>10</z>
+		<x>50</x>
+		<y>50</y>
+		<z>50</z>
 	</Position>
 	<Rotation>
 		<x>0</x>
@@ -176,16 +176,40 @@
   </Entity>
   
   <!-->Enemigos<!-->
+  
   <Entity name = "enemy">
     <Component type= "MeshRenderer">
       <MeshPath>barrel.mesh</MeshPath>
-      <Scale>2</Scale>
+      <Scale>1</Scale>
     </Component>
     <Component type="EnemyBehaiviour">
-      <Type>Normal</Type>
+      <Type>Fly</Type>
     </Component>
     <Component type="Walker">
-      </Component>
+    </Component>
+    <Component type="Collider">
+      <Shape>SPHERE</Shape>
+      <Dimensions>
+        <Radious>10</Radious>
+      </Dimensions>
+      <Position>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+        <w>0</w>
+      </Rotation>
+      <Mass>5</Mass>
+      <Inertia>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+      </Inertia>
+    </Component>
     <Component type = "Transform">
       <Position>
         <x>20</x>
@@ -195,68 +219,27 @@
       <Rotation>
         <x>0</x>
         <y>0</y>
-        <z>0</z>
-        <w>0</w>
-      </Rotation>
-    </Component>
-    <Component type="Collider">
-      <Shape>CYLINDER</Shape>
-      <Dimensions>
-        <RadiousX>5</RadiousX>
-        <Height>5</Height>
-        <RadiousZ>5</RadiousZ>
-      
-    </Dimensions>
-      <Position>
-        <x>0</x>
-        <y>0</y>
-        <z>0</z>
-      </Position>
-      <Rotation>
-        <x>0</x>
-        <y>0</y>
         <z>1</z>
         <w>0</w>
       </Rotation>
-      <Mass>5</Mass>
-      <Inertia>
-        <x>0</x>
-        <y>0</y>
-        <z>0</z>
-      </Inertia>
-    </Component>    
+    </Component>
+    
   </Entity>
 
-  <Entity name = "enemy">
+  <Entity name = "enemy2">
     <Component type= "MeshRenderer">
       <MeshPath>barrel.mesh</MeshPath>
-      <Scale>2</Scale>
+      <Scale>1</Scale>
     </Component>
     <Component type="EnemyBehaiviour">
-      <Type>Normal</Type>
+      <Type>Fly</Type>
     </Component>
     <Component type="Walker">
-      </Component>
-    <Component type = "Transform">
-      <Position>
-        <x>60</x>
-        <y>-17</y>
-        <z>200</z>
-      </Position>
-      <Rotation>
-        <x>0</x>
-        <y>0</y>
-        <z>0</z>
-        <w>0</w>
-      </Rotation>
     </Component>
     <Component type="Collider">
-      <Shape>CYLINDER</Shape>
+      <Shape>SPHERE</Shape>
       <Dimensions>
-        <RadiousX>5</RadiousX>
-        <Height>5</Height>
-        <RadiousZ>5</RadiousZ>
-
+        <Radious>10</Radious>
       </Dimensions>
       <Position>
         <x>0</x>
@@ -276,42 +259,11 @@
         <z>0</z>
       </Inertia>
     </Component>
-  </Entity>
-  <Entity name = "enemy">
-    <Component type= "MeshRenderer">
-      <MeshPath>barrel.mesh</MeshPath>
-      <Scale>2</Scale>
-    </Component>
-    <Component type="EnemyBehaiviour">
-      <Type>Normal</Type>
-    </Component>
-    <Component type="Walker">
-      </Component>
     <Component type = "Transform">
       <Position>
-        <x>100</x>
+        <x>200</x>
         <y>-17</y>
-        <z>200</z>
-      </Position>
-      <Rotation>
-        <x>0</x>
-        <y>0</y>
-        <z>0</z>
-        <w>0</w>
-      </Rotation>
-    </Component>
-    <Component type="Collider">
-      <Shape>CYLINDER</Shape>
-      <Dimensions>
-        <RadiousX>5</RadiousX>
-        <Height>5</Height>
-        <RadiousZ>5</RadiousZ>
-
-      </Dimensions>
-      <Position>
-        <x>0</x>
-        <y>0</y>
-        <z>0</z>
+        <z>300</z>
       </Position>
       <Rotation>
         <x>0</x>
@@ -319,64 +271,9 @@
         <z>1</z>
         <w>0</w>
       </Rotation>
-      <Mass>5</Mass>
-      <Inertia>
-        <x>0</x>
-        <y>0</y>
-        <z>0</z>
-      </Inertia>
     </Component>
-  </Entity>
-  <Entity name = "enemy">
-    <Component type= "MeshRenderer">
-      <MeshPath>barrel.mesh</MeshPath>
-      <Scale>2</Scale>
-    </Component>
-    <Component type="EnemyBehaiviour">
-      <Type>Normal</Type>
-    </Component>
-    <Component type="Walker">
-      </Component>
-    <Component type = "Transform">
-      <Position>
-        <x>140</x>
-        <y>-17</y>
-        <z>200</z>
-      </Position>
-      <Rotation>
-        <x>0</x>
-        <y>0</y>
-        <z>0</z>
-        <w>0</w>
-      </Rotation>
-    </Component>
-    <Component type="Collider">
-      <Shape>CYLINDER</Shape>
-      <Dimensions>
-        <RadiousX>5</RadiousX>
-        <Height>5</Height>
-        <RadiousZ>5</RadiousZ>
 
-      </Dimensions>
-      <Position>
-        <x>0</x>
-        <y>0</y>
-        <z>0</z>
-      </Position>
-      <Rotation>
-        <x>0</x>
-        <y>0</y>
-        <z>1</z>
-        <w>0</w>
-      </Rotation>
-      <Mass>5</Mass>
-      <Inertia>
-        <x>0</x>
-        <y>0</y>
-        <z>0</z>
-      </Inertia>
-    </Component>
   </Entity>
-  
-	<!--> ETC <!-->
+
+  <!--> ETC <!-->
 </Scene>

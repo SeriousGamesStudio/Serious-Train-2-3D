@@ -38,8 +38,10 @@ void EnemyBehaviour_c::start()
 void EnemyBehaviour_c::update()
 {
 	
-	wal->setDirection(0, -10);
-
+	if(col->getCollisionObject().getWorldTransform().getOrigin().getZ()<=40)
+		wal->setDirection(0, 0);
+	else
+		wal->setDirection(0, -5);
 }
 
 
