@@ -11,7 +11,7 @@ PlaneRenderer_c::PlaneRenderer_c(std::string meshName, std::string textName):
 		Ogre::Plane(Ogre::Vector3::UNIT_Y, -25),
 		(Ogre::Real)plane_->getCreator()->getCamera("MainCam")->getViewport()->getActualWidth(),
 		(Ogre::Real)plane_->getCreator()->getCamera("MainCam")->getViewport()->getActualHeight(),
-		10, 10, true, 1, 1.0, 1.0, Ogre::Vector3::UNIT_Z);
+		100, 100, true, 1, 1.0, 1.0, Ogre::Vector3::UNIT_Z);
 	
 	Ogre::Entity* ent;
 	ent = plane_->getCreator()->createEntity("entPlane", meshName);

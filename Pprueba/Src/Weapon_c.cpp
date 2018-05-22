@@ -2,15 +2,17 @@
 #include "PhysicsManager.h"
 #include "Notifications.h"
 #include "Entity.h"
+//#include <iostream>
 Weapon_c::Weapon_c(float r, int dmg, float cad):
 	Component(ComponentType::WEAPON), range_(r), dmg_(dmg), cadency_(cad)
 {
-	InputManager::getInstance()->addMouseListener(this, "ratonJugador");
+	InputManager::getInstance()->addMouseListener(this, "ratonArma");
 	aiming = btVector3(0, 0, 0); // no disparar si no te has movido pls
 }
 
 Weapon_c::~Weapon_c()
 {
+	InputManager::getInstance()->removeMouseListener(this);
 }
 void Weapon_c::start()
 {
@@ -41,12 +43,12 @@ bool Weapon_c::mousePressed(const OIS::MouseEvent & arg, OIS::MouseButtonID id)
 		// Do some clever stuff here skrr
 	}
 	
-	return false;
+	return true;
 }
 
 bool Weapon_c::mouseReleased(const OIS::MouseEvent & arg, OIS::MouseButtonID id)
 {
-	return false;
+	return true;
 }
 
 
