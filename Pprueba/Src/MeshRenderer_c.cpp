@@ -7,13 +7,17 @@ MeshRenderer_c::MeshRenderer_c(std::string meshName, float scale) :
 {
 	meshPath = meshName;
 	this->scale = scale;
+	scnNode_ = nullptr;
 
 }
 
 MeshRenderer_c::~MeshRenderer_c()
 {
-	if (scnNode_)
+	if (scnNode_) {
+
+		//scnNode_->detachObject(scnNode_->getParent()->getName());
 		GraphicsManager::getInstance()->getSceneManager()->destroySceneNode(scnNode_);
+	}
 }
 void MeshRenderer_c::start()
 {
