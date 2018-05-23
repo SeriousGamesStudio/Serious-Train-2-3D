@@ -13,7 +13,7 @@
     </Component>
 		<Component type = "Weapon">
       <Range>100</Range>
-      <Damage>5</Damage>
+      <Damage>50</Damage>
       <Cadency>1</Cadency>
 		</Component>
 		<Component type = "Transform">
@@ -59,7 +59,7 @@
 		</Component>
 	</Entity>
   
-    <!--Pescao-->
+    <!--Pescao>
   <Entity name = "Fish">
     <Component type= "MeshRenderer">
       <MeshPath>zombie.mesh</MeshPath>
@@ -111,7 +111,7 @@
       <Loop>true</Loop>
     </Component>
 	<Component type= "Animation"/>
-  </Entity>
+  </Entity-->
   
   <!-->vagones<!-->
   <Entity name = "vagon">
@@ -179,8 +179,8 @@
   
   <Entity name = "enemy">
     <Component type= "MeshRenderer">
-      <MeshPath>barrel.mesh</MeshPath>
-      <Scale>1</Scale>
+      <MeshPath>zombie.mesh</MeshPath>
+      <Scale>3</Scale>
     </Component>
     <Component type="EnemyBehaiviour">
       <Type>Fly</Type>
@@ -188,9 +188,11 @@
     <Component type="Walker">
     </Component>
     <Component type="Collider">
-      <Shape>SPHERE</Shape>
+      <Shape>CYLINDER</Shape>
       <Dimensions>
-        <Radious>10</Radious>
+        <RadiousX> 2 </RadiousX>
+        <Height>  15 </Height>
+        <RadiousZ> 2 </RadiousZ>
       </Dimensions>
       <Position>
         <x>0</x>
@@ -213,11 +215,11 @@
     <Component type = "Transform">
       <Position>
         <x>20</x>
-        <y>-17</y>
+        <y>-8</y>
         <z>200</z>
       </Position>
       <Rotation>
-        <x>0</x>
+        <x>180</x>
         <y>0</y>
         <z>1</z>
         <w>0</w>
@@ -228,8 +230,8 @@
 
   <Entity name = "enemy2">
     <Component type= "MeshRenderer">
-      <MeshPath>barrel.mesh</MeshPath>
-      <Scale>1</Scale>
+      <MeshPath>zombie.mesh</MeshPath>
+      <Scale>3</Scale>
     </Component>
     <Component type="EnemyBehaiviour">
       <Type>Fly</Type>
@@ -237,9 +239,11 @@
     <Component type="Walker">
     </Component>
     <Component type="Collider">
-      <Shape>SPHERE</Shape>
+      <Shape>CYLINDER</Shape>
       <Dimensions>
-        <Radious>10</Radious>
+        <RadiousX> 2 </RadiousX>
+        <Height>  15 </Height>
+        <RadiousZ> 2 </RadiousZ>
       </Dimensions>
       <Position>
         <x>0</x>
@@ -262,13 +266,13 @@
     <Component type = "Transform">
       <Position>
         <x>200</x>
-        <y>-17</y>
+        <y>-8</y>
         <z>300</z>
       </Position>
       <Rotation>
         <x>0</x>
         <y>0</y>
-        <z>1</z>
+        <z>0</z>
         <w>0</w>
       </Rotation>
     </Component>

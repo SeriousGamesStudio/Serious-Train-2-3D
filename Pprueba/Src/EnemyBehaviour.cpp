@@ -58,10 +58,6 @@ void EnemyBehaviour_c::listen(Msg_Base * msg)
 			at.hp -= p->dmg_;
 			if (at.hp <= 0) 
 				destroyMyEntity(); // destroy entity ajjaj
-			std::cout << "diana" << std::endl;
-			//feedback del raycast
-			//delete _myEntity;
-			//rb->get()->applyForce(btVector3(0, 5, 0), rb->get()->getCenterOfMassPosition());
 		}
 		break;
 	}
