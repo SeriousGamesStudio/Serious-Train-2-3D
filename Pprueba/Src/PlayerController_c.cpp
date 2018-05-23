@@ -11,7 +11,7 @@
 PlayerController_c::PlayerController_c() :
 	Component(ComponentType::PLAYERCONTROLLER),
 	forward(false), back(false), right(false), left(false),
-	forwardKey(OIS::KeyCode::KC_W), backKey(OIS::KeyCode::KC_S), rightKey(OIS::KeyCode::KC_D), leftKey(OIS::KeyCode::KC_A), toggleMouseKey(OIS::KC_LCONTROL),
+	forwardKey(OIS::KeyCode::KC_W), backKey(OIS::KeyCode::KC_S), rightKey(OIS::KeyCode::KC_D), leftKey(OIS::KeyCode::KC_A), toggleMouseKey(OIS::KC_LCONTROL), sprint(OIS::KC_SPACE),
 	lookingAt(btVector3(0,0,0)), walkingTo(btVector3(0,0,0))
 {
 	InputManager::getInstance()->addKeyListener(this, "tecladoJugador");
@@ -88,6 +88,8 @@ bool PlayerController_c::keyPressed(const OIS::KeyEvent & arg)
 
 		sendMsg(new Msg::ToggleMouse(_myEntity->getId(), Msg_Base::broadcast));
 	}
+	if (arg.key == sprint)
+		walker->setVelocity(100.f);
 	return true;
 }
 
@@ -112,6 +114,8 @@ bool PlayerController_c::keyReleased(const OIS::KeyEvent & arg)
 		left = false; 
 		somethingChange = true;
 	}
+	if (arg.key == sprint)
+		walker->setVelocity(50.f);
 	if(somethingChange)
 		updateMovementDirection();
 	

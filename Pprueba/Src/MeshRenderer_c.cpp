@@ -45,3 +45,7 @@ void MeshRenderer_c::listen(Msg_Base* msg)
 		break;
 	}
 }
+void MeshRenderer_c::rotate(Ogre::Vector3 axis, float angle) 
+{
+	scnNode_->rotate(Ogre::Quaternion(Ogre::Radian(angle), axis));
+};

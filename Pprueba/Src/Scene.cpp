@@ -6,12 +6,16 @@
 #include "GameManager_c.h"
 
 #include <algorithm>
-
+#include <fstream>
 #include "btBulletCollisionCommon.h"
 Scene::Scene():
 	isSendingMessages(false), _gameManager(0)
 {
-	std::string sceneDataPath = "..\\Data\\Levels\\exampleAuto.xml";//Esto queda por ver cómo darle valor y tal leyendo de fichero
+	ifstream s("..\\Data\\nivelActivo.txt");
+
+	std::string sceneDataPath;
+	s >> sceneDataPath;
+	s.close();
 	SceneData* sceneData = DataManager::getInstance()->loadScene(sceneDataPath);
 	for (auto entityData : *sceneData)
 	{

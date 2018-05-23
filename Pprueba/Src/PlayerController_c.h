@@ -32,6 +32,7 @@ private:
 	OIS::KeyCode backKey;
 	OIS::KeyCode rightKey;
 	OIS::KeyCode leftKey;
+	OIS::KeyCode sprint;
 	Walker_c* walker;
 	Transform_c* transform;
 	Camera_c* cam;

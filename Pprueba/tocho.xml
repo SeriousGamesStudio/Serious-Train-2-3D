@@ -1,0 +1,7471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene>
+	<!-->Player <!-->
+	<Entity name="Player">
+		<Component type= "Walker"/>
+		<Component type= "Camera"/>
+	<Component type= "PlayerController"/>
+		<Component type= "CameraController"/>
+		<Component type= "SoundListener"/>
+		<Component type= "Weapon">
+      <ange>100</Range>
+      <Damage>50</Damage>
+      <Cadency>1</Cadency>
+		</Component>
+		<Component type= "Transform">
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>1</x>
+				<y>0</y>
+				<z>0</z>
+				<w>5</w>
+			</Rotation>
+		</Component>
+		<Component type= "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  5 </eight>
+				<RadiousZ> 2 </RadiousZ>
+			</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<otation>
+				<x>1</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Rotation>
+		</Component>
+	</Entity>
+	<!-->Suelo<!-->
+	<Entity name= "Ground">
+		<Component type= "PlaneRenderer">
+			<MeshPath>suelo</MeshPath>
+			<TexturePath>floor_diffuse.PNG</TexturePath>
+		</Component>
+	</ntity>
+    <!-->Cielo<!-->
+	<Entity name = "Sky">
+		<Component type= "SkyRenderer">
+			<Material>MySky</Material>
+      <Active>true</Active>
+     </Component>
+	</Entity>
+  <!-->vagones<!-->
+  <Entity name = "vagon">
+    <Component type= "MeshRenderer">
+      <MeshPath>vagon.mesh</MeshPath>
+      <Scale>5</Scale>
+    </Component>
+    <Component type= "Transform">
+      <Position>
+        <x>0</x>
+        <y>30</y>
+        <z>10</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+        <w>1</w>
+      </Rotation>
+    </Component>
+  </Entity>
+  <Entity name = "vagon1">
+    <Component type= "MeshRenderer">
+      <MeshPath>vagon.mesh</MeshPath>
+      <Scale>5</Scale>
+    </Component>
+    <Component type= "Transform">
+      <Position>
+        <x>100</x>
+        <y>30</y>
+        <z>10</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+        <w>1</w>
+      </Rotation>
+    </Component>
+  </Entity>
+  <Entity name = "vagon2">
+    <Component type= "MeshRenderer">
+      <MeshPath>vagon.mesh</MeshPath>
+      <Scale>5</Scale>
+    </Component>
+    <Component type= "Transform">
+      <Position>
+        <x>200</x>
+        <y>30</y>
+        <z>10</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+        <w>1</w>
+      </Rotation>
+    </Component>
+  </Entity>
+
+	<Entity name = "Enemy0">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>93.9357</x>
+				<y>-8</y>
+				<z>-1875.37</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy1">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-23.2249</x>
+				<y>-8</y>
+				<z>-2617.01</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy2">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>97.3156</x>
+				<y>-8</y>
+				<z>3288.8</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy3">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>164.845</x>
+				<y>-8</y>
+				<z>1046.29</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy4">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>195.417</x>
+				<y>-8</y>
+				<z>3710.75</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy5">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>169.37</x>
+				<y>-8</y>
+				<z>-556.255</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy6">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>50.7062</x>
+				<y>-8</y>
+				<z>-1635.36</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy7">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>31.6398</x>
+				<y>-8</y>
+				<z>4616.93</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy8">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-15.1985</x>
+				<y>-8</y>
+				<z>816.173</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy9">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>196.44</x>
+				<y>-8</y>
+				<z>943.761</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy10">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>122.44</x>
+				<y>-8</y>
+				<z>-617.779</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy11">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-9.59838</x>
+				<y>-8</y>
+				<z>-1255.41</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy12">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>139.126</x>
+				<y>-8</y>
+				<z>533.656</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy13">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-22.3551</x>
+				<y>-8</y>
+				<z>-713.415</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy14">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-25.529</x>
+				<y>-8</y>
+				<z>1030.03</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy15">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-12.4824</x>
+				<y>-8</y>
+				<z>2123.65</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy16">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>105.662</x>
+				<y>-8</y>
+				<z>839.412</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy17">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>71.2452</x>
+				<y>-8</y>
+				<z>-4058.71</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy18">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>17.2961</x>
+				<y>-8</y>
+				<z>-2192.43</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy19">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>23.1709</x>
+				<y>-8</y>
+				<z>4710.5</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy20">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>10.2387</x>
+				<y>-8</y>
+				<z>2539.52</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy21">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>181.348</x>
+				<y>-8</y>
+				<z>-2429.85</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy22">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>119.22</x>
+				<y>-8</y>
+				<z>-3476.06</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy23">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>30.9149</x>
+				<y>-8</y>
+				<z>-4953.1</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy24">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>64.0962</x>
+				<y>-8</y>
+				<z>1285.36</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy25">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>204.802</x>
+				<y>-8</y>
+				<z>1722.2</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy26">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-2.15949</x>
+				<y>-8</y>
+				<z>-3410.88</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy27">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>89.8538</x>
+				<y>-8</y>
+				<z>4089.87</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy28">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-7.37815</x>
+				<y>-8</y>
+				<z>3435.68</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy29">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>184.728</x>
+				<y>-8</y>
+				<z>-2657.82</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy30">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>129.558</x>
+				<y>-8</y>
+				<z>2203.54</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy31">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>148.938</x>
+				<y>-8</y>
+				<z>2826.6</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy32">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>134.624</x>
+				<y>-8</y>
+				<z>-2766.1</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy33">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>163.106</x>
+				<y>-8</y>
+				<z>3072.36</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy34">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>138.081</x>
+				<y>-8</y>
+				<z>387.841</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy35">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>68.2086</x>
+				<y>-8</y>
+				<z>2503.22</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy36">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-14.6568</x>
+				<y>-8</y>
+				<z>1900.37</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy37">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>49.2947</x>
+				<y>-8</y>
+				<z>2902.09</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy38">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-2.09845</x>
+				<y>-8</y>
+				<z>4202.42</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy39">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>156.621</x>
+				<y>-8</y>
+				<z>-658.135</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy40">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>81.8732</x>
+				<y>-8</y>
+				<z>418.675</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy41">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-2.93008</x>
+				<y>-8</y>
+				<z>-852.606</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy42">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>13.6338</x>
+				<y>-8</y>
+				<z>719.115</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy43">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>11.0855</x>
+				<y>-8</y>
+				<z>-814.077</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy44">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>4.11969</x>
+				<y>-8</y>
+				<z>3817.68</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy45">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>156.926</x>
+				<y>-8</y>
+				<z>-3559.82</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy46">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>161.168</x>
+				<y>-8</y>
+				<z>-2793.2</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy47">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>86.5502</x>
+				<y>-8</y>
+				<z>-3812.62</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy48">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>140.133</x>
+				<y>-8</y>
+				<z>-66.8032</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy49">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>46.22</x>
+				<y>-8</y>
+				<z>985.683</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy50">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>1.55614</x>
+				<y>-8</y>
+				<z>2559.42</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy51">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>51.6675</x>
+				<y>-8</y>
+				<z>639.676</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy52">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-11.1472</x>
+				<y>-8</y>
+				<z>-2733.35</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy53">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>154.133</x>
+				<y>-8</y>
+				<z>-3954.85</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy54">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>3.66955</x>
+				<y>-8</y>
+				<z>3047.29</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy55">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>109.79</x>
+				<y>-8</y>
+				<z>3835.45</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy56">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>149.052</x>
+				<y>-8</y>
+				<z>2848.93</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy57">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>23.6287</x>
+				<y>-8</y>
+				<z>2851.05</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy58">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-13.6344</x>
+				<y>-8</y>
+				<z>-1657.29</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy59">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>90.0217</x>
+				<y>-8</y>
+				<z>2823.1</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy60">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>17.5707</x>
+				<y>-8</y>
+				<z>3272.09</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy61">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>177.732</x>
+				<y>-8</y>
+				<z>-2888.08</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy62">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>16.3347</x>
+				<y>-8</y>
+				<z>-470.669</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy63">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-12.0246</x>
+				<y>-8</y>
+				<z>4800.26</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy64">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>95.66</x>
+				<y>-8</y>
+				<z>2629.9</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy65">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>132.152</x>
+				<y>-8</y>
+				<z>-294.473</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy66">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-27.6272</x>
+				<y>-8</y>
+				<z>-1562.42</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy67">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>10.8795</x>
+				<y>-8</y>
+				<z>-1759.17</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy68">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>176.496</x>
+				<y>-8</y>
+				<z>2784.22</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy69">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>111.614</x>
+				<y>-8</y>
+				<z>4883.04</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy70">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>112.125</x>
+				<y>-8</y>
+				<z>-2793.2</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy71">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>56.7946</x>
+				<y>-8</y>
+				<z>-388.586</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy72">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>62.5932</x>
+				<y>-8</y>
+				<z>-1738.92</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy73">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>211.897</x>
+				<y>-8</y>
+				<z>3079.65</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy74">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>102.214</x>
+				<y>-8</y>
+				<z>-1967.65</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy75">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>182.63</x>
+				<y>-8</y>
+				<z>138.437</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy76">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>86.4129</x>
+				<y>-8</y>
+				<z>1106.44</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy77">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>124.889</x>
+				<y>-8</y>
+				<z>2077.78</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy78">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>97.6895</x>
+				<y>-8</y>
+				<z>4867.4</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy79">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-9.46104</x>
+				<y>-8</y>
+				<z>-1446.37</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy80">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>82.598</x>
+				<y>-8</y>
+				<z>4784.92</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy81">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>168.882</x>
+				<y>-8</y>
+				<z>4094.88</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy82">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>81.6749</x>
+				<y>-8</y>
+				<z>205.421</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy83">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-12.4061</x>
+				<y>-8</y>
+				<z>4344.59</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy84">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>85.3295</x>
+				<y>-8</y>
+				<z>3389.5</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy85">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-8.8583</x>
+				<y>-8</y>
+				<z>-1616.17</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy86">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>51.3166</x>
+				<y>-8</y>
+				<z>-1693.54</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy87">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>98.1015</x>
+				<y>-8</y>
+				<z>-4318.67</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy88">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>149.25</x>
+				<y>-8</y>
+				<z>599.729</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy89">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>185.087</x>
+				<y>-8</y>
+				<z>2163.9</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy90">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>10.7346</x>
+				<y>-8</y>
+				<z>-748.746</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy91">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>133.602</x>
+				<y>-8</y>
+				<z>721.393</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy92">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>67.293</x>
+				<y>-8</y>
+				<z>1187.85</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy93">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>189.123</x>
+				<y>-8</y>
+				<z>-3869.27</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy94">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>107.135</x>
+				<y>-8</y>
+				<z>-4539.33</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy95">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>150.029</x>
+				<y>-8</y>
+				<z>-4708.22</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy96">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>133.976</x>
+				<y>-8</y>
+				<z>2199.74</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy97">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>209.563</x>
+				<y>-8</y>
+				<z>-398.333</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy98">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>120.876</x>
+				<y>-8</y>
+				<z>-3076</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy99">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-3.30393</x>
+				<y>-8</y>
+				<z>-2008.92</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy100">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-22.4696</x>
+				<y>-8</y>
+				<z>1447.28</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy101">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>34.4704</x>
+				<y>-8</y>
+				<z>-1094.29</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy102">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>145.497</x>
+				<y>-8</y>
+				<z>305.213</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy103">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-13.0164</x>
+				<y>-8</y>
+				<z>-2178.42</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy104">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>109.286</x>
+				<y>-8</y>
+				<z>-127.414</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy105">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-19.0362</x>
+				<y>-8</y>
+				<z>339.54</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy106">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>168.63</x>
+				<y>-8</y>
+				<z>2390.06</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy107">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-4.80697</x>
+				<y>-8</y>
+				<z>-4910.46</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy108">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>213.835</x>
+				<y>-8</y>
+				<z>3854.74</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy109">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>92.898</x>
+				<y>-8</y>
+				<z>-1779.43</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy110">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>139.683</x>
+				<y>-8</y>
+				<z>3768.47</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy111">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>159.406</x>
+				<y>-8</y>
+				<z>300.96</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy112">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>78.2568</x>
+				<y>-8</y>
+				<z>3643.31</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy113">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>81.2629</x>
+				<y>-8</y>
+				<z>-1499.52</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy114">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-14.6263</x>
+				<y>-8</y>
+				<z>-3585.55</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy115">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-5.03586</x>
+				<y>-8</y>
+				<z>2904.67</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy116">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>184.118</x>
+				<y>-8</y>
+				<z>1208.35</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy117">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>124.469</x>
+				<y>-8</y>
+				<z>-675.8</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy118">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>158.841</x>
+				<y>-8</y>
+				<z>3327.08</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy119">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>98.338</x>
+				<y>-8</y>
+				<z>2372.44</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy120">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>110.286</x>
+				<y>-8</y>
+				<z>218.331</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy121">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>20.6378</x>
+				<y>-8</y>
+				<z>-1809.43</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy122">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>183.439</x>
+				<y>-8</y>
+				<z>-3427.63</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy123">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-4.08216</x>
+				<y>-8</y>
+				<z>-4811.01</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy124">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>20.3708</x>
+				<y>-8</y>
+				<z>-2799.9</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy125">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>59.1827</x>
+				<y>-8</y>
+				<z>-4352.78</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy126">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>27.1383</x>
+				<y>-8</y>
+				<z>-4454.66</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy127">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>67.6287</x>
+				<y>-8</y>
+				<z>2911.35</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy128">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>133.06</x>
+				<y>-8</y>
+				<z>3001.58</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy129">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>103.755</x>
+				<y>-8</y>
+				<z>-3397.33</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy130">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>18.3413</x>
+				<y>-8</y>
+				<z>-680.369</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy131">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>99.8181</x>
+				<y>-8</y>
+				<z>-4092.98</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy132">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>198.706</x>
+				<y>-8</y>
+				<z>1217.62</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy133">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>3.84503</x>
+				<y>-8</y>
+				<z>-2485.13</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy134">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>139.225</x>
+				<y>-8</y>
+				<z>-1605.82</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy135">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>147.335</x>
+				<y>-8</y>
+				<z>4555.87</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy136">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>130.833</x>
+				<y>-8</y>
+				<z>1666.15</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy137">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>77.2039</x>
+				<y>-8</y>
+				<z>-4207.65</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy138">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>157.384</x>
+				<y>-8</y>
+				<z>4464.74</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy139">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>9.29258</x>
+				<y>-8</y>
+				<z>3581.95</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy140">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>65.7442</x>
+				<y>-8</y>
+				<z>-1889.99</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy141">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>30.1444</x>
+				<y>-8</y>
+				<z>4636.22</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy142">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>181.875</x>
+				<y>-8</y>
+				<z>-3029.71</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy143">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-1.65593</x>
+				<y>-8</y>
+				<z>-777.224</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy144">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-1.11423</x>
+				<y>-8</y>
+				<z>1052.67</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy145">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>true</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>58.2061</x>
+				<y>-8</y>
+				<z>-153.759</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy146">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>104.442</x>
+				<y>-8</y>
+				<z>786.554</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy147">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>58.0841</x>
+				<y>-8</y>
+				<z>974.899</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy148">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>21.2482</x>
+				<y>-8</y>
+				<z>1157.02</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+	<Entity name = "Enemy149">
+		<Component type = "MeshRenderer">
+			<MeshPath>zombie.mesh</MeshPath>
+			<Scale>3</Scale>
+		</Component>
+		<Component type = "EnemyBehaiviour">
+			<Type>Fly</Type>
+			<Frente>false</Frente>
+		</Component>
+		<Component type = "Walker"/>
+		<Component type = "Collider">
+			<Shape>CYLINDER</Shape>
+			<Dimensions>
+				<RadiousX> 2 </RadiousX>
+				<Height>  15 </Height>
+				<RadiousZ> 2 </RadiousZ>
+				</Dimensions>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>0</w>
+			</Rotation>
+			<Mass>5</Mass>
+			<Inertia>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Inertia>
+		</Component>
+		<Component type = "Transform">
+			<Position>
+				<x>-6.03534</x>
+				<y>-8</y>
+				<z>2814.45</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>-3.1416</y>
+				<z>0</z>
+				<w>0</w>
+				</Rotation>
+		</Component>
+	</Entity>
+</Scene>

@@ -70,6 +70,10 @@ void Walker_c::setDirection(float x, float z)
 
 }
 
+void Walker_c::setVelocity(float vel) 
+{
+	_velocity = vel;
+}
 btTransform& Walker_c::updateTransform()
 {
 	trans->get().getOrigin().setX(trans->get().getOrigin().getX() + (currentDirection.getX() * _velocity * Game::getInstance()->getDeltaTime()));

@@ -20,6 +20,7 @@ public:
 	virtual void listen(Msg_Base* msg);
 
 	void setDirection(float x, float z);
+	void setVelocity(float vel);
 
 private:
 	btVector3 currentDirection;
