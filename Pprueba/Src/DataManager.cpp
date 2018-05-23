@@ -82,6 +82,9 @@ ComponentConstructors::ComponentConstructor* getComponentConstructor(ComponentTy
 	case ComponentType::ANIMATION:
 		componentConstructor = new ComponentConstructors::Animation();
 		break;
+	case ComponentType::SKYRENDERER:
+		componentConstructor = new ComponentConstructors::SkyRenderer(node);
+		break;
 	default:
 		break;
 	}

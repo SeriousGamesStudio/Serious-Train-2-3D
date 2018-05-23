@@ -28,7 +28,7 @@ void CameraController_c::start()
 bool CameraController_c::mouseMoved(const OIS::MouseEvent & arg)
 {
 	cam->rotateCamera((float)-arg.state.X.rel / 1000.f, (float)-arg.state.Y.rel / 1000.f);
-
+	
 	return true;
 }
 

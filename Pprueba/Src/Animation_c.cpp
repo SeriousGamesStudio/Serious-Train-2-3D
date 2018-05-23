@@ -19,13 +19,13 @@ void Animation_c::start()
 {
 	mesh = static_cast<MeshRenderer_c*>(_myEntity->getComponent(ComponentType::MESHRENDERER));
 	_ogreEntity = static_cast<Ogre::Entity*>(mesh->getSceneNode()->getAttachedObject(0));
-	setAnimation("swim");
+	//setAnimation("swim");
 }
 
 void Animation_c::update()
-{
-	currentState->addTime(0.16f);
-}
+{ 
+	if(currentState) currentState->addTime(0.16f);
+} 
 
 void Animation_c::setAnimation(std::string animName)
 {
@@ -33,12 +33,12 @@ void Animation_c::setAnimation(std::string animName)
 		currentState->setLoop(false);
 		currentState->setEnabled(false);
 	}
-	currentState = _ogreEntity->getAnimationState(animName);
+	currentState = _ogreEntity->getAnimationState(animName);  
 
 	if (currentState) { // se activa la que se asigna si hay alguna 
 		currentState->setLoop(true);
 		currentState->setEnabled(true);
-	}
+	} 
 
 	
 

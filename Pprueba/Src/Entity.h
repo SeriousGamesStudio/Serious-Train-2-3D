@@ -31,9 +31,12 @@ public:
 
 	inline Scene* getScene() { return _scene; };
 
+	inline bool isAlive() { return _alive; };
+
 	void destroy();
 
 private:
+	bool _alive;
 	Scene * _scene;
 	EntityId _id;
 	std::string _name;

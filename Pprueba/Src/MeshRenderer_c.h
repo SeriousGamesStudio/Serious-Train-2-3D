@@ -12,14 +12,18 @@ class MeshRenderer_c :
 	public Component
 {
 public:
-	MeshRenderer_c(std::string meshName);
+	MeshRenderer_c(std::string meshName, float scale);
 	~MeshRenderer_c();
 	
+	void start();
+
 	virtual void listen(Msg_Base* msg);
 	inline Ogre::SceneNode* getSceneNode() { return scnNode_; }
 	
 
 private:
+	std::string meshPath;
+	float scale;
 	Ogre::SceneNode* scnNode_;
 
 };

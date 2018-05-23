@@ -5,6 +5,7 @@
 #include "rapidxml.hpp"
 #include "Components.h"
 #include "EnemyBehaviour.h"
+//#include "SkyRenderer_c.h"
 
 namespace ComponentConstructors {
 
@@ -78,7 +79,7 @@ namespace ComponentConstructors {
 		public ComponentConstructor
 	{
 	public:
-		MeshRenderer(rapidxml::xml_node<>* src) : ComponentConstructor(), meshPath("")
+		MeshRenderer(rapidxml::xml_node<>* src) : ComponentConstructor(), meshPath(""), scale(1)
 		{
 			parse(src);
 		}
@@ -94,10 +95,14 @@ namespace ComponentConstructors {
 		}*/
 
 		std::string meshPath;
+		float scale;
 	private:
 		void parse(rapidxml::xml_node<>* src)
 		{
-			meshPath = src->first_node("MeshPath")->value();
+			rapidxml::xml_node<>* meshNode = src->first_node("MeshPath");
+			rapidxml::xml_node<>* scaleNode = src->first_node()->next_sibling("Scale");
+			meshPath = meshNode->value();
+			scale = std::stof(scaleNode->value());
 		}
 	};
 
@@ -324,6 +329,7 @@ namespace ComponentConstructors {
 		};
 		~EnemyBehaviour() {};
 		EnemyBehaviour_c::Type type;
+		bool frente;
 	private:
 		std::string typesString[EnemyBehaviour_c::Type::size] = { "Normal", "Fly" };
 		EnemyBehaviour_c::Type getTypeFromString(std::string s) 
@@ -338,7 +344,9 @@ namespace ComponentConstructors {
 		void parse(rapidxml::xml_node<>* src)
 		{
 			rapidxml::xml_node<>* typeNode = src->first_node();
+			rapidxml::xml_node<>* frenteNode = src->first_node()->next_sibling();
 			type = getTypeFromString(typeNode->value());
+			frente = stringToBool(frenteNode->value());
 		}
 	};
 	class Sound :
@@ -391,7 +399,22 @@ namespace ComponentConstructors {
 		Animation() :ComponentConstructor() {};
 		~Animation() {}
 	};
+	class SkyRenderer :
+		public ComponentConstructor
+	{
+	public:
+		SkyRenderer(rapidxml::xml_node<>* src) : ComponentConstructor() { parse(src); }
+		~SkyRenderer() {};
 
+		bool active;
+		std::string material;
+	private:
+		void parse(rapidxml::xml_node<>* src)
+		{			
+			material = src->first_node("Material")->value();
+			active = stringToBool(src->first_node()->next_sibling("Active")->value());
+		}
+	};
 };
 #endif // !_COMPONENTS_CONSTRUCTORS_
 

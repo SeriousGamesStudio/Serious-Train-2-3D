@@ -47,6 +47,7 @@
     <ClInclude Include="..\..\Src\TrashCollector.h" />
     <ClInclude Include="..\..\Src\Walker_c.h" />
     <ClInclude Include="..\..\Src\Weapon_c.h" />
+    <ClInclude Include="SkyRenderer_c.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\GameManager_c.cpp" />
@@ -72,6 +73,7 @@
     <ClCompile Include="..\..\Src\main.cpp" />
     <ClCompile Include="..\..\Src\PhysicsManager.cpp" />
     <ClCompile Include="..\..\Src\Scene.cpp" />
+    <ClCompile Include="..\..\Src\SkyRenderer_c.cpp" />
     <ClCompile Include="..\..\Src\Sound.cpp" />
     <ClCompile Include="..\..\Src\SoundListener_c.cpp" />
     <ClCompile Include="..\..\Src\SoundManager.cpp" />
@@ -84,7 +86,7 @@
     <ProjectGuid>{41D4F585-BC8E-4D52-B33F-88A595432442}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Application</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

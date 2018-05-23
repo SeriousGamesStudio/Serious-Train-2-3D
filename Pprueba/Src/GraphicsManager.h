@@ -16,7 +16,7 @@ public:
 	~GraphicsManager();
 	bool start();
 	void renderFrame();
-	Ogre::SceneNode* createNewNode(std::string meshName);
+	Ogre::SceneNode* createNewNode(std::string meshPath, std::string meshName);
 
 	void initGUI();
 	GUIndilla::GUI *getGUI() {

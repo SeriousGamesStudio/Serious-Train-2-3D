@@ -28,6 +28,7 @@
 #include "CameraController_c.h"
 #include "Walker_c.h"
 #include "PlaneRenderer_c.h"
+#include "SkyRenderer_c.h"
 
  ObjectsFactory* ObjectsFactory::instance = nullptr;
 
@@ -91,7 +92,7 @@ Component * ObjectsFactory::buildComponent(ComponentType componentType, Componen
 	case ComponentType::MESHRENDERER: 
 		{
 			auto* c = static_cast<ComponentConstructors::MeshRenderer*>(info);
-			newComponent = new MeshRenderer_c(c->meshPath);
+			newComponent = new MeshRenderer_c(c->meshPath, c->scale);
 		}
 		break;
 	case ComponentType::PLAYERCONTROLLER: 
@@ -123,7 +124,7 @@ Component * ObjectsFactory::buildComponent(ComponentType componentType, Componen
 	case ComponentType::ENEMYBEHAVIOUR:
 	{
 		auto*c = static_cast<ComponentConstructors::EnemyBehaviour*>(info);
-		newComponent = new EnemyBehaviour_c(c->type);
+		newComponent = new EnemyBehaviour_c(c->type, c->frente);
 	}
 	break;
 	case ComponentType::SOUND:
@@ -144,6 +145,11 @@ Component * ObjectsFactory::buildComponent(ComponentType componentType, Componen
 	case ComponentType::ANIMATION:
 		newComponent = new Animation_c();
 		break;
+	case ComponentType::SKYRENDERER:
+	{
+		auto* c = static_cast<ComponentConstructors::SkyRenderer*>(info);
+		newComponent = new SkyRenderer_c(c->active, c->material);
+	}
 	default: 
 		break;
 	}

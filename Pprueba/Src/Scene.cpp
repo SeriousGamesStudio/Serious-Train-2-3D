@@ -3,31 +3,15 @@
 #include "ObjectsFactory.h"
 #include "Game.h"
 #include "DataManager.h"
-
-#include "Collider_c.h"
-#include "RigidBody_c.h"
-#include "Transform_c.h"
-
-#include "MeshRenderer_c.h"
-
-#include "Camera_c.h"
-#include "PlayerController_c.h"
-#include "CameraController_c.h"
-#include "Animation_c.h"
-#include "Walker_c.h"
-#include "PlaneRenderer_c.h"
-#include "Sound_c.h"
-#include "SoundListener_c.h"
 #include "GameManager_c.h"
-#include "Weapon_c.h"
-#include "EnemyBehaviour.h"
+
 #include <algorithm>
 
 #include "btBulletCollisionCommon.h"
 Scene::Scene():
 	isSendingMessages(false), _gameManager(0)
 {
-	std::string sceneDataPath = "..\\Data\\Levels\\prueba.xml";//Esto queda por ver cómo darle valor y tal leyendo de fichero
+	std::string sceneDataPath = "..\\Data\\Levels\\exampleAuto.xml";//Esto queda por ver cómo darle valor y tal leyendo de fichero
 	SceneData* sceneData = DataManager::getInstance()->loadScene(sceneDataPath);
 	for (auto entityData : *sceneData)
 	{
@@ -40,17 +24,29 @@ Scene::Scene():
 Scene::~Scene()
 {
 	delete _gameManager;
-	for (Entity* e : entities) delete e;
+	for (Entity* e : entities) {
+		delete e;
+		e = nullptr;
+	}
 }
 
 ///////////////////////////////TICK///////////////////////////////////////
 void Scene::tick()
 {
+	if (!graveland.empty()) {
+		for (auto e : graveland)
+			destroyEntity(e);
+		graveland.clear();
+	}
 	if (!messages.empty())
 		_msgDeliver();
 
-	for (Entity* e : entities)
+
+	for (Entity* e : entities) {
 		e->tick();
+		if (!e->isAlive())
+			graveland.push_back(e);
+	}
 }
 ///////////////////////////////TICK///////////////////////////////////////
 
@@ -157,4 +153,5 @@ void Scene::_dumpMessages()
 void Scene::destroyEntity(Entity* entity)
 {
 	entities.remove(entity);
+	delete entity;
 }

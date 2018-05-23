@@ -1,0 +1,16 @@
+material MySky
+{
+    technique
+    {
+        pass
+        {
+            lighting off
+            depth_write off
+            texture_unit
+            {
+                cubic_texture sky.png separateUV
+                tex_address_mode clamp
+            }
+        }
+    }
+}

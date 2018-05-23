@@ -64,10 +64,10 @@ void Walker_c::listen(Msg_Base * msg)
 void Walker_c::setDirection(float x, float z)
 {
 	currentDirection.setValue(x, 0, z);
-#ifdef _DEBUG
+
 	if (!currentDirection.isZero())
 		currentDirection.normalize();
-#endif // _DEBUG
+
 }
 
 btTransform& Walker_c::updateTransform()

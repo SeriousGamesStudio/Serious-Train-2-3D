@@ -19,6 +19,7 @@ enum ComponentType
 	GAMEMANAGER,
 	WEAPON,
 	ENEMYBEHAVIOUR,
+	SKYRENDERER,
 	size
 
 };
@@ -36,11 +37,13 @@ static std::map<ComponentType, const std::string> getComponentString =
 	{ComponentType::CAMERA,				"Camera"},
 	{ComponentType::PLANERENDERER,		"PlaneRenderer"},
 	{ComponentType::WALKER,				"Walker"},
+	{ComponentType::GAMEMANAGER,		"GameManager"},
 	{ComponentType::ENEMYBEHAVIOUR,		"EnemyBehaiviour"},
 	{ComponentType::SOUND,				"Sound"},
 	{ComponentType::SOUNDLISTENER,		"SoundListener"},
 	{ComponentType::WEAPON,				"Weapon"},
-	{ComponentType::ANIMATION,			"Animation"}
+	{ComponentType::ANIMATION,			"Animation"},
+	{ComponentType::SKYRENDERER,		"SkyRenderer"}
 };
 
 
