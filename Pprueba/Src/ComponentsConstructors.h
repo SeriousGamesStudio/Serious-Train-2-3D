@@ -329,6 +329,7 @@ namespace ComponentConstructors {
 		};
 		~EnemyBehaviour() {};
 		EnemyBehaviour_c::Type type;
+		bool frente;
 	private:
 		std::string typesString[EnemyBehaviour_c::Type::size] = { "Normal", "Fly" };
 		EnemyBehaviour_c::Type getTypeFromString(std::string s) 
@@ -343,7 +344,9 @@ namespace ComponentConstructors {
 		void parse(rapidxml::xml_node<>* src)
 		{
 			rapidxml::xml_node<>* typeNode = src->first_node();
+			rapidxml::xml_node<>* frenteNode = src->first_node()->next_sibling();
 			type = getTypeFromString(typeNode->value());
+			frente = stringToBool(frenteNode->value());
 		}
 	};
 	class Sound :

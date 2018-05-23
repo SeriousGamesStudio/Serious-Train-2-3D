@@ -6,9 +6,10 @@
 #include <iostream>
 
 
-EnemyBehaviour_c::EnemyBehaviour_c(Type t) :
+EnemyBehaviour_c::EnemyBehaviour_c(Type t, bool frente) :
 	Component(ComponentType::ENEMYBEHAVIOUR)
 {
+	dir = (frente) ? 1 : -1;
 	switch (t)
 	{
 	case EnemyBehaviour_c::NORMAL:
@@ -42,7 +43,7 @@ void EnemyBehaviour_c::update()
 	if(col->getCollisionObject().getWorldTransform().getOrigin().getZ()<=40)
 		wal->setDirection(0, 0);
 	else
-		wal->setDirection(0, -5);
+		wal->setDirection(0, at.vel * dir);
 }
 
 

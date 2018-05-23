@@ -28,7 +28,7 @@ class EnemyBehaviour_c :
 public:
 	enum Type{ NORMAL, FLY, size };
 public:
-	EnemyBehaviour_c(Type t);
+	EnemyBehaviour_c(Type t, bool frente);
 	~EnemyBehaviour_c();
 
 
@@ -41,6 +41,7 @@ private:
 	Collider_c* col;
 	RigidBody_c* rb;
 	Walker_c* wal;
+	int dir;
 	
 };
 

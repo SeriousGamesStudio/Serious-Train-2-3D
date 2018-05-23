@@ -124,7 +124,7 @@ Component * ObjectsFactory::buildComponent(ComponentType componentType, Componen
 	case ComponentType::ENEMYBEHAVIOUR:
 	{
 		auto*c = static_cast<ComponentConstructors::EnemyBehaviour*>(info);
-		newComponent = new EnemyBehaviour_c(c->type);
+		newComponent = new EnemyBehaviour_c(c->type, c->frente);
 	}
 	break;
 	case ComponentType::SOUND:
