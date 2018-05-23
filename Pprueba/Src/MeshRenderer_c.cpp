@@ -12,7 +12,8 @@ MeshRenderer_c::MeshRenderer_c(std::string meshName, float scale) :
 
 MeshRenderer_c::~MeshRenderer_c()
 {
-	GraphicsManager::getInstance()->getSceneManager()->destroySceneNode(scnNode_);
+	if (scnNode_)
+		GraphicsManager::getInstance()->getSceneManager()->destroySceneNode(scnNode_);
 }
 void MeshRenderer_c::start()
 {

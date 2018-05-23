@@ -12,7 +12,10 @@ Entity::Entity(Scene* scene_, EntityId id_, std::string name_) :
 Entity::~Entity()
 {
 	for (Component* c : components)
+	{
 		delete c;
+		c = nullptr;
+	}
 	while (!messages.empty()) {
 		delete messages.front();
 		messages.pop();

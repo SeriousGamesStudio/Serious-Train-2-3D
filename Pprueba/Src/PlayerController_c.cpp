@@ -41,9 +41,17 @@ void PlayerController_c::update()
 {
 	//get rb position
 	btVector3 pos = transform->get().getOrigin();
-	//add height of the player
+	//Las colisiones más chusqueras del mundo porque bullet no le gustan las kinematics :D
+	float x = pos.getX();
+	float y = pos.getY();
+	float z = pos.getZ();
+	if (x > 230) x = 230;
+	else if (x < -40) x = -40;
+	if (z > 23) z = 23;
+	else if (z < -10) z = -10; 
+	transform->setPosition(x, y, z);
 	//set camera to that position
-	cam->setPosition(pos.x(), pos.y(), pos.z());
+	cam->setPosition(x, y, z);
 }
 PlayerController_c::~PlayerController_c()
 {
@@ -72,8 +80,7 @@ bool PlayerController_c::keyPressed(const OIS::KeyEvent & arg)
 		left = true; 
 		somethingChange = true; 
 	}
-	//Poner aquí breakpoint y cambiar a la aplicación. 
-	//Se pulsan las teclas y no salta el breakpoint, así que no entra a la función
+
 	if(somethingChange)
 		updateMovementDirection();
 	

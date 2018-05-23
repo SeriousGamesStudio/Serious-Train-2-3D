@@ -7,10 +7,10 @@
 		<Component type= "PlayerController"/>
 		<Component type= "CameraController"/>
 		<Component type= "SoundListener"/>
-    <Component type= "MeshRenderer">
+    <!--<Component type= "MeshRenderer">
       <MeshPath>caucasian_male_1_Body.mesh</MeshPath>
       <Scale>2</Scale>
-    </Component>
+    </Component>-->
 		<Component type= "Weapon">
       <Range>100</Range>
       <Damage>50</Damage>

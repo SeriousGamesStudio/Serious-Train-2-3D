@@ -24,7 +24,10 @@ Scene::Scene():
 Scene::~Scene()
 {
 	delete _gameManager;
-	for (Entity* e : entities) delete e;
+	for (Entity* e : entities) {
+		delete e;
+		e = nullptr;
+	}
 }
 
 ///////////////////////////////TICK///////////////////////////////////////
