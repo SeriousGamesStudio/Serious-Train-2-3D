@@ -14,3 +14,5 @@
 
 *.iobj
 *.ipdb
+/Pprueba/Setup1/Debug/setup.exe
+/Pprueba/Setup1/Debug/Setup1.msi
