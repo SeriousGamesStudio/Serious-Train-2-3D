@@ -160,12 +160,12 @@ void GraphicsManager::renderFrame()
 		return;
 }
 
-Ogre::SceneNode * GraphicsManager::createNewNode(std::string meshName)
+Ogre::SceneNode * GraphicsManager::createNewNode(std::string meshPath, std::string meshName)
 {
 	Ogre::SceneNode* newNode = nullptr;
 	try {
 		newNode = scnMgr->getRootSceneNode()->createChildSceneNode();
-		newNode->attachObject(scnMgr->createEntity(meshName));
+		newNode->attachObject(scnMgr->createEntity(meshName, meshPath));
 	}
 	catch (Ogre::FileNotFoundException e) {
 		std::string a = e.getFullDescription();

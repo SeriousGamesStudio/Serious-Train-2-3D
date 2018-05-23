@@ -2,21 +2,21 @@
 <Scene>
 	<!-->Player <!-->
 	<Entity name="Player">
-		<Component type = "Walker"/>
-		<Component type = "Camera"/>
-		<Component type = "PlayerController"/>
-		<Component type = "CameraController"/>
-		<Component type = "SoundListener"/>
+		<Component type= "Walker"/>
+		<Component type= "Camera"/>
+		<Component type= "PlayerController"/>
+		<Component type= "CameraController"/>
+		<Component type= "SoundListener"/>
     <Component type= "MeshRenderer">
       <MeshPath>caucasian_male_1_Body.mesh</MeshPath>
       <Scale>2</Scale>
     </Component>
-		<Component type = "Weapon">
+		<Component type= "Weapon">
       <Range>100</Range>
       <Damage>50</Damage>
       <Cadency>1</Cadency>
 		</Component>
-		<Component type = "Transform">
+		<Component type= "Transform">
 			<Position>
 				<x>0</x>
 				<y>0</y>
@@ -29,7 +29,7 @@
 				<w>5</w>
 			</Rotation>
 		</Component>
-		<Component type = "Collider">
+		<Component type= "Collider">
 			<Shape>CYLINDER</Shape>
 			<Dimensions>
 				<RadiousX> 2 </RadiousX>
@@ -59,67 +59,13 @@
 		</Component>
 	</Entity>
   
-    <!--Pescao>
-  <Entity name = "Fish">
-    <Component type= "MeshRenderer">
-      <MeshPath>zombie.mesh</MeshPath>
-      <Scale>1</Scale>
-    </Component>
-    <Component type="EnemyBehaiviour">
-      <Type>Fly</Type>
-    </Component>
-    <Component type="Walker">
-      </Component>
-    <Component type="Collider">
-    <Shape>SPHERE</Shape>
-      <Dimensions>
-        <Radious>10</Radious>
-      </Dimensions>
-      <Position>
-      <x>0</x>
-      <y>0</y>
-      <z>0</z>
-      </Position>
-    <Rotation>
-      <x>0</x>
-      <y>0</y>
-      <z>1</z>
-      <w>0</w>
-    </Rotation>
-    <Mass>5</Mass>
-    <Inertia>
-      <x>0</x>
-      <y>0</y>
-      <z>0</z>
-     </Inertia>
-    </Component>
-  <Component type = "Transform">
-	<Position>
-		<x>50</x>
-		<y>50</y>
-		<z>50</z>
-	</Position>
-	<Rotation>
-		<x>0</x>
-		<y>0</y>
-		<z>1</z>
-		<w>0</w>
-	</Rotation>
-	</Component>
-    <Component type= "Sound">
-      <Source>ophelia.mp3</Source>
-      <Loop>true</Loop>
-    </Component>
-	<Component type= "Animation"/>
-  </Entity-->
-  
-  <!-->vagones<!-->
+  <!--vagones-->
   <Entity name = "vagon">
     <Component type= "MeshRenderer">
       <MeshPath>vagon.mesh</MeshPath>
       <Scale>5</Scale>
     </Component>
-    <Component type = "Transform">
+    <Component type= "Transform">
       <Position>
         <x>0</x>
         <y>30</y>
@@ -140,7 +86,7 @@
       <MeshPath>vagon.mesh</MeshPath>
       <Scale>5</Scale>
     </Component>
-    <Component type = "Transform">
+    <Component type= "Transform">
       <Position>
         <x>100</x>
         <y>30</y>
@@ -159,7 +105,7 @@
       <MeshPath>vagon.mesh</MeshPath>
       <Scale>5</Scale>
     </Component>
-    <Component type = "Transform">
+    <Component type= "Transform">
       <Position>
         <x>200</x>
         <y>30</y>
@@ -174,9 +120,6 @@
     </Component>
 
   </Entity>
-  
-  <!-->Enemigos<!-->
-  
   <Entity name = "enemy">
     <Component type= "MeshRenderer">
       <MeshPath>zombie.mesh</MeshPath>
@@ -212,14 +155,14 @@
         <z>0</z>
       </Inertia>
     </Component>
-    <Component type = "Transform">
+    <Component type= "Transform">
       <Position>
         <x>20</x>
         <y>-8</y>
         <z>200</z>
       </Position>
       <Rotation>
-        <x>180</x>
+        <x>3.1416</x>
         <y>0</y>
         <z>1</z>
         <w>0</w>
@@ -263,21 +206,20 @@
         <z>0</z>
       </Inertia>
     </Component>
-    <Component type = "Transform">
+    <Component type= "Transform">
       <Position>
         <x>200</x>
         <y>-8</y>
-        <z>300</z>
+        <z>200</z>
       </Position>
       <Rotation>
-        <x>0</x>
+        <x>3.1416</x>
         <y>0</y>
-        <z>0</z>
+        <z>1</z>
         <w>0</w>
       </Rotation>
     </Component>
-
+    
   </Entity>
-
   <!--> ETC <!-->
 </Scene>

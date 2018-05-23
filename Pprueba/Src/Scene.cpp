@@ -30,14 +30,14 @@ Scene::~Scene()
 ///////////////////////////////TICK///////////////////////////////////////
 void Scene::tick()
 {
-	if (!messages.empty())
-		_msgDeliver();
-
 	if (!graveland.empty()) {
 		for (auto e : graveland)
 			destroyEntity(e);
 		graveland.clear();
 	}
+	if (!messages.empty())
+		_msgDeliver();
+
 
 	for (Entity* e : entities) {
 		e->tick();
