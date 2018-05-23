@@ -1,7 +1,7 @@
 #include "Entity.h"
 #include "Scene.h"
 #include "Component.h"
-
+#include <iostream>
 
 Entity::Entity(Scene* scene_, EntityId id_, std::string name_) :
 	_scene(scene_), _id(id_), _name(name_), _alive(true)
@@ -11,21 +11,43 @@ Entity::Entity(Scene* scene_, EntityId id_, std::string name_) :
 
 Entity::~Entity()
 {
+#ifdef _DEBUG
+	std::cout << "*********************\nEliminando " << getName() << "...\nComenzamos a eliminar componentes:\n";
+#endif // _DEBUG
+	//Iterate through all components and delete them
 	for (Component* c : components)
+	{
+#ifdef _DEBUG
+		std::cout << "    Eliminando "<< getComponentString[c->getComponentType()]<<". ";
+#endif // _DEBUG
+		c->disable();
 		delete c;
+		c = nullptr;
+#ifdef _DEBUG
+		std::cout << "Eliminado!\n";
+#endif // _DEBUG
+	}
+	//make sure every component is deleted
+	components.clear();
+#ifdef _DEBUG
+	std::cout << "    Limpiando cola de mensajes...";
+#endif // _DEBUG
 	while (!messages.empty()) {
 		delete messages.front();
 		messages.pop();
 	}
+#ifdef _DEBUG
+	std::cout << "Cola Limpia!\n" << getName() << " Eliminado!\n*********************\n";
+#endif // _DEBUG
 }
 
 void Entity::init()
 {
-	//get ride of extra space in component vector
+	//get ride of extra space in components vector
 	components.shrink_to_fit();
+
 	//call the start method of every component
-	for (Component* c : components)
-		c->start();
+	for (Component* c : components)	c->start();
 }
 
 void Entity::tick()

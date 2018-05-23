@@ -24,20 +24,23 @@ Scene::Scene():
 Scene::~Scene()
 {
 	delete _gameManager;
-	for (Entity* e : entities) delete e;
+	for (Entity* e : entities) {
+		delete e;
+		e = nullptr;
+	}
 }
 
 ///////////////////////////////TICK///////////////////////////////////////
 void Scene::tick()
 {
-	if (!messages.empty())
-		_msgDeliver();
-
 	if (!graveland.empty()) {
 		for (auto e : graveland)
 			destroyEntity(e);
 		graveland.clear();
 	}
+	if (!messages.empty())
+		_msgDeliver();
+
 
 	for (Entity* e : entities) {
 		e->tick();

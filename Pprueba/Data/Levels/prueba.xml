@@ -2,21 +2,21 @@
 <Scene>
 	<!-->Player <!-->
 	<Entity name="Player">
-		<Component type = "Walker"/>
-		<Component type = "Camera"/>
-		<Component type = "PlayerController"/>
-		<Component type = "CameraController"/>
-		<Component type = "SoundListener"/>
-    <Component type= "MeshRenderer">
+		<Component type= "Walker"/>
+		<Component type= "Camera"/>
+		<Component type= "PlayerController"/>
+		<Component type= "CameraController"/>
+		<Component type= "SoundListener"/>
+    <!--<Component type= "MeshRenderer">
       <MeshPath>caucasian_male_1_Body.mesh</MeshPath>
       <Scale>2</Scale>
-    </Component>
-		<Component type = "Weapon">
+    </Component>-->
+		<Component type= "Weapon">
       <Range>100</Range>
       <Damage>50</Damage>
       <Cadency>1</Cadency>
 		</Component>
-		<Component type = "Transform">
+		<Component type= "Transform">
 			<Position>
 				<x>0</x>
 				<y>0</y>
@@ -29,7 +29,7 @@
 				<w>5</w>
 			</Rotation>
 		</Component>
-		<Component type = "Collider">
+		<Component type= "Collider">
 			<Shape>CYLINDER</Shape>
 			<Dimensions>
 				<RadiousX> 2 </RadiousX>
@@ -127,7 +127,7 @@
       <MeshPath>vagon.mesh</MeshPath>
       <Scale>5</Scale>
     </Component>
-    <Component type = "Transform">
+    <Component type= "Transform">
       <Position>
         <x>0</x>
         <y>30</y>
@@ -136,8 +136,8 @@
       <Rotation>
         <x>0</x>
         <y>0</y>
-        <z>1</z>
-        <w>0</w>
+        <z>0</z>
+        <w>1</w>
       </Rotation>
     </Component>
 
@@ -148,7 +148,7 @@
       <MeshPath>vagon.mesh</MeshPath>
       <Scale>5</Scale>
     </Component>
-    <Component type = "Transform">
+    <Component type= "Transform">
       <Position>
         <x>100</x>
         <y>30</y>
@@ -157,8 +157,8 @@
       <Rotation>
         <x>0</x>
         <y>0</y>
-        <z>1</z>
-        <w>0</w>
+        <z>0</z>
+        <w>1</w>
       </Rotation>
     </Component>
   </Entity>
@@ -167,7 +167,7 @@
       <MeshPath>vagon.mesh</MeshPath>
       <Scale>5</Scale>
     </Component>
-    <Component type = "Transform">
+    <Component type= "Transform">
       <Position>
         <x>200</x>
         <y>30</y>
@@ -176,15 +176,12 @@
       <Rotation>
         <x>0</x>
         <y>0</y>
-        <z>1</z>
-        <w>0</w>
+        <z>0</z>
+        <w>1</w>
       </Rotation>
     </Component>
 
   </Entity>
-  
-  <!-->Enemigos<!-->
-  
   <Entity name = "enemy">
     <Component type= "MeshRenderer">
       <MeshPath>zombie.mesh</MeshPath>
@@ -220,16 +217,16 @@
         <z>0</z>
       </Inertia>
     </Component>
-    <Component type = "Transform">
+    <Component type= "Transform">
       <Position>
         <x>20</x>
         <y>-8</y>
         <z>200</z>
       </Position>
       <Rotation>
-        <x>180</x>
-        <y>0</y>
-        <z>1</z>
+        <x>0</x>
+        <y>3.1416</y>
+        <z>0</z>
         <w>0</w>
       </Rotation>
     </Component>
@@ -271,21 +268,20 @@
         <z>0</z>
       </Inertia>
     </Component>
-    <Component type = "Transform">
+    <Component type= "Transform">
       <Position>
         <x>200</x>
         <y>-8</y>
-        <z>300</z>
+        <z>200</z>
       </Position>
       <Rotation>
         <x>0</x>
-        <y>0</y>
+        <y>3.1416</y>
         <z>0</z>
         <w>0</w>
       </Rotation>
     </Component>
-
+    
   </Entity>
-
   <!--> ETC <!-->
 </Scene>

@@ -24,6 +24,7 @@ EnemyBehaviour_c::EnemyBehaviour_c(Type t) :
 
 EnemyBehaviour_c::~EnemyBehaviour_c()
 {
+	_myEntity->getScene()->removeListener(MsgId::RAYCAST_HIT, this);
 }
 void EnemyBehaviour_c::start()
 {
