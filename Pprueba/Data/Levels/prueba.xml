@@ -59,6 +59,14 @@
 		</Component>
 	</Entity>
   
+  <!-->Cielo<!-->
+	<Entity name = "Sky">
+		<Component type= "SkyRenderer">
+			<Material>MySky</Material>
+      <Active>true</Active>
+     </Component>
+	</Entity>
+  
     <!--Pescao>
   <Entity name = "Fish">
     <Component type= "MeshRenderer">

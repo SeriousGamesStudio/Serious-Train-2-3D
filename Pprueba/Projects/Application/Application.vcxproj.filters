@@ -101,6 +101,9 @@
     <ClCompile Include="..\..\Src\PlayerController_c.cpp">
       <Filter>Componentes\Input</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\SkyRenderer_c.cpp">
+      <Filter>Componentes\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\GUIndilla.h" />
@@ -202,6 +205,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\EnemyBehaviour.h">
       <Filter>Componentes\Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyRenderer_c.h">
+      <Filter>Componentes\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

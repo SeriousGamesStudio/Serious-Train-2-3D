@@ -5,6 +5,7 @@
 #include "rapidxml.hpp"
 #include "Components.h"
 #include "EnemyBehaviour.h"
+//#include "SkyRenderer_c.h"
 
 namespace ComponentConstructors {
 
@@ -395,7 +396,22 @@ namespace ComponentConstructors {
 		Animation() :ComponentConstructor() {};
 		~Animation() {}
 	};
+	class SkyRenderer :
+		public ComponentConstructor
+	{
+	public:
+		SkyRenderer(rapidxml::xml_node<>* src) : ComponentConstructor() { parse(src); }
+		~SkyRenderer() {};
 
+		bool active;
+		std::string material;
+	private:
+		void parse(rapidxml::xml_node<>* src)
+		{			
+			material = src->first_node("Material")->value();
+			active = stringToBool(src->first_node()->next_sibling("Active")->value());
+		}
+	};
 };
 #endif // !_COMPONENTS_CONSTRUCTORS_
 

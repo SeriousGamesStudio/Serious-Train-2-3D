@@ -125,7 +125,7 @@ bool GraphicsManager::start()
 
 	light = scnMgr->createLight("MainLight");
 	light->setPosition(20, 80, 50);
-	//scnMgr->setSkyBox(true, "sky");
+	
 
 	return true;
 }

@@ -8,7 +8,7 @@ material MySky
             depth_write off
             texture_unit
             {
-                cubic_texture MySky.bmp separateUV
+                cubic_texture sky.png separateUV
                 tex_address_mode clamp
             }
         }

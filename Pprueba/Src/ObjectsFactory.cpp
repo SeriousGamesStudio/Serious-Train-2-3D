@@ -28,6 +28,7 @@
 #include "CameraController_c.h"
 #include "Walker_c.h"
 #include "PlaneRenderer_c.h"
+#include "SkyRenderer_c.h"
 
  ObjectsFactory* ObjectsFactory::instance = nullptr;
 
@@ -144,6 +145,11 @@ Component * ObjectsFactory::buildComponent(ComponentType componentType, Componen
 	case ComponentType::ANIMATION:
 		newComponent = new Animation_c();
 		break;
+	case ComponentType::SKYRENDERER:
+	{
+		auto* c = static_cast<ComponentConstructors::SkyRenderer*>(info);
+		newComponent = new SkyRenderer_c(c->active, c->material);
+	}
 	default: 
 		break;
 	}
