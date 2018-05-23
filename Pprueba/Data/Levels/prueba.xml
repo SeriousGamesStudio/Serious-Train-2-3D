@@ -74,8 +74,8 @@
       <Rotation>
         <x>0</x>
         <y>0</y>
-        <z>1</z>
-        <w>0</w>
+        <z>0</z>
+        <w>1</w>
       </Rotation>
     </Component>
 
@@ -95,8 +95,8 @@
       <Rotation>
         <x>0</x>
         <y>0</y>
-        <z>1</z>
-        <w>0</w>
+        <z>0</z>
+        <w>1</w>
       </Rotation>
     </Component>
   </Entity>
@@ -114,8 +114,8 @@
       <Rotation>
         <x>0</x>
         <y>0</y>
-        <z>1</z>
-        <w>0</w>
+        <z>0</z>
+        <w>1</w>
       </Rotation>
     </Component>
 
@@ -162,9 +162,9 @@
         <z>200</z>
       </Position>
       <Rotation>
-        <x>3.1416</x>
-        <y>0</y>
-        <z>1</z>
+        <x>0</x>
+        <y>3.1416</y>
+        <z>0</z>
         <w>0</w>
       </Rotation>
     </Component>
@@ -213,9 +213,9 @@
         <z>200</z>
       </Position>
       <Rotation>
-        <x>3.1416</x>
-        <y>0</y>
-        <z>1</z>
+        <x>0</x>
+        <y>3.1416</y>
+        <z>0</z>
         <w>0</w>
       </Rotation>
     </Component>
