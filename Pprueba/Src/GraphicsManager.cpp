@@ -122,7 +122,9 @@ bool GraphicsManager::start()
 	//Scene SetUp
 
 	scnMgr->setAmbientLight(Ogre::ColourValue(.5, .5, .5));
-
+	Ogre::ColourValue fadeColour(0.9, 0.9, 0.9);
+	mWindow->getViewport(0)->setBackgroundColour(fadeColour);
+	scnMgr->setFog(Ogre::FOG_EXP, fadeColour, 0.012);
 	light = scnMgr->createLight("MainLight");
 	light->setPosition(20, 80, 50);
 	
