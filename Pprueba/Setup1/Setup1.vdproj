@@ -105,6 +105,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_8FA9E92DF7BD465AABD295AAB05A0917"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_92BF31D5EF0747CDB5498390AFA779A5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -130,12 +136,6 @@
         "Entry"
         {
         "MsmKey" = "8:_C16B46A18F634EBB8547514A002AB513"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D6D98A8A31F0493CBF51BC418F29443A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -181,6 +181,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -197,6 +205,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -745,6 +761,17 @@
                                 {
                                 }
                             }
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_F2B7C6EADB2C4BD38D99772EA019CEF4"
+                    {
+                    "Name" = "8:Data"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_7EE095AE027D4302831AEC72DF6281A2"
+                        "Folders"
+                        {
                         }
                     }
                 }
@@ -1318,12 +1345,12 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D6D98A8A31F0493CBF51BC418F29443A"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_8FA9E92DF7BD465AABD295AAB05A0917"
             {
             "SourcePath" = "8:..\\Exes\\Pprueba.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_19046FF4995C4BD5B7BD7D1D547A5874"
+            "Folder" = "8:_98005DA1D337444CB00901031635952A"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
