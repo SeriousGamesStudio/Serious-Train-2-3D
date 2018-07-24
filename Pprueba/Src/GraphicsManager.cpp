@@ -125,7 +125,11 @@ bool GraphicsManager::start()
 
 	light = scnMgr->createLight("MainLight");
 	light->setPosition(20, 80, 50);
-	
+
+	// Niebla
+	Ogre::ColourValue fadeColour(0.9, 0.9, 0.9);
+	mWindow->getViewport(0)->setBackgroundColour(fadeColour);
+	scnMgr->setFog(Ogre::FOG_EXP, fadeColour, 0.008);
 
 	return true;
 }
@@ -144,7 +148,6 @@ GraphicsManager * GraphicsManager::getInstance()
 {
 	if (!instance) {
 		instance = new GraphicsManager();
-		instance->start();
 	}
 	return instance;
  }

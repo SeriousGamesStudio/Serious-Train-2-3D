@@ -22,7 +22,6 @@ Game * Game::getInstance()
 {
 	if (!instance) {
 		instance = new Game();
-		instance->start();
 	}
 	return instance;
 }
@@ -42,17 +41,44 @@ Game::~Game()
 
 bool Game::start()
 {
+	//MODIFICACION DEL START PARA PODER LOCALIZAR SI HA FALLADO ALGUN MANAGER
 	exit = false;
 
 	graphicsManager = GraphicsManager::getInstance();
+	if (!graphicsManager->start())
+	{
+		cout << "graphicsManager no inicializado" << endl;
+		return false;
+	}
 
 	soundManager = SoundManager::getInstance();
+	if (!soundManager->initialise())
+	{
+		cout << "soundManager no inicializado" << endl;
+		return false;
+	}
 
 	physicsManager = PhysicsManager::getInstance();
+	if (physicsManager == NULL) // culpa de borja por hacer mal el init().
+	{
+		cout << "physicsManager no inicializado" << endl;
+		return false;
+	}
 
 	sceneManager = SceneManager::getInstance();
+	if (sceneManager == NULL) // no tiene sentido que esto falle 
+							  //porque no depende de ninguna libreria
+	{
+		cout << "sceneManager no inicializado" << endl;
+		return false;
+	}
 
 	inputManager = InputManager::getInstance();
+	if (inputManager == NULL)
+	{
+		cout << "inputManager no inicializado" << endl;
+		return false;
+	}
 	inputManager->initialise(graphicsManager->getWindow());
 
 	//incializar el GUI
@@ -71,8 +97,8 @@ bool Game::start()
 	sceneManager->pushScene(initial);
 	initial->setGameManager();
 	
-
-	run();
+	//aqui NO DEBE ir el run
+	//run();
 	return true;
 }
 

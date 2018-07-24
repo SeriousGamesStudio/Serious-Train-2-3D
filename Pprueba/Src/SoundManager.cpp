@@ -13,7 +13,7 @@ SoundManager * SoundManager::getInstance()
 {
 	if (!instance) {
 		instance = new SoundManager();
-		instance->initialise();
+		
 	}
 	return instance;
 }
