@@ -40,7 +40,7 @@ void EnemyBehaviour_c::start()
 void EnemyBehaviour_c::update()
 {
 	
-	if(col->getCollisionObject().getWorldTransform().getOrigin().getZ()<=40)
+	if(col->getCollisionObject().getWorldTransform().getOrigin().getZ()<=50)
 		wal->setDirection(0, 0);
 	else
 		wal->setDirection(0, at.vel * dir);
@@ -59,7 +59,7 @@ void EnemyBehaviour_c::listen(Msg_Base * msg)
 		{
 			at.hp -= p->dmg_;
 			if (at.hp <= 0) 
-				destroyMyEntity(); // destroy entity ajjaj
+				destroyMyEntity(); // destroy entity 
 		}
 		break;
 	}

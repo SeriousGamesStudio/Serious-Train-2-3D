@@ -184,7 +184,7 @@
   </Entity>
   <Entity name = "enemy">
     <Component type= "MeshRenderer">
-      <MeshPath>zombie.mesh</MeshPath>
+      <MeshPath>sinbad.mesh</MeshPath>
       <Scale>3</Scale>
     </Component>
     <Component type="EnemyBehaiviour">

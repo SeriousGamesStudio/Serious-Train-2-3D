@@ -396,8 +396,17 @@ namespace ComponentConstructors {
 		public ComponentConstructor
 	{
 	public:
-		Animation() :ComponentConstructor() {};
-		~Animation() {}
+		Animation(rapidxml::xml_node<>* src) :ComponentConstructor()
+		{
+			parse(src);
+		};
+		~Animation() {};
+		std::string animName;
+	private:
+		void parse(rapidxml::xml_node<>* src)
+		{
+			animName = src->first_node("AnimationName")->value();			
+		}
 	};
 	class SkyRenderer :
 		public ComponentConstructor

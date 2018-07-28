@@ -8,7 +8,7 @@
 		<Component type= "CameraController"/>
 		<Component type= "SoundListener"/>
 		<Component type= "Weapon">
-      <ange>100</Range>
+      <Range>100</Range>
       <Damage>50</Damage>
       <Cadency>1</Cadency>
 		</Component>
@@ -29,7 +29,7 @@
 			<Shape>CYLINDER</Shape>
 			<Dimensions>
 				<RadiousX> 2 </RadiousX>
-				<Height>  5 </eight>
+				<Height>  5 </Height>
 				<RadiousZ> 2 </RadiousZ>
 			</Dimensions>
 			<Position>
@@ -37,7 +37,7 @@
 				<y>0</y>
 				<z>0</z>
 			</Position>
-			<otation>
+			<Rotation>
 				<x>1</x>
 				<y>0</y>
 				<z>0</z>
@@ -51,7 +51,7 @@
 			<MeshPath>suelo</MeshPath>
 			<TexturePath>floor_diffuse.PNG</TexturePath>
 		</Component>
-	</ntity>
+	</Entity>
     <!-->Cielo<!-->
 	<Entity name = "Sky">
 		<Component type= "SkyRenderer">
@@ -118,10 +118,11 @@
     </Component>
   </Entity>
 
+  <!--Robot1-->
 	<Entity name = "Enemy0">
 		<Component type = "MeshRenderer">
-			<MeshPath>zombie.mesh</MeshPath>
-			<Scale>3</Scale>
+			<MeshPath>robot.mesh</MeshPath>
+			<Scale>0.4</Scale>
 		</Component>
 		<Component type = "EnemyBehaiviour">
 			<Type>Fly</Type>
@@ -156,21 +157,25 @@
 		<Component type = "Transform">
 			<Position>
 				<x>162.412</x>
-				<y>-8</y>
+				<y>-20</y>
 				<z>785.443</z>
 			</Position>
 			<Rotation>
 				<x>0</x>
 				<y>-3.1416</y>
 				<z>0</z>
-				<w>0</w>
+        <w>-3.1416</w>
 				</Rotation>
 		</Component>
+  <Component type= "Animation">
+      <AnimationName>Walk</AnimationName>
+    </Component>
 	</Entity>
+  <!--Robot2-->
 	<Entity name = "Enemy1">
 		<Component type = "MeshRenderer">
-			<MeshPath>zombie.mesh</MeshPath>
-			<Scale>3</Scale>
+			<MeshPath>robot.mesh</MeshPath>
+			<Scale>0.4</Scale>
 		</Component>
 		<Component type = "EnemyBehaiviour">
 			<Type>Fly</Type>
@@ -205,21 +210,25 @@
 		<Component type = "Transform">
 			<Position>
 				<x>100.863</x>
-				<y>-8</y>
+				<y>-20</y>
 				<z>1243.07</z>
 			</Position>
 			<Rotation>
 				<x>0</x>
 				<y>-3.1416</y>
 				<z>0</z>
-				<w>0</w>
+				<w>-3.1416</w>
 				</Rotation>
 		</Component>
+    <Component type= "Animation">
+      <AnimationName>Walk</AnimationName>
+    </Component>
 	</Entity>
+  <!--Robot3-->
 	<Entity name = "Enemy2">
 		<Component type = "MeshRenderer">
-			<MeshPath>zombie.mesh</MeshPath>
-			<Scale>3</Scale>
+			<MeshPath>robot.mesh</MeshPath>
+			<Scale>0.4</Scale>
 		</Component>
 		<Component type = "EnemyBehaiviour">
 			<Type>Fly</Type>
@@ -254,7 +263,7 @@
 		<Component type = "Transform">
 			<Position>
 				<x>83.1092</x>
-				<y>-8</y>
+				<y>-20</y>
 				<z>-866.111</z>
 			</Position>
 			<Rotation>
@@ -264,11 +273,15 @@
 				<w>0</w>
 				</Rotation>
 		</Component>
+  <Component type= "Animation">
+      <AnimationName>Walk</AnimationName>
+    </Component>
 	</Entity>
+  <!--Robot4-->
 	<Entity name = "Enemy3">
 		<Component type = "MeshRenderer">
-			<MeshPath>zombie.mesh</MeshPath>
-			<Scale>3</Scale>
+			<MeshPath>robot.mesh</MeshPath>
+			<Scale>0.4</Scale>
 		</Component>
 		<Component type = "EnemyBehaiviour">
 			<Type>Fly</Type>
@@ -303,7 +316,7 @@
 		<Component type = "Transform">
 			<Position>
 				<x>172.216</x>
-				<y>-8</y>
+				<y>-20</y>
 				<z>-1241.24</z>
 			</Position>
 			<Rotation>
@@ -313,11 +326,15 @@
 				<w>0</w>
 				</Rotation>
 		</Component>
+  <Component type= "Animation">
+      <AnimationName>Walk</AnimationName>
+    </Component>
 	</Entity>
+  <!--Robot5-->
 	<Entity name = "Enemy4">
 		<Component type = "MeshRenderer">
-			<MeshPath>zombie.mesh</MeshPath>
-			<Scale>3</Scale>
+			<MeshPath>robot.mesh</MeshPath>
+			<Scale>0.4</Scale>
 		</Component>
 		<Component type = "EnemyBehaiviour">
 			<Type>Fly</Type>
@@ -352,21 +369,25 @@
 		<Component type = "Transform">
 			<Position>
 				<x>44.7169</x>
-				<y>-8</y>
+				<y>-20</y>
 				<z>885.746</z>
 			</Position>
 			<Rotation>
 				<x>0</x>
 				<y>-3.1416</y>
 				<z>0</z>
-				<w>0</w>
+        <w>-3.1416</w>
 				</Rotation>
 		</Component>
+  <Component type= "Animation">
+      <AnimationName>Walk</AnimationName>
+    </Component>
 	</Entity>
+  <!--Robot6-->
 	<Entity name = "Enemy5">
 		<Component type = "MeshRenderer">
-			<MeshPath>zombie.mesh</MeshPath>
-			<Scale>3</Scale>
+			<MeshPath>robot.mesh</MeshPath>
+			<Scale>0.4</Scale>
 		</Component>
 		<Component type = "EnemyBehaiviour">
 			<Type>Fly</Type>
@@ -401,7 +422,7 @@
 		<Component type = "Transform">
 			<Position>
 				<x>133.587</x>
-				<y>-8</y>
+				<y>-20</y>
 				<z>-731.151</z>
 			</Position>
 			<Rotation>
@@ -411,11 +432,15 @@
 				<w>0</w>
 				</Rotation>
 		</Component>
+  <Component type= "Animation">
+      <AnimationName>Walk</AnimationName>
+    </Component>
 	</Entity>
+  <!--Robot7-->
 	<Entity name = "Enemy6">
 		<Component type = "MeshRenderer">
-			<MeshPath>zombie.mesh</MeshPath>
-			<Scale>3</Scale>
+			<MeshPath>robot.mesh</MeshPath>
+			<Scale>0.4</Scale>
 		</Component>
 		<Component type = "EnemyBehaiviour">
 			<Type>Fly</Type>
@@ -450,21 +475,25 @@
 		<Component type = "Transform">
 			<Position>
 				<x>35.1036</x>
-				<y>-8</y>
+				<y>-20</y>
 				<z>248.953</z>
 			</Position>
 			<Rotation>
 				<x>0</x>
 				<y>-3.1416</y>
 				<z>0</z>
-				<w>0</w>
+        <w>-3.1416</w>
 				</Rotation>
 		</Component>
+    <Component type= "Animation">
+      <AnimationName>Walk</AnimationName>
+    </Component>
 	</Entity>
+  <!--Robot8-->
 	<Entity name = "Enemy7">
 		<Component type = "MeshRenderer">
-			<MeshPath>zombie.mesh</MeshPath>
-			<Scale>3</Scale>
+			<MeshPath>robot.mesh</MeshPath>
+			<Scale>0.4</Scale>
 		</Component>
 		<Component type = "EnemyBehaiviour">
 			<Type>Fly</Type>
@@ -499,21 +528,25 @@
 		<Component type = "Transform">
 			<Position>
 				<x>-19.1583</x>
-				<y>-8</y>
+				<y>-20</y>
 				<z>677.328</z>
 			</Position>
 			<Rotation>
 				<x>0</x>
 				<y>-3.1416</y>
 				<z>0</z>
-				<w>0</w>
+        <w>-3.1416</w>
 				</Rotation>
 		</Component>
+  <Component type= "Animation">
+      <AnimationName>Walk</AnimationName>
+    </Component>
 	</Entity>
+  <!--Robot9-->
 	<Entity name = "Enemy8">
 		<Component type = "MeshRenderer">
-			<MeshPath>zombie.mesh</MeshPath>
-			<Scale>3</Scale>
+			<MeshPath>robot.mesh</MeshPath>
+			<Scale>0.4</Scale>
 		</Component>
 		<Component type = "EnemyBehaiviour">
 			<Type>Fly</Type>
@@ -548,21 +581,25 @@
 		<Component type = "Transform">
 			<Position>
 				<x>-11.9407</x>
-				<y>-8</y>
+				<y>-20</y>
 				<z>561.398</z>
 			</Position>
 			<Rotation>
 				<x>0</x>
 				<y>-3.1416</y>
 				<z>0</z>
-				<w>0</w>
+        <w>-3.1416</w>
 				</Rotation>
 		</Component>
+  <Component type= "Animation">
+      <AnimationName>Walk</AnimationName>
+    </Component>
 	</Entity>
+  <!--Robot10-->
 	<Entity name = "Enemy9">
 		<Component type = "MeshRenderer">
-			<MeshPath>zombie.mesh</MeshPath>
-			<Scale>3</Scale>
+			<MeshPath>robot.mesh</MeshPath>
+			<Scale>0.4</Scale>
 		</Component>
 		<Component type = "EnemyBehaiviour">
 			<Type>Fly</Type>
@@ -597,7 +634,7 @@
 		<Component type = "Transform">
 			<Position>
 				<x>99.9097</x>
-				<y>-8</y>
+				<y>-20</y>
 				<z>-1636.08</z>
 			</Position>
 			<Rotation>
@@ -607,5 +644,8 @@
 				<w>0</w>
 				</Rotation>
 		</Component>
+  <Component type= "Animation">
+      <AnimationName>Walk</AnimationName>
+    </Component>
 	</Entity>
 </Scene>

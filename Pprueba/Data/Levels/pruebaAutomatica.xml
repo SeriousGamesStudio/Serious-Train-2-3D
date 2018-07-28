@@ -8,7 +8,7 @@
 		<Component type= "CameraController"/>
 		<Component type= "SoundListener"/>
 		<Component type= "Weapon">
-      <ange>100</Range>
+      <Range>100</Range>
       <Damage>50</Damage>
       <Cadency>1</Cadency>
 		</Component>
@@ -29,7 +29,7 @@
 			<Shape>CYLINDER</Shape>
 			<Dimensions>
 				<RadiousX> 2 </RadiousX>
-				<Height>  5 </eight>
+				<Height>  5 </Height>
 				<RadiousZ> 2 </RadiousZ>
 			</Dimensions>
 			<Position>
@@ -37,7 +37,7 @@
 				<y>0</y>
 				<z>0</z>
 			</Position>
-			<otation>
+			<Rotation>
 				<x>1</x>
 				<y>0</y>
 				<z>0</z>
@@ -51,13 +51,13 @@
 			<MeshPath>suelo</MeshPath>
 			<TexturePath>floor_diffuse.PNG</TexturePath>
 		</Component>
-	</ntity>
+	</Entity>
     <!-->Cielo<!-->
 	<Entity name = "Sky">
 		<Component type= "SkyRenderer">
 			<Material>MySky</Material>
       <Active>true</Active>
-     </omponent>
+     </Component>
 	</Entity>
   <!-->vagones<!-->
   <Entity name = "vagon">
@@ -115,7 +115,7 @@
         <z>0</z>
         <w>1</w>
       </Rotation>
-    </omponent>
+    </Component>
   </Entity>
 <Entity name = "Enemy0">
 <Component type = "MeshRenderer">

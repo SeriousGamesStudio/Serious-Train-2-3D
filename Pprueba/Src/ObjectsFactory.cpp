@@ -143,7 +143,10 @@ Component * ObjectsFactory::buildComponent(ComponentType componentType, Componen
 	}
 	break;
 	case ComponentType::ANIMATION:
-		newComponent = new Animation_c();
+	{
+		auto* c = static_cast<ComponentConstructors::Animation*>(info);
+		newComponent = new Animation_c(c->animName);
+	}
 		break;
 	case ComponentType::SKYRENDERER:
 	{

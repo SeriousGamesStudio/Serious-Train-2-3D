@@ -1,11 +1,14 @@
 #include "Animation_c.h"
 #include "Entity.h"
 
-Animation_c::Animation_c():
-	Component(ComponentType::ANIMATION)
+Animation_c::Animation_c(std::string animName):
+	Component(ComponentType::ANIMATION),
+	animName_(animName)
 	
 {
+	
 	currentState = nullptr;
+	
 	
 
 }
@@ -19,12 +22,13 @@ void Animation_c::start()
 {
 	mesh = static_cast<MeshRenderer_c*>(_myEntity->getComponent(ComponentType::MESHRENDERER));
 	_ogreEntity = static_cast<Ogre::Entity*>(mesh->getSceneNode()->getAttachedObject(0));
-	//setAnimation("swim");
+	setAnimation(animName_);
+	
 }
 
 void Animation_c::update()
 { 
-	if(currentState) currentState->addTime(0.16f);
+	if(currentState) currentState->addTime(0.05f);
 } 
 
 void Animation_c::setAnimation(std::string animName)
@@ -41,8 +45,6 @@ void Animation_c::setAnimation(std::string animName)
 	} 
 
 	
-
-	//animStateSwim_ = mesh->getSceneNode()->getCreator()->createAnimationState("animFishSwim"); pa
 	
 }
 

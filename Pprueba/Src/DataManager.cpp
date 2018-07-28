@@ -80,7 +80,7 @@ ComponentConstructors::ComponentConstructor* getComponentConstructor(ComponentTy
 		componentConstructor = new ComponentConstructors::Weapon(node);
 		break;
 	case ComponentType::ANIMATION:
-		componentConstructor = new ComponentConstructors::Animation();
+		componentConstructor = new ComponentConstructors::Animation(node);
 		break;
 	case ComponentType::SKYRENDERER:
 		componentConstructor = new ComponentConstructors::SkyRenderer(node);

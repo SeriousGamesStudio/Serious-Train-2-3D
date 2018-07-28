@@ -8,7 +8,7 @@ class Animation_c:
 	public Component
 {
 public:
-	Animation_c();
+	Animation_c(std::string animName);
 	~Animation_c();
 
 	virtual void start();
@@ -19,7 +19,7 @@ public:
 private:
 	MeshRenderer_c * mesh;
 	Ogre::Entity* _ogreEntity;
-	
+	std::string animName_;
 	//ANIMATION SET
 	Ogre::AnimationState* currentState;
 
