@@ -40,10 +40,15 @@ void EnemyBehaviour_c::start()
 void EnemyBehaviour_c::update()
 {
 	
-	if(col->getCollisionObject().getWorldTransform().getOrigin().getZ()<=50)
+	if(col->getCollisionObject().getWorldTransform().getOrigin().getZ()<= 50 &&
+		col->getCollisionObject().getWorldTransform().getOrigin().getZ() >= -28)
 		wal->setDirection(0, 0);
-	else
+	else 		
 		wal->setDirection(0, at.vel * dir);
+		
+	
+
+	
 }
 
 

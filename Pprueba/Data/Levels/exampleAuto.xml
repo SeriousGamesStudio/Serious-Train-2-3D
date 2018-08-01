@@ -270,7 +270,7 @@
 				<x>0</x>
 				<y>3.1416</y>
 				<z>0</z>
-				<w>0</w>
+				<w>-3.1416</w>
 				</Rotation>
 		</Component>
   <Component type= "Animation">
@@ -323,7 +323,7 @@
 				<x>0</x>
 				<y>3.1416</y>
 				<z>0</z>
-				<w>0</w>
+				<w>-3.1416</w>
 				</Rotation>
 		</Component>
   <Component type= "Animation">
@@ -429,7 +429,7 @@
 				<x>0</x>
 				<y>3.1416</y>
 				<z>0</z>
-				<w>0</w>
+				<w>-3.1416</w>
 				</Rotation>
 		</Component>
   <Component type= "Animation">
@@ -641,7 +641,7 @@
 				<x>0</x>
 				<y>3.1416</y>
 				<z>0</z>
-				<w>0</w>
+				<w>-3.1416</w>
 				</Rotation>
 		</Component>
   <Component type= "Animation">
