@@ -8,10 +8,46 @@
 #include <algorithm>
 
 #include "btBulletCollisionCommon.h"
-Scene::Scene():
-	isSendingMessages(false), _gameManager(0)
+void startGame() {
+	Scene * initial = new Scene(Scene::Tipo::LEVEL);
+	//Sabemos que esto es una chapuza pero no podiamos perder mas tiempo en esto ya que fran era el encargado de hacerlo y sin solucionarlo asi ni el sabia como
+	InputManager::getInstance()->stop();
+	SceneManager::getInstance()->pushScene(initial);
+	initial->setGameManager();
+}
+Scene::Scene(Tipo tipo) :
+	isSendingMessages(false), _gameManager(0), t(tipo)
 {
 	
+	switch (t)
+	{
+	case MENU:
+	{
+		std::function<void()> fun = startGame;
+			GraphicsManager::getInstance()->getGUI()->createButton(
+				Ogre::Vector4(0.9, 0.9, 0.1, 0.1), "bgui.button", "Comenzar partida", 
+				GUIndilla::Callback(fun), GUIndilla::POSITION_TYPE::PT_REL);
+	}
+		break;
+	case LEVEL:
+	{
+		std::string sceneDataPath = "..\\Data\\Levels\\exampleAuto.xml";//Esto queda por ver cómo darle valor y tal leyendo de fichero
+		SceneData* sceneData = DataManager::getInstance()->loadScene(sceneDataPath);
+		for (auto entityData : *sceneData)
+		{
+			Entity* newEntity = ObjectsFactory::getInstance()->create(*entityData, this);
+			entities.push_back(newEntity);
+		}
+		delete sceneData;
+
+		GraphicsManager::getInstance()->getGUI()->createStaticImage(Ogre::Vector4(-25, -25, 50, 50), "crossAir",
+			GUIndilla::POSITION_TYPE::PT_ABSOLUTE, GUIndilla::VERTICAL_ANCHOR::VA_CENTER, GUIndilla::HORINZONTAL_ANCHOR::HA_CENTER);
+		}
+			break;
+		default:
+			break;
+	}
+
 }
 
 Scene::~Scene()
@@ -79,7 +115,7 @@ void Scene::reciveMsg(Msg_Base* newMsg)
 
 Entity* Scene::whoIs(EntityId id)
 {
-	auto entityIt = std::lower_bound(entities.begin(), entities.end(), id, 
+	auto entityIt = std::lower_bound(entities.begin(), entities.end(), id,
 		[&](Entity* entity, EntityId id) { return entity->getId() < id; }
 	);
 	if (entityIt != entities.end())

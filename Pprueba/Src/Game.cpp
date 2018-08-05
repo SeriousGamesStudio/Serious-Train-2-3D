@@ -1,8 +1,6 @@
 #include "Game.h"
 #include <ctime>
 #include "Scene.h"
-#include "Menu.h"
-#include "Level.h"
 #include "Sound.h"
 #include <functional>
 #pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
@@ -11,6 +9,9 @@
 using namespace GUIndilla;
 Game* Game::instance = nullptr;
 
+void stopGame() {
+	Game::getInstance()->stop();
+}
 
 Game::Game()
 {
@@ -88,15 +89,15 @@ bool Game::start()
 
 
 	//esto crea una escena directamente del gameplay, necsitamos hacer un new Menu()
-	Menu* mainMenu = new Menu();
-	sceneManager->pushScene(mainMenu);
+	/*Menu* mainMenu = new Menu();
+	sceneManager->pushScene(mainMenu);*/
 	/*Level* first = new Level();
-	sceneManager->pushScene(first)*/
-	/*
-	Scene * initial = new Scene();
+	sceneManager->pushScene(first);*/
+	
+	Scene * initial = new Scene(Scene::Tipo::MENU);
 	sceneManager->pushScene(initial);
 	initial->setGameManager();
-	*/
+	
 
 	return true;
 }

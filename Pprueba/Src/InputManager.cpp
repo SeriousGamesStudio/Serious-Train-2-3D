@@ -262,10 +262,18 @@ bool InputManager::mouseMoved(const OIS::MouseEvent &e) {
 bool InputManager::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id) {
 	itMouseListener = mMouseListeners.begin();
 	itMouseListenerEnd = mMouseListeners.end();
-	for (; itMouseListener != itMouseListenerEnd; ++itMouseListener) {
+	
+
+	while (!stopFor && itMouseListener != itMouseListenerEnd) {
 		if (!itMouseListener->second->mousePressed(e, id))
 			break;
+		if(!stopFor)
+		++itMouseListener;
 	}
+	
+
+	
+	
 
 	return true;
 }
