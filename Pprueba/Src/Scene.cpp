@@ -10,7 +10,8 @@
 #include "btBulletCollisionCommon.h"
 void startGame() {
 	Scene * initial = new Scene(Scene::Tipo::LEVEL);
-	//Sabemos que esto es una chapuza pero no podiamos perder mas tiempo en esto ya que fran era el encargado de hacerlo y sin solucionarlo asi ni el sabia como
+	//Sabemos que esto es una chapuza pero no podiamos perder mas tiempo en esto ya que 
+	//fran era el encargado de hacerlo y sin solucionarlo asi ni el sabia como
 	InputManager::getInstance()->stop();
 	SceneManager::getInstance()->pushScene(initial);
 	initial->setGameManager();
