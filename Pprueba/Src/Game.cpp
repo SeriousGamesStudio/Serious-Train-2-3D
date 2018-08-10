@@ -9,9 +9,7 @@
 using namespace GUIndilla;
 Game* Game::instance = nullptr;
 
-void stopGame() {
-	Game::getInstance()->stop();
-}
+
 
 Game::Game()
 {

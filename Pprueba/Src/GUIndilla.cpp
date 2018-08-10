@@ -19,6 +19,9 @@ namespace GUIndilla {
 
 	GUI::~GUI() {
 		delete mousePointer;
+		mousePointer = nullptr;
+		
+		mO = nullptr;
 		for (uint i = 0; i < Elementos.size(); i++)
 			delete Elementos[i];
 	}
@@ -101,13 +104,13 @@ namespace GUIndilla {
 		nButtons++;
 		Button *x = new Button(D, M, T, C,this,posType,vertAnch,horAnchor);
 		botones.push_back(x);
-		Elementos.push_back(x);
+		
 		return x;
 	}
 
 	Button * GUI::createStaticImage(const Ogre::Vector4 & Dimensions, const Ogre::String & Material, const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor)
 	{
-		nButtons++;
+		
 		Button *x = new Button(Dimensions, Material, "", Callback(), this,posType,vertAnch,horAnchor);
 		Elementos.push_back(x);
 		return x;
@@ -115,10 +118,23 @@ namespace GUIndilla {
 
 	Button * GUI::createStaticText(const Ogre::Vector4 & Dimensions, const Ogre::String & Text, const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor)
 	{
-		nButtons++;
+		
 		Button *x = new Button(Dimensions, "", Text, Callback(), this, posType, vertAnch, horAnchor);
 		Elementos.push_back(x);
 		return nullptr;
+		
+	}
+
+	void GUI::removeButtons()
+	{
+		for (uint i = 0; i < botones.size(); i++) {
+
+			nButtons--;
+			delete botones[i];
+		}
+		botones.clear();
+		OverlayManager::getSingleton().destroyAllOverlayElements();
+		mO->hide();
 	}
 
 	

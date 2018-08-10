@@ -270,10 +270,7 @@ bool InputManager::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 		if(!stopFor)
 		++itMouseListener;
 	}
-	
-
-	
-	
+	stopFor = false;
 
 	return true;
 }

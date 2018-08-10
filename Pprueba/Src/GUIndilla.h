@@ -69,6 +69,7 @@ namespace GUIndilla {
 		Button * createStaticImage(const Ogre::Vector4 & Dimensions, const Ogre::String & Material,const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch = VERTICAL_ANCHOR::VA_TOP, const HORINZONTAL_ANCHOR & horAnchor = HORINZONTAL_ANCHOR::HA_LEFT);
 		Button * createStaticText(const Ogre::Vector4 & Dimensions, const Ogre::String & Text, const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch = VERTICAL_ANCHOR::VA_TOP, const HORINZONTAL_ANCHOR & horAnchor = HORINZONTAL_ANCHOR::HA_LEFT);
 
+		void removeButtons();
 
 		inline MousePointer* getMousePointer() { return mousePointer; }
 		inline int getNBotones() { return nButtons; }
@@ -77,6 +78,7 @@ namespace GUIndilla {
 	protected:
 		Button * activeButton;
 		Ogre::Overlay* mO;                        // Main sheet overlay
+		//Ogre::OverlayContainer* e;				  // Overlay container
 		std::vector<Button*> Elementos;                    // Botones in
 		std::vector<Button*> botones;                    // Botones in
 
@@ -149,6 +151,7 @@ namespace GUIndilla {
 			if (a && mma != "")
 				mO->setMaterialName(mma);
 		}
+		
 		inline Ogre::OverlayContainer* getContainer() { return mO; }
 		Callback callback;            // Callback to use
 	protected:
