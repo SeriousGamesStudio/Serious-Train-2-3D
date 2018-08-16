@@ -14,7 +14,7 @@ GraphicsManager::GraphicsManager() :
 
 GraphicsManager::~GraphicsManager()
 {
-	delete _GUI;
+	closeGUI();
 	delete overlaySystem;
 	delete root;
 	instance = nullptr;
@@ -189,8 +189,8 @@ void GraphicsManager::initGUI()
 		_GUI = new GUIndilla::GUI("Value", 16);
 		_GUI->createMousePointer(Ogre::Vector2(32, 32), "bgui.pointer");*/
 	if (!_GUI) {
-		_GUI = new GUIndilla::GUI("Value", 16);
-		_GUI->createMousePointer(Ogre::Vector2(32, 32), "bgui.pointer");
+		_GUI = new GUIndilla::GUI("Value", 16, "GUI");
+		_GUI->createMousePointer(Ogre::Vector2(32, 32), "bgui.pointer", "menuMp");
 	}
 	
 }

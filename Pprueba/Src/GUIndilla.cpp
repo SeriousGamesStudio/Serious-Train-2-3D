@@ -5,7 +5,7 @@ using namespace Ogre;
 using namespace std;
 
 namespace GUIndilla {
-	GUI::GUI(const String & font, const uint & fontSize)
+	GUI::GUI(const String & font, const uint & fontSize, std::string name)
 		:mXW(0),
 		mousePointer(0),
 		mFont(font),
@@ -13,7 +13,7 @@ namespace GUIndilla {
 		nButtons(0),
 		activeButton(0)
 	{
-		mO = OverlayManager::getSingleton().create("BetaGUI");
+		mO = OverlayManager::getSingleton().create(name);
 		mO->show();
 	}
 
@@ -21,9 +21,16 @@ namespace GUIndilla {
 		delete mousePointer;
 		mousePointer = nullptr;
 		
-		mO = nullptr;
+		for(uint i = 0; i < botones.size(); i++)
+			delete botones[i];
+
 		for (uint i = 0; i < Elementos.size(); i++)
 			delete Elementos[i];
+
+		OverlayManager::getSingleton().destroy(mO);
+		mO = nullptr;
+
+
 	}
 
 	bool GUI::injectMouse() {
@@ -89,10 +96,10 @@ namespace GUIndilla {
 		return e;
 	}
 
-	MousePointer* GUI::createMousePointer(const Vector2 & d, const String & m) {
+	MousePointer* GUI::createMousePointer(const Vector2 & d, const String & m, std::string name) {
 		
 		if (!mousePointer) {
-			mousePointer = new MousePointer(this, d, m);
+			mousePointer = new MousePointer(this, d, m, name);
 		}
 
 		return mousePointer;
@@ -133,21 +140,25 @@ namespace GUIndilla {
 			delete botones[i];
 		}
 		botones.clear();
-		OverlayManager::getSingleton().destroyAllOverlayElements();
-		mO->hide();
+
+		for (uint i = 0; i < Elementos.size(); i++)
+			delete Elementos[i];
+
+		OverlayManager::getSingleton().destroy(mO);
+		mO = nullptr;
 	}
 
 	
 	
 
-	MousePointer::MousePointer(GUI * gui, const Ogre::Vector2 & dimensions, const Ogre::String & material)
+	MousePointer::MousePointer(GUI * gui, const Ogre::Vector2 & dimensions, const Ogre::String & material, std::string name)
 	{
 		_active = false;
 		_GUI = gui;
-		Overlay* o = OverlayManager::getSingleton().create("BetaGUI.MP");
+		o = OverlayManager::getSingleton().create(name + ".MP");
 		o->setZOrder(649);
 
-		mMP = static_cast<OverlayContainer*>(OverlayManager::getSingleton().createOverlayElement("Panel", "bg.mp"));
+		mMP = static_cast<OverlayContainer*>(OverlayManager::getSingleton().createOverlayElement("Panel", name + "oc.mp"));
 
 		mMP->setMetricsMode(Ogre::GMM_PIXELS);
 		mMP->setDimensions(dimensions.x, dimensions.y);
@@ -161,6 +172,10 @@ namespace GUIndilla {
 
 	MousePointer::~MousePointer()
 	{
+		OverlayManager::getSingleton().destroy(o);
+		OverlayManager::getSingleton().destroyOverlayElement(mMP);
+		o = nullptr;
+		mMP = nullptr;
 	}
 
 	void MousePointer::setActive(const bool & active)

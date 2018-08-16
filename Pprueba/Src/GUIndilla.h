@@ -57,14 +57,14 @@ namespace GUIndilla {
 	public:
 		
 
-		GUI(const Ogre::String & font, const Ogre::uint & fontSize);
+		GUI(const Ogre::String & font, const Ogre::uint & fontSize, std::string name);
 		~GUI();
 		bool injectMouse();
 		void mousePressed();
 				
 		Ogre::OverlayContainer* createOverlay(const Ogre::String & name, const Ogre::Vector2 & position, const Ogre::Vector2 & dimensions , const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor,const Ogre::String & material = "", const Ogre::String & caption = "");
 		
-		MousePointer* createMousePointer(const Ogre::Vector2 & dimensions, const Ogre::String & material);
+		MousePointer* createMousePointer(const Ogre::Vector2 & dimensions, const Ogre::String & material, std::string name);
 		Button * createButton(const Ogre::Vector4 & Dimensions, const Ogre::String & M, const Ogre::String & T, const Callback & C,  const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch = VERTICAL_ANCHOR::VA_TOP , const HORINZONTAL_ANCHOR & horAnchor= HORINZONTAL_ANCHOR::HA_LEFT);
 		Button * createStaticImage(const Ogre::Vector4 & Dimensions, const Ogre::String & Material,const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch = VERTICAL_ANCHOR::VA_TOP, const HORINZONTAL_ANCHOR & horAnchor = HORINZONTAL_ANCHOR::HA_LEFT);
 		Button * createStaticText(const Ogre::Vector4 & Dimensions, const Ogre::String & Text, const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch = VERTICAL_ANCHOR::VA_TOP, const HORINZONTAL_ANCHOR & horAnchor = HORINZONTAL_ANCHOR::HA_LEFT);
@@ -95,7 +95,7 @@ namespace GUIndilla {
 	class MousePointer: public OIS::MouseListener
 	{
 	public:
-		MousePointer(GUI * gui, const Ogre::Vector2 & dimensions, const Ogre::String & material);
+		MousePointer(GUI * gui, const Ogre::Vector2 & dimensions, const Ogre::String & material, std::string name);
 		virtual ~MousePointer();
 		inline bool isActive() { return _active; }
 		void setActive(const bool &active);
@@ -106,7 +106,8 @@ namespace GUIndilla {
 	protected:
 		GUI * _GUI;
 		bool _active;
-		Ogre::OverlayContainer* mMP;                // Mouse Pointer Overlay
+		Ogre::OverlayContainer* mMP;                // Mouse Pointer Container para overlay
+		Ogre::Overlay* o;									// Mouse overlay
 		virtual bool mouseMoved(const OIS::MouseEvent &arg);
 		virtual bool mousePressed(const OIS::MouseEvent &arg, OIS::MouseButtonID id);
 		virtual bool mouseReleased(const OIS::MouseEvent &arg, OIS::MouseButtonID id);

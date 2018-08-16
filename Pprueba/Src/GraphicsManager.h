@@ -25,6 +25,7 @@ public:
 		}
 		return _GUI;
 	};
+	void closeGUI() { delete _GUI; _GUI = nullptr; }
 
 	void toggleMouse(bool toggle);
 	

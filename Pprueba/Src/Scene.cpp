@@ -4,6 +4,8 @@
 #include "Game.h"
 #include "DataManager.h"
 #include "GameManager_c.h"
+#include "GUIndilla.h"
+
 
 #include <algorithm>
 
@@ -19,6 +21,7 @@ void startGame() {
 	InputManager::getInstance()->stop();
 	SceneManager::getInstance()->pushScene(initial);
 	initial->setGameManager();
+	
 
 }
 Scene::Scene(Tipo tipo) :
@@ -37,6 +40,7 @@ Scene::Scene(Tipo tipo) :
 		break;
 	case LEVEL:
 	{
+
 		std::string sceneDataPath = "..\\Data\\Levels\\exampleAuto.xml";//Esto queda por ver cómo darle valor y tal leyendo de fichero
 		SceneData* sceneData = DataManager::getInstance()->loadScene(sceneDataPath);
 		for (auto entityData : *sceneData)
@@ -46,17 +50,21 @@ Scene::Scene(Tipo tipo) :
 		}
 		delete sceneData;
 
-		GraphicsManager::getInstance()->getGUI()->removeButtons();
+		//GraphicsManager::getInstance()->closeGUI();
 
-		GraphicsManager::getInstance()->getGUI()->createStaticImage(Ogre::Vector4(-25, -25, 50, 50), 
-			"crossAir",	GUIndilla::POSITION_TYPE::PT_ABSOLUTE, GUIndilla::VERTICAL_ANCHOR::VA_CENTER, 
-			GUIndilla::HORINZONTAL_ANCHOR::HA_CENTER);
+		/*GUIndilla::GUI* juego = new GUIndilla::GUI("Value", 16, "Juego");
+		juego->createMousePointer(Ogre::Vector2(32, 32), "bgui.pointer", "juegoMp");
+			*/
+		GraphicsManager::getInstance()->getGUI()->removeButtons();
 
 		std::function<void()> fun = stopGame;
 		GraphicsManager::getInstance()->getGUI()->createButton(
 			Ogre::Vector4(0.9, 0.9, 0.1, 0.1), "bgui.button", "Exit",
 			GUIndilla::Callback(fun), GUIndilla::POSITION_TYPE::PT_REL);
 
+		/*GraphicsManager::getInstance()->getGUI()->createStaticImage(Ogre::Vector4(-25, -25, 50, 50), 
+			"crossAir",	GUIndilla::POSITION_TYPE::PT_ABSOLUTE, GUIndilla::VERTICAL_ANCHOR::VA_CENTER, 
+			GUIndilla::HORINZONTAL_ANCHOR::HA_CENTER);*/
 
 		}
 			break;
