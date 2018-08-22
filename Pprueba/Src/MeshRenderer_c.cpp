@@ -34,14 +34,24 @@ void MeshRenderer_c::listen(Msg_Base* msg)
 {
 	switch (msg->id)
 	{
-	default:
-		break;
 	case MsgId::CHANGED_POSITION:
+	{
 		Msg::ChangePosition* p = static_cast<Msg::ChangePosition*>(msg);
 		float px = p->x;
 		float py = p->y;
 		float pz = p->z;
 		scnNode_->setPosition(p->x, p->y, p->z);
+	}
+		break;
+	case MsgId::ENEMY_FEEDBACK:
+	{
+		
+		GraphicsManager::getInstance()->getOgreEntity()->getSubEntity(0)->getMaterial()->
+			getTechnique(0)->setDiffuse((Ogre::Real) 255.0, (Ogre::Real) 0.0, (Ogre::Real) 0.0, (Ogre::Real) 155.0);	
+		
+	}
+		break;
+	default:
 		break;
 	}
 }

@@ -5,7 +5,7 @@ using EntityId = unsigned int;
 
 enum class MsgId : unsigned int
 {
-	EXIT, CHANGED_POSITION, PLAYER_MOVE,  CAMERA_ORIENTATE, LOOKING_TO, RAYCAST_HIT, TOGGLE_MOUSE
+	EXIT, CHANGED_POSITION, PLAYER_MOVE,  CAMERA_ORIENTATE, LOOKING_TO, RAYCAST_HIT, TOGGLE_MOUSE, ENEMY_FEEDBACK
 };
 
 struct Msg_Base
@@ -93,7 +93,18 @@ namespace Msg
 
 		
 	};
-	
+	struct EnemyFeedback :
+		public Msg_Base
+	{
+	public:
+
+		EnemyFeedback(EntityId sender, EntityId reciver) :
+			Msg_Base(MsgId::ENEMY_FEEDBACK, sender, reciver)
+		{};
+		~EnemyFeedback() {};
+
+
+	};
 
 }; 
 #endif //!_H_NOTIFICATIONS_H_

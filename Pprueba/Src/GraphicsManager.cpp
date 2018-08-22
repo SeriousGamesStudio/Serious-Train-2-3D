@@ -80,7 +80,7 @@ bool GraphicsManager::start()
 
 	//------------------------------------------------------------------------------------------------------
 	//Render Window Creation
-	mWindow = root->initialise(true, "Serious Train xd");
+	mWindow = root->initialise(true, "Serious Train");
 
 	//------------------------------------------------------------------------------------------------------
 	//Resources Init
@@ -168,7 +168,8 @@ Ogre::SceneNode * GraphicsManager::createNewNode(std::string meshPath, std::stri
 	Ogre::SceneNode* newNode = nullptr;
 	try {
 		newNode = scnMgr->getRootSceneNode()->createChildSceneNode();
-		newNode->attachObject(scnMgr->createEntity(meshName, meshPath));
+		ent_ = scnMgr->createEntity(meshName, meshPath);
+		newNode->attachObject(ent_);
 	}
 	catch (Ogre::FileNotFoundException e) {
 		std::string a = e.getFullDescription();

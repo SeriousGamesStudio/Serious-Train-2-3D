@@ -33,7 +33,7 @@ public:
 	 Ogre::SceneManager* getSceneManager() { return scnMgr; }
 	 Ogre::Camera* getCamera() { return cam; }
 	
-
+	inline Ogre::Entity* getOgreEntity() { return ent_; }
 	static GraphicsManager* getInstance();
 private:
 	GraphicsManager();
@@ -47,7 +47,7 @@ private:
 	Ogre::String mOgreCfg;
 	Ogre::String mOgreLog;
 	Ogre::ConfigFile cf;
-
+	Ogre::Entity* ent_;
 
 	Ogre::RenderWindow* mWindow;
 	Ogre::Camera * cam;
