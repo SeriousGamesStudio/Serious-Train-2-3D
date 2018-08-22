@@ -47,7 +47,7 @@ void MeshRenderer_c::listen(Msg_Base* msg)
 	{
 		Ogre::MaterialPtr mat = Ogre::MaterialManager::getSingleton().getByName("Feedback");
 		GraphicsManager::getInstance()->getOgreEntity()[_myEntity->getId() - 4]->setMaterial(mat);
-			/*getSubEntity(0)->setMaterial(mat);			*/
+			
 				
 	}
 		break;
