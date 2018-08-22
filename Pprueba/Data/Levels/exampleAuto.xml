@@ -171,7 +171,7 @@
       <AnimationName>Walk</AnimationName>
     </Component>
 	</Entity>
-  <!--Robot2-->
+  <!--Robot2--><!--
 	<Entity name = "Enemy1">
 		<Component type = "MeshRenderer">
 			<MeshPath>robot.mesh</MeshPath>
@@ -224,7 +224,7 @@
       <AnimationName>Walk</AnimationName>
     </Component>
 	</Entity>
-  <!--Robot3-->
+  --><!--Robot3--><!--
 	<Entity name = "Enemy2">
 		<Component type = "MeshRenderer">
 			<MeshPath>robot.mesh</MeshPath>
@@ -277,7 +277,7 @@
       <AnimationName>Walk</AnimationName>
     </Component>
 	</Entity>
-  <!--Robot4-->
+  --><!--Robot4--><!--
 	<Entity name = "Enemy3">
 		<Component type = "MeshRenderer">
 			<MeshPath>robot.mesh</MeshPath>
@@ -330,7 +330,7 @@
       <AnimationName>Walk</AnimationName>
     </Component>
 	</Entity>
-  <!--Robot5-->
+  --><!--Robot5--><!--
 	<Entity name = "Enemy4">
 		<Component type = "MeshRenderer">
 			<MeshPath>robot.mesh</MeshPath>
@@ -383,7 +383,7 @@
       <AnimationName>Walk</AnimationName>
     </Component>
 	</Entity>
-  <!--Robot6-->
+  --><!--Robot6--><!--
 	<Entity name = "Enemy5">
 		<Component type = "MeshRenderer">
 			<MeshPath>robot.mesh</MeshPath>
@@ -436,7 +436,7 @@
       <AnimationName>Walk</AnimationName>
     </Component>
 	</Entity>
-  <!--Robot7-->
+  --><!--Robot7--><!--
 	<Entity name = "Enemy6">
 		<Component type = "MeshRenderer">
 			<MeshPath>robot.mesh</MeshPath>
@@ -489,7 +489,7 @@
       <AnimationName>Walk</AnimationName>
     </Component>
 	</Entity>
-  <!--Robot8-->
+  --><!--Robot8--><!--
 	<Entity name = "Enemy7">
 		<Component type = "MeshRenderer">
 			<MeshPath>robot.mesh</MeshPath>
@@ -542,7 +542,7 @@
       <AnimationName>Walk</AnimationName>
     </Component>
 	</Entity>
-  <!--Robot9-->
+  --><!--Robot9--><!--
 	<Entity name = "Enemy8">
 		<Component type = "MeshRenderer">
 			<MeshPath>robot.mesh</MeshPath>
@@ -595,7 +595,7 @@
       <AnimationName>Walk</AnimationName>
     </Component>
 	</Entity>
-  <!--Robot10-->
+  --><!--Robot10--><!--
 	<Entity name = "Enemy9">
 		<Component type = "MeshRenderer">
 			<MeshPath>robot.mesh</MeshPath>
@@ -647,5 +647,5 @@
   <Component type= "Animation">
       <AnimationName>Walk</AnimationName>
     </Component>
-	</Entity>
+	</Entity>-->
 </Scene>

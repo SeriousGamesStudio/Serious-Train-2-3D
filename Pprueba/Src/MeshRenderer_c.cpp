@@ -45,10 +45,9 @@ void MeshRenderer_c::listen(Msg_Base* msg)
 		break;
 	case MsgId::ENEMY_FEEDBACK:
 	{
-		
-		GraphicsManager::getInstance()->getOgreEntity()->getSubEntity(0)->getMaterial()->
-			getTechnique(0)->setDiffuse((Ogre::Real) 255.0, (Ogre::Real) 0.0, (Ogre::Real) 0.0, (Ogre::Real) 155.0);	
-		
+		Ogre::MaterialPtr mat = Ogre::MaterialManager::getSingleton().getByName("Feedback");
+		GraphicsManager::getInstance()->getOgreEntity()->getSubEntity(0)->setMaterial(mat);			
+				
 	}
 		break;
 	default:
