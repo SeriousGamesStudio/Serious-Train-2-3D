@@ -23,8 +23,8 @@ public:
 
 private:
 	std::string meshPath;
-	float scale;
 	Ogre::SceneNode* scnNode_;
+	float scale;
 
 };
 #endif // !_H_MESHRENDERER_H_
