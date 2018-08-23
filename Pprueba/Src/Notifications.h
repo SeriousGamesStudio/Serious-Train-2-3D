@@ -5,7 +5,7 @@ using EntityId = unsigned int;
 
 enum class MsgId : unsigned int
 {
-	EXIT, CHANGED_POSITION, PLAYER_MOVE,  CAMERA_ORIENTATE, LOOKING_TO, RAYCAST_HIT, TOGGLE_MOUSE, ENEMY_FEEDBACK
+	EXIT, CHANGED_POSITION, PLAYER_MOVE,  CAMERA_ORIENTATE, LOOKING_TO, RAYCAST_HIT, TOGGLE_MOUSE, ENEMY_FEEDBACK, TEXTURE_RESET
 };
 
 struct Msg_Base
@@ -105,7 +105,19 @@ namespace Msg
 
 
 	};
+	struct TextureReset :
+		public Msg_Base
+	{
+	public:
 
+		TextureReset(EntityId sender, EntityId reciver) :
+			Msg_Base(MsgId::TEXTURE_RESET, sender, reciver)
+		{};
+		~TextureReset() {};
+
+
+	};
+	
 }; 
 #endif //!_H_NOTIFICATIONS_H_
 

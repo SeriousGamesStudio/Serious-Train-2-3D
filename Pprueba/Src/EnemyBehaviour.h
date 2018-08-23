@@ -42,6 +42,9 @@ private:
 	RigidBody_c* rb;
 	Walker_c* wal;
 	int dir;
+
+	bool feedback_;
+	int counter;
 	
 };
 

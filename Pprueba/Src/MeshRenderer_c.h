@@ -26,6 +26,10 @@ private:
 	float scale;
 	Ogre::SceneNode* scnNode_;
 
+	Ogre::MaterialPtr mat;
+	Ogre::MaterialPtr mat2;
+	
+
 };
 #endif // !_H_MESHRENDERER_H_
 
