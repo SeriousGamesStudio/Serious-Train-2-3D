@@ -11,7 +11,7 @@
 Scene::Scene():
 	isSendingMessages(false), _gameManager(0)
 {
-	std::string sceneDataPath = "..\\Data\\Levels\\exampleAuto.xml";//Esto queda por ver cómo darle valor y tal leyendo de fichero
+	std::string sceneDataPath = "..\\Data\\Levels\\Escena_1.xml";//Esto queda por ver cómo darle valor y tal leyendo de fichero
 	SceneData* sceneData = DataManager::getInstance()->loadScene(sceneDataPath);
 	for (auto entityData : *sceneData)
 	{
@@ -47,6 +47,7 @@ void Scene::tick()
 		if (!e->isAlive())
 			graveland.push_back(e);
 	}
+	
 }
 ///////////////////////////////TICK///////////////////////////////////////
 

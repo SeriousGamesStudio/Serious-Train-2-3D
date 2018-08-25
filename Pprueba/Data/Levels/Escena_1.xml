@@ -65,6 +65,31 @@
       <MeshPath>vagon.mesh</MeshPath>
       <Scale>5</Scale>
     </Component>
+    <Component type = "Collider">
+      <Shape>BOX</Shape>
+      <Dimensions>
+        <Width>  30 </Width>
+        <Height> 30 </Height>
+        <Depth> 30 </Depth>
+      </Dimensions>
+      <Position>
+        <x>0</x>
+        <y>100</y>
+        <z>0</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+        <w>0</w>
+      </Rotation>
+      <Mass>5</Mass>
+      <Inertia>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+      </Inertia>
+    </Component>
     <Component type= "Transform">
       <Position>
         <x>0</x>
@@ -84,6 +109,31 @@
       <MeshPath>vagon.mesh</MeshPath>
       <Scale>5</Scale>
     </Component>
+    <Component type = "Collider">
+      <Shape>BOX</Shape>
+      <Dimensions>
+        <Width>  30 </Width>
+        <Height> 30 </Height>
+        <Depth> 30 </Depth>
+      </Dimensions>
+      <Position>
+        <x>0</x>
+        <y>100</y>
+        <z>0</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+        <w>0</w>
+      </Rotation>
+      <Mass>5</Mass>
+      <Inertia>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+      </Inertia>
+    </Component>
     <Component type= "Transform">
       <Position>
         <x>100</x>
@@ -102,6 +152,31 @@
     <Component type= "MeshRenderer">
       <MeshPath>vagon.mesh</MeshPath>
       <Scale>5</Scale>
+    </Component>
+    <Component type = "Collider">
+      <Shape>BOX</Shape>
+      <Dimensions>
+        <Width>  30 </Width>
+        <Height> 30 </Height>
+        <Depth> 30 </Depth>
+      </Dimensions>
+      <Position>
+        <x>0</x>
+        <y>100</y>
+        <z>0</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+        <w>0</w>
+      </Rotation>
+      <Mass>5</Mass>
+      <Inertia>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+      </Inertia>
     </Component>
     <Component type= "Transform">
       <Position>
@@ -125,20 +200,20 @@
       <Scale>0.4</Scale>
     </Component>
     <Component type = "EnemyBehaiviour">
-      <Type>Fly</Type>
+      <Type>Normal</Type>
       <Frente>false</Frente>
     </Component>
     <Component type = "Walker"/>
     <Component type = "Collider">
       <Shape>CYLINDER</Shape>
       <Dimensions>
-        <RadiousX> 2 </RadiousX>
-        <Height>  15 </Height>
-        <RadiousZ> 2 </RadiousZ>
+        <RadiousX> 5 </RadiousX>
+        <Height>  70 </Height>
+        <RadiousZ> 5 </RadiousZ>
       </Dimensions>
       <Position>
         <x>0</x>
-        <y>0</y>
+        <y>300</y>
         <z>0</z>
       </Position>
       <Rotation>
@@ -178,20 +253,20 @@
       <Scale>0.4</Scale>
     </Component>
     <Component type = "EnemyBehaiviour">
-      <Type>Fly</Type>
+      <Type>Normal</Type>
       <Frente>false</Frente>
     </Component>
     <Component type = "Walker"/>
     <Component type = "Collider">
       <Shape>CYLINDER</Shape>
       <Dimensions>
-        <RadiousX> 2 </RadiousX>
-        <Height>  15 </Height>
-        <RadiousZ> 2 </RadiousZ>
+        <RadiousX> 5 </RadiousX>
+        <Height>  70 </Height>
+        <RadiousZ> 5 </RadiousZ>
       </Dimensions>
       <Position>
         <x>0</x>
-        <y>0</y>
+        <y>300</y>
         <z>0</z>
       </Position>
       <Rotation>
@@ -231,20 +306,20 @@
       <Scale>0.4</Scale>
     </Component>
     <Component type = "EnemyBehaiviour">
-      <Type>Fly</Type>
+      <Type>Normal</Type>
       <Frente>true</Frente>
     </Component>
     <Component type = "Walker"/>
     <Component type = "Collider">
       <Shape>CYLINDER</Shape>
       <Dimensions>
-        <RadiousX> 2 </RadiousX>
-        <Height>  15 </Height>
-        <RadiousZ> 2 </RadiousZ>
+        <RadiousX> 5 </RadiousX>
+        <Height>  70 </Height>
+        <RadiousZ> 5 </RadiousZ>
       </Dimensions>
       <Position>
         <x>0</x>
-        <y>0</y>
+        <y>300</y>
         <z>0</z>
       </Position>
       <Rotation>
@@ -284,20 +359,20 @@
       <Scale>0.4</Scale>
     </Component>
     <Component type = "EnemyBehaiviour">
-      <Type>Fly</Type>
+      <Type>Normal</Type>
       <Frente>true</Frente>
     </Component>
     <Component type = "Walker"/>
     <Component type = "Collider">
       <Shape>CYLINDER</Shape>
       <Dimensions>
-        <RadiousX> 2 </RadiousX>
-        <Height>  15 </Height>
-        <RadiousZ> 2 </RadiousZ>
+        <RadiousX> 5 </RadiousX>
+        <Height>  70 </Height>
+        <RadiousZ> 5 </RadiousZ>
       </Dimensions>
       <Position>
         <x>0</x>
-        <y>0</y>
+        <y>300</y>
         <z>0</z>
       </Position>
       <Rotation>
@@ -337,20 +412,20 @@
       <Scale>0.4</Scale>
     </Component>
     <Component type = "EnemyBehaiviour">
-      <Type>Fly</Type>
+      <Type>Normal</Type>
       <Frente>false</Frente>
     </Component>
     <Component type = "Walker"/>
     <Component type = "Collider">
       <Shape>CYLINDER</Shape>
       <Dimensions>
-        <RadiousX> 2 </RadiousX>
-        <Height>  15 </Height>
-        <RadiousZ> 2 </RadiousZ>
+        <RadiousX> 5 </RadiousX>
+        <Height>  70 </Height>
+        <RadiousZ> 5 </RadiousZ>
       </Dimensions>
       <Position>
         <x>0</x>
-        <y>0</y>
+        <y>300</y>
         <z>0</z>
       </Position>
       <Rotation>
@@ -390,20 +465,20 @@
       <Scale>0.4</Scale>
     </Component>
     <Component type = "EnemyBehaiviour">
-      <Type>Fly</Type>
+      <Type>Normal</Type>
       <Frente>true</Frente>
     </Component>
     <Component type = "Walker"/>
     <Component type = "Collider">
       <Shape>CYLINDER</Shape>
       <Dimensions>
-        <RadiousX> 2 </RadiousX>
-        <Height>  15 </Height>
-        <RadiousZ> 2 </RadiousZ>
+        <RadiousX> 5 </RadiousX>
+        <Height>  70 </Height>
+        <RadiousZ> 5 </RadiousZ>
       </Dimensions>
       <Position>
         <x>0</x>
-        <y>0</y>
+        <y>300</y>
         <z>0</z>
       </Position>
       <Rotation>
@@ -443,20 +518,20 @@
       <Scale>0.4</Scale>
     </Component>
     <Component type = "EnemyBehaiviour">
-      <Type>Fly</Type>
+      <Type>Normal</Type>
       <Frente>false</Frente>
     </Component>
     <Component type = "Walker"/>
     <Component type = "Collider">
       <Shape>CYLINDER</Shape>
       <Dimensions>
-        <RadiousX> 2 </RadiousX>
-        <Height>  15 </Height>
-        <RadiousZ> 2 </RadiousZ>
+        <RadiousX> 5 </RadiousX>
+        <Height>  70 </Height>
+        <RadiousZ> 5 </RadiousZ>
       </Dimensions>
       <Position>
         <x>0</x>
-        <y>0</y>
+        <y>300</y>
         <z>0</z>
       </Position>
       <Rotation>
@@ -496,20 +571,20 @@
       <Scale>0.4</Scale>
     </Component>
     <Component type = "EnemyBehaiviour">
-      <Type>Fly</Type>
+      <Type>Normal</Type>
       <Frente>false</Frente>
     </Component>
     <Component type = "Walker"/>
     <Component type = "Collider">
       <Shape>CYLINDER</Shape>
       <Dimensions>
-        <RadiousX> 2 </RadiousX>
-        <Height>  15 </Height>
-        <RadiousZ> 2 </RadiousZ>
+        <RadiousX> 5 </RadiousX>
+        <Height>  70 </Height>
+        <RadiousZ> 5 </RadiousZ>
       </Dimensions>
       <Position>
         <x>0</x>
-        <y>0</y>
+        <y>300</y>
         <z>0</z>
       </Position>
       <Rotation>
@@ -549,20 +624,20 @@
       <Scale>0.4</Scale>
     </Component>
     <Component type = "EnemyBehaiviour">
-      <Type>Fly</Type>
+      <Type>Normal</Type>
       <Frente>false</Frente>
     </Component>
     <Component type = "Walker"/>
     <Component type = "Collider">
       <Shape>CYLINDER</Shape>
       <Dimensions>
-        <RadiousX> 2 </RadiousX>
-        <Height>  15 </Height>
-        <RadiousZ> 2 </RadiousZ>
+        <RadiousX> 5 </RadiousX>
+        <Height>  70 </Height>
+        <RadiousZ> 5 </RadiousZ>
       </Dimensions>
       <Position>
         <x>0</x>
-        <y>0</y>
+        <y>300</y>
         <z>0</z>
       </Position>
       <Rotation>
@@ -602,20 +677,20 @@
       <Scale>0.4</Scale>
     </Component>
     <Component type = "EnemyBehaiviour">
-      <Type>Fly</Type>
+      <Type>Normal</Type>
       <Frente>true</Frente>
     </Component>
     <Component type = "Walker"/>
     <Component type = "Collider">
       <Shape>CYLINDER</Shape>
       <Dimensions>
-        <RadiousX> 2 </RadiousX>
-        <Height>  15 </Height>
-        <RadiousZ> 2 </RadiousZ>
+        <RadiousX> 5 </RadiousX>
+        <Height>  70 </Height>
+        <RadiousZ> 5 </RadiousZ>
       </Dimensions>
       <Position>
         <x>0</x>
-        <y>0</y>
+        <y>300</y>
         <z>0</z>
       </Position>
       <Rotation>

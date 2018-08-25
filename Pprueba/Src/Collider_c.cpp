@@ -29,9 +29,12 @@ Collider_c::Collider_c(Shape shape, Dimensions dim, btTransform trans) :
 	{
 		_collisionObject.setCollisionShape(_collisionShape);
 		_collisionObject.setWorldTransform(trans);
+		
 	}
 
 	PhysicsManager::getInstance()->addCollisionShape(&_collisionObject);
+		/*debugDrawObject(trans, _collisionShape, btVector3(1, 0, 0));*/
+	/*PhysicsManager::getInstance()->getWorld()->debugDrawWorld();*/
 
 }
 
@@ -53,6 +56,7 @@ void Collider_c::start()
 void Collider_c::update()
 {
 	setPosition(entityTransform->get());
+	
 }
 
 void Collider_c::setPosition(const float x, const float y, const float z)

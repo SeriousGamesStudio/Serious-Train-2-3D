@@ -13,7 +13,7 @@ struct Attributes
 
 const Attributes  normal = 
 //Hp, dmg, vel
-{ 100, 50 , 100};
+{ 150, 50 , 100};
 
 const Attributes  fly2fly =
 //Hp, dmg, vel
