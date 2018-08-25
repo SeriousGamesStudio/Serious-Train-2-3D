@@ -22,12 +22,7 @@ class Scene
 {
 public:
 
-enum Tipo {
-	MENU,
-	LEVEL,
-	size
-};
-	Scene(Tipo tipo);
+	Scene();
 	virtual ~Scene();
 
 	void tick();
@@ -57,7 +52,6 @@ private:
 	std::unordered_map<MsgId, std::vector<Component*>> listeners;
 
 	Entity * _gameManager;
-	Tipo t;
 
 	bool isSendingMessages;
 	void _msgDeliver();

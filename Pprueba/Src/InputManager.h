@@ -36,7 +36,7 @@ public:
 	OIS::Mouse*    getMouse(void);
 	OIS::Keyboard* getKeyboard(void);
 
-	void stop() { stopFor = true; }
+
 	
 	static InputManager* getInstance(void);
 private:
@@ -51,7 +51,6 @@ private:
 	bool mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id);
 	bool mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id);
 
-	bool stopFor = false;
 
 	OIS::Mouse        *mMouse;
 	OIS::Keyboard     *mKeyboard;

@@ -8,62 +8,17 @@
 #include <algorithm>
 
 #include "btBulletCollisionCommon.h"
-void stopGame() {
-	Game::getInstance()->stop();
-}
-void startGame() {
-	Scene * initial = new Scene(Scene::Tipo::LEVEL);
-	//La unica forma de solucinar la eliminacion de botones era o gestionando la lista 
-	//o llamando a este metodo, que no paraba la condicion en un iterador y nunca se podian eliminar,
-	//perdiendo, de la otra forma, mucho tiempo
-	InputManager::getInstance()->stop();
-	SceneManager::getInstance()->pushScene(initial);
-	initial->setGameManager();
-
-}
-Scene::Scene(Tipo tipo) :
-	isSendingMessages(false), _gameManager(0), t(tipo)
+Scene::Scene():
+	isSendingMessages(false), _gameManager(0)
 {
-	
-	switch (t)
+	std::string sceneDataPath = "..\\Data\\Levels\\exampleAuto.xml";//Esto queda por ver cómo darle valor y tal leyendo de fichero
+	SceneData* sceneData = DataManager::getInstance()->loadScene(sceneDataPath);
+	for (auto entityData : *sceneData)
 	{
-	case MENU:
-	{
-		std::function<void()> fun = startGame;
-			GraphicsManager::getInstance()->getGUI()->createButton(
-				Ogre::Vector4(0.4, 0.4, 0.1, 0.1), "bgui.button", "Comenzar", 
-				GUIndilla::Callback(fun), GUIndilla::POSITION_TYPE::PT_REL);
+		Entity* newEntity = ObjectsFactory::getInstance()->create(*entityData, this);
+		entities.push_back(newEntity);
 	}
-		break;
-	case LEVEL:
-	{
-		std::string sceneDataPath = "..\\Data\\Levels\\exampleAuto.xml";//Esto queda por ver cómo darle valor y tal leyendo de fichero
-		SceneData* sceneData = DataManager::getInstance()->loadScene(sceneDataPath);
-		for (auto entityData : *sceneData)
-		{
-			Entity* newEntity = ObjectsFactory::getInstance()->create(*entityData, this);
-			entities.push_back(newEntity);
-		}
-		delete sceneData;
-
-		GraphicsManager::getInstance()->getGUI()->removeButtons();
-
-		GraphicsManager::getInstance()->getGUI()->createStaticImage(Ogre::Vector4(-25, -25, 50, 50), 
-			"crossAir",	GUIndilla::POSITION_TYPE::PT_ABSOLUTE, GUIndilla::VERTICAL_ANCHOR::VA_CENTER, 
-			GUIndilla::HORINZONTAL_ANCHOR::HA_CENTER);
-
-		std::function<void()> fun = stopGame;
-		GraphicsManager::getInstance()->getGUI()->createButton(
-			Ogre::Vector4(0.9, 0.9, 0.1, 0.1), "bgui.button", "Exit",
-			GUIndilla::Callback(fun), GUIndilla::POSITION_TYPE::PT_REL);
-
-
-		}
-			break;
-		default:
-			break;
-	}
-
+	delete sceneData;
 }
 
 Scene::~Scene()
@@ -131,7 +86,7 @@ void Scene::reciveMsg(Msg_Base* newMsg)
 
 Entity* Scene::whoIs(EntityId id)
 {
-	auto entityIt = std::lower_bound(entities.begin(), entities.end(), id,
+	auto entityIt = std::lower_bound(entities.begin(), entities.end(), id, 
 		[&](Entity* entity, EntityId id) { return entity->getId() < id; }
 	);
 	if (entityIt != entities.end())

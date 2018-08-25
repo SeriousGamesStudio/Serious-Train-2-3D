@@ -80,7 +80,7 @@ bool GraphicsManager::start()
 
 	//------------------------------------------------------------------------------------------------------
 	//Render Window Creation
-	mWindow = root->initialise(true, "Serious Train xd");
+	mWindow = root->initialise(true, "Serious Train");
 
 	//------------------------------------------------------------------------------------------------------
 	//Resources Init
@@ -167,8 +167,11 @@ Ogre::SceneNode * GraphicsManager::createNewNode(std::string meshPath, std::stri
 {
 	Ogre::SceneNode* newNode = nullptr;
 	try {
+		Ogre::Entity* aux;
 		newNode = scnMgr->getRootSceneNode()->createChildSceneNode();
-		newNode->attachObject(scnMgr->createEntity(meshName, meshPath));
+		aux = scnMgr->createEntity(meshName, meshPath);
+		newNode->attachObject(aux);
+		ent_.push_back(aux);
 	}
 	catch (Ogre::FileNotFoundException e) {
 		std::string a = e.getFullDescription();
@@ -181,16 +184,8 @@ Ogre::SceneNode * GraphicsManager::createNewNode(std::string meshPath, std::stri
 
 void GraphicsManager::initGUI()
 {
-	/*if (_GUI) {
-		delete _GUI;
-		_GUI = nullptr;
-	}
-	
-		_GUI = new GUIndilla::GUI("Value", 16);
-		_GUI->createMousePointer(Ogre::Vector2(32, 32), "bgui.pointer");*/
 	if (!_GUI) {
 		_GUI = new GUIndilla::GUI("Value", 16);
 		_GUI->createMousePointer(Ogre::Vector2(32, 32), "bgui.pointer");
 	}
-	
 }

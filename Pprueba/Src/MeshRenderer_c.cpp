@@ -29,19 +29,35 @@ void MeshRenderer_c::start()
 	Ogre::Quaternion conQuat(rot.w(), rot.x(), rot.y(), rot.z());
 	//Ogre::Vector3 newDir = conQuat * Ogre::Vector3::UNIT_X;
 	scnNode_->rotate(conQuat);
+
+	mat = Ogre::MaterialManager::getSingleton().getByName("Feedback");
+	mat2 = Ogre::MaterialManager::getSingleton().getByName("Robot");
 }
+
 void MeshRenderer_c::listen(Msg_Base* msg)
 {
 	switch (msg->id)
 	{
-	default:
-		break;
 	case MsgId::CHANGED_POSITION:
+	{
 		Msg::ChangePosition* p = static_cast<Msg::ChangePosition*>(msg);
 		float px = p->x;
 		float py = p->y;
 		float pz = p->z;
 		scnNode_->setPosition(p->x, p->y, p->z);
+	}
+		break;
+	case MsgId::ENEMY_FEEDBACK:
+	{
+		GraphicsManager::getInstance()->getOgreEntity()[_myEntity->getId() - 4]->setMaterial(mat);
+	}
+		break;		
+	case MsgId::TEXTURE_RESET:
+	{
+		GraphicsManager::getInstance()->getOgreEntity()[_myEntity->getId() - 4]->setMaterial(mat2);
+	}
+		break;
+	default:
 		break;
 	}
 }

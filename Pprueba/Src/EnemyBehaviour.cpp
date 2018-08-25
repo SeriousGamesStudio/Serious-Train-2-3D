@@ -7,7 +7,8 @@
 
 
 EnemyBehaviour_c::EnemyBehaviour_c(Type t, bool frente) :
-	Component(ComponentType::ENEMYBEHAVIOUR)
+	Component(ComponentType::ENEMYBEHAVIOUR), feedback_(false), counter(0)
+
 {
 	dir = (frente) ? 1 : -1;
 	switch (t)
@@ -40,15 +41,20 @@ void EnemyBehaviour_c::start()
 void EnemyBehaviour_c::update()
 {
 	
-	if(col->getCollisionObject().getWorldTransform().getOrigin().getZ()<= 50 &&
+	if (col->getCollisionObject().getWorldTransform().getOrigin().getZ() <= 50 &&
 		col->getCollisionObject().getWorldTransform().getOrigin().getZ() >= -28)
 		wal->setDirection(0, 0);
-	else 		
+	else
 		wal->setDirection(0, at.vel * dir);
-		
-	
 
-	
+	if (counter >= 20)
+	{
+		counter = 0;
+		feedback_ = false;		
+		sendMsg(new Msg::TextureReset(_myEntity->getId(), Msg_Base::self));
+	}
+	else
+		counter++;
 }
 
 
@@ -63,6 +69,8 @@ void EnemyBehaviour_c::listen(Msg_Base * msg)
 		if ((btCollisionObject*)p->collisionWith_ == &col->getCollisionObject())
 		{
 			at.hp -= p->dmg_;
+			sendMsg(new Msg::EnemyFeedback(_myEntity->getId(), Msg_Base::self));
+			feedback_ = true;
 			if (at.hp <= 0) 
 				destroyMyEntity(); // destroy entity 
 		}
