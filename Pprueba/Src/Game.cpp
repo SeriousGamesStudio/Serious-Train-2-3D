@@ -92,13 +92,15 @@ bool Game::start()
 	dataManager = DataManager::getInstance();
 
 
-	
-	Scene * initial = new Scene();
+	Scene * initial = new Scene(Scene::Tipo::MENU);
 	sceneManager->pushScene(initial);
 	initial->setGameManager();
+
+	/*Scene * initial = new Scene();
+	sceneManager->pushScene(initial);
+	initial->setGameManager();*/
 	
-	//aqui NO DEBE ir el run
-	//run();
+	
 	return true;
 }
 

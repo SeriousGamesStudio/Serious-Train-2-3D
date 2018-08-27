@@ -8,17 +8,40 @@
 #include <algorithm>
 
 #include "btBulletCollisionCommon.h"
-Scene::Scene():
-	isSendingMessages(false), _gameManager(0)
+void startGame() {
+	Scene * initial = new Scene(Scene::Tipo::LEVEL);
+	SceneManager::getInstance()->changeScene(initial);
+	initial->setGameManager();
+
+}
+Scene::Scene(Tipo tipo):
+	isSendingMessages(false), _gameManager(0), t_(tipo), counter_(0)
 {
-	std::string sceneDataPath = "..\\Data\\Levels\\Escena_1.xml";//Esto queda por ver cómo darle valor y tal leyendo de fichero
-	SceneData* sceneData = DataManager::getInstance()->loadScene(sceneDataPath);
-	for (auto entityData : *sceneData)
+	switch (t_)
 	{
-		Entity* newEntity = ObjectsFactory::getInstance()->create(*entityData, this);
-		entities.push_back(newEntity);
+	case MENU:
+	{
+		start_ = true;
 	}
-	delete sceneData;
+	break;
+	case LEVEL:
+	{
+		start_ = false;
+		std::string sceneDataPath = "..\\Data\\Levels\\Escena_1.xml";//Esto queda por ver cómo darle valor y tal leyendo de fichero
+		SceneData* sceneData = DataManager::getInstance()->loadScene(sceneDataPath);
+		for (auto entityData : *sceneData)
+		{
+			Entity* newEntity = ObjectsFactory::getInstance()->create(*entityData, this);
+			entities.push_back(newEntity);
+		}
+		delete sceneData;
+
+	}
+		break;
+	default:
+		break;
+	}
+	
 }
 
 Scene::~Scene()
@@ -46,6 +69,15 @@ void Scene::tick()
 		e->tick();
 		if (!e->isAlive())
 			graveland.push_back(e);
+	}
+
+	if (start_ && counter_ >= 50) {
+		start_ = false;
+		startGame();
+	}
+	else{
+
+		counter_++;
 	}
 	
 }
