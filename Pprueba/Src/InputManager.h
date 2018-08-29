@@ -37,12 +37,16 @@ public:
 	OIS::Keyboard* getKeyboard(void);
 
 
+	void stop() { stopFor = true; }
+
 	
 	static InputManager* getInstance(void);
 private:
 	InputManager(void);
 	InputManager(const InputManager&) { }
 	InputManager & operator = (const InputManager& i);
+
+	bool stopFor;
 
 	bool keyPressed(const OIS::KeyEvent &e);
 	bool keyReleased(const OIS::KeyEvent &e);

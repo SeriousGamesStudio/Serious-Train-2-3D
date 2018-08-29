@@ -6,7 +6,8 @@ InputManager *InputManager::mInputManager = nullptr;
 InputManager::InputManager(void) :
 	mMouse(0),
 	mKeyboard(0),
-	mInputSystem(0) 
+	mInputSystem(0),
+	stopFor(false)
 {
 }
 
@@ -262,10 +263,15 @@ bool InputManager::mouseMoved(const OIS::MouseEvent &e) {
 bool InputManager::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id) {
 	itMouseListener = mMouseListeners.begin();
 	itMouseListenerEnd = mMouseListeners.end();
-	for (; itMouseListener != itMouseListenerEnd; ++itMouseListener) {
+
+
+	while (!stopFor && itMouseListener != itMouseListenerEnd) {
 		if (!itMouseListener->second->mousePressed(e, id))
 			break;
+		if (!stopFor)
+			++itMouseListener;
 	}
+	stopFor = false;
 
 	return true;
 }

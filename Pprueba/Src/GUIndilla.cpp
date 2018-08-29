@@ -121,6 +121,39 @@ namespace GUIndilla {
 		return nullptr;
 	}
 
+	TextInput * GUI::createText(const Ogre::Vector4 & Dimensions, const Ogre::String & Text, const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor)
+	{
+
+		textContainer = static_cast<OverlayContainer*>(OverlayManager::getSingleton().createOverlayElement("Panel", "Texto"));
+		textContainer->setMetricsMode((Ogre::GuiMetricsMode)posType);
+		textContainer->setHorizontalAlignment((GuiHorizontalAlignment)horAnchor);
+		textContainer->setVerticalAlignment((GuiVerticalAlignment)vertAnch);
+		textContainer->setDimensions(Dimensions.x, Dimensions.y);
+		textContainer->setPosition(Dimensions.z, Dimensions.w);
+
+		TextAreaOverlayElement* textArea = static_cast<TextAreaOverlayElement*>(
+			OverlayManager::getSingleton().createOverlayElement("TextArea", Text + ".caption"));
+		textArea->setHorizontalAlignment(Ogre::GHA_CENTER);
+		textArea->setVerticalAlignment(Ogre::GVA_CENTER);
+
+		textArea->setMetricsMode(Ogre::GMM_PIXELS);
+		textArea->setPosition(0, 0);
+		textArea->setDimensions(100, 100);
+		textArea->setCaption(Text);
+		textArea->setCharHeight(16);
+		textArea->setFontName("Caption");
+		textArea->setPosition(-textArea->getWidth() / 2, -10);
+		textArea->setColourBottom(ColourValue(0.3, 0.5, 0.3));
+		textArea->setColourTop(ColourValue(0.5, 0.7, 0.5));
+		textContainer->addChild(textArea);
+
+		mO->add2D(textContainer);
+		textContainer->show();
+		mO->show();
+		
+		return nullptr;
+	}
+
 	
 	
 
@@ -132,7 +165,7 @@ namespace GUIndilla {
 		o->setZOrder(649);
 
 		mMP = static_cast<OverlayContainer*>(OverlayManager::getSingleton().createOverlayElement("Panel", "bg.mp"));
-
+		
 		mMP->setMetricsMode(Ogre::GMM_PIXELS);
 		mMP->setDimensions(dimensions.x, dimensions.y);
 		mMP->setPosition(0, 0);

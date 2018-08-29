@@ -8,10 +8,15 @@
 #include <algorithm>
 
 #include "btBulletCollisionCommon.h"
+
 void startGame() {
+
+	GraphicsManager::getInstance()->getGUI()->removeContainer(GraphicsManager::getInstance()->
+		getGUI()->getOverlaytextContainer());
 	Scene * initial = new Scene(Scene::Tipo::LEVEL);
 	SceneManager::getInstance()->changeScene(initial);
 	initial->setGameManager();
+	
 
 }
 Scene::Scene(Tipo tipo):
@@ -22,6 +27,11 @@ Scene::Scene(Tipo tipo):
 	case MENU:
 	{
 		start_ = true;
+		/*GraphicsManager::getInstance()->getGUI()->createStaticText(Ogre::Vector4(0.4, 0.4, 0.1, 0.1),
+			"Serious Train!!", GUIndilla::POSITION_TYPE::PT_REL);
+		*/
+		GraphicsManager::getInstance()->getGUI()->createText(Ogre::Vector4(0.4, 0.4, 0.1, 0.1),
+			"Serious Train!!", GUIndilla::POSITION_TYPE::PT_REL);
 	}
 	break;
 	case LEVEL:
@@ -35,6 +45,9 @@ Scene::Scene(Tipo tipo):
 			entities.push_back(newEntity);
 		}
 		delete sceneData;
+
+		GraphicsManager::getInstance()->getGUI()->createStaticImage(Ogre::Vector4(-25, -25, 50, 50), "crossAir", GUIndilla::POSITION_TYPE::PT_ABSOLUTE,
+			GUIndilla::VERTICAL_ANCHOR::VA_CENTER, GUIndilla::HORINZONTAL_ANCHOR::HA_CENTER);
 
 	}
 		break;

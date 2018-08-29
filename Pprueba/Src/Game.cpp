@@ -85,7 +85,7 @@ bool Game::start()
 	GUI * g = graphicsManager->getGUI();
 	std::function<void()> fun = stopGame;
 	g->createButton(Ogre::Vector4(0.9, 0.9, 0.1, 0.1),"bgui.button","Salir del juego",Callback(fun),POSITION_TYPE::PT_REL);
-	g->createStaticImage(Ogre::Vector4(-25, -25, 50, 50), "crossAir", POSITION_TYPE::PT_ABSOLUTE, VERTICAL_ANCHOR::VA_CENTER, HORINZONTAL_ANCHOR::HA_CENTER);
+	
 	
 	if (!soundManager->initialise())
 		printf("SoundManager no se ha iniciado \n");
