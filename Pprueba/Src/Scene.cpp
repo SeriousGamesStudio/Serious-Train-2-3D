@@ -30,7 +30,7 @@ Scene::Scene(Tipo tipo):
 		/*GraphicsManager::getInstance()->getGUI()->createStaticText(Ogre::Vector4(0.4, 0.4, 0.1, 0.1),
 			"Serious Train!!", GUIndilla::POSITION_TYPE::PT_REL);
 		*/
-		GraphicsManager::getInstance()->getGUI()->createText(Ogre::Vector4(0.4, 0.4, 0.1, 0.1),
+		GraphicsManager::getInstance()->getGUI()->createText(Ogre::Vector4(0.3, 0.3, 0.1, 0.1),
 			"Serious Train!!", GUIndilla::POSITION_TYPE::PT_REL);
 	}
 	break;

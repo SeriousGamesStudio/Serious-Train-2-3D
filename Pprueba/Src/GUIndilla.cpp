@@ -129,7 +129,7 @@ namespace GUIndilla {
 		textContainer->setHorizontalAlignment((GuiHorizontalAlignment)horAnchor);
 		textContainer->setVerticalAlignment((GuiVerticalAlignment)vertAnch);
 		textContainer->setDimensions(Dimensions.x, Dimensions.y);
-		textContainer->setPosition(Dimensions.z, Dimensions.w);
+		textContainer->setPosition(Dimensions.x, Dimensions.y);
 
 		TextAreaOverlayElement* textArea = static_cast<TextAreaOverlayElement*>(
 			OverlayManager::getSingleton().createOverlayElement("TextArea", Text + ".caption"));
@@ -140,7 +140,7 @@ namespace GUIndilla {
 		textArea->setPosition(0, 0);
 		textArea->setDimensions(100, 100);
 		textArea->setCaption(Text);
-		textArea->setCharHeight(16);
+		textArea->setCharHeight(25);
 		textArea->setFontName("Caption");
 		textArea->setPosition(-textArea->getWidth() / 2, -10);
 		textArea->setColourBottom(ColourValue(0.3, 0.5, 0.3));
