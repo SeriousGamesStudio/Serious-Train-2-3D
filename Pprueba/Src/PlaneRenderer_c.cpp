@@ -6,6 +6,7 @@ PlaneRenderer_c::PlaneRenderer_c(std::string meshName, std::string textName, int
 {
 	plane_ = GraphicsManager::getInstance()->getSceneManager()->getRootSceneNode()->createChildSceneNode("nPlane" + std::to_string(level));
 
+
 		plane = Ogre::MeshManager::getSingleton().createPlane(meshName,
 		Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
 		Ogre::Plane(Ogre::Vector3::UNIT_Y, -25),
@@ -23,9 +24,8 @@ PlaneRenderer_c::PlaneRenderer_c(std::string meshName, std::string textName, int
 
 PlaneRenderer_c::~PlaneRenderer_c()
 {
-	delete plane_;
 	Ogre::deletePtr(plane_);
-	delete &plane;
+	/*delete plane_;*/
 	
 	
 }
