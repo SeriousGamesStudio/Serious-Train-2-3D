@@ -13,10 +13,13 @@ public:
 	void pushScene(Scene* newScene);
 	void popScene();
 	void changeScene(Scene* newScene);
+	
+
 private:
 	SceneManager();
 	static SceneManager* instance;
 	std::stack<Scene*> scenes;
+	
 };
 #endif //!_H_SCENEMANAGER_H_
 

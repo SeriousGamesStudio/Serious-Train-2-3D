@@ -121,31 +121,32 @@ namespace GUIndilla {
 		return nullptr;
 	}
 
-	TextInput * GUI::createText(const Ogre::Vector4 & Dimensions, const Ogre::String & Text, const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor)
+	TextInput * GUI::createText(const Ogre::Vector4 & Dimensions, const Ogre::String & Text, const POSITION_TYPE & posType, int fontSize, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor)
 	{
 
-		textContainer = static_cast<OverlayContainer*>(OverlayManager::getSingleton().createOverlayElement("Panel", "Texto"));
+		textContainer = static_cast<OverlayContainer*>(OverlayManager::getSingleton().createOverlayElement("Panel", "Texto" + Text));
 		textContainer->setMetricsMode((Ogre::GuiMetricsMode)posType);
 		textContainer->setHorizontalAlignment((GuiHorizontalAlignment)horAnchor);
 		textContainer->setVerticalAlignment((GuiVerticalAlignment)vertAnch);
 		textContainer->setDimensions(Dimensions.x, Dimensions.y);
 		textContainer->setPosition(Dimensions.x, Dimensions.y);
 
-		TextAreaOverlayElement* textArea = static_cast<TextAreaOverlayElement*>(
+		TextAreaOverlayElement* tArea = static_cast<TextAreaOverlayElement*>(
 			OverlayManager::getSingleton().createOverlayElement("TextArea", Text + ".caption"));
-		textArea->setHorizontalAlignment(Ogre::GHA_CENTER);
-		textArea->setVerticalAlignment(Ogre::GVA_CENTER);
+		tArea->setHorizontalAlignment(Ogre::GHA_CENTER);
+		tArea->setVerticalAlignment(Ogre::GVA_CENTER);
 
-		textArea->setMetricsMode(Ogre::GMM_PIXELS);
-		textArea->setPosition(0, 0);
-		textArea->setDimensions(100, 100);
-		textArea->setCaption(Text);
-		textArea->setCharHeight(25);
-		textArea->setFontName("Caption");
-		textArea->setPosition(-textArea->getWidth() / 2, -10);
-		textArea->setColourBottom(ColourValue(0.3, 0.5, 0.3));
-		textArea->setColourTop(ColourValue(0.5, 0.7, 0.5));
-		textContainer->addChild(textArea);
+		tArea->setMetricsMode(Ogre::GMM_PIXELS);
+		tArea->setPosition(0, 0);
+		tArea->setDimensions(100, 100);
+		tArea->setCaption(Text);
+		tArea->setCharHeight(fontSize);
+		tArea->setFontName("Caption");
+		tArea->setPosition(-tArea->getWidth() / 2, -10);
+		tArea->setPosition(-tArea->getWidth() / 2, -10);
+		tArea->setColourBottom(ColourValue(0.3, 0.5, 0.3));
+		tArea->setColourTop(ColourValue(0.5, 0.7, 0.5));
+		textContainer->addChild(tArea);
 
 		mO->add2D(textContainer);
 		textContainer->show();

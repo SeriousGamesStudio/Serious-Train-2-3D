@@ -3,6 +3,7 @@
 #include "Collider_c.h"
 #include "RigidBody_c.h"
 #include "Walker_c.h"
+#include "SceneManager.h"
 #include <iostream>
 
 
@@ -22,6 +23,7 @@ EnemyBehaviour_c::EnemyBehaviour_c(Type t, bool frente) :
 	default:
 		break;
 	}
+	
 }
 
 EnemyBehaviour_c::~EnemyBehaviour_c()
@@ -36,6 +38,7 @@ void EnemyBehaviour_c::start()
 	if (!wal)
 			std::cout<< "no se ha encontrado walker"<< std::endl;
 	_myEntity->getScene()->addListiner(MsgId::RAYCAST_HIT, this);
+	
 }
 
 void EnemyBehaviour_c::update()
@@ -71,8 +74,10 @@ void EnemyBehaviour_c::listen(Msg_Base * msg)
 			at.hp -= p->dmg_;
 			sendMsg(new Msg::EnemyFeedback(_myEntity->getId(), Msg_Base::self));
 			feedback_ = true;
-			if (at.hp <= 0) 
+			if (at.hp <= 0) {
 				destroyMyEntity(); // destroy entity 
+				SceneManager::getInstance()->currentScene()->restaEnemigo();
+			}
 		}
 		break;
 	}

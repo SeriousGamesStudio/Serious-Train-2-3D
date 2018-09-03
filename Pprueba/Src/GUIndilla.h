@@ -15,6 +15,7 @@
 
 
 using namespace std;
+
 namespace GUIndilla {
 
 	class GUI;
@@ -68,7 +69,7 @@ namespace GUIndilla {
 		Button * createButton(const Ogre::Vector4 & Dimensions, const Ogre::String & M, const Ogre::String & T, const Callback & C,  const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch = VERTICAL_ANCHOR::VA_TOP , const HORINZONTAL_ANCHOR & horAnchor= HORINZONTAL_ANCHOR::HA_LEFT);
 		Button * createStaticImage(const Ogre::Vector4 & Dimensions, const Ogre::String & Material,const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch = VERTICAL_ANCHOR::VA_TOP, const HORINZONTAL_ANCHOR & horAnchor = HORINZONTAL_ANCHOR::HA_LEFT);
 		Button * createStaticText(const Ogre::Vector4 & Dimensions, const Ogre::String & Text, const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch = VERTICAL_ANCHOR::VA_TOP, const HORINZONTAL_ANCHOR & horAnchor = HORINZONTAL_ANCHOR::HA_LEFT);
-		TextInput * createText(const Ogre::Vector4 & Dimensions, const Ogre::String & Text, const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch = VERTICAL_ANCHOR::VA_TOP, const HORINZONTAL_ANCHOR & horAnchor = HORINZONTAL_ANCHOR::HA_LEFT);
+		TextInput * createText(const Ogre::Vector4 & Dimensions, const Ogre::String & Text, const POSITION_TYPE & posType, int fontSize, const VERTICAL_ANCHOR & vertAnch = VERTICAL_ANCHOR::VA_TOP, const HORINZONTAL_ANCHOR & horAnchor = HORINZONTAL_ANCHOR::HA_LEFT);
 
 		void removeContainer(Ogre::OverlayContainer* cont) { delete cont; cont = nullptr; }
 
@@ -83,6 +84,7 @@ namespace GUIndilla {
 		std::vector<Button*> Elementos;                    // Botones in
 		std::vector<Button*> botones;                    // Botones in
 		Ogre::OverlayContainer* textContainer;
+		
 
 		Window *mXW;                        // Window to destroy
 		MousePointer* mousePointer;                // Mouse Pointer Overlay

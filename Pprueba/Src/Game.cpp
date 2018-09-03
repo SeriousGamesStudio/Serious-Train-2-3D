@@ -13,7 +13,7 @@ void stopGame() {
 	Game::getInstance()->stop();
 }
 
-Game::Game()
+Game::Game(): level(1)
 {
 }
 

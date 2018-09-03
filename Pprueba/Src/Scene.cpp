@@ -9,16 +9,15 @@
 
 #include "btBulletCollisionCommon.h"
 
-void startGame() {
+void changeScene(Scene::Tipo tipo) {
 
 	GraphicsManager::getInstance()->getGUI()->removeContainer(GraphicsManager::getInstance()->
 		getGUI()->getOverlaytextContainer());
-	Scene * initial = new Scene(Scene::Tipo::LEVEL);
+	Scene * initial = new Scene(tipo);
 	SceneManager::getInstance()->changeScene(initial);
 	initial->setGameManager();
-	
-
 }
+
 Scene::Scene(Tipo tipo):
 	isSendingMessages(false), _gameManager(0), t_(tipo), counter_(0)
 {
@@ -30,13 +29,15 @@ Scene::Scene(Tipo tipo):
 		/*GraphicsManager::getInstance()->getGUI()->createStaticText(Ogre::Vector4(0.4, 0.4, 0.1, 0.1),
 			"Serious Train!!", GUIndilla::POSITION_TYPE::PT_REL);
 		*/
+		
 		GraphicsManager::getInstance()->getGUI()->createText(Ogre::Vector4(0.3, 0.3, 0.1, 0.1),
-			"Serious Train!!", GUIndilla::POSITION_TYPE::PT_REL);
+			"Level " + std::to_string(Game::getInstance()->getLevel()), GUIndilla::POSITION_TYPE::PT_REL, 25);
 	}
 	break;
 	case LEVEL:
 	{
 		start_ = false;
+		numEnemigos_ = 0;
 		std::string sceneDataPath = "..\\Data\\Levels\\Escena_1.xml";//Esto queda por ver cómo darle valor y tal leyendo de fichero
 		SceneData* sceneData = DataManager::getInstance()->loadScene(sceneDataPath);
 		for (auto entityData : *sceneData)
@@ -46,8 +47,21 @@ Scene::Scene(Tipo tipo):
 		}
 		delete sceneData;
 
+		/*GraphicsManager::getInstance()->getGUI()->createText(Ogre::Vector4(0.3, 0.3, 0.1, 0.1),
+			"Serious Train!!", GUIndilla::POSITION_TYPE::PT_REL);*/
+
 		GraphicsManager::getInstance()->getGUI()->createStaticImage(Ogre::Vector4(-25, -25, 50, 50), "crossAir", GUIndilla::POSITION_TYPE::PT_ABSOLUTE,
 			GUIndilla::VERTICAL_ANCHOR::VA_CENTER, GUIndilla::HORINZONTAL_ANCHOR::HA_CENTER);
+
+		for (auto i : entities) {
+			if (i->getComponent(ComponentType::ENEMYBEHAVIOUR))
+				numEnemigos_++;
+		}
+		
+			
+		enRes_ =  std::to_string(numEnemigos_) + " enemies ";
+		GraphicsManager::getInstance()->getGUI()->createText(Ogre::Vector4(0.05, 0.05, 0.9, 0.9),
+			enRes_, GUIndilla::POSITION_TYPE::PT_REL, 20);
 
 	}
 		break;
@@ -86,7 +100,7 @@ void Scene::tick()
 
 	if (start_ && counter_ >= 50) {
 		start_ = false;
-		startGame();
+		changeScene(Scene::Tipo::LEVEL);
 	}
 	else{
 
@@ -156,6 +170,26 @@ void Scene::setGameManager()
 		_gameManager->init();
 	}
 
+}
+
+void Scene::restaEnemigo()
+{
+	
+	numEnemigos_--;
+	if (numEnemigos_ == 0) {
+		//cambiar menu ppal
+		Game::getInstance()->levelUp();
+		//changeScene(Scene::Tipo::MENU);
+	}
+	else
+	{
+
+	enRes_ = std::to_string(numEnemigos_) + " enemies ";
+	GraphicsManager::getInstance()->getGUI()->removeContainer(GraphicsManager::getInstance()->
+		getGUI()->getOverlaytextContainer());
+	GraphicsManager::getInstance()->getGUI()->createText(Ogre::Vector4(0.05, 0.05, 0.9, 0.9),
+		enRes_, GUIndilla::POSITION_TYPE::PT_REL, 23);
+	}
 }
 
 std::string const Scene::getNameOf(EntityId id)

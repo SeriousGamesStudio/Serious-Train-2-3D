@@ -6,7 +6,7 @@
 #include "Component.h"
 #include "Components.h"
 #include "Scene.h"
-
+#include "Game.h"
 
 #include "Camera_c.h"
 #include "PlayerController_c.h"
@@ -113,7 +113,7 @@ Component * ObjectsFactory::buildComponent(ComponentType componentType, Componen
 	case ComponentType::PLANERENDERER: 
 		{
 			auto* c = static_cast<ComponentConstructors::PlaneRenderer*>(info);
-			newComponent = new PlaneRenderer_c(c->meshPath, c->texturePath);
+			newComponent = new PlaneRenderer_c(c->meshPath, c->texturePath, Game::getInstance()->getLevel());
 		}
 		break;
 	case ComponentType::WALKER: 

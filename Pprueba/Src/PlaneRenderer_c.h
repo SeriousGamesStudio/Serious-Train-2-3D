@@ -11,11 +11,12 @@ class PlaneRenderer_c:
 	public Component
 {
 public:
-	PlaneRenderer_c(std::string meshName, std::string textName);
+	PlaneRenderer_c(std::string meshName, std::string textName, int level);
 	~PlaneRenderer_c();
 
 private:
 	Ogre::SceneNode* plane_;
+	Ogre::MeshPtr plane;
 };
 
 #endif //!_H_PLANERENDERER_H_

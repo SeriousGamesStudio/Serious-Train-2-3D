@@ -43,6 +43,8 @@ public:
 	Entity* whoIs(std::string name);
 
 	void setGameManager();
+	void restaEnemigo();
+	
 
 	inline GameManager_c* getGameManager() { return (GameManager_c*)_gameManager->getComponent(ComponentType::GAMEMANAGER); }
 
@@ -61,6 +63,9 @@ private:
 	Tipo t_;
 	int counter_;
 	bool start_;
+	int numEnemigos_;
+	std::string enRes_;
+	std::string level;
 
 	bool isSendingMessages;
 	void _msgDeliver();

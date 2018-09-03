@@ -24,13 +24,20 @@ public:
 		return (float)deltaTime;
 	}; 
 
+	void levelUp() { level++; }
+
 	void run();
+	inline int getLevel() { return level; }
+
 
 private:
 	Game();
 	static Game* instance;
 
 private:
+	
+	int level;
+
 	bool exit;
 	SceneManager *sceneManager;
 	InputManager * inputManager;
