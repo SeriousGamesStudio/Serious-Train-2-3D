@@ -17,6 +17,9 @@ public:
 private:
 	Ogre::SceneNode* plane_;
 	Ogre::MeshPtr plane;
+	std::string meshName_;
+	int level_;
+	Ogre::Entity* ent;
 };
 
 #endif //!_H_PLANERENDERER_H_

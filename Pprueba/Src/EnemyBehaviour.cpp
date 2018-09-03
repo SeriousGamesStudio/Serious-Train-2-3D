@@ -72,13 +72,17 @@ void EnemyBehaviour_c::listen(Msg_Base * msg)
 		if ((btCollisionObject*)p->collisionWith_ == &col->getCollisionObject())
 		{
 			at.hp -= p->dmg_;
-			sendMsg(new Msg::EnemyFeedback(_myEntity->getId(), Msg_Base::self));
-			feedback_ = true;
 			if (at.hp <= 0) {
 				destroyMyEntity(); // destroy entity 
 				SceneManager::getInstance()->currentScene()->restaEnemigo();
 			}
+			else
+			{
+				sendMsg(new Msg::EnemyFeedback(_myEntity->getId(), Msg_Base::self));
+				feedback_ = true;
+			}
 		}
+		
 		break;
 	}
 	default:

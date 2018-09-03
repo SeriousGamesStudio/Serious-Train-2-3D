@@ -169,7 +169,7 @@ Ogre::SceneNode * GraphicsManager::createNewNode(std::string meshPath, std::stri
 	try {
 		Ogre::Entity* aux;
 		newNode = scnMgr->getRootSceneNode()->createChildSceneNode();
-		aux = scnMgr->createEntity(meshName, meshPath);
+		aux = scnMgr->createEntity(meshName + std::to_string(Game::getInstance()->getLevel()), meshPath);
 		newNode->attachObject(aux);
 		ent_.push_back(aux);
 	}

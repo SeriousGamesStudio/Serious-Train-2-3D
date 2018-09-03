@@ -54,7 +54,8 @@ void MeshRenderer_c::listen(Msg_Base* msg)
 		break;		
 	case MsgId::TEXTURE_RESET:
 	{
-		GraphicsManager::getInstance()->getOgreEntity()[_myEntity->getId() - 4]->setMaterial(mat2);
+		if(GraphicsManager::getInstance()->getOgreEntity()[_myEntity->getId() - 4] != nullptr)
+			GraphicsManager::getInstance()->getOgreEntity()[_myEntity->getId() - 4]->setMaterial(mat2);
 	}
 		break;
 	default:

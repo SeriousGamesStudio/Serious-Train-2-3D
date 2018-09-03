@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scene>
-  <!-->Player <!-->
+  <!-->Player <!--><!--
   <Entity name="Player">
     <Component type= "Walker"/>
     <Component type= "Camera"/>
@@ -45,21 +45,21 @@
       </Rotation>
     </Component>
   </Entity>
-  <!-->Suelo<!-->
+  --><!-->Suelo<!--><!--
   <Entity name= "Ground">
     <Component type= "PlaneRenderer">
       <MeshPath>suelo</MeshPath>
       <TexturePath>floor_diffuse.PNG</TexturePath>
     </Component>
   </Entity>
-  <!-->Cielo<!-->
+  --><!-->Cielo<!--><!--
   <Entity name = "Sky">
     <Component type= "SkyRenderer">
       <Material>MySky</Material>
       <Active>true</Active>
     </Component>
   </Entity>
-  <!-->vagones<!-->
+  --><!-->vagones<!--><!--
   <Entity name = "vagon">
     <Component type= "MeshRenderer">
       <MeshPath>vagon.mesh</MeshPath>
@@ -191,7 +191,7 @@
         <w>1</w>
       </Rotation>
     </Component>
-  </Entity>
+  </Entity>-->
 
   <!--Robot1-->
   <Entity name = "Enemy0">
@@ -245,59 +245,5 @@
     <Component type= "Animation">
       <AnimationName>Walk</AnimationName>
     </Component>
-  </Entity>
-  <!--Robot2-->
-  <Entity name = "Enemy1">
-    <Component type = "MeshRenderer">
-      <MeshPath>robot.mesh</MeshPath>
-      <Scale>0.4</Scale>
-    </Component>
-    <Component type = "EnemyBehaiviour">
-      <Type>Normal</Type>
-      <Frente>false</Frente>
-    </Component>
-    <Component type = "Walker"/>
-    <Component type = "Collider">
-      <Shape>CYLINDER</Shape>
-      <Dimensions>
-        <RadiousX> 5 </RadiousX>
-        <Height>  70 </Height>
-        <RadiousZ> 5 </RadiousZ>
-      </Dimensions>
-      <Position>
-        <x>0</x>
-        <y>300</y>
-        <z>0</z>
-      </Position>
-      <Rotation>
-        <x>0</x>
-        <y>0</y>
-        <z>1</z>
-        <w>0</w>
-      </Rotation>
-      <Mass>5</Mass>
-      <Inertia>
-        <x>0</x>
-        <y>0</y>
-        <z>0</z>
-      </Inertia>
-    </Component>
-    <Component type = "Transform">
-      <Position>
-        <x>100.863</x>
-        <y>-20</y>
-        <z>1243.07</z>
-      </Position>
-      <Rotation>
-        <x>0</x>
-        <y>-3.1416</y>
-        <z>0</z>
-        <w>-3.1416</w>
-      </Rotation>
-    </Component>
-    <Component type= "Animation">
-      <AnimationName>Walk</AnimationName>
-    </Component>
-  </Entity>
-  
+  </Entity>  
 </Scene>

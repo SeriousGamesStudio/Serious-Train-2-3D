@@ -19,7 +19,7 @@ void changeScene(Scene::Tipo tipo) {
 }
 
 Scene::Scene(Tipo tipo):
-	isSendingMessages(false), _gameManager(0), t_(tipo), counter_(0)
+	isSendingMessages(false), _gameManager(0), t_(tipo), counter_(0), endLevel_(false)
 {
 	switch (t_)
 	{
@@ -37,8 +37,14 @@ Scene::Scene(Tipo tipo):
 	case LEVEL:
 	{
 		start_ = false;
-		numEnemigos_ = 0;
-		std::string sceneDataPath = "..\\Data\\Levels\\Escena_1.xml";//Esto queda por ver cómo darle valor y tal leyendo de fichero
+		numEnemigos_ = 0; 
+		std::string sceneDataPath;
+		if (Game::getInstance()->getLevel() == 1) 
+		{
+			sceneDataPath = "..\\Data\\Levels\\Escena_1.xml";//Esto queda por ver cómo darle valor y tal leyendo de fichero
+		}
+		else 
+			sceneDataPath = "..\\Data\\Levels\\Escena_2.xml";
 		SceneData* sceneData = DataManager::getInstance()->loadScene(sceneDataPath);
 		for (auto entityData : *sceneData)
 		{
@@ -78,6 +84,7 @@ Scene::~Scene()
 		delete e;
 		e = nullptr;
 	}
+	entities.clear();
 }
 
 ///////////////////////////////TICK///////////////////////////////////////
@@ -102,11 +109,15 @@ void Scene::tick()
 		start_ = false;
 		changeScene(Scene::Tipo::LEVEL);
 	}
-	else{
+	else if (start_ && counter_ < 50){
 
 		counter_++;
 	}
-	
+	if (endLevel_ && counter_ >= 50) {
+		endLevel_ = false;
+		changeScene(Scene::Tipo::MENU);
+	}
+	else if (endLevel_ && counter_ < 50)  counter_++;
 }
 ///////////////////////////////TICK///////////////////////////////////////
 
@@ -179,7 +190,8 @@ void Scene::restaEnemigo()
 	if (numEnemigos_ == 0) {
 		//cambiar menu ppal
 		Game::getInstance()->levelUp();
-		//changeScene(Scene::Tipo::MENU);
+		endLevel_ = true;
+		
 	}
 	else
 	{

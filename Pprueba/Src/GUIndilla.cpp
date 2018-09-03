@@ -1,5 +1,6 @@
 #include "GUIndilla.h"
 #include <OgreTextAreaOverlayElement.h>
+#include "Game.h"
 #include "InputManager.h"
 using namespace Ogre;
 using namespace std;
@@ -124,7 +125,7 @@ namespace GUIndilla {
 	TextInput * GUI::createText(const Ogre::Vector4 & Dimensions, const Ogre::String & Text, const POSITION_TYPE & posType, int fontSize, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor)
 	{
 
-		textContainer = static_cast<OverlayContainer*>(OverlayManager::getSingleton().createOverlayElement("Panel", "Texto" + Text));
+		textContainer = static_cast<OverlayContainer*>(OverlayManager::getSingleton().createOverlayElement("Panel", "Texto" + Text + std::to_string(Game::getInstance()->getLevel())));
 		textContainer->setMetricsMode((Ogre::GuiMetricsMode)posType);
 		textContainer->setHorizontalAlignment((GuiHorizontalAlignment)horAnchor);
 		textContainer->setVerticalAlignment((GuiVerticalAlignment)vertAnch);
@@ -132,7 +133,7 @@ namespace GUIndilla {
 		textContainer->setPosition(Dimensions.x, Dimensions.y);
 
 		TextAreaOverlayElement* tArea = static_cast<TextAreaOverlayElement*>(
-			OverlayManager::getSingleton().createOverlayElement("TextArea", Text + ".caption"));
+			OverlayManager::getSingleton().createOverlayElement("TextArea", Text + std::to_string(Game::getInstance()->getLevel()) + ".caption"));
 		tArea->setHorizontalAlignment(Ogre::GHA_CENTER);
 		tArea->setVerticalAlignment(Ogre::GVA_CENTER);
 

@@ -66,6 +66,7 @@ private:
 	int numEnemigos_;
 	std::string enRes_;
 	std::string level;
+	bool endLevel_;
 
 	bool isSendingMessages;
 	void _msgDeliver();
