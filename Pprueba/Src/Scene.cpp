@@ -117,7 +117,12 @@ void Scene::tick()
 		endLevel_ = false;
 		changeScene(Scene::Tipo::MENU);
 	}
-	else if (endLevel_ && counter_ < 50)  counter_++;
+	else if (endLevel_ && counter_ < 50) {
+		counter_++;
+		for (Entity* e : entities) {
+			e->destroy();
+		}
+	}
 }
 ///////////////////////////////TICK///////////////////////////////////////
 

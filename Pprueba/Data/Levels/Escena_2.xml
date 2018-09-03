@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scene>
-  <!-->Player <!--><!--
+  <!-->Player <!-->
   <Entity name="Player">
     <Component type= "Walker"/>
     <Component type= "Camera"/>
@@ -45,21 +45,21 @@
       </Rotation>
     </Component>
   </Entity>
-  --><!-->Suelo<!--><!--
+  <!-->Suelo<!-->
   <Entity name= "Ground">
     <Component type= "PlaneRenderer">
       <MeshPath>suelo</MeshPath>
       <TexturePath>floor_diffuse.PNG</TexturePath>
     </Component>
   </Entity>
-  --><!-->Cielo<!--><!--
+  <!-->Cielo<!-->
   <Entity name = "Sky">
     <Component type= "SkyRenderer">
       <Material>MySky</Material>
       <Active>true</Active>
     </Component>
   </Entity>
-  --><!-->vagones<!--><!--
+  <!-->vagones<!-->
   <Entity name = "vagon">
     <Component type= "MeshRenderer">
       <MeshPath>vagon.mesh</MeshPath>
@@ -191,7 +191,7 @@
         <w>1</w>
       </Rotation>
     </Component>
-  </Entity>-->
+  </Entity>
 
   <!--Robot1-->
   <Entity name = "Enemy0">
