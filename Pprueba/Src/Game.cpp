@@ -33,9 +33,9 @@ Game::~Game()
 	// se eleminan automaáticamente cuando salen de scope?
 	delete sceneManager;
 	delete soundManager;
-	delete graphicsManager;
 	delete physicsManager;
 	delete inputManager;
+	delete graphicsManager;
 	instance = nullptr;
 }
 

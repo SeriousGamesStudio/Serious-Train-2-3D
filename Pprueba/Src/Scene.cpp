@@ -25,13 +25,18 @@ Scene::Scene(Tipo tipo):
 	{
 	case MENU:
 	{
-		start_ = true;
-		/*GraphicsManager::getInstance()->getGUI()->createStaticText(Ogre::Vector4(0.4, 0.4, 0.1, 0.1),
-			"Serious Train!!", GUIndilla::POSITION_TYPE::PT_REL);
-		*/
-		
+		if (Game::getInstance()->getLevel() == 3) {
+			start_ = false;
+			GraphicsManager::getInstance()->getGUI()->createText(Ogre::Vector4(0.3, 0.3, 0.1, 0.1),
+				"Well done!! ", GUIndilla::POSITION_TYPE::PT_REL, 25);
+			GraphicsManager::getInstance()->toggleMouse(true);  // esto es para que salga el raton el la ultima pantalla
+		}
+		else {
+
+		start_ = true;		
 		GraphicsManager::getInstance()->getGUI()->createText(Ogre::Vector4(0.3, 0.3, 0.1, 0.1),
 			"Level " + std::to_string(Game::getInstance()->getLevel()), GUIndilla::POSITION_TYPE::PT_REL, 25);
+		}
 	}
 	break;
 	case LEVEL:
@@ -192,21 +197,21 @@ void Scene::restaEnemigo()
 {
 	
 	numEnemigos_--;
+	enRes_ = std::to_string(numEnemigos_) + " enemies ";
+	GraphicsManager::getInstance()->getGUI()->removeContainer(GraphicsManager::getInstance()->
+		getGUI()->getOverlaytextContainer());
+	GraphicsManager::getInstance()->getGUI()->createText(Ogre::Vector4(0.05, 0.05, 0.9, 0.9),
+		enRes_, GUIndilla::POSITION_TYPE::PT_REL, 23);
+
 	if (numEnemigos_ == 0) {
 		//cambiar menu ppal
 		Game::getInstance()->levelUp();
 		endLevel_ = true;
 		
 	}
-	else
-	{
+	
 
-	enRes_ = std::to_string(numEnemigos_) + " enemies ";
-	GraphicsManager::getInstance()->getGUI()->removeContainer(GraphicsManager::getInstance()->
-		getGUI()->getOverlaytextContainer());
-	GraphicsManager::getInstance()->getGUI()->createText(Ogre::Vector4(0.05, 0.05, 0.9, 0.9),
-		enRes_, GUIndilla::POSITION_TYPE::PT_REL, 23);
-	}
+	
 }
 
 std::string const Scene::getNameOf(EntityId id)

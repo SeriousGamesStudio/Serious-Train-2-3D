@@ -14,9 +14,11 @@ GraphicsManager::GraphicsManager() :
 
 GraphicsManager::~GraphicsManager()
 {
-	delete _GUI;
 	//delete overlaySystem;
 	delete root;
+	delete _GUI;
+	/*root = nullptr;
+	overlaySystem = nullptr;*/
 	instance = nullptr;
 }
 
@@ -81,7 +83,7 @@ bool GraphicsManager::start()
 	//------------------------------------------------------------------------------------------------------
 	//Render Window Creation
 	mWindow = root->initialise(true, "Serious Train");
-
+	
 	//------------------------------------------------------------------------------------------------------
 	//Resources Init
 

@@ -2,6 +2,7 @@
 #include "GraphicsManager.h"
 #include "Entity.h"
 #include "Transform_c.h"
+#include "Game.h"
 MeshRenderer_c::MeshRenderer_c(std::string meshName, float scale) :
 	Component(ComponentType::MESHRENDERER)
 {
@@ -49,13 +50,19 @@ void MeshRenderer_c::listen(Msg_Base* msg)
 		break;
 	case MsgId::ENEMY_FEEDBACK:
 	{
-		GraphicsManager::getInstance()->getOgreEntity()[_myEntity->getId() - 4]->setMaterial(mat);
+		if (Game::getInstance()->getLevel() == 1)
+			GraphicsManager::getInstance()->getOgreEntity()[_myEntity->getId() - 4]->setMaterial(mat);
+		else if (Game::getInstance()->getLevel() == 2)
+			GraphicsManager::getInstance()->getOgreEntity()[_myEntity->getId() - 7]->setMaterial(mat);
 	}
 		break;		
 	case MsgId::TEXTURE_RESET:
 	{
-		if(GraphicsManager::getInstance()->getOgreEntity().size() > 5)
+		if(Game::getInstance()->getLevel() == 1)
 			GraphicsManager::getInstance()->getOgreEntity()[_myEntity->getId() - 4]->setMaterial(mat2);
+		else if(Game::getInstance()->getLevel() == 2)
+			GraphicsManager::getInstance()->getOgreEntity()[_myEntity->getId() - 7]->setMaterial(mat2);
+
 	}
 		break;
 	default:
