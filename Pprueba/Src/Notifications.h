@@ -5,7 +5,8 @@ using EntityId = unsigned int;
 
 enum class MsgId : unsigned int
 {
-	EXIT, CHANGED_POSITION, PLAYER_MOVE,  CAMERA_ORIENTATE, LOOKING_TO, RAYCAST_HIT, TOGGLE_MOUSE, ENEMY_FEEDBACK, TEXTURE_RESET
+	EXIT, CHANGED_POSITION, PLAYER_MOVE,  CAMERA_ORIENTATE, LOOKING_TO, RAYCAST_HIT, 
+	TOGGLE_MOUSE, ENEMY_FEEDBACK, TEXTURE_RESET, DAMAGE_TRAIN
 };
 
 struct Msg_Base
@@ -115,6 +116,19 @@ namespace Msg
 		{};
 		~TextureReset() {};
 
+
+	};
+	struct DamageTrain :
+		public Msg_Base
+	{
+	public:
+
+		DamageTrain(EntityId sender, EntityId reciver, int dmg) :
+			Msg_Base(MsgId::DAMAGE_TRAIN, sender, reciver), dmg_(dmg)
+		{};
+		~DamageTrain() {};
+
+		int dmg_;
 
 	};
 	

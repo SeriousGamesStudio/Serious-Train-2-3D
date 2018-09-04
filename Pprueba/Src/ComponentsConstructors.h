@@ -386,7 +386,7 @@ namespace ComponentConstructors {
 		float cadency;
 	private:
 		void parse(rapidxml::xml_node<>* src) 
-		{
+		{ 
 			range = std::stof(src->first_node()->value());
 			damage = std::stoi(src->first_node()->next_sibling("Damage")->value());
 			cadency = std::stof(src->first_node()->next_sibling("Cadency")->value());
@@ -422,6 +422,20 @@ namespace ComponentConstructors {
 		{			
 			material = src->first_node("Material")->value();
 			active = stringToBool(src->first_node()->next_sibling("Active")->value());
+		}
+	};
+	class TrainHP :
+		public ComponentConstructor
+	{
+	public:
+		TrainHP(rapidxml::xml_node<>* src) : ComponentConstructor() { parse(src); }
+		~TrainHP() {};
+
+		int life;
+	private:
+		void parse(rapidxml::xml_node<>* src)
+		{
+			life = std::stof(src->first_node()->value());			
 		}
 	};
 };

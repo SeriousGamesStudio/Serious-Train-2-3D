@@ -58,8 +58,7 @@ Scene::Scene(Tipo tipo):
 		}
 		delete sceneData;
 
-		/*GraphicsManager::getInstance()->getGUI()->createText(Ogre::Vector4(0.3, 0.3, 0.1, 0.1),
-			"Serious Train!!", GUIndilla::POSITION_TYPE::PT_REL);*/
+		
 
 		GraphicsManager::getInstance()->getGUI()->createStaticImage(Ogre::Vector4(-25, -25, 50, 50), "crossAir", GUIndilla::POSITION_TYPE::PT_ABSOLUTE,
 			GUIndilla::VERTICAL_ANCHOR::VA_CENTER, GUIndilla::HORINZONTAL_ANCHOR::HA_CENTER);
@@ -72,7 +71,7 @@ Scene::Scene(Tipo tipo):
 			
 		enRes_ =  std::to_string(numEnemigos_) + " enemies ";
 		GraphicsManager::getInstance()->getGUI()->createText(Ogre::Vector4(0.05, 0.05, 0.9, 0.9),
-			enRes_, GUIndilla::POSITION_TYPE::PT_REL, 20);
+			enRes_, GUIndilla::POSITION_TYPE::PT_REL, 25);
 
 	}
 		break;
@@ -201,7 +200,7 @@ void Scene::restaEnemigo()
 	GraphicsManager::getInstance()->getGUI()->removeContainer(GraphicsManager::getInstance()->
 		getGUI()->getOverlaytextContainer());
 	GraphicsManager::getInstance()->getGUI()->createText(Ogre::Vector4(0.05, 0.05, 0.9, 0.9),
-		enRes_, GUIndilla::POSITION_TYPE::PT_REL, 23);
+		enRes_, GUIndilla::POSITION_TYPE::PT_REL, 25);
 
 	if (numEnemigos_ == 0) {
 		//cambiar menu ppal

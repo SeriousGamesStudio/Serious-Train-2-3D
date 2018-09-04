@@ -124,7 +124,7 @@ namespace GUIndilla {
 
 	TextInput * GUI::createText(const Ogre::Vector4 & Dimensions, const Ogre::String & Text, const POSITION_TYPE & posType, int fontSize, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor)
 	{
-
+		
 		textContainer = static_cast<OverlayContainer*>(OverlayManager::getSingleton().createOverlayElement("Panel", "Texto" + Text + std::to_string(Game::getInstance()->getLevel())));
 		textContainer->setMetricsMode((Ogre::GuiMetricsMode)posType);
 		textContainer->setHorizontalAlignment((GuiHorizontalAlignment)horAnchor);
@@ -153,6 +153,41 @@ namespace GUIndilla {
 		textContainer->show();
 		mO->show();
 		
+		return nullptr;
+	}
+
+	TextInput * GUI::createTextTrainHp(const Ogre::Vector4 & Dimensions, const Ogre::String & Text, 
+		const POSITION_TYPE & posType, int fontSize, float colorR, float colorG, float colorB,const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor)
+	{
+		trainhpContainer = static_cast<OverlayContainer*>(OverlayManager::getSingleton().createOverlayElement("Panel", "Texto" + Text + std::to_string(Game::getInstance()->getLevel())));
+		trainhpContainer->setMetricsMode((Ogre::GuiMetricsMode)posType);
+		trainhpContainer->setHorizontalAlignment((GuiHorizontalAlignment)horAnchor);
+		trainhpContainer->setVerticalAlignment((GuiVerticalAlignment)vertAnch);
+		trainhpContainer->setDimensions(Dimensions.x, Dimensions.y);
+		trainhpContainer->setPosition(Dimensions.x, Dimensions.y);
+
+		TextAreaOverlayElement* tArea = static_cast<TextAreaOverlayElement*>(
+			OverlayManager::getSingleton().createOverlayElement("TextArea", Text + std::to_string(Game::getInstance()->getLevel()) + ".caption"));
+		tArea->setHorizontalAlignment(Ogre::GHA_CENTER);
+		tArea->setVerticalAlignment(Ogre::GVA_CENTER);
+
+		tArea->setMetricsMode(Ogre::GMM_PIXELS);
+		tArea->setPosition(0, 0);
+		tArea->setDimensions(100, 100);
+		tArea->setCaption(Text);
+		tArea->setCharHeight(fontSize);
+		tArea->setFontName("Caption");
+		tArea->setPosition(-tArea->getWidth() / 2, -10);
+		tArea->setPosition(-tArea->getWidth() / 2, -10);
+		tArea->setColourBottom(ColourValue(colorR - 0.2, colorG - 0.2, colorB - 0.2));
+		tArea->setColourTop(ColourValue(colorR, colorG, colorB));
+		trainhpContainer->addChild(tArea);
+
+		mO->add2D(trainhpContainer);
+		trainhpContainer->show();
+		mO->show();
+
+		return nullptr;
 		return nullptr;
 	}
 

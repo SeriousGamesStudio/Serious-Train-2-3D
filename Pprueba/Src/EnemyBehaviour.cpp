@@ -8,7 +8,7 @@
 
 
 EnemyBehaviour_c::EnemyBehaviour_c(Type t, bool frente) :
-	Component(ComponentType::ENEMYBEHAVIOUR), feedback_(false), counter(0)
+	Component(ComponentType::ENEMYBEHAVIOUR), feedback_(false), counter(0), lifeCounter_(0)
 
 {
 	dir = (frente) ? 1 : -1;
@@ -45,8 +45,17 @@ void EnemyBehaviour_c::update()
 {
 	
 	if (col->getCollisionObject().getWorldTransform().getOrigin().getZ() <= 50 &&
-		col->getCollisionObject().getWorldTransform().getOrigin().getZ() >= -28)
+		col->getCollisionObject().getWorldTransform().getOrigin().getZ() >= -28) 
+	{
 		wal->setDirection(0, 0);
+		if(lifeCounter_ >= 30)
+		{
+			sendMsg(new Msg::DamageTrain(_myEntity->getId(), Msg_Base::broadcast, at.dmg));
+			lifeCounter_ = 0;
+		}
+		else lifeCounter_++;
+
+	}
 	else
 		wal->setDirection(0, at.vel * dir);
 
@@ -58,6 +67,8 @@ void EnemyBehaviour_c::update()
 	}
 	else
 		counter++;
+
+
 }
 
 

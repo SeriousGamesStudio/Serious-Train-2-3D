@@ -29,6 +29,7 @@
 #include "Walker_c.h"
 #include "PlaneRenderer_c.h"
 #include "SkyRenderer_c.h"
+#include "TrainHP_c.h"
 
  ObjectsFactory* ObjectsFactory::instance = nullptr;
 
@@ -153,6 +154,13 @@ Component * ObjectsFactory::buildComponent(ComponentType componentType, Componen
 		auto* c = static_cast<ComponentConstructors::SkyRenderer*>(info);
 		newComponent = new SkyRenderer_c(c->active, c->material);
 	}
+	break;
+	case ComponentType::TRAINHP:
+	{
+		auto* c = static_cast<ComponentConstructors::TrainHP*>(info);
+		newComponent = new TrainHP_c(c->life);
+	}
+	break;
 	default: 
 		break;
 	}

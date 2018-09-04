@@ -13,7 +13,7 @@ struct Attributes
 
 const Attributes  normal = 
 //Hp, dmg, vel
-{ 150, 50 , 100};
+{ 150, 1 , 100};
 
 const Attributes  fly2fly =
 //Hp, dmg, vel
@@ -42,9 +42,11 @@ private:
 	RigidBody_c* rb;
 	Walker_c* wal;
 	int dir;
+	
 
 	bool feedback_;
 	int counter;
+	int lifeCounter_;
 	
 };
 

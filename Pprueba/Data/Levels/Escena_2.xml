@@ -103,6 +103,9 @@
         <w>1</w>
       </Rotation>
     </Component>
+    <Component type= "TrainHP">
+    <Life>100</Life>
+    </Component>
   </Entity>
   <Entity name = "vagon1">
     <Component type= "MeshRenderer">

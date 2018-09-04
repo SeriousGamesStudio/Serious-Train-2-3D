@@ -43,6 +43,7 @@
     <ClInclude Include="..\..\Src\SoundListener_c.h" />
     <ClInclude Include="..\..\Src\SoundManager.h" />
     <ClInclude Include="..\..\Src\Sound_c.h" />
+    <ClInclude Include="..\..\Src\TrainHP_c.h" />
     <ClInclude Include="..\..\Src\Transform_c.h" />
     <ClInclude Include="..\..\Src\TrashCollector.h" />
     <ClInclude Include="..\..\Src\Walker_c.h" />
@@ -78,6 +79,7 @@
     <ClCompile Include="..\..\Src\SoundListener_c.cpp" />
     <ClCompile Include="..\..\Src\SoundManager.cpp" />
     <ClCompile Include="..\..\Src\Sound_c.cpp" />
+    <ClCompile Include="..\..\Src\TrainHP_c.cpp" />
     <ClCompile Include="..\..\Src\Transform_c.cpp" />
     <ClCompile Include="..\..\Src\Walker_c.cpp" />
     <ClCompile Include="..\..\Src\Weapon_c.cpp" />

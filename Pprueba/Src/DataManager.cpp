@@ -85,6 +85,9 @@ ComponentConstructors::ComponentConstructor* getComponentConstructor(ComponentTy
 	case ComponentType::SKYRENDERER:
 		componentConstructor = new ComponentConstructors::SkyRenderer(node);
 		break;
+	case ComponentType::TRAINHP:
+		componentConstructor = new ComponentConstructors::TrainHP(node);
+		break;
 	default:
 		break;
 	}
