@@ -14,8 +14,8 @@ GraphicsManager::GraphicsManager() :
 
 GraphicsManager::~GraphicsManager()
 {
-	delete root;
 	//delete overlaySystem;   
+	delete root;
 	delete _GUI;
 	/*root = nullptr;
 	overlaySystem = nullptr;*/
