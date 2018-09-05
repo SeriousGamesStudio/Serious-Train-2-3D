@@ -17,7 +17,6 @@ void changeScene(Scene::Tipo tipo) {
 	SceneManager::getInstance()->changeScene(initial);
 	initial->setGameManager();
 }
-
 Scene::Scene(Tipo tipo):
 	isSendingMessages(false), _gameManager(0), t_(tipo), counter_(0), endLevel_(false)
 {
@@ -25,18 +24,27 @@ Scene::Scene(Tipo tipo):
 	{
 	case MENU:
 	{
+		std::string endText;
+
 		if (Game::getInstance()->getLevel() == 3) {
 			start_ = false;
-			GraphicsManager::getInstance()->getGUI()->createText(Ogre::Vector4(0.3, 0.3, 0.1, 0.1),
-				"Well done!! ", GUIndilla::POSITION_TYPE::PT_REL, 25);
-			GraphicsManager::getInstance()->toggleMouse(true);  // esto es para que salga el raton el la ultima pantalla
+			endText = "WELL DONE!! ";
+			// esto es para que salga el raton el la ultima pantalla
+			GraphicsManager::getInstance()->toggleMouse(true);  
+		}
+		else if (Game::getInstance()->getLevel() == 0) {
+			start_ = false;
+			endText = "GAME OVER ";
+			// esto es para que salga el raton el la ultima pantalla
+			GraphicsManager::getInstance()->toggleMouse(true);
 		}
 		else {
 
-		start_ = true;		
-		GraphicsManager::getInstance()->getGUI()->createText(Ogre::Vector4(0.3, 0.3, 0.1, 0.1),
-			"Level " + std::to_string(Game::getInstance()->getLevel()), GUIndilla::POSITION_TYPE::PT_REL, 25);
+		start_ = true;
+		endText = "Level " + std::to_string(Game::getInstance()->getLevel());
 		}
+		GraphicsManager::getInstance()->getGUI()->createText(Ogre::Vector4(0.3, 0.3, 0.1, 0.1),
+			endText, GUIndilla::POSITION_TYPE::PT_REL, 25);
 	}
 	break;
 	case LEVEL:
@@ -119,6 +127,8 @@ void Scene::tick()
 	}
 	if (endLevel_ && counter_ >= 50) {
 		endLevel_ = false;
+		GraphicsManager::getInstance()->getGUI()->removeContainer(GraphicsManager::getInstance()->
+			getGUI()->getOverlaytrainhpContainer());
 		changeScene(Scene::Tipo::MENU);
 	}
 	else if (endLevel_ && counter_ < 50) {
@@ -213,6 +223,8 @@ void Scene::restaEnemigo()
 	
 }
 
+
+
 std::string const Scene::getNameOf(EntityId id)
 {
 	return whoIs(id)->getName();
@@ -233,8 +245,10 @@ void Scene::_msgDeliver()
 				if (msg->reciver == listener->getEntity()->getId())
 					listener->listen(msg);
 			}
-			else
-				listener->listen(msg);
+			else if (!endLevel_) {
+
+				listener->listen(msg); // aqui falla 
+			}
 		}
 		delete msg;
 		messages.pop_front();

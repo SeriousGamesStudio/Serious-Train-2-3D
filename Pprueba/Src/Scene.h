@@ -45,6 +45,9 @@ public:
 	void setGameManager();
 	void restaEnemigo();
 	
+	void endGame() { endLevel_ = true; }
+	
+
 
 	inline GameManager_c* getGameManager() { return (GameManager_c*)_gameManager->getComponent(ComponentType::GAMEMANAGER); }
 
@@ -67,6 +70,7 @@ private:
 	std::string enRes_;
 	std::string level;
 	bool endLevel_;
+	
 
 	bool isSendingMessages;
 	void _msgDeliver();

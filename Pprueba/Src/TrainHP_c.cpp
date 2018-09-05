@@ -1,5 +1,6 @@
 #include "TrainHP_c.h"
 #include "Scene.h"
+#include "Game.h"
 #include "GraphicsManager.h"
 
 TrainHP_c::TrainHP_c(int life): Component(ComponentType::TRAINHP), life_(life)
@@ -47,8 +48,13 @@ void TrainHP_c::listen(Msg_Base * msg)
 		GraphicsManager::getInstance()->getGUI()->createTextTrainHp(Ogre::Vector4(0.6, 0.05, 0.1, 0.1),
 			"Train hp: " + std::to_string(life_), GUIndilla::POSITION_TYPE::PT_REL, 25, r, g, b);
 
-		if (life_ <= 0);
+		if (life_ <= 0) {
 			//resetear nivel
+			
+			Game::getInstance()->gameOver();
+			_myEntity->getScene()->endGame();
+			
+		}
 	}
 		break;
 	default:

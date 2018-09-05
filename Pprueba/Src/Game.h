@@ -25,10 +25,11 @@ public:
 	}; 
 
 	void levelUp() { level++; }
+	void gameOver() { level = 0; }
 
 	void run();
 	inline int getLevel() { return level; }
-
+	
 
 private:
 	Game();
@@ -37,7 +38,7 @@ private:
 private:
 	
 	int level;
-
+	
 	bool exit;
 	SceneManager *sceneManager;
 	InputManager * inputManager;

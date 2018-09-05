@@ -725,5 +725,270 @@
     <Component type= "Animation">
       <AnimationName>Walk</AnimationName>
     </Component>
-  </Entity>  
+  </Entity>
+  <!--Robot11-->
+  <Entity name = "Enemy10">
+    <Component type = "MeshRenderer">
+      <MeshPath>robot.mesh</MeshPath>
+      <Scale>0.4</Scale>
+    </Component>
+    <Component type = "EnemyBehaiviour">
+      <Type>Normal</Type>
+      <Frente>true</Frente>
+    </Component>
+    <Component type = "Walker"/>
+    <Component type = "Collider">
+      <Shape>CYLINDER</Shape>
+      <Dimensions>
+        <RadiousX> 5 </RadiousX>
+        <Height>  70 </Height>
+        <RadiousZ> 5 </RadiousZ>
+      </Dimensions>
+      <Position>
+        <x>0</x>
+        <y>300</y>
+        <z>0</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+        <w>0</w>
+      </Rotation>
+      <Mass>5</Mass>
+      <Inertia>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+      </Inertia>
+    </Component>
+    <Component type = "Transform">
+      <Position>
+        <x>99.9097</x>
+        <y>-20</y>
+        <z>-1900.08</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>3.1416</y>
+        <z>0</z>
+        <w>-3.1416</w>
+      </Rotation>
+    </Component>
+    <Component type= "Animation">
+      <AnimationName>Walk</AnimationName>
+    </Component>
+  </Entity>
+  <!--Robot12-->
+  <Entity name = "Enemy11">
+    <Component type = "MeshRenderer">
+      <MeshPath>robot.mesh</MeshPath>
+      <Scale>0.4</Scale>
+    </Component>
+    <Component type = "EnemyBehaiviour">
+      <Type>Normal</Type>
+      <Frente>true</Frente>
+    </Component>
+    <Component type = "Walker"/>
+    <Component type = "Collider">
+      <Shape>CYLINDER</Shape>
+      <Dimensions>
+        <RadiousX> 5 </RadiousX>
+        <Height>  70 </Height>
+        <RadiousZ> 5 </RadiousZ>
+      </Dimensions>
+      <Position>
+        <x>0</x>
+        <y>300</y>
+        <z>0</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+        <w>0</w>
+      </Rotation>
+      <Mass>5</Mass>
+      <Inertia>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+      </Inertia>
+    </Component>
+    <Component type = "Transform">
+      <Position>
+        <x>20.9097</x>
+        <y>-20</y>
+        <z>-2000.08</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>3.1416</y>
+        <z>0</z>
+        <w>-3.1416</w>
+      </Rotation>
+    </Component>
+    <Component type= "Animation">
+      <AnimationName>Walk</AnimationName>
+    </Component>
+  </Entity>
+  <!--Robot13-->
+  <Entity name = "Enemy12">
+    <Component type = "MeshRenderer">
+      <MeshPath>robot.mesh</MeshPath>
+      <Scale>0.4</Scale>
+    </Component>
+    <Component type = "EnemyBehaiviour">
+      <Type>Normal</Type>
+      <Frente>true</Frente>
+    </Component>
+    <Component type = "Walker"/>
+    <Component type = "Collider">
+      <Shape>CYLINDER</Shape>
+      <Dimensions>
+        <RadiousX> 5 </RadiousX>
+        <Height>  70 </Height>
+        <RadiousZ> 5 </RadiousZ>
+      </Dimensions>
+      <Position>
+        <x>0</x>
+        <y>300</y>
+        <z>0</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+        <w>0</w>
+      </Rotation>
+      <Mass>5</Mass>
+      <Inertia>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+      </Inertia>
+    </Component>
+    <Component type = "Transform">
+      <Position>
+        <x>190.216</x>
+        <y>-20</y>
+        <z>-2500.24</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>3.1416</y>
+        <z>0</z>
+        <w>-3.1416</w>
+      </Rotation>
+    </Component>
+    <Component type= "Animation">
+      <AnimationName>Walk</AnimationName>
+    </Component>
+  </Entity>
+  <!--Robot14-->
+  <Entity name = "Enemy13">
+    <Component type = "MeshRenderer">
+      <MeshPath>robot.mesh</MeshPath>
+      <Scale>0.4</Scale>
+    </Component>
+    <Component type = "EnemyBehaiviour">
+      <Type>Normal</Type>
+      <Frente>false</Frente>
+    </Component>
+    <Component type = "Walker"/>
+    <Component type = "Collider">
+      <Shape>CYLINDER</Shape>
+      <Dimensions>
+        <RadiousX> 5 </RadiousX>
+        <Height>  70 </Height>
+        <RadiousZ> 5 </RadiousZ>
+      </Dimensions>
+      <Position>
+        <x>0</x>
+        <y>300</y>
+        <z>0</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+        <w>0</w>
+      </Rotation>
+      <Mass>5</Mass>
+      <Inertia>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+      </Inertia>
+    </Component>
+    <Component type = "Transform">
+      <Position>
+        <x>-14.1583</x>
+        <y>-20</y>
+        <z>1000.328</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>-3.1416</y>
+        <z>0</z>
+        <w>-3.1416</w>
+      </Rotation>
+    </Component>
+    <Component type= "Animation">
+      <AnimationName>Walk</AnimationName>
+    </Component>
+  </Entity>
+  <!--Robot15-->
+  <Entity name = "Enemy14">
+    <Component type = "MeshRenderer">
+      <MeshPath>robot.mesh</MeshPath>
+      <Scale>0.4</Scale>
+    </Component>
+    <Component type = "EnemyBehaiviour">
+      <Type>Normal</Type>
+      <Frente>false</Frente>
+    </Component>
+    <Component type = "Walker"/>
+    <Component type = "Collider">
+      <Shape>CYLINDER</Shape>
+      <Dimensions>
+        <RadiousX> 5 </RadiousX>
+        <Height>  70 </Height>
+        <RadiousZ> 5 </RadiousZ>
+      </Dimensions>
+      <Position>
+        <x>0</x>
+        <y>300</y>
+        <z>0</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+        <w>0</w>
+      </Rotation>
+      <Mass>5</Mass>
+      <Inertia>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+      </Inertia>
+    </Component>
+    <Component type = "Transform">
+      <Position>
+        <x>-10.1583</x>
+        <y>-20</y>
+        <z>1500.328</z>
+      </Position>
+      <Rotation>
+        <x>0</x>
+        <y>-3.1416</y>
+        <z>0</z>
+        <w>-3.1416</w>
+      </Rotation>
+    </Component>
+    <Component type= "Animation">
+      <AnimationName>Walk</AnimationName>
+    </Component>
+  </Entity>
 </Scene>

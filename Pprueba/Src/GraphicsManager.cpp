@@ -14,11 +14,15 @@ GraphicsManager::GraphicsManager() :
 
 GraphicsManager::~GraphicsManager()
 {
-	//delete overlaySystem;   
-	delete root;
+	if (overlaySystem != nullptr) {
+		delete overlaySystem;
+		overlaySystem = nullptr;		
+	}
+	if (root != nullptr) {
+		delete root; 
+		root = nullptr;
+	}
 	delete _GUI;
-	/*root = nullptr;
-	overlaySystem = nullptr;*/
 	instance = nullptr;
 }
 
