@@ -9,7 +9,7 @@
 
 
 EnemyBehaviour_c::EnemyBehaviour_c(Type t, bool frente) :
-	Component(ComponentType::ENEMYBEHAVIOUR), feedback_(false), counter(0), lifeCounter_(0)
+	Component(ComponentType::ENEMYBEHAVIOUR), counter(0), lifeCounter_(0)
 
 {
 	dir = (frente) ? 1 : -1;
@@ -64,7 +64,6 @@ void EnemyBehaviour_c::update()
 	if (counter >= 20)
 	{
 		counter = 0;
-		feedback_ = false;		
 		sendMsg(new Msg::TextureReset(_myEntity->getId(), Msg_Base::self));
 	}
 	else
@@ -92,7 +91,6 @@ void EnemyBehaviour_c::listen(Msg_Base * msg)
 			else
 			{
 				sendMsg(new Msg::EnemyFeedback(_myEntity->getId(), Msg_Base::self));
-				feedback_ = true;
 			}
 		}
 		
