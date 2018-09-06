@@ -262,7 +262,7 @@ void Scene::_msgDeliver()
 			}
 			else if (!endLevel_) {
 
-				listener->listen(msg); // aqui falla 
+				listener->listen(msg); 
 			}
 		}
 		delete msg;
