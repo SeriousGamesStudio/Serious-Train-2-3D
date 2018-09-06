@@ -7,6 +7,7 @@
 #include <iostream>
 
 
+
 EnemyBehaviour_c::EnemyBehaviour_c(Type t, bool frente) :
 	Component(ComponentType::ENEMYBEHAVIOUR), feedback_(false), counter(0), lifeCounter_(0)
 
@@ -29,6 +30,7 @@ EnemyBehaviour_c::EnemyBehaviour_c(Type t, bool frente) :
 EnemyBehaviour_c::~EnemyBehaviour_c()
 {
 	_myEntity->getScene()->removeListener(MsgId::RAYCAST_HIT, this);
+	
 }
 void EnemyBehaviour_c::start()
 {

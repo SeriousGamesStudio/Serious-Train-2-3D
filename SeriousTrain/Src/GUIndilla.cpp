@@ -19,9 +19,18 @@ namespace GUIndilla {
 	}
 
 	GUI::~GUI() {
+
 		delete mousePointer;
 		for (uint i = 0; i < Elementos.size(); i++)
 			delete Elementos[i];
+		
+		delete mO;
+		delete textContainer;
+		delete trainhpContainer;
+		delete mXW;
+		activeButton = nullptr;
+
+
 	}
 
 	bool GUI::injectMouse() {
@@ -215,6 +224,8 @@ namespace GUIndilla {
 
 	MousePointer::~MousePointer()
 	{
+		delete mMP;
+		mMP = nullptr;
 	}
 
 	void MousePointer::setActive(const bool & active)

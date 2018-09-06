@@ -8,6 +8,7 @@ GameManager_c::GameManager_c(): Component(ComponentType::GAMEMANAGER)
 
 GameManager_c::~GameManager_c()
 {
+	_myEntity->getScene()->removeListener(MsgId::TOGGLE_MOUSE, this);
 }
 
 void GameManager_c::start()

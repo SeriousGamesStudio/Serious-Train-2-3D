@@ -148,7 +148,7 @@ namespace GUIndilla {
 
 		Button(const Ogre::Vector4 & Dimensions, const Ogre::String &  Material, const Ogre::String & Text, const Callback & callback, GUI*gui,  const POSITION_TYPE & posType, const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor);
 		~Button() {
-
+			
 
 		}
 		inline void activate(bool a) {

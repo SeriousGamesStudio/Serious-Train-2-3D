@@ -31,11 +31,11 @@ Game::~Game()
 {
 	//¿Como son singletons hay uqe llamar a las destructuras o 
 	// se eleminan automaáticamente cuando salen de scope?
-	delete sceneManager;
 	delete soundManager;
+	delete graphicsManager;
+	delete sceneManager;
 	delete physicsManager;
 	delete inputManager;
-	delete graphicsManager;
 	instance = nullptr;
 }
 
