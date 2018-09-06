@@ -27,7 +27,9 @@ void TrainHP_c::listen(Msg_Base * msg)
 	{
 		
 		Msg::DamageTrain* p = static_cast<Msg::DamageTrain*>(msg);
-		life_ -= p->dmg_;
+		// restar vida
+		life_ -= p->dmg_; 
+		// color del texto (mejor hacerlo aqui ya que podemos coger la vida del tren)
 		float r, g, b;
 		if (life_ <= 50) {
 			r = 1.0;
@@ -44,8 +46,10 @@ void TrainHP_c::listen(Msg_Base * msg)
 			g = 0.0;
 			b = 0.0;
 		}
+		// borrar texto anterior
 		GraphicsManager::getInstance()->getGUI()->removeContainer(GraphicsManager::getInstance()->
 			getGUI()->getOverlaytrainhpContainer());
+		// crear nuevo texto
 		GraphicsManager::getInstance()->getGUI()->createTextTrainHp(Ogre::Vector4(0.6, 0.05, 0.1, 0.1),
 			"Train hp: " + std::to_string(life_), GUIndilla::POSITION_TYPE::PT_REL, 25, r, g, b);
 

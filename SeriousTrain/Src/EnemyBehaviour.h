@@ -46,7 +46,7 @@ private:
 
 	int dir;          //direccion
 	
-
+	bool feedback_;
 	int counter;      //temporizador feedback
 	int lifeCounter_; //temporizador dmgTrain
 	

@@ -52,7 +52,7 @@ Entity * ObjectsFactory::create(const EntityConstructionData & entityData, Scene
 
 	return newEntity;
 }
-
+//CREACION DE ENTIDADES
 void ObjectsFactory::buildEntity(Entity * e, const std::vector<ComponentConstructorData> & data)
 {
 	for (auto c : data)
@@ -61,7 +61,7 @@ void ObjectsFactory::buildEntity(Entity * e, const std::vector<ComponentConstruc
 	}
 	e->init();
 }
-
+//CREACION DE COMPONENTES
 Component * ObjectsFactory::buildComponent(ComponentType componentType, ComponentConstructors::ComponentConstructor* info)
 {
 	Component* newComponent = nullptr;

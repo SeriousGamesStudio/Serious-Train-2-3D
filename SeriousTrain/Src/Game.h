@@ -37,15 +37,15 @@ private:
 
 private:
 	
-	int level;
+	int level;  // VARIABLE GESTIONADA POR GAME PARA QUE NO LE AFECTE EL CAMBIO DE ESCENA
 	
 	bool exit;
-	SceneManager *sceneManager;
-	InputManager * inputManager;
-	SoundManager * soundManager;
-	GraphicsManager *graphicsManager;
-	PhysicsManager *physicsManager;
-	DataManager* dataManager;
+	SceneManager     *sceneManager;
+	InputManager     *inputManager;
+	SoundManager     *soundManager;
+	GraphicsManager  *graphicsManager;
+	PhysicsManager   *physicsManager;
+	DataManager      *dataManager;
 
 
 

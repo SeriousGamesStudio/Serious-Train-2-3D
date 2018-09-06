@@ -3,6 +3,9 @@
 #include "Entity.h"
 #include "Transform_c.h"
 #include "Game.h"
+
+#define ENEMIESLVL1 4
+#define ENEMIESLVL2 7
 MeshRenderer_c::MeshRenderer_c(std::string meshName, float scale) :
 	Component(ComponentType::MESHRENDERER)
 {
@@ -48,20 +51,21 @@ void MeshRenderer_c::listen(Msg_Base* msg)
 		scnNode_->setPosition(p->x, p->y, p->z);
 	}
 		break;
-	case MsgId::ENEMY_FEEDBACK:
+		
+	case MsgId::ENEMY_FEEDBACK: //TEXTURA ROJIZA
 	{
 		if (Game::getInstance()->getLevel() == 1)
-			GraphicsManager::getInstance()->getOgreEntity()[_myEntity->getId() - 4]->setMaterial(mat);
-		else if (Game::getInstance()->getLevel() == 2)
-			GraphicsManager::getInstance()->getOgreEntity()[_myEntity->getId() - 7]->setMaterial(mat);
+			GraphicsManager::getInstance()->getOgreEntity()[_myEntity->getId() - ENEMIESLVL1]->setMaterial(mat);
+		else 
+			GraphicsManager::getInstance()->getOgreEntity()[_myEntity->getId() - ENEMIESLVL2]->setMaterial(mat);
 	}
 		break;		
-	case MsgId::TEXTURE_RESET:
+	case MsgId::TEXTURE_RESET: // TEXTURA DEL ROBOT
 	{
 		if(Game::getInstance()->getLevel() == 1)
-			GraphicsManager::getInstance()->getOgreEntity()[_myEntity->getId() - 4]->setMaterial(mat2);
-		else if(Game::getInstance()->getLevel() == 2)
-			GraphicsManager::getInstance()->getOgreEntity()[_myEntity->getId() - 7]->setMaterial(mat2);
+			GraphicsManager::getInstance()->getOgreEntity()[_myEntity->getId() - ENEMIESLVL1]->setMaterial(mat2);
+		else 
+			GraphicsManager::getInstance()->getOgreEntity()[_myEntity->getId() - ENEMIESLVL2]->setMaterial(mat2);
 
 	}
 		break;

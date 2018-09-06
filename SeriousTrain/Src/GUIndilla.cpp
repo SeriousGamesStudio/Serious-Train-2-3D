@@ -164,7 +164,7 @@ namespace GUIndilla {
 		
 		return nullptr;
 	}
-
+	// PARA PODER BORRAR EL TEXTO QUE QUEREMOS NECESITAMOS OTRO OVERLAYCONTAINER, Y NO SE PUEDE CREAR DESDE FUERA
 	TextInput * GUI::createTextTrainHp(const Ogre::Vector4 & Dimensions, const Ogre::String & Text, 
 		const POSITION_TYPE & posType, int fontSize, float colorR, float colorG, float colorB,const VERTICAL_ANCHOR & vertAnch, const HORINZONTAL_ANCHOR & horAnchor)
 	{

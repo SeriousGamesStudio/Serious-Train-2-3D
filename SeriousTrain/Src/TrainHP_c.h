@@ -3,7 +3,7 @@
 #include "Component.h"
 #include "Components.h"
 
-
+// componente del tren que gestiona la vida
 class TrainHP_c:
 	public Component
 {

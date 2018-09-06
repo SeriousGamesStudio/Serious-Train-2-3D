@@ -9,10 +9,12 @@
 
 #include "btBulletCollisionCommon.h"
 
+// cambiar escena
 void changeScene(Scene::Tipo tipo) {
-
+	// destruir textos
 	GraphicsManager::getInstance()->getGUI()->removeContainer(GraphicsManager::getInstance()->
 		getGUI()->getOverlaytextContainer());
+	// crear nueva escena del tipo que sea
 	Scene * initial = new Scene(tipo);
 	SceneManager::getInstance()->changeScene(initial);
 	initial->setGameManager();
@@ -25,19 +27,20 @@ Scene::Scene(Tipo tipo):
 	case MENU:
 	{
 		std::string endText;
-
+		// ESCENA NIVELES COMPLETADOS
 		if (Game::getInstance()->getLevel() == 3) {
 			start_ = false;
 			endText = "WELL DONE!! ";
-			// esto es para que salga el raton el la ultima pantalla
+			// esto es para que salga el raton 
 			GraphicsManager::getInstance()->toggleMouse(true);  
 		}
+		// ESCENA GAME OVER
 		else if (Game::getInstance()->getLevel() == 0) {
 			start_ = false;
 			endText = "GAME OVER ";
-			// esto es para que salga el raton el la ultima pantalla
 			GraphicsManager::getInstance()->toggleMouse(true);
 		}
+		// MENU NIVEL QUE CORRESPONDA
 		else {
 
 		start_ = true;
@@ -52,10 +55,12 @@ Scene::Scene(Tipo tipo):
 		start_ = false;
 		numEnemigos_ = 0; 
 		std::string sceneDataPath;
+		// XML DE ESCENA 1
 		if (Game::getInstance()->getLevel() == 1) 
 		{
 			sceneDataPath = "..\\Data\\Levels\\Escena_1.xml";//Esto queda por ver cómo darle valor y tal leyendo de fichero
 		}
+		// XML DE ESCENA 2
 		else 
 			sceneDataPath = "..\\Data\\Levels\\Escena_2.xml";
 		SceneData* sceneData = DataManager::getInstance()->loadScene(sceneDataPath);
@@ -67,16 +72,16 @@ Scene::Scene(Tipo tipo):
 		delete sceneData;
 
 		
-
+		// PUNTERO IN GAME
 		GraphicsManager::getInstance()->getGUI()->createStaticImage(Ogre::Vector4(-25, -25, 50, 50), "crossAir", GUIndilla::POSITION_TYPE::PT_ABSOLUTE,
 			GUIndilla::VERTICAL_ANCHOR::VA_CENTER, GUIndilla::HORINZONTAL_ANCHOR::HA_CENTER);
 
+		// RECUENTO NUMERO ENEMIGOS DEL NIVEL
 		for (auto i : entities) {
 			if (i->getComponent(ComponentType::ENEMYBEHAVIOUR))
 				numEnemigos_++;
-		}
-		
-			
+		}		
+		// TEXTO NUMERO DE ENEMIGOS	
 		enRes_ =  std::to_string(numEnemigos_) + " enemies ";
 		GraphicsManager::getInstance()->getGUI()->createText(Ogre::Vector4(0.05, 0.05, 0.9, 0.9),
 			enRes_, GUIndilla::POSITION_TYPE::PT_REL, 25);
@@ -128,7 +133,7 @@ void Scene::tick()
 		if (!e->isAlive())
 			graveland.push_back(e);
 	}
-
+	// TEMPORIZADOR MENU
 	if (start_ && counter_ >= 50) {
 		start_ = false;
 		changeScene(Scene::Tipo::LEVEL);
@@ -137,6 +142,7 @@ void Scene::tick()
 
 		counter_++;
 	}
+	// TEMPORIZADOR FIN NIVEL (SE NECESITA UN TICK MAS PARA QUE SE BORREN LAS ENTIDADES CORRECTAMENTE)
 	if (endLevel_ && counter_ >= 50) {
 		endLevel_ = false;
 		GraphicsManager::getInstance()->getGUI()->removeContainer(GraphicsManager::getInstance()->
@@ -215,24 +221,21 @@ void Scene::setGameManager()
 }
 
 void Scene::restaEnemigo()
-{
-	
+{	
 	numEnemigos_--;
 	enRes_ = std::to_string(numEnemigos_) + " enemies ";
+	// borrar texto
 	GraphicsManager::getInstance()->getGUI()->removeContainer(GraphicsManager::getInstance()->
 		getGUI()->getOverlaytextContainer());
+	// nuevo texto
 	GraphicsManager::getInstance()->getGUI()->createText(Ogre::Vector4(0.05, 0.05, 0.9, 0.9),
 		enRes_, GUIndilla::POSITION_TYPE::PT_REL, 25);
 
 	if (numEnemigos_ == 0) {
 		//cambiar menu ppal
 		Game::getInstance()->levelUp();
-		endLevel_ = true;
-		
-	}
-	
-
-	
+		endLevel_ = true;		
+	}	
 }
 
 

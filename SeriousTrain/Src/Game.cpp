@@ -44,27 +44,28 @@ bool Game::start()
 	//MODIFICACION DEL START PARA PODER LOCALIZAR SI HA FALLADO ALGUN MANAGER
 	exit = false;
 
+	// GRAPHICS MANAGER
 	graphicsManager = GraphicsManager::getInstance();
 	if (!graphicsManager->start())
 	{
 		cout << "graphicsManager no inicializado" << endl;
 		return false;
 	}
-
+	//SOUND MANAGER
 	soundManager = SoundManager::getInstance();
 	if (!soundManager->initialise())
 	{
 		cout << "soundManager no inicializado" << endl;
 		return false;
 	}
-
+	// PHYSICS MANAGER
 	physicsManager = PhysicsManager::getInstance();
 	if (physicsManager == NULL) // culpa de borja por hacer mal el init().
 	{
 		cout << "physicsManager no inicializado" << endl;
 		return false;
 	}
-
+	// SCENE MANAGER
 	sceneManager = SceneManager::getInstance();
 	if (sceneManager == NULL) // no tiene sentido que esto falle 
 							  //porque no depende de ninguna libreria
@@ -72,7 +73,7 @@ bool Game::start()
 		cout << "sceneManager no inicializado" << endl;
 		return false;
 	}
-
+	// INPUT MANAGER
 	inputManager = InputManager::getInstance();
 	if (inputManager == NULL)
 	{
@@ -84,6 +85,7 @@ bool Game::start()
 	//incializar el GUI
 	GUI * g = graphicsManager->getGUI();
 	std::function<void()> fun = stopGame;
+	// BOTON PARA SALIR DEL JUEGO (PARA EL UPDATE DE GAME Y CIERRA LOS MANAGERS)
 	g->createButton(Ogre::Vector4(0.9, 0.9, 0.1, 0.1),"bgui.button","Salir del juego",Callback(fun),POSITION_TYPE::PT_REL);
 	
 	

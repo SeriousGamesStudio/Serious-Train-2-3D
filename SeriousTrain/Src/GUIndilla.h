@@ -83,13 +83,13 @@ namespace GUIndilla {
 	protected:
 		Button * activeButton;
 		Ogre::Overlay* mO;                        // Main sheet overlay
-		std::vector<Button*> Elementos;                    // Botones in
-		std::vector<Button*> botones;                    // Botones in
-		Ogre::OverlayContainer* textContainer;
-		Ogre::OverlayContainer* trainhpContainer;
+		std::vector<Button*> Elementos;           // Botones in
+		std::vector<Button*> botones;             // Botones in
+		Ogre::OverlayContainer* textContainer;    // texto lvls
+		Ogre::OverlayContainer* trainhpContainer; // texto in game
 
-		Window *mXW;                        // Window to destroy
-		MousePointer* mousePointer;                // Mouse Pointer Overlay
+		Window *mXW;                              // Window to destroy
+		MousePointer* mousePointer;               // Mouse Pointer Overlay
 		Ogre::String mFont;
 		Ogre::uint mFontSize;
 

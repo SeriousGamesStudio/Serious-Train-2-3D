@@ -9,7 +9,7 @@
 
 
 EnemyBehaviour_c::EnemyBehaviour_c(Type t, bool frente) :
-	Component(ComponentType::ENEMYBEHAVIOUR), counter(0), lifeCounter_(0)
+	Component(ComponentType::ENEMYBEHAVIOUR),feedback_(false), counter(0), lifeCounter_(0)
 
 {
 	dir = (frente) ? 1 : -1;
@@ -45,7 +45,7 @@ void EnemyBehaviour_c::start()
 
 void EnemyBehaviour_c::update()
 {
-	
+	// stop del enemigo y dmg al tren cada cierto tiempo
 	if (col->getCollisionObject().getWorldTransform().getOrigin().getZ() <= 50 &&
 		col->getCollisionObject().getWorldTransform().getOrigin().getZ() >= -28) 
 	{
@@ -60,16 +60,16 @@ void EnemyBehaviour_c::update()
 	}
 	else
 		wal->setDirection(0, at.vel * dir);
-
-	if (counter >= 20)
-	{
-		counter = 0;
-		sendMsg(new Msg::TextureReset(_myEntity->getId(), Msg_Base::self));
+	if (feedback_) {
+		if (counter >= 20)
+		{
+			counter = 0;
+			sendMsg(new Msg::TextureReset(_myEntity->getId(), Msg_Base::self));
+			feedback_ = false;
+		}
+		else
+			counter++;
 	}
-	else
-		counter++;
-
-
 }
 
 
@@ -83,14 +83,18 @@ void EnemyBehaviour_c::listen(Msg_Base * msg)
 		Msg::Shoot* p = static_cast<Msg::Shoot*>(msg);
 		if ((btCollisionObject*)p->collisionWith_ == &col->getCollisionObject())
 		{
+			// quitarle el dmg que haga el arma
 			at.hp -= p->dmg_;
+			// si se queda sin salud destruye entidad y resta num de enemigos
 			if (at.hp <= 0) {
 				destroyMyEntity(); // destroy entity 
 				SceneManager::getInstance()->currentScene()->restaEnemigo();
 			}
+			// si no, que se vea solo el feedback
 			else
 			{
 				sendMsg(new Msg::EnemyFeedback(_myEntity->getId(), Msg_Base::self));
+				feedback_ = true;
 			}
 		}
 		

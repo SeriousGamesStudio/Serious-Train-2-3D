@@ -94,6 +94,7 @@ namespace Msg
 
 		
 	};
+	// Feedback del enemigo
 	struct EnemyFeedback :
 		public Msg_Base
 	{
@@ -106,6 +107,7 @@ namespace Msg
 
 
 	};
+	// Reseteo de textura de enemigo
 	struct TextureReset :
 		public Msg_Base
 	{
@@ -118,6 +120,7 @@ namespace Msg
 
 
 	};
+	// Dmg que se hace al tren
 	struct DamageTrain :
 		public Msg_Base
 	{

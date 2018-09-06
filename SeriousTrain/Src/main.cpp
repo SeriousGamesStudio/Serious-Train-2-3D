@@ -12,6 +12,7 @@ int WINAPI WinMain(HINSTANCE hInstance,    // HANDLE TO AN INSTANCE.  This is th
 {
 #endif 
 	Game* game = Game::getInstance();
+	// si todos los managers se inicializan se hace el run de Game
 	if (game->start()) game->run();
 	delete game;
 	return 0;
